@@ -687,8 +687,8 @@
         <h3>Love MintPrompt? ❤️</h3>
         <p>Support free AI prompts for creators worldwide!</p>
         <div class="donate-buttons">
-            <a href="#" class="donate-btn" onclick="donateCoffee()">☕ ₹99</a>
-            <a href="#" class="donate-btn" onclick="donatePro()">🚀 ₹499</a>
+    <a href="https://buymeacoffee.com/Sahilkhan31" target="_blank" class="mini-donate">☕ Buy Coffee</a>
+    <a href="upi://pay?pa=8491865595@fam&pn=MintPrompt&am=99&cu=INR" class="mini-donate">UPI ₹99</a>
         </div>
     </div>
 </div>
@@ -1264,17 +1264,19 @@ function closePopup() {
     document.getElementById('donatePopup').classList.remove('show');
 }
 
-function donateCoffee() {
-    // Replace with your Razorpay/PayPal/UPI link
-    window.open('https://rzp.io/your-link', '_blank');
+function donateCoffee(event) {
+    event.stopPropagation();
     closePopup();
+    // Buy Me a Coffee
+    window.open('https://buymeacoffee.com/Sahilkhan31', '_blank');
 }
 
-function donatePro() {
-    // Replace with your premium link
-    window.open('https://your-gumroad-link', '_blank');
+function donatePro(event) {
+    event.stopPropagation();
     closePopup();
-                }
+    // UPI Payment
+    window.open('upi://pay?pa=8491865595@fam&pn=MintPrompt&am=499&cu=INR');
+                       }
     </script>
 </body>
                                                                   </html>
