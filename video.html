@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MintPrompt - Video Prompts</title>
+    <style>
+        /* YOUR EXISTING CSS - Copy from index.html */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%); color: white; min-height: 100vh; }
+        
+        /* VIDEO SPECIFIC CSS */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; max-width: 1400px; margin: 0 auto; padding: 2rem 1rem; }
+        
+        .video-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 24px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255,214,10,0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            background: #1a1a2e;
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .play-btn {
+            font-size: 3.5rem;
+            color: white;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+        }
+        
+        .video-card:hover .play-overlay {
+            opacity: 0;
+        }
+        
+        .prompt-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffd60a, #ffaa00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .prompt-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            opacity: 0.9;
+            max-height: 100px;
+            overflow: hidden;
+        }
+        
+        /* PAGINATION */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 3rem 0;
+        }
+        
+        .page-btn {
+            padding: 0.75rem 1.25rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .page-btn.active, .page-btn:hover {
+            background: linear-gradient(135deg, #ffd60a, #ffaa00);
+            color: #000;
+            transform: translateY(-2px);
+        }
+        
+        /* HEADER */
+        .header { padding: 1.5rem 2rem; background: rgba(0,0,0,0.3); backdrop-filter: blur(20px); }
+        .back-btn { background: linear-gradient(135deg, #ffd60a, #ffaa00); color: #000; padding: 0.75rem 1.5rem; border: none; border-radius: 25px; text-decoration: none; font-weight: 600; }
+        
+        @media (max-width: 768px) {
+            .video-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; padding: 1rem; }
+            .video-container { height: 180px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" class="back-btn">← Back to Images</a>
+            <h1 style="font-size: 1.8rem;">🎥 Video Prompts</h1>
+        </div>
+    </header>
+
+    <!-- VIDEO PROMPTS GRID -->
+    <main class="video-grid">
+        <!-- VIDEO PROMPT CARDS (Add your video prompts here) -->
+        <div class="video-card" onclick="toggleVideo(this)">
+            <div class="video-container">
+                <video poster="https://via.placeholder.com/400x220/1a1a2e/ffd60a?text=Video+1" muted preload="metadata">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                </video>
+                <div class="play-overlay">
+                    <span class="play-btn">▶️</span>
+                </div>
+            </div>
+            <div class="prompt-title">Cinematic Cyberpunk Chase</div>
+            <div class="prompt-text">neon-lit streets, flying cars, dramatic lighting, 4K, cinematic, rain-slicked roads...</div>
+        </div>
+
+        <!-- ADD MORE VIDEO CARDS LIKE ABOVE -->
+        <div class="video-card" onclick="toggleVideo(this)">
+            <!-- Copy the structure above -->
+        </div>
+    </main>
+
+    <!-- PAGINATION -->
+    <div class="pagination" id="pagination"></div>
+
+    <script>
+        let currentPage = 1;
+        const cardsPerPage = 12;
+
+        // VIDEO PLAY/PAUSE
+        function toggleVideo(card) {
+            const video = card.querySelector('video');
+            if (video.paused) {
+                video.play().catch(e => console.log('Video play failed'));
+            } else {
+                video.pause();
+            }
+        }
+
+        // PAGINATION
+        function showPage(page) {
+            const cards = document.querySelectorAll('.video-card');
+            cards.forEach((card, index) => {
+                if (index >= (page - 1) * cardsPerPage && index < page * cardsPerPage) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            updatePagination(page);
+        }
+
+        function updatePagination(page) {
+            const totalPages = Math.ceil(document.querySelectorAll('.video-card').length / cardsPerPage);
+            let paginationHTML = '';
+            
+            for (let i = 1; i <= totalPages; i++) {
+                paginationHTML += `<button class="page-btn ${i === page ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+            }
+            
+            document.getElementById('pagination').innerHTML = paginationHTML;
+        }
+
+        function goToPage(page) {
+            currentPage = page;
+            showPage(page);
+        }
+
+        // INIT
+        window.onload = function() {
+            showPage(1);
+        };
+    </script>
+</body>
+  </html>
