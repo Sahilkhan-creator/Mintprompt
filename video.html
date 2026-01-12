@@ -115,6 +115,71 @@
             .video-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; padding: 1rem; }
             .video-container { height: 180px; }
         }
+        .prompt-popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.prompt-popup.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-content {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.close-btn {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #ff6b6b;
+}
+
+.prompt-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    margin-bottom: 1.5rem;
+}
+
+.copy-btn {
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, #ffd60a, #ffaa00);
+    color: #000;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255,214,10,0.4);
+            }
     </style>
 </head>
 <body>
