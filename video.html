@@ -128,77 +128,117 @@
 
     <!-- VIDEO PROMPTS GRID -->
     <main class="video-grid">
-        <!-- VIDEO PROMPT CARDS (Add your video prompts here) -->
-        <div class="video-card" onclick="toggleVideo(this)">
-            <div class="video-container">
-                <video poster="https://via.placeholder.com/400x220/1a1a2e/ffd60a?text=Video+1" muted preload="metadata">
-                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
-                </video>
-                <div class="play-overlay">
-                    <span class="play-btn">▶️</span>
-                </div>
+    <!-- VIDEO 1 -->
+    <div class="video-card" data-prompt="neon-lit streets, flying cars, dramatic lighting, 4K, cinematic, rain-slicked roads, holographic billboards, night scene, dynamic camera movement, cyberpunk aesthetic, high contrast">
+        <div class="video-container">
+            <video poster="https://via.placeholder.com/400x220/1a1a2e/ffd60a?text=Cyberpunk" muted preload="metadata">
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+            </video>
+            <div class="play-overlay">
+                <span class="play-btn">▶️</span>
             </div>
-            <div class="prompt-title">Cinematic Cyberpunk Chase</div>
-            <div class="prompt-text">neon-lit streets, flying cars, dramatic lighting, 4K, cinematic, rain-slicked roads...</div>
         </div>
+        <div class="prompt-title">Cinematic Cyberpunk Chase</div>
+        <div class="prompt-text">neon-lit streets, flying cars...</div>
+    </div>
 
-        <!-- ADD MORE VIDEO CARDS LIKE ABOVE -->
-        <div class="video-card" onclick="toggleVideo(this)">
-            <!-- Copy the structure above -->
+    <!-- VIDEO 2 -->
+    <div class="video-card" data-prompt="fantasy landscape, magical forest, glowing mushrooms, fireflies, moonlight filtering through trees, ethereal atmosphere, 8K, cinematic lighting, volumetric fog">
+        <div class="video-container">
+            <video poster="https://via.placeholder.com/400x220/2e1a4e/00ff88?text=Fantasy" muted preload="metadata">
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
+            </video>
+            <div class="play-overlay">
+                <span class="play-btn">▶️</span>
+            </div>
         </div>
+        <div class="prompt-title">Magical Forest Night</div>
+        <div class="prompt-text">glowing mushrooms, fireflies...</div>
+    </div>
+
+    <!-- VIDEO 3 -->
+    <div class="video-card" data-prompt="portrait of confident businessman, professional lighting, sharp focus, modern office background, cinematic depth of field, 4K">
+        <div class="video-container">
+            <video poster="https://via.placeholder.com/400x220/1a2e4e/ffd60a?text=Portrait" muted preload="metadata">
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+            </video>
+            <div class="play-overlay">
+                <span class="play-btn">▶️</span>
+            </div>
+        </div>
+        <div class="prompt-title">Business Portrait</div>
+        <div class="prompt-text">professional lighting, sharp focus...</div>
+    </div>
+
+    <!-- ADD MORE VIDEO CARDS LIKE ABOVE -->
     </main>
-
+        
     <!-- PAGINATION -->
     <div class="pagination" id="pagination"></div>
 
     <script>
-        let currentPage = 1;
-        const cardsPerPage = 12;
+        // PROMPT POPUP (SAME AS IMAGES)
+function showPromptPopup(promptText, title = "Prompt") {
+    const popup = document.createElement('div');
+    popup.className = 'prompt-popup';
+    popup.innerHTML = `
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>${title}</h3>
+                <span class="close-btn" onclick="this.parentElement.parentElement.parentElement.remove()">×</span>
+            </div>
+            <div class="prompt-text">${promptText}</div>
+            <div class="popup-actions">
+                <button onclick="copyPrompt(this)" class="copy-btn">📋 Copy Prompt</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(popup);
+    
+    // CLICK OUTSIDE TO CLOSE
+    popup.addEventListener('click', (e) => {
+        if (e.target === popup) popup.remove();
+    });
+    
+    setTimeout(() => popup.classList.add('show'), 10);
+}
 
-        // VIDEO PLAY/PAUSE
-        function toggleVideo(card) {
-            const video = card.querySelector('video');
-            if (video.paused) {
-                video.play().catch(e => console.log('Video play failed'));
-            } else {
-                video.pause();
-            }
-        }
+// COPY FUNCTION
+function copyPrompt(btn) {
+    const prompt = btn.parentElement.parentElement.querySelector('.prompt-text').textContent;
+    navigator.clipboard.writeText(prompt).then(() => {
+        btn.textContent = '✅ Copied!';
+        btn.style.background = '#4caf50';
+        setTimeout(() => {
+            btn.textContent = '📋 Copy Prompt';
+            btn.style.background = '';
+        }, 2000);
+    });
+}
 
-        // PAGINATION
-        function showPage(page) {
-            const cards = document.querySelectorAll('.video-card');
-            cards.forEach((card, index) => {
-                if (index >= (page - 1) * cardsPerPage && index < page * cardsPerPage) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+// VIDEO PLAY + POPUP
+function toggleVideo(card) {
+    const video = card.querySelector('video');
+    const prompt = card.getAttribute('data-prompt');
+    
+    if (prompt) {
+        showPromptPopup(prompt, card.querySelector('.prompt-title').textContent);
+    }
+    
+    if (video.paused) {
+        video.play().catch(e => console.log('Video play failed'));
+    } else {
+        video.pause();
+    }
+}
 
-            updatePagination(page);
-        }
-
-        function updatePagination(page) {
-            const totalPages = Math.ceil(document.querySelectorAll('.video-card').length / cardsPerPage);
-            let paginationHTML = '';
-            
-            for (let i = 1; i <= totalPages; i++) {
-                paginationHTML += `<button class="page-btn ${i === page ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
-            }
-            
-            document.getElementById('pagination').innerHTML = paginationHTML;
-        }
-
-        function goToPage(page) {
-            currentPage = page;
-            showPage(page);
-        }
-
-        // INIT
-        window.onload = function() {
-            showPage(1);
-        };
+// CLICK ANYWHERE ON CARD
+document.addEventListener('click', function(e) {
+    const videoCard = e.target.closest('.video-card[data-prompt]');
+    if (videoCard) {
+        toggleVideo(videoCard);
+    }
+});
     </script>
 </body>
   </html>
