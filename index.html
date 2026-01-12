@@ -796,8 +796,7 @@
     box-shadow: 0 10px 25px rgba(255,214,10,0.5);
     background: linear-gradient(135deg, #ffaa00, #ffd60a);
     }
-        /* FIXED THEME BUTTON - RIGHT CENTER */
-.theme-btn {
+        .ai-btn {
     position: fixed;
     right: 15px;
     top: 50%;
@@ -811,56 +810,62 @@
     font-size: 1.4rem;
     cursor: pointer;
     box-shadow: 0 10px 30px rgba(255,214,10,0.5);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 9999;
     border: 2px solid rgba(255,255,255,0.3);
+    animation: pulse 2s infinite;
+    transition: all 0.4s ease;
 }
 
-.theme-btn:hover {
+.ai-btn:hover {
     transform: translateY(-50%) scale(1.15);
-    box-shadow: 0 15px 40px rgba(255,214,10,0.7);
+    animation: none;
 }
 
-.theme-btn:active {
-    transform: translateY(-50%) scale(0.95);
+@keyframes pulse {
+    0%, 100% { transform: translateY(-50%) scale(1); }
+    50% { transform: translateY(-50%) scale(1.05); }
 }
 
-/* LIGHT MODE - WHITE SCREEN */
-body.light {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%) !important;
-    color: #1e293b !important;
+/* AI TOOLS POPUP */
+.ai-tools-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
 }
 
-/* ALL CARDS WHITE IN LIGHT MODE */
-body.light .prompt-card,
-body.light .video-card,
-body.light .main {
-    background: rgba(255,255,255,0.95) !important;
+.ai-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    width: 90%;
+    padding: 2rem;
+}
+
+.ai-tool-card {
+    background: rgba(255,255,255,0.1);
     backdrop-filter: blur(20px);
-    border-color: rgba(0,0,0,0.1) !important;
-    color: #1e293b !important;
+    border-radius: 20px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
 }
 
-body.light .prompt-text,
-body.light .prompt-title {
-    color: #475569 !important;
-}
-
-body.light .popup-content {
-    background: rgba(255,255,255,0.98) !important;
-    color: #1e293b !important;
-    border-color: rgba(0,0,0,0.1) !important;
-}
-
-body.light .copy-btn {
-    background: linear-gradient(135deg, #10b981, #34d399) !important;
-    color: white !important;
-}
-
-body.light .page-btn {
-    background: rgba(255,255,255,0.9) !important;
-    color: #1e293b !important;
-        }
+.ai-tool-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255,214,10,0.2);
+    border-color: #ffd60a;
+    box-shadow: 0 20px 40px rgba(255,214,10,0.3);
+            }
         
     </style>
 </head>
@@ -909,7 +914,7 @@ body.light .page-btn {
 <div class="action-buttons">
     <a href="video.html" class="video-btn-small">🎥 Videos</a>
 </div>
-
+    <button onclick="showAITools()" class="ai-btn" id="aiBtn" title="AI Tools">🎨</button>
 
     <main class="main">
         <section class="intro">
@@ -1519,36 +1524,70 @@ function donatePro(event) {
     closePopup();
     // UPI Payment
     window.open('upi://pay?pa=8491865595@fam&pn=MintPrompt&am=499&cu=INR');
-   // 🌙 DARK/LIGHT THEME - FIXED VERSION
-function toggleTheme() {
-    const body = document.body;
-    const btn = document.getElementById('themeToggle');
+   // 🎨 AI TOOLS PAGE
+function showAITools() {
+    const popup = document.createElement('div');
+    popup.className = 'ai-tools-popup';
+    popup.innerHTML = `
+        <div class="ai-tools-grid">
+            <h2 style="grid-column: 1/-1; text-align: center; margin-bottom: 2rem; color: #ffd60a;">🚀 Best AI Image Tools</h2>
+            
+            <!-- MIDJOURNEY -->
+            <div class="ai-tool-card" onclick="openTool('https://www.midjourney.com')">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🎨</div>
+                <h3>Midjourney</h3>
+                <p>Best for artistic prompts</p>
+            </div>
+            
+            <!-- GEMINI -->
+            <div class="ai-tool-card" onclick="openTool('https://gemini.google.com')">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">⭐</div>
+                <h3>Gemini</h3>
+                <p>Google's AI powerhouse</p>
+            </div>
+            
+            <!-- LEONARDO -->
+            <div class="ai-tool-card" onclick="openTool('https://leonardo.ai')">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
+                <h3>Leonardo.ai</h3>
+                <p>Fast & free generations</p>
+            </div>
+            
+            <!-- STABLE DIFFUSION -->
+            <div class="ai-tool-card" onclick="openTool('https://stablediffusionweb.com')">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🔥</div>
+                <h3>Stable Diffusion</h3>
+                <p>Free web version</p>
+            </div>
+            
+            <!-- RUNWAY -->
+            <div class="ai-tool-card" onclick="openTool('https://runwayml.com')">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🎥</div>
+                <h3>RunwayML</h3>
+                <p>Video AI specialist</p>
+            </div>
+            
+            <!-- DALLE -->
+            <div class="ai-tool-card" onclick="openTool('https://chat.openai.com')">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🤖</div>
+                <h3>DALL-E 3</h3>
+                <p>ChatGPT image gen</p>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(popup);
     
-    body.classList.toggle('light');
-    
-    if (body.classList.contains('light')) {
-        // LIGHT MODE (WHITE)
-        btn.innerHTML = '☀️';
-        localStorage.setItem('theme', 'light');
-        document.documentElement.style.setProperty('--bg-primary', '#f8fafc');
-    } else {
-        // DARK MODE (BLACK)
-        btn.innerHTML = '🌙';
-        localStorage.setItem('theme', 'dark');
-        document.documentElement.style.setProperty('--bg-primary', '#0f0f23');
-    }
+    // Close on outside click
+    popup.addEventListener('click', (e) => {
+        if (e.target === popup) popup.remove();
+    });
 }
 
-// LOAD THEME ON PAGE START
-document.addEventListener('DOMContentLoaded', function() {
-    const savedTheme = localStorage.getItem('theme');
-    const btn = document.getElementById('themeToggle');
-    
-    if (savedTheme === 'light') {
-        document.body.classList.add('light');
-        btn.innerHTML = '☀️';
-    }
-});
+function openTool(url) {
+    window.open(url, '_blank');
+    // LATER: Replace with affiliate links!
+    // Example: 'https://midjourney.com/?ref=sahilkhan007'
+        }
     </script>
 </body>
                                                                   </html>
