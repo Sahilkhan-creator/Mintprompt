@@ -826,47 +826,7 @@
     50% { transform: translateY(-50%) scale(1.05); }
 }
 
-/* AI TOOLS POPUP */
-.ai-tools-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-}
 
-.ai-tools-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    max-width: 1000px;
-    width: 90%;
-    padding: 2rem;
-}
-
-.ai-tool-card {
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
-    padding: 1.5rem;
-    border: 1px solid rgba(255,255,255,0.2);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.ai-tool-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255,214,10,0.2);
-    border-color: #ffd60a;
-    box-shadow: 0 20px 40px rgba(255,214,10,0.3);
-            }
-        
     </style>
 </head>
 <body>
@@ -1523,70 +1483,47 @@ function donatePro(event) {
     closePopup();
     // UPI Payment
     window.open('upi://pay?pa=8491865595@fam&pn=MintPrompt&am=499&cu=INR');
-   // 🎨 AI TOOLS PAGE
 function showAITools() {
     const popup = document.createElement('div');
     popup.className = 'ai-tools-popup';
     popup.innerHTML = `
+        <span class="close-ai-popup" onclick="this.parentElement.remove()">×</span>
         <div class="ai-tools-grid">
             <h2 style="grid-column: 1/-1; text-align: center; margin-bottom: 2rem; color: #ffd60a;">🚀 Best AI Image Tools</h2>
             
-            <!-- MIDJOURNEY -->
-            <div class="ai-tool-card" onclick="openTool('https://www.midjourney.com')">
+            <div class="ai-tool-card" onclick="window.open('https://www.midjourney.com', '_blank'); this.parentElement.parentElement.remove()">
                 <div style="font-size: 3rem; margin-bottom: 1rem;">🎨</div>
                 <h3>Midjourney</h3>
                 <p>Best for artistic prompts</p>
             </div>
             
-            <!-- GEMINI -->
-            <div class="ai-tool-card" onclick="openTool('https://gemini.google.com')">
+            <div class="ai-tool-card" onclick="window.open('https://gemini.google.com', '_blank'); this.parentElement.parentElement.remove()">
                 <div style="font-size: 3rem; margin-bottom: 1rem;">⭐</div>
                 <h3>Gemini</h3>
                 <p>Google's AI powerhouse</p>
             </div>
             
-            <!-- LEONARDO -->
-            <div class="ai-tool-card" onclick="openTool('https://leonardo.ai')">
+            <div class="ai-tool-card" onclick="window.open('https://leonardo.ai', '_blank'); this.parentElement.parentElement.remove()">
                 <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
                 <h3>Leonardo.ai</h3>
                 <p>Fast & free generations</p>
             </div>
             
-            <!-- STABLE DIFFUSION -->
-            <div class="ai-tool-card" onclick="openTool('https://stablediffusionweb.com')">
+            <div class="ai-tool-card" onclick="window.open('https://stablediffusionweb.com', '_blank'); this.parentElement.parentElement.remove()">
                 <div style="font-size: 3rem; margin-bottom: 1rem;">🔥</div>
                 <h3>Stable Diffusion</h3>
                 <p>Free web version</p>
             </div>
             
-            <!-- RUNWAY -->
-            <div class="ai-tool-card" onclick="openTool('https://runwayml.com')">
+            <div class="ai-tool-card" onclick="window.open('https://runwayml.com', '_blank'); this.parentElement.parentElement.remove()">
                 <div style="font-size: 3rem; margin-bottom: 1rem;">🎥</div>
                 <h3>RunwayML</h3>
                 <p>Video AI specialist</p>
             </div>
-            
-            <!-- DALLE -->
-            <div class="ai-tool-card" onclick="openTool('https://chat.openai.com')">
-                <div style="font-size: 3rem; margin-bottom: 1rem;">🤖</div>
-                <h3>DALL-E 3</h3>
-                <p>ChatGPT image gen</p>
-            </div>
         </div>
     `;
     document.body.appendChild(popup);
-    
-    // Close on outside click
-    popup.addEventListener('click', (e) => {
-        if (e.target === popup) popup.remove();
-    });
 }
-
-function openTool(url) {
-    window.open(url, '_blank');
-    // LATER: Replace with affiliate links!
-    // Example: 'https://midjourney.com/?ref=sahilkhan007'
-        }
     </script>
 </body>
                                                                   </html>
