@@ -796,61 +796,76 @@
     box-shadow: 0 10px 25px rgba(255,214,10,0.5);
     background: linear-gradient(135deg, #ffaa00, #ffd60a);
     }
-        /* THEME TOGGLE BUTTON */
+        /* FIXED THEME BUTTON - RIGHT CENTER */
 .theme-btn {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55px;
+    height: 55px;
     border: none;
     border-radius: 50%;
     background: linear-gradient(135deg, #ffd60a, #ffaa00);
     color: #000;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     cursor: pointer;
-    box-shadow: 0 8px 25px rgba(255,214,10,0.4);
-    transition: all 0.3s ease;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    box-shadow: 0 10px 30px rgba(255,214,10,0.5);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 9999;
+    border: 2px solid rgba(255,255,255,0.3);
 }
 
 .theme-btn:hover {
-    transform: scale(1.1) rotate(180deg);
-    box-shadow: 0 12px 35px rgba(255,214,10,0.6);
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 15px 40px rgba(255,214,10,0.7);
 }
 
-.theme-btn.light {
-    background: linear-gradient(135deg, #4a90e2, #7bb3f0);
+.theme-btn:active {
+    transform: translateY(-50%) scale(0.95);
 }
 
-/* LIGHT MODE */
+/* LIGHT MODE - WHITE SCREEN */
 body.light {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 50%, #e8eaf6 100%);
-    color: #2c3e50;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%) !important;
+    color: #1e293b !important;
 }
 
+/* ALL CARDS WHITE IN LIGHT MODE */
 body.light .prompt-card,
-body.light .video-card {
-    background: rgba(255,255,255,0.9);
-    border-color: rgba(0,0,0,0.1);
-    color: #2c3e50;
+body.light .video-card,
+body.light .main {
+    background: rgba(255,255,255,0.95) !important;
+    backdrop-filter: blur(20px);
+    border-color: rgba(0,0,0,0.1) !important;
+    color: #1e293b !important;
 }
 
-body.light .prompt-text {
-    color: #5a6c7d;
+body.light .prompt-text,
+body.light .prompt-title {
+    color: #475569 !important;
 }
 
 body.light .popup-content {
-    background: rgba(255,255,255,0.95);
-    color: #2c3e50;
+    background: rgba(255,255,255,0.98) !important;
+    color: #1e293b !important;
+    border-color: rgba(0,0,0,0.1) !important;
+}
+
+body.light .copy-btn {
+    background: linear-gradient(135deg, #10b981, #34d399) !important;
+    color: white !important;
+}
+
+body.light .page-btn {
+    background: rgba(255,255,255,0.9) !important;
+    color: #1e293b !important;
         }
         
     </style>
 </head>
 <body>
+    <button onclick="toggleTheme()" class="theme-btn" id="themeToggle" title="Toggle Theme">🌙</button>
     <h1 class="seo-h1">
   AI Prompt Templates Gallery for Image, Anime & Cinematic AI
     </h1>
@@ -894,8 +909,7 @@ body.light .popup-content {
 <div class="action-buttons">
     <a href="video.html" class="video-btn-small">🎥 Videos</a>
 </div>
-    <!-- Add this in your header section -->
-<button onclick="toggleTheme()" class="theme-btn" title="Toggle Theme" id="themeToggle">🌙</button>
+
 
     <main class="main">
         <section class="intro">
@@ -1505,36 +1519,36 @@ function donatePro(event) {
     closePopup();
     // UPI Payment
     window.open('upi://pay?pa=8491865595@fam&pn=MintPrompt&am=499&cu=INR');
-    // 🌙 DARK/LIGHT MODE TOGGLE
+   // 🌙 DARK/LIGHT THEME - FIXED VERSION
 function toggleTheme() {
     const body = document.body;
     const btn = document.getElementById('themeToggle');
     
-    // Toggle light mode
     body.classList.toggle('light');
     
-    // Change button icon
     if (body.classList.contains('light')) {
-        btn.textContent = '☀️';
-        btn.classList.add('light');
+        // LIGHT MODE (WHITE)
+        btn.innerHTML = '☀️';
         localStorage.setItem('theme', 'light');
+        document.documentElement.style.setProperty('--bg-primary', '#f8fafc');
     } else {
-        btn.textContent = '🌙';
-        btn.classList.remove('light');
+        // DARK MODE (BLACK)
+        btn.innerHTML = '🌙';
         localStorage.setItem('theme', 'dark');
+        document.documentElement.style.setProperty('--bg-primary', '#0f0f23');
     }
 }
 
-// LOAD SAVED THEME ON START
-window.addEventListener('load', function() {
+// LOAD THEME ON PAGE START
+document.addEventListener('DOMContentLoaded', function() {
     const savedTheme = localStorage.getItem('theme');
+    const btn = document.getElementById('themeToggle');
+    
     if (savedTheme === 'light') {
         document.body.classList.add('light');
-        document.getElementById('themeToggle').textContent = '☀️';
-        document.getElementById('themeToggle').classList.add('light');
+        btn.innerHTML = '☀️';
     }
 });
-                       }
     </script>
 </body>
                                                                   </html>
