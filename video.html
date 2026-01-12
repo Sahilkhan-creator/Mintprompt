@@ -242,7 +242,23 @@
     <div class="pagination" id="pagination"></div>
 
     <script>
-        // PROMPT POPUP (SAME AS IMAGES)
+    let currentPage = 1;
+const cardsPerPage = 12;
+
+// COPY FUNCTION (same as images)
+function copyPrompt(btn) {
+    const prompt = btn.parentElement.parentElement.querySelector('.prompt-text').textContent;
+    navigator.clipboard.writeText(prompt).then(() => {
+        btn.textContent = '✅ Copied!';
+        btn.style.background = '#4caf50';
+        setTimeout(() => {
+            btn.textContent = '📋 Copy Prompt';
+            btn.style.background = '';
+        }, 2000);
+    });
+}
+
+// SHOW PROMPT POPUP (same as images)
 function showPromptPopup(promptText, title = "Prompt") {
     const popup = document.createElement('div');
     popup.className = 'prompt-popup';
@@ -260,7 +276,6 @@ function showPromptPopup(promptText, title = "Prompt") {
     `;
     document.body.appendChild(popup);
     
-    // CLICK OUTSIDE TO CLOSE
     popup.addEventListener('click', (e) => {
         if (e.target === popup) popup.remove();
     });
@@ -268,28 +283,8 @@ function showPromptPopup(promptText, title = "Prompt") {
     setTimeout(() => popup.classList.add('show'), 10);
 }
 
-// COPY FUNCTION
-function copyPrompt(btn) {
-    const prompt = btn.parentElement.parentElement.querySelector('.prompt-text').textContent;
-    navigator.clipboard.writeText(prompt).then(() => {
-        btn.textContent = '✅ Copied!';
-        btn.style.background = '#4caf50';
-        setTimeout(() => {
-            btn.textContent = '📋 Copy Prompt';
-            btn.style.background = '';
-        }, 2000);
-    });
-}
-
-// VIDEO PLAY + POPUP
-function toggleVideo(card) {
-    const video = card.querySelector('video');
-    const prompt = card.getAttribute('data-prompt');
-    
-    if (prompt) {
-        showPromptPopup(prompt, card.querySelector('.prompt-title').textContent);
-    }
-    
+// **VIDEO PLAY ONLY** (play button click)
+function playVideo(video) {
     if (video.paused) {
         video.play().catch(e => console.log('Video play failed'));
     } else {
@@ -297,13 +292,62 @@ function toggleVideo(card) {
     }
 }
 
-// CLICK ANYWHERE ON CARD
+// **POPUP ONLY** (card click - NOT play button)
 document.addEventListener('click', function(e) {
-    const videoCard = e.target.closest('.video-card[data-prompt]');
-    if (videoCard) {
-        toggleVideo(videoCard);
+    // Check if clicked on video card (NOT play button)
+    const videoCard = e.target.closest('.video-card');
+    const playBtn = e.target.closest('.play-btn');
+    const videoContainer = e.target.closest('.video-container');
+    
+    // If clicked card but NOT play button/video → show popup
+    if (videoCard && !playBtn && !videoContainer) {
+        const prompt = videoCard.getAttribute('data-prompt');
+        const title = videoCard.querySelector('.prompt-title').textContent;
+        if (prompt) {
+            showPromptPopup(prompt, title);
+        }
     }
 });
+
+// **PLAY BUTTON SPECIFIC** (play overlay click)
+document.addEventListener('click', function(e) {
+    const playBtn = e.target.closest('.play-btn');
+    if (playBtn) {
+        const video = playBtn.closest('.video-container').querySelector('video');
+        playVideo(video);
+    }
+});
+
+// PAGINATION (unchanged)
+function showPage(page) {
+    const cards = document.querySelectorAll('.video-card');
+    cards.forEach((card, index) => {
+        if (index >= (page - 1) * cardsPerPage && index < page * cardsPerPage) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    updatePagination(page);
+}
+
+function updatePagination(page) {
+    const totalPages = Math.ceil(document.querySelectorAll('.video-card').length / cardsPerPage);
+    let paginationHTML = '';
+    for (let i = 1; i <= totalPages; i++) {
+        paginationHTML += `<button class="page-btn ${i === page ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+    }
+    document.getElementById('pagination').innerHTML = paginationHTML;
+}
+
+function goToPage(page) {
+    currentPage = page;
+    showPage(page);
+}
+
+window.onload = function() {
+    showPage(1);
+};
     </script>
 </body>
   </html>
