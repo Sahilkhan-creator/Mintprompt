@@ -796,6 +796,27 @@
     box-shadow: 0 10px 25px rgba(255,214,10,0.5);
     background: linear-gradient(135deg, #ffaa00, #ffd60a);
     }
+        .fix-btn-small {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(135deg, #00d4ff, #0099cc);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 6px 20px rgba(0,212,255,0.4);
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+}
+
+.fix-btn-small:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,212,255,0.5);
+    background: linear-gradient(135deg, #0099cc, #00d4ff);
+            }
         
     </style>
 </head>
@@ -842,6 +863,12 @@
     <!-- Replace your video button with this -->
 <div class="action-buttons">
     <a href="video.html" class="video-btn-small">🎥 Videos</a>
+</div>
+    <!-- FIX PROMPT BUTTON - Same place as video button -->
+<div style="text-align:center; margin: 1rem 0;">
+    <a href="fix.html" class="fix-btn-small">
+        🔧 Fix Prompts
+    </a>
 </div>
 
     <main class="main">
