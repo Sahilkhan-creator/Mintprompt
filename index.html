@@ -718,6 +718,54 @@
         width: 200px;
     }
                    }
+        .legal-footer {
+    background: rgba(15,15,35,0.95);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255,214,10,0.2);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ffd60a;
+    background: rgba(255,214,10,0.1);
+    transform: translateY(-1px);
+}
+
+.copyright {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .footer-links {
+        gap: 1rem;
+    }
+    
+    .footer-links a {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+                          }
     </style>
 </head>
 <body>
@@ -895,6 +943,18 @@
         <div class="footer-small">
             <span>5000+ prompts generated today</span>
         </div>
+    </div>
+</footer>
+    <!-- FOOTER WITH LINKS -->
+<footer class="legal-footer">
+    <div class="footer-links">
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="copyright">
+        © 2026 MintPrompt. All rights reserved.
     </div>
 </footer>
 
