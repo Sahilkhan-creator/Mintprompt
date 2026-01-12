@@ -816,21 +816,9 @@
     transition: all 0.4s ease;
 }
 
-.ai-btn:hover {
-    transform: translateY(-50%) scale(1.15);
-    animation: none;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: translateY(-50%) scale(1); }
-    50% { transform: translateY(-50%) scale(1.05); }
-}
-
-
     </style>
 </head>
 <body>
-    <button onclick="showAITools()" class="ai-btn" id="aiBtn" title="AI Tools">🎨</button>
       <h1 class="seo-h1">
   AI Prompt Templates Gallery for Image, Anime & Cinematic AI
       </h1>
@@ -1483,47 +1471,7 @@ function donatePro(event) {
     closePopup();
     // UPI Payment
     window.open('upi://pay?pa=8491865595@fam&pn=MintPrompt&am=499&cu=INR');
-function showAITools() {
-    const popup = document.createElement('div');
-    popup.className = 'ai-tools-popup';
-    popup.innerHTML = `
-        <span class="close-ai-popup" onclick="this.parentElement.remove()">×</span>
-        <div class="ai-tools-grid">
-            <h2 style="grid-column: 1/-1; text-align: center; margin-bottom: 2rem; color: #ffd60a;">🚀 Best AI Image Tools</h2>
-            
-            <div class="ai-tool-card" onclick="window.open('https://www.midjourney.com', '_blank'); this.parentElement.parentElement.remove()">
-                <div style="font-size: 3rem; margin-bottom: 1rem;">🎨</div>
-                <h3>Midjourney</h3>
-                <p>Best for artistic prompts</p>
-            </div>
-            
-            <div class="ai-tool-card" onclick="window.open('https://gemini.google.com', '_blank'); this.parentElement.parentElement.remove()">
-                <div style="font-size: 3rem; margin-bottom: 1rem;">⭐</div>
-                <h3>Gemini</h3>
-                <p>Google's AI powerhouse</p>
-            </div>
-            
-            <div class="ai-tool-card" onclick="window.open('https://leonardo.ai', '_blank'); this.parentElement.parentElement.remove()">
-                <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
-                <h3>Leonardo.ai</h3>
-                <p>Fast & free generations</p>
-            </div>
-            
-            <div class="ai-tool-card" onclick="window.open('https://stablediffusionweb.com', '_blank'); this.parentElement.parentElement.remove()">
-                <div style="font-size: 3rem; margin-bottom: 1rem;">🔥</div>
-                <h3>Stable Diffusion</h3>
-                <p>Free web version</p>
-            </div>
-            
-            <div class="ai-tool-card" onclick="window.open('https://runwayml.com', '_blank'); this.parentElement.parentElement.remove()">
-                <div style="font-size: 3rem; margin-bottom: 1rem;">🎥</div>
-                <h3>RunwayML</h3>
-                <p>Video AI specialist</p>
-            </div>
-        </div>
-    `;
-    document.body.appendChild(popup);
-}
+
     </script>
 </body>
                                                                   </html>
