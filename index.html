@@ -766,27 +766,37 @@
         padding: 0.4rem 0.8rem;
     }
                           }
-        .video-launch-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1rem 2rem;
-    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    box-shadow: 0 10px 25px rgba(255,107,107,0.4);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255,255,255,0.2);
+        /* SMALL GOLDEN VIDEO BUTTON */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1.5rem 0;
 }
 
-.video-launch-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(255,107,107,0.5);
-    background: linear-gradient(135deg, #ff5252, #ff8a80);
-        }
+.video-btn-small {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(135deg, #ffd60a, #ffaa00);
+    color: #000 !important;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 6px 20px rgba(255,214,10,0.4);
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.video-btn-small:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255,214,10,0.5);
+    background: linear-gradient(135deg, #ffaa00, #ffd60a);
+    }
+        
     </style>
 </head>
 <body>
@@ -829,10 +839,10 @@
         </div>
     </div>
 </div>
-    <!-- VIDEO BUTTON - Put where 1st red circle was -->
-<a href="video.html" class="video-launch-btn">
-    🎥 Video Prompts
-</a>
+    <!-- Replace your video button with this -->
+<div class="action-buttons">
+    <a href="video.html" class="video-btn-small">🎥 Videos</a>
+</div>
 
     <main class="main">
         <section class="intro">
