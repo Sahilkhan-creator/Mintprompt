@@ -154,70 +154,49 @@
             </div>
         </div>
     </div>
-
-    <script>
+<script>
 const promptEngine = {
-    quality: ["8K ultra HD", "professional photography", "masterpiece", "award winning", "hyperdetailed"],
-    lighting: ["golden hour sunlight", "studio lighting", "volumetric lighting"],
-    composition: ["perfect composition", "rule of thirds"],
-    
-    enhancers: {
-        cat: ["photorealistic ginger tabby cat", "detailed fur", "expressive eyes"],
-        portrait: ["hyperrealistic portrait", "perfect symmetry", "studio lighting"],
-        woman: ["confident elegant woman", "detailed hair", "gold jewelry"],
-        man: ["confident man", "sharp jawline", "professional lighting"],
-        city: ["cyberpunk metropolis", "neon lights", "wet reflections"],
-        general: ["highly detailed", "cinematic lighting", "professional quality"]
-    },
-    
-    detectSubject: function(prompt) {
-        const lower = prompt.toLowerCase();
-        if (lower.includes('cat')) return 'cat';
-        if (lower.includes('woman') || lower.includes('girl')) return 'woman';
-        if (lower.includes('man') || lower.includes('guy')) return 'man';
-        if (lower.includes('portrait') || lower.includes('face')) return 'portrait';
-        if (lower.includes('city')) return 'city';
-        return 'general';
-    },
-    
     enhance: function(original) {
-    const input = original.toLowerCase().trim();
-    
-    // UNIVERSAL COMPLEX PROMPT FRAMEWORK
-    let sceneType = 'professional studio photography';
-    let subjectDetail = input;
-    let lightingSetup = 'cinematic three-point lighting';
-    let compositionRule = 'perfect golden ratio composition';
-    
-    // SMART SUBJECT DETECTION + ENHANCEMENT
-    if (input.includes('car') || input.includes('bmw') || input.includes('vehicle')) {
-        return `Create hyperrealistic night street scene featuring ${input}. Position luxury vehicle with precise 30-degree angling toward camera, glossy paint surface capturing accurate streetlight reflections, premium multi-spoke alloy wheels with realistic brake caliper details, deeply tinted privacy glass, subtle LED accent lighting glow. Maintain perfect depth of field separation between foreground subject and background urban environment. Preserve authentic street pavement textures, architectural building facades, sodium vapor streetlamp color temperature, atmospheric perspective with distant lights fading naturally. Add controlled light bloom effects from vehicle headlights interacting with ambient moisture in air. Professional 8K RAW photograph, flawless exposure balance across 14 stops dynamic range, cinematic color science, precise lens distortion matching, production quality VFX compositing standards.`;
-    }
-    
-    else if (input.includes('portrait') || input.includes('person') || input.includes('woman') || input.includes('man')) {
-        return `Execute hyperrealistic portrait photography of ${input} using professional controlled studio environment. Maintain anatomical precision across facial structure, eye shape and iris detail, nostril contouring, lip line definition, skin subsurface scattering properties, individual hair strand rendering with natural volume and specular highlights. Apply industry-standard three-point lighting configuration featuring soft 5600K key light positioned at 45-degree angle, subtle fill light eliminating harsh shadows, precision rim light creating perfect subject separation. Composition follows golden spiral rule with precise eye-level placement, shallow f/1.4 depth of field producing creamy bokeh background, 85mm prime lens characteristics, flawless skin retouching maintaining natural imperfections, 16-bit color depth processing, 8K resolution capture, Vogue magazine production quality.`;
-    }
-    
-    else if (input.includes('city') || input.includes('street') || input.includes('urban')) {
-        return `Generate photorealistic urban night environment featuring ${input} with professional architectural visualization standards. Capture accurate wet asphalt reflections from multi-temperature street lighting, precise neon signage glow with realistic light falloff, detailed building facade textures including brickwork mortar joints and window glazing variations, authentic urban infrastructure elements like traffic signage and utility covers. Implement volumetric atmospheric scattering with controlled god rays piercing through light mist, perfect perspective convergence vanishing to horizon line, dynamic range preserving deep shadow detail through to specular highlight clipping points. Professional 8K drone aerial capture, cinematic LUT color grading, production VFX quality light interaction, Blade Runner 2049 aesthetic fidelity.`;
-    }
-    
-    else if (input.includes('cat') || input.includes('dog') || input.includes('animal')) {
-        return `Produce photorealistic animal portraiture of ${input} within controlled studio lighting environment. Render individual hair strand detail with accurate keratin structure and specular highlights, capture precise whisker curvature and positioning, detailed iris texture with natural starburst effect from catchlights, perfect anatomical proportioning following species-specific golden ratios. Studio configuration features softbox key lighting at 45-degree elevation, precise fill light eliminating double shadows, subtle background gradient maintaining subject isolation. Shallow depth of field f/2.8 rendering foreground fur textures in hyper-sharp focus against smoothly blurred backdrop. Professional 50MP wildlife photography standard, impeccable white balance calibration, 8K RAW processing workflow.`;
-    }
-    
-    // DEFAULT: ULTIMATE COMPLEX PROMPT
-    else {
-        return `Create breathtaking ${input} using professional photography techniques and cinematic lighting design. Position primary subject using perfect compositional thirds grid placement with leading lines converging naturally toward main focal point. Apply advanced studio lighting configuration featuring precisely positioned key light creating controlled highlight patterns, fill light maintaining shadow detail without flattening dimensional quality, precision rim lighting establishing perfect subject separation from background. Render surface materials with physically accurate subsurface scattering, precise specular highlight positioning matching virtual light sources, natural depth of field falloff following f/1.8 lens characteristics. Capture 16K resolution detail maintaining perfect edge acuity across entire frame, flawless exposure triangle balance preserving 14+ stops dynamic range, professional color science calibration, Academy Award winning production photography standards.`;
-    }
+        const input = original.toLowerCase().trim();
+        
+        // CAR/BMW COMPLEX EDITING (200+ words)
+        if (input.includes('car') || input.includes('bmw') || input.includes('vehicle')) {
+            return `Edit the existing photo of the person standing at night beside a parked ${input}. Keep the person's body, face, hairstyle, facial expression, pose, leather jacket, sweater, pants, and all original clothing exactly the same as in the reference image. Do not change the person's appearance or outfit at all. Replace only the old car directly behind and beside the subject with a ${input.toUpperCase()} featuring glossy paint reflecting streetlights, premium alloy rims, tinted windows, and front daytime running lights turned on. Position vehicle behind subject with front angled slightly toward camera. Keep rest of street environment, buildings, pavement, night lighting exactly same including dark alley atmosphere and overhead streetlights, but add subtle reflections and light bloom from vehicle lights appearing naturally. Maintain realistic photographic style, high clarity, low noise, matching original image perspective and framing, 8K resolution, professional color grading.`;
         }
+        
+        // PORTRAIT MASTERPIECE
+        else if (input.includes('portrait') || input.includes('person') || input.includes('woman') || input.includes('man')) {
+            return `Create hyperrealistic professional studio portrait of ${input} maintaining exact facial structure, eye shape, skin texture, hair details from reference image. Apply precise three-point lighting with soft key light at 45-degree angle, subtle fill light, dramatic rim light separation. Perfect symmetrical face with natural imperfections preserved, detailed hair strands with realistic volume, intricate fabric textures on clothing. Golden ratio composition, shallow depth of field f/1.8, creamy bokeh background, 85mm lens signature, flawless skin retouching, 16-bit color depth, 8K RAW photography, fashion magazine quality.`;
+        }
+        
+        // CITYSCAPE EPIC
+        else if (input.includes('city') || input.includes('street') || input.includes('urban')) {
+            return `Generate photorealistic night cityscape featuring ${input} with wet pavement reflecting neon signs and streetlights, detailed skyscraper facades with realistic window lighting patterns, holographic billboards glowing through atmospheric fog. Perfect volumetric light scattering, accurate perspective convergence, dynamic range preserving deep shadow detail to specular highlights. Luxury vehicles with realistic light bloom, intricate architectural elements, moody cinematic atmosphere, controlled god rays through mist, puddles capturing complex light reflections. 8K cinematic drone photography, professional VFX compositing standards, Blade Runner aesthetic perfection.`;
+        }
+        
+        // NATURE LANDSCAPE
+        else if (input.includes('mountain') || input.includes('nature') || input.includes('landscape')) {
+            return `Capture sweeping cinematic landscape photography of ${input} during golden hour with perfect atmospheric perspective. Detailed geological textures, layered mountain ridges fading into mist, dramatic cloud formations with volumetric god rays piercing atmosphere. Foreground elements hyper-sharp focus, midground establishing epic scale, background perfect color separation. Natural depth of field falloff, impeccable exposure balance across 14 stops dynamic range, crystal clear air quality, intricate vegetation details. 16K aerial drone capture, National Geographic production standards, professional landscape photography mastery.`;
+        }
+        
+        // ANIMAL PORTRAIT
+        else if (input.includes('cat') || input.includes('dog') || input.includes('animal')) {
+            return `Produce studio-quality animal portrait of ${input} with individual hair strand rendering, precise whisker positioning, detailed iris texture with natural catchlights. Perfect anatomical proportions, keratin structure accuracy, realistic fur specular highlights. Softbox key lighting at 45-degree elevation, controlled fill light eliminating harsh shadows, subtle gradient backdrop isolation. Shallow f/2.8 depth of field, hyper-sharp foreground textures against smooth bokeh. Professional 50MP wildlife photography, perfect white balance, 8K RAW processing, National Geographic animal portrait standards.`;
+        }
+        
+        // DEFAULT COMPLEX MASTERPIECE
+        else {
+            return `Create breathtaking professional ${input} photography using advanced studio techniques. Primary subject positioned using perfect golden spiral composition with precise leading lines converging naturally. Advanced four-point lighting setup with meticulously positioned key light creating sculpted highlight patterns, precision fill maintaining rich shadow detail, dual rim lights establishing perfect dimensional separation, subtle practical lights adding depth. Surface materials rendered with physically accurate subsurface scattering properties, precise specular positioning matching virtual light sources, natural bokeh falloff following f/1.4 lens characteristics. 16K hyperdetailed resolution, flawless exposure triangle optimization preserving maximum dynamic range, Academy Award-winning production photography standards.`;
+        }
+    }
+};
 
 function fixPrompt() {
     const input = document.getElementById('inputPrompt');
     const original = input.value.trim();
     
     if (!original) {
-        alert('Please enter a prompt!');
+        alert('Please enter a prompt first!');
         return;
     }
     
@@ -228,17 +207,25 @@ function fixPrompt() {
 }
 
 function copyPrompt(type) {
-    const text = document.getElementById(type + 'Prompt').textContent;
+    const text = document.getElementById(type === 'original' ? 'originalPrompt' : 'fixedPrompt').textContent;
     navigator.clipboard.writeText(text).then(() => {
         const btn = event.target;
+        const originalText = btn.textContent;
         btn.textContent = '✅ Copied!';
         btn.style.background = '#4caf50';
         setTimeout(() => {
-            btn.textContent = 'Copy ' + (type === 'original' ? 'Original' : 'Fixed');
+            btn.textContent = originalText;
             btn.style.background = '';
-        }, 1500);
+        }, 2000);
     });
 }
-    </script>
+
+// Ctrl+Enter support
+document.getElementById('inputPrompt').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter' && e.ctrlKey) {
+        fixPrompt();
+    }
+});
+                      </script>
 </body>
 </html>
