@@ -156,99 +156,71 @@
     </div>
 
     <script>
-    const promptEngine = {
-    quality: [
-        "8K ultra HD", "professional photography", "masterpiece", "award winning", 
-        "highly intricate", "perfect anatomy", "flawless execution", "cinematic",
-        "photorealistic", "hyperdetailed", "ultra sharp", "perfect lighting"
-    ],
+const promptEngine = {
+    quality: ["8K ultra HD", "professional photography", "masterpiece", "award winning", "hyperdetailed"],
+    lighting: ["golden hour sunlight", "studio lighting", "volumetric lighting"],
+    composition: ["perfect composition", "rule of thirds"],
     
-    lighting: [
-        "golden hour sunlight", "soft studio lighting", "volumetric god rays", 
-        "dramatic rim lighting", "perfect key light", "subtle fill light",
-        "cinematic three-point lighting", "soft backlighting", "mood lighting"
-    ],
-    
-    composition: [
-        "perfect rule of thirds", "dynamic perspective", "leading lines", 
-        "perfect depth of field", "bokeh background", "professional framing",
-        "golden ratio composition", "symmetrical balance"
-    ],
-    
-    // 100+ SUBJECT ENHANCERS
     enhancers: {
-        cat: [
-            "photorealistic ginger tabby cat", "detailed whisker texture", "expressive green eyes", 
-            "soft fur with realistic highlights", "curious tilted head", "perfect ear positioning",
-            "studio lit with soft shadows", "intricate claw details", "lifelike nose texture"
-        ],
-        portrait: [
-            "hyperrealistic portrait", "perfect facial symmetry", "detailed skin pores", 
-            "subtle freckles and imperfections", "expressive eyes with catchlights", 
-            "professional studio lighting", "soft hair strands", "realistic teeth", "natural makeup"
-        ],
-        city: [
-            "futuristic cyberpunk metropolis", "neon signs reflecting on wet pavement", 
-            "holographic billboards", "flying cars in background", "volumetric atmosphere fog",
-            "rain-slicked streets", "detailed skyscrapers", "crowded street scene", "night market"
-        ],
-        woman: [
-            "confident elegant woman", "flowing hair with realistic strands", "perfect skin texture",
-            "intricate gold jewelry", "designer silk saree", "confident eye contact", 
-            "professional headshot pose", "subtle smile lines", "natural Kashmiri beauty"
-        ],
-        landscape: [
-            "sweeping Himalayan mountain vista", "snow-capped peaks", "pine forests in foreground",
-            "golden hour sunlight filtering through clouds", "atmospheric perspective", 
-            "mist in valleys", "perfect cloud formations", "epic scale composition"
-        ]
+        cat: ["photorealistic ginger tabby cat", "detailed fur", "expressive eyes"],
+        portrait: ["hyperrealistic portrait", "perfect symmetry", "studio lighting"],
+        woman: ["confident elegant woman", "detailed hair", "gold jewelry"],
+        man: ["confident man", "sharp jawline", "professional lighting"],
+        city: ["cyberpunk metropolis", "neon lights", "wet reflections"],
+        general: ["highly detailed", "cinematic lighting", "professional quality"]
     },
     
     detectSubject: function(prompt) {
         const lower = prompt.toLowerCase();
-        const keywords = {
-            cat: ['cat', 'kitten', 'feline'],
-            dog: ['dog', 'puppy', 'canine'],
-            portrait: ['portrait', 'face', 'headshot'],
-            woman: ['woman', 'girl', 'female', 'lady'],
-            man: ['man', 'guy', 'male', 'boy'],
-            city: ['city', 'street', 'urban', 'metropolis'],
-            landscape: ['mountain', 'forest', 'nature', 'lake']
-        };
-        
-        for (let subject in keywords) {
-            if (keywords[subject].some(word => lower.includes(word))) {
-                return subject;
-            }
-        }
+        if (lower.includes('cat')) return 'cat';
+        if (lower.includes('woman') || lower.includes('girl')) return 'woman';
+        if (lower.includes('man') || lower.includes('guy')) return 'man';
+        if (lower.includes('portrait') || lower.includes('face')) return 'portrait';
+        if (lower.includes('city')) return 'city';
         return 'general';
     },
     
     enhance: function(original) {
-        const subject = this.detectSubject(original);
         let enhanced = original.charAt(0).toUpperCase() + original.slice(1);
+        const subject = this.detectSubject(original);
         
-        // Add 8-12 specific enhancers
-        if (this.enhancers[subject] && this.enhancers[subject].length > 0) {
-            const enhancers = this.enhancers[subject].slice(0, 6);
-            enhanced += ', ' + enhancers.join(', ');
-        }
-        
-        // Lighting (3 types)
-        const lights = this.lighting.slice(0, 3);
-        enhanced += ', ' + lights.join(', ');
-        
-        // Composition (2 perfect rules)
-        const comps = this.composition.slice(0, 2);
-        enhanced += ', ' + comps.join(', ');
-        
-        // Quality boosters (4 pro keywords)
-        const quals = this.quality.slice(0, 4);
-        enhanced += ', ' + quals.join(', ');
+        enhanced += ', ' + this.enhancers[subject][0];
+        enhanced += ', ' + this.enhancers[subject][1];
+        enhanced += ', ' + this.lighting[0];
+        enhanced += ', ' + this.quality[0];
+        enhanced += ', ' + this.quality[1];
         
         return enhanced;
     }
 };
+
+function fixPrompt() {
+    const input = document.getElementById('inputPrompt');
+    const original = input.value.trim();
+    
+    if (!original) {
+        alert('Please enter a prompt!');
+        return;
+    }
+    
+    document.getElementById('originalPrompt').textContent = original;
+    document.getElementById('fixedPrompt').textContent = promptEngine.enhance(original);
+    document.getElementById('resultSection').style.display = 'block';
+    document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+}
+
+function copyPrompt(type) {
+    const text = document.getElementById(type + 'Prompt').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = event.target;
+        btn.textContent = '✅ Copied!';
+        btn.style.background = '#4caf50';
+        setTimeout(() => {
+            btn.textContent = 'Copy ' + (type === 'original' ? 'Original' : 'Fixed');
+            btn.style.background = '';
+        }, 1500);
+    });
+}
     </script>
 </body>
 </html>
