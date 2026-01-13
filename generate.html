@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>✨ Free AI Prompt Generator | MintPrompt - Pro Midjourney Prompts</title>
+    <meta name="description" content="Generate professional 200+ word AI prompts instantly! Perfect for Midjourney V6, Stable Diffusion XL, DALL-E 3. Free AI art prompts.">
+    <meta name="keywords" content="AI prompt generator, free Midjourney prompts, Stable Diffusion prompts, DALL-E prompts, AI art generator">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="✨ Free AI Prompt Generator - MintPrompt">
+    <meta property="og:description" content="Create pro-level Midjourney prompts instantly. Free!">
+    <meta property="og:url" content="https://mintprompt.in/generate.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%); 
+            color: white; 
+            min-height: 100vh; 
+            padding: 1rem;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #ffd60a, #ffaa00);
+            color: #000;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .fix-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .input-section, .output-section {
+            margin-bottom: 2rem;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 120px;
+            background: rgba(0,0,0,0.3);
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 1rem;
+            color: white;
+            font-size: 1rem;
+            resize: vertical;
+            font-family: inherit;
+        }
+        
+        textarea::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .fix-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .fix-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(0,212,255,0.4);
+        }
+        
+        .fix-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .result-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .result-card {
+            background: rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .result-card h3 {
+            margin-bottom: 1rem;
+            color: #ffd60a;
+        }
+        
+        .copy-btn {
+            background: linear-gradient(135deg, #ffd60a, #ffaa00);
+            color: #000;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .result-container {
+                grid-template-columns: 1fr;
+            }
+            .fix-container {
+                padding: 1rem;
+                margin: 1rem;
+            }
+        }
+        .seo-section { background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 16px; margin: 2rem auto; max-width: 800px; }
+.seo-section h2 { color: #ffd60a; margin-bottom: 1rem; }
+.seo-section ul { list-style: none; }
+.seo-section li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; }
+.seo-section li::before { content: "✅"; position: absolute; left: 0; }
+    </style>
+</head>
+<body>
+    <div class="header">
+    <a href="index.html" class="back-btn">← Back to Prompts</a>
+    <h1>✨ AI Prompt Generator</h1>  <!-- CHANGED -->
+    <p>Enter any idea → Get 200+ word pro Midjourney prompt instantly</p>
+    </div>
+    <!-- ADD THIS BEFORE <div class="fix-container"> -->
+<section class="seo-section">
+    <h2>✅ Works With:</h2>
+    <ul>
+        <li>Midjourney V6/V7</li>
+        <li>Stable Diffusion XL</li>
+        <li>DALL-E 3</li>
+        <li>Leonardo AI</li>
+    </ul>
+</section>
+    <div class="fix-container">
+        <div class="input-section">
+            <textarea id="inputPrompt" placeholder="Paste your basic prompt here...&#10;Examples: 'cat', 'city night', 'portrait woman'"></textarea>
+            <button onclick="fixPrompt()" class="fix-btn">✨ Fix My Prompt</button>
+        </div>
+        
+        <div style="text-align:center; margin:2rem auto; max-width:800px;">
+    <div style="background:linear-gradient(135deg,#ffd60a,#ffaa00); padding:2rem; border-radius:25px;">
+        <h3>Need CUSTOM prompts? 💎</h3>
+        <p>10 pro prompts = ₹500 only</p>
+        <a href="https://wa.me/+918491865595?text=Hi%20Generate%2010%20custom%20prompts" style="background:#25D366;color:white;padding:1rem 2rem;border-radius:25px;text-decoration:none;font-weight:600;">Order Now</a>
+    </div>
+        </div>
+        
+        <div id="resultSection" style="display: none;">
+            <div class="result-container">
+                <div class="result-card">
+                    <h3>📥 Original</h3>
+                    <div id="originalPrompt"></div>
+                    <button class="copy-btn" onclick="copyPrompt('original')">Copy Original</button>
+                </div>
+                <div class="result-card">
+                    <h3>🚀 AI Fixed</h3>
+                    <div id="fixedPrompt"></div>
+                    <button class="copy-btn" onclick="copyPrompt('fixed')">Copy Fixed</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+const promptEngine = {
+    enhance: function(original) {
+        const input = original.toLowerCase().trim();
+        
+        // CAR/BMW COMPLEX EDITING (200+ words)
+        if (input.includes('car') || input.includes('bmw') || input.includes('vehicle')) {
+            return `Edit the existing photo of the person standing at night beside a parked ${input}. Keep the person's body, face, hairstyle, facial expression, pose, leather jacket, sweater, pants, and all original clothing exactly the same as in the reference image. Do not change the person's appearance or outfit at all. Replace only the old car directly behind and beside the subject with a ${input.toUpperCase()} featuring glossy paint reflecting streetlights, premium alloy rims, tinted windows, and front daytime running lights turned on. Position vehicle behind subject with front angled slightly toward camera. Keep rest of street environment, buildings, pavement, night lighting exactly same including dark alley atmosphere and overhead streetlights, but add subtle reflections and light bloom from vehicle lights appearing naturally. Maintain realistic photographic style, high clarity, low noise, matching original image perspective and framing, 8K resolution, professional color grading.`;
+        }
+        
+        // PORTRAIT MASTERPIECE
+        else if (input.includes('portrait') || input.includes('person') || input.includes('woman') || input.includes('man')) {
+            return `Create hyperrealistic professional studio portrait of ${input} maintaining exact facial structure, eye shape, skin texture, hair details from reference image. Apply precise three-point lighting with soft key light at 45-degree angle, subtle fill light, dramatic rim light separation. Perfect symmetrical face with natural imperfections preserved, detailed hair strands with realistic volume, intricate fabric textures on clothing. Golden ratio composition, shallow depth of field f/1.8, creamy bokeh background, 85mm lens signature, flawless skin retouching, 16-bit color depth, 8K RAW photography, fashion magazine quality.`;
+        }
+        
+        // CITYSCAPE EPIC
+        else if (input.includes('city') || input.includes('street') || input.includes('urban')) {
+            return `Generate photorealistic night cityscape featuring ${input} with wet pavement reflecting neon signs and streetlights, detailed skyscraper facades with realistic window lighting patterns, holographic billboards glowing through atmospheric fog. Perfect volumetric light scattering, accurate perspective convergence, dynamic range preserving deep shadow detail to specular highlights. Luxury vehicles with realistic light bloom, intricate architectural elements, moody cinematic atmosphere, controlled god rays through mist, puddles capturing complex light reflections. 8K cinematic drone photography, professional VFX compositing standards, Blade Runner aesthetic perfection.`;
+        }
+        
+        // NATURE LANDSCAPE
+        else if (input.includes('mountain') || input.includes('nature') || input.includes('landscape')) {
+            return `Capture sweeping cinematic landscape photography of ${input} during golden hour with perfect atmospheric perspective. Detailed geological textures, layered mountain ridges fading into mist, dramatic cloud formations with volumetric god rays piercing atmosphere. Foreground elements hyper-sharp focus, midground establishing epic scale, background perfect color separation. Natural depth of field falloff, impeccable exposure balance across 14 stops dynamic range, crystal clear air quality, intricate vegetation details. 16K aerial drone capture, National Geographic production standards, professional landscape photography mastery.`;
+        }
+        
+        // ANIMAL PORTRAIT
+        else if (input.includes('cat') || input.includes('dog') || input.includes('animal')) {
+            return `Produce studio-quality animal portrait of ${input} with individual hair strand rendering, precise whisker positioning, detailed iris texture with natural catchlights. Perfect anatomical proportions, keratin structure accuracy, realistic fur specular highlights. Softbox key lighting at 45-degree elevation, controlled fill light eliminating harsh shadows, subtle gradient backdrop isolation. Shallow f/2.8 depth of field, hyper-sharp foreground textures against smooth bokeh. Professional 50MP wildlife photography, perfect white balance, 8K RAW processing, National Geographic animal portrait standards.`;
+        }
+        
+        // DEFAULT COMPLEX MASTERPIECE
+        else {
+            return `Create breathtaking professional ${input} photography using advanced studio techniques. Primary subject positioned using perfect golden spiral composition with precise leading lines converging naturally. Advanced four-point lighting setup with meticulously positioned key light creating sculpted highlight patterns, precision fill maintaining rich shadow detail, dual rim lights establishing perfect dimensional separation, subtle practical lights adding depth. Surface materials rendered with physically accurate subsurface scattering properties, precise specular positioning matching virtual light sources, natural bokeh falloff following f/1.4 lens characteristics. 16K hyperdetailed resolution, flawless exposure triangle optimization preserving maximum dynamic range, Academy Award-winning production photography standards.`;
+        }
+    }
+};
+
+function fixPrompt() {
+    const input = document.getElementById('inputPrompt');
+    const original = input.value.trim();
+    
+    if (!original) {
+        alert('Please enter a prompt first!');
+        return;
+    }
+    
+    document.getElementById('originalPrompt').textContent = original;
+    document.getElementById('fixedPrompt').textContent = promptEngine.enhance(original);
+    document.getElementById('resultSection').style.display = 'block';
+    document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+}
+
+function copyPrompt(type) {
+    const text = document.getElementById(type === 'original' ? 'originalPrompt' : 'fixedPrompt').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = '✅ Copied!';
+        btn.style.background = '#4caf50';
+        setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = '';
+        }, 2000);
+    });
+}
+
+// Ctrl+Enter support
+document.getElementById('inputPrompt').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter' && e.ctrlKey) {
+        fixPrompt();
+    }
+});
+                      </script>
+</body>
+</html>
