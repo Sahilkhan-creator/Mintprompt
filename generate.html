@@ -130,6 +130,11 @@
                 margin: 1rem;
             }
         }
+        .seo-section { background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 16px; margin: 2rem auto; max-width: 800px; }
+.seo-section h2 { color: #ffd60a; margin-bottom: 1rem; }
+.seo-section ul { list-style: none; }
+.seo-section li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; }
+.seo-section li::before { content: "✅"; position: absolute; left: 0; }
     </style>
 </head>
 <body>
@@ -138,7 +143,16 @@
     <h1>✨ AI Prompt Generator</h1>  <!-- CHANGED -->
     <p>Enter any idea → Get 200+ word pro Midjourney prompt instantly</p>
     </div>
-    
+    <!-- ADD THIS BEFORE <div class="fix-container"> -->
+<section class="seo-section">
+    <h2>✅ Works With:</h2>
+    <ul>
+        <li>Midjourney V6/V7</li>
+        <li>Stable Diffusion XL</li>
+        <li>DALL-E 3</li>
+        <li>Leonardo AI</li>
+    </ul>
+</section>
     <div class="fix-container">
         <div class="input-section">
             <textarea id="inputPrompt" placeholder="Paste your basic prompt here...&#10;Examples: 'cat', 'city night', 'portrait woman'"></textarea>
