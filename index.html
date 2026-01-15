@@ -935,71 +935,72 @@
   visibility: visible;
   pointer-events: auto;
 }
-
-.wrapper .icon:hover span,
-.wrapper .icon:hover .tooltip {
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+/* 🔐 PERMANENT AUTH BAR - PERFECT POSITION */
+.auth-bar {
+  position: fixed;
+  top: 110px;        /* EXACT: Below Videos/Rizwan/Logout buttons */
+  right: 20px;
+  z-index: 999;
 }
 
-.wrapper .facebook:hover,
-.wrapper .facebook:hover .tooltip,
-        .auth-bar {
-  position: fixed;
-  top: 80px;  /* CHANGED: Below hamburger (20px + 60px menu) */
-  right: 20px;
-  z-index: 999;  /* LOWER z-index than hamburger */
-        }
-
 .auth-content {
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  background: rgba(26,26,46,0.95);
   backdrop-filter: blur(20px);
-  border-radius: 25px;
-  padding: 0.8rem 1.5rem;
-  border: 1px solid rgba(255,255,255,0.2);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border-radius: 20px;
+  padding: 0.4rem 0.8rem;    /* Compact size */
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  font-size: 0.85rem;
 }
 
 .login-btn {
   background: linear-gradient(135deg, #00d4ff, #0099cc);
   color: white;
   border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 20px;
+  padding: 0.4rem 0.8rem;    /* Perfect mobile button */
+  border-radius: 15px;
   font-weight: 600;
   cursor: pointer;
-  font-size: 0.95rem;
+  font-size: 0.8rem;
+  min-width: 65px;
   transition: all 0.3s;
 }
 
 .login-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0,212,255,0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,212,255,0.4);
 }
 
 .user-status {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.3rem;
   color: #ffd60a;
-  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.3rem 0;
 }
 
 .logout-btn {
   background: rgba(255,255,255,0.2);
   border: none;
   color: white;
-  padding: 0.3rem 0.8rem;
-  border-radius: 12px;
-  font-size: 0.8rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
   cursor: pointer;
+  transition: all 0.3s;
 }
 
-/* MODAL (pops below button) */
+.logout-btn:hover {
+  background: rgba(255,100,100,0.3);
+}
+
+/* MODAL - DROPDOWN BELOW BUTTON */
 .auth-modal {
   position: fixed;
-  top: 90px;
+  top: 145px;        /* Exactly below login button */
   right: 20px;
-  z-index: 10001;
+  z-index: 1000;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
@@ -1014,8 +1015,8 @@
   background: linear-gradient(135deg, #1a1a2e, #16213e);
   backdrop-filter: blur(20px);
   border-radius: 20px;
-  padding: 1.5rem;
-  width: 320px;
+  padding: 1.2rem;
+  width: 280px;
   border: 1px solid rgba(255,255,255,0.2);
   box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
@@ -1035,6 +1036,7 @@
   color: white;
   cursor: pointer;
   font-weight: 600;
+  font-size: 0.85rem;
 }
 
 .tab-btn.active {
@@ -1050,7 +1052,12 @@
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 10px;
   color: white;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+.auth-container input::placeholder {
+  color: rgba(255,255,255,0.5);
 }
 
 .submit-btn {
@@ -1061,9 +1068,27 @@
   border: none;
   border-radius: 12px;
   font-weight: 700;
+  font-size: 0.95rem;
   cursor: pointer;
-    }
+  transition: all 0.3s;
+}
 
+.submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(255,214,10,0.4);
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 480px) {
+  .auth-bar {
+    top: 105px;
+    right: 15px;
+  }
+  
+  .auth-container {
+    width: 260px;
+  }
+      }
 
         
     </style>
