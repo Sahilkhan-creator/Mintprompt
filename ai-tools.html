@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MintPrompt - AI Generators</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: white;
+      font-family: -apple-system, sans-serif;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .header h1 {
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, #00d4ff, #ffd60a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+    
+    .ai-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .ai-card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 25px;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    
+    .ai-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.15);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    
+    .ai-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    .ai-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .ai-desc {
+      color: rgba(255,255,255,0.8);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>✨ Generate Now</h1>
+    <p>Choose your favorite AI generator</p>
+  </div>
+  
+  <div class="ai-grid">
+    <!-- Gemini -->
+    <div class="ai-card" onclick="window.open('https://gemini.google.com', '_blank')">
+      <span class="ai-icon">🤖</span>
+      <div class="ai-name">Gemini</div>
+      <div class="ai-desc">Google's powerful AI for creative prompts</div>
+    </div>
+    
+    <!-- ChatGPT -->
+    <div class="ai-card" onclick="window.open('https://chatgpt.com', '_blank')">
+      <span class="ai-icon">💬</span>
+      <div class="ai-name">ChatGPT</div>
+      <div class="ai-desc">OpenAI's versatile conversation AI</div>
+    </div>
+    
+    <!-- Midjourney -->
+    <div class="ai-card" onclick="window.open('https://midjourney.com', '_blank')">
+      <span class="ai-icon">🎨</span>
+      <div class="ai-name">Midjourney</div>
+      <div class="ai-desc">Best for stunning image generation</div>
+    </div>
+    
+    <!-- Stable Diffusion -->
+    <div class="ai-card" onclick="window.open('https://stablediffusionweb.com', '_blank')">
+      <span class="ai-icon">🖼️</span>
+      <div class="ai-name">Stable Diffusion</div>
+      <div class="ai-desc">Free AI image generator</div>
+    </div>
+    
+    <!-- Claude -->
+    <div class="ai-card" onclick="window.open('https://claude.ai', '_blank')">
+      <span class="ai-icon">🧠</span>
+      <div class="ai-name">Claude</div>
+      <div class="ai-desc">Anthropic's safe & helpful AI</div>
+    </div>
+    
+    <!-- Perplexity -->
+    <div class="ai-card" onclick="window.open('https://www.perplexity.ai', '_blank')">
+      <span class="ai-icon">🔍</span>
+      <div class="ai-name">Perplexity</div>
+      <div class="ai-desc">AI-powered search & answers</div>
+    </div>
+  </div>
+</body>
+  </html>
