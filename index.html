@@ -1089,6 +1089,24 @@
     width: 260px;
   }
       }
+        .generate-btn {
+  background: linear-gradient(135deg, #ffd60a, #ff6b00);
+  color: #000;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(255,214,10,0.3);
+}
+
+.generate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255,214,10,0.5);
+}
 
         
     </style>
@@ -1354,6 +1372,7 @@
             </div>
             <div class="modal-prompt" id="modalPrompt"></div>
             <button class="copy-btn" id="copyBtn">📋 Copy Prompt</button>
+             <button onclick="openAITools()" class="generate-btn">✨ Generate Now</button>
         </div>
     </div>
 
