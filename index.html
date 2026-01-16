@@ -1991,7 +1991,30 @@ document.addEventListener('click', function(e) {
   // Open AI tools page in new tab
   window.open('ai-tools.html', '_blank');
         }
-    </script>  
+    </script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBoHIV18vtLbR0OVQ4BH7RrjYYEL4vpMww",
+    authDomain: "mintprompt-e676d.firebaseapp.com",
+    projectId: "mintprompt-e676d",
+    storageBucket: "mintprompt-e676d.firebasestorage.app",
+    messagingSenderId: "387878641820",
+    appId: "1:387878641820:web:32a3281ae69c8b50ad4d59",
+    measurementId: "G-1WCBX3XXCM"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script> 
 </body>
                                                                   </html>
 
