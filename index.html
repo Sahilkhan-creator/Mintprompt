@@ -1360,10 +1360,7 @@
             </div>
             <div class="modal-prompt" id="modalPrompt"></div>
             <button class="copy-btn" id="copyBtn">📋 Copy Prompt</button>
-           <button style="float:left;padding:12px 20px;background:#ff4444;color:white;border:none;border-radius:20px;cursor:pointer;margin:5px;font-size:16px;" 
-        onclick="alert('SHARE WORKS!');navigator.clipboard&&navigator.clipboard.writeText('mintprompt.in')||prompt('Copy:','mintprompt.in');alert('Link copied!');">
-  📤 Share
-           </button> 
+           <button onclick="sharePrompt();" style="float:left;padding:12px 20px;background:#ff4444;color:white;border:none;border-radius:20px;cursor:pointer;margin:5px;">📤 Share</button>
              <button onclick="openAITools()" class="generate-btn">✨ Generate Now</button>
         </div>
     </div>
@@ -2126,9 +2123,34 @@ document.addEventListener('click', function(e) {
   const analytics = getAnalytics(app);
     let currentPromptText = '';
     
-function sharePrompt(btn) {
-  alert('SHARE WORKS!'); // PROOF IT CLICKS
-      }
+function sharePrompt() {
+  const shareData = {
+    title: '🔥 AI Prompt - mintprompt.in',
+    text: 'Check out this awesome AI prompt!',
+    url: window.location.href
+  };
+
+  if (navigator.share) {
+    navigator.share(shareData).catch(() => {
+      copyFallback(shareData);
+    });
+  } else {
+    copyFallback(shareData);
+  }
+}
+
+function copyFallback(data) {
+  navigator.clipboard.writeText(data.url).then(() => {
+    alert('📋 Link copied! Share anywhere 👇
+
+' +
+          '• WhatsApp: Paste link
+' +
+          '• Instagram: Add to story
+' +
+          '• Any app: Long press paste');
+  });
+}
 </script> 
 </body>
                                                                   </html>
