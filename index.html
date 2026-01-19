@@ -1090,51 +1090,89 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(168,230,207,0.5);
 }
-
-/* Remix Modal */
+        /* REMIX MODAL - COMPLETE VERSION */
 .remix-modal {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0; width: 100%; height: 100%;
   background: rgba(0,0,0,0.8);
-  display: none;
-  align-items: center;
-  justify-content: center;
+  display: none; align-items: center; justify-content: center;
   z-index: 1002;
 }
 
 .remix-container {
-  background: rgba(26,26,46,0.98);
+  background: rgba(26,26,46,0.98); 
   backdrop-filter: blur(25px);
-  border-radius: 25px;
-  padding: 30px;
-  width: 90%;
+  border-radius: 25px; 
+  padding: 30px; 
+  width: 90%; 
   max-width: 600px;
   max-height: 80vh;
   overflow-y: auto;
 }
 
 .remix-textarea {
-  width: 100%;
-  min-height: 200px;
-  padding: 20px;
-  background: rgba(0,0,0,0.5);
+  width: 100%; 
+  min-height: 200px; 
+  padding: 20px; 
+  margin-bottom: 20px;
+  background: rgba(0,0,0,0.5); 
   border: 2px solid rgba(255,255,255,0.2);
-  border-radius: 15px;
-  color: white;
-  font-size: 16px;
+  border-radius: 15px; 
+  color: white; 
+  font-size: 16px; 
   font-family: monospace;
   resize: vertical;
-  margin-bottom: 20px;
+  box-sizing: border-box;
 }
 
-.remix-actions {
-  display: flex;
-  gap: 15px;
-  justify-content: flex-end;
-    }
+.remix-actions { 
+  display: flex; 
+  gap: 15px; 
+  justify-content: flex-end; 
+}
+
+.cancel-btn, .save-btn {
+  padding: 12px 24px; 
+  border: none; 
+  border-radius: 20px; 
+  font-weight: 600; 
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cancel-btn { 
+  background: rgba(255,255,255,0.2); 
+  color: white; 
+}
+
+.save-btn { 
+  background: linear-gradient(135deg, #ffd60a, #ff6b00); 
+  color: #000; 
+}
+
+.save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255,214,10,0.4);
+}
+
+.remix-btn {
+  background: linear-gradient(135deg, #a8e6cf, #88d8a3);
+  color: #1a1a2e;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 10px;
+  box-shadow: 0 4px 15px rgba(168,230,207,0.3);
+}
+
+.remix-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(168,230,207,0.5);
+}
+
+
         
     </style>
 </head>
@@ -2187,6 +2225,19 @@ function closeRemix() {
 // Close on outside click
 document.getElementById('remixModal').addEventListener('click', function(e) {
   if (e.target === this) closeRemix();
+});
+    // AUTO-ADD REMIX BUTTON TO ALL EXISTING CARDS
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.prompt-card');
+  cards.forEach(card => {
+    // Check if remix button exists
+    if (!card.querySelector('.remix-btn')) {
+      const actions = card.querySelector('.prompt-actions');
+      if (actions) {
+        actions.innerHTML += '<button onclick="openRemix(this)" class="remix-btn">✏️ Remix</button>';
+      }
+    }
+  });
 });
 </script> 
 </body>
