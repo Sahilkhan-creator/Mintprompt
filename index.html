@@ -2163,17 +2163,16 @@ document.addEventListener('click', function(e) {
   window.open('ai-tools.html', '_blank');
         }
     </script>
-    <!-- REMIX MODAL -->
-<div id="remixModal" class="remix-modal">
+    <div id="remixModal" class="remix-modal">
   <div class="remix-container">
-    <h3>✏️ Remix Prompt</h3>
-    <textarea id="remixTextarea" class="remix-textarea" placeholder="Edit your prompt here..."></textarea>
+    <h3>✏️ Remix</h3>
+    <textarea id="remixTextarea" class="remix-textarea"></textarea>
     <div class="remix-actions">
       <button onclick="closeRemix()" class="cancel-btn">Cancel</button>
-      <button onclick="saveRemixedPrompt()" class="save-btn">💾 Copy Remixed</button>
+      <button onclick="saveRemixedPrompt()" class="save-btn">💾 Copy</button>
     </div>
   </div>
-</div>
+    </div>
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
@@ -2197,48 +2196,19 @@ document.addEventListener('click', function(e) {
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
     let currentPromptText = '';
-
-function openRemix(button) {
-  // Get prompt text from closest card
-  const card = button.closest('.prompt-card');
-  currentPromptText = card.querySelector('.prompt-text').textContent;
-  
-  const modal = document.getElementById('remixModal');
-  document.getElementById('remixTextarea').value = currentPromptText;
-  modal.style.display = 'flex';
+function openRemix(btn) {
+  alert('Remix clicked!'); // TEST IF CLICK WORKS
+  document.getElementById('remixModal').style.display = 'flex';
 }
 
 function saveRemixedPrompt() {
-  const remixed = document.getElementById('remixTextarea').value;
-  
-  // Copy to clipboard
-  navigator.clipboard.writeText(remixed).then(() => {
-    alert('✅ Remixed prompt copied!');
-    document.getElementById('remixModal').style.display = 'none';
-  });
+  alert('Copied!'); // TEST SAVE
+  document.getElementById('remixModal').style.display = 'none';
 }
 
 function closeRemix() {
   document.getElementById('remixModal').style.display = 'none';
 }
-
-// Close on outside click
-document.getElementById('remixModal').addEventListener('click', function(e) {
-  if (e.target === this) closeRemix();
-});
-    // AUTO-ADD REMIX BUTTON TO ALL EXISTING CARDS
-document.addEventListener('DOMContentLoaded', function() {
-  const cards = document.querySelectorAll('.prompt-card');
-  cards.forEach(card => {
-    // Check if remix button exists
-    if (!card.querySelector('.remix-btn')) {
-      const actions = card.querySelector('.prompt-actions');
-      if (actions) {
-        actions.innerHTML += '<button onclick="openRemix(this)" class="remix-btn">✏️ Remix</button>';
-      }
-    }
-  });
-});
 </script> 
 </body>
                                                                   </html>
