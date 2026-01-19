@@ -1074,6 +1074,24 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(255,214,10,0.5);
 }
+        .share-btn {
+  background: linear-gradient(135deg, #00d4ff, #0099cc);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-left: 10px;
+  box-shadow: 0 4px 15px rgba(0,212,255,0.3);
+  transition: all 0.3s;
+}
+
+.share-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,212,255,0.5);
+    }
 
         
         
@@ -1329,6 +1347,7 @@
             </div>
             <div class="modal-prompt" id="modalPrompt"></div>
             <button class="copy-btn" id="copyBtn">📋 Copy Prompt</button>
+            <button onclick="sharePrompt()" class="share-btn">📤 Share</button>
              <button onclick="openAITools()" class="generate-btn">✨ Generate Now</button>
         </div>
     </div>
@@ -2090,6 +2109,25 @@ document.addEventListener('click', function(e) {
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
     let currentPromptText = '';
+    function sharePrompt() {
+  // Get current prompt text (from closest card)
+  const card = event.target.closest('.prompt-card');
+  const promptText = card.querySelector('.prompt-text').textContent;
+  
+  if (navigator.share) {
+    // Native share dialog (mobile)
+    navigator.share({
+      title: 'MintPrompt - AI Prompt',
+      text: 'Check this awesome AI prompt!',
+      url: window.location.href
+    });
+  } else {
+    // Fallback - copy link
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      alert('🔗 Link copied! Share anywhere!');
+    });
+  }
+    }
 
 </script> 
 </body>
