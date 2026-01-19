@@ -2122,86 +2122,10 @@ document.addEventListener('click', function(e) {
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
     let currentPromptText = '';
-    // 🔥 FULLY UPDATED SHARE FUNCTION - 100% WORKING
+    
 function sharePrompt(btn) {
-  try {
-    // Find prompt text (multiple fallback methods)
-    let promptText = '';
-    
-    // Method 1: .prompt-text class
-    let textElement = btn.closest('.prompt-card')?.querySelector('.prompt-text');
-    if (textElement) promptText = textElement.textContent.trim();
-    
-    // Method 2: Any text inside card
-    if (!promptText) {
-      textElement = btn.closest('.prompt-card')?.querySelector('p, .prompt-content, h3, .prompt');
-      if (textElement) promptText = textElement.textContent.trim();
-    }
-    
-    // Method 3: First text node in card
-    if (!promptText) {
-      const card = btn.closest('.prompt-card') || btn.parentElement?.closest('.prompt-card');
-      if (card) promptText = card.textContent.trim().split('
-')[0];
-    }
-    
-    // Default if nothing found
-    if (!promptText) promptText = 'Check out this awesome AI prompt from MintPrompt.in!';
-    
-    // Create share message
-    const shareMessage = `"${promptText.substring(0, 100)}..."
-
-✨ Try more at mintprompt.in`;
-    
-    // Native mobile share (Android/iOS)
-    if (navigator.share && navigator.canShare) {
-      navigator.share({
-        title: 'MintPrompt - AI Prompt Library',
-        text: shareMessage,
-        url: window.location.href
-      }).catch(err => {
-        // Fallback if share fails
-        copyShareText(shareMessage);
-      });
-    } else {
-      // Desktop/backup - copy to clipboard
-      copyShareText(shareMessage);
-    }
-    
-  } catch (error) {
-    // Emergency fallback
-    navigator.clipboard.writeText('MintPrompt.in - Best AI prompts!').then(() => {
-      showToast('📤 Link copied!');
-    });
-  }
-}
-
-// Helper function for copying
-function copyShareText(text) {
-  navigator.clipboard.writeText(text).then(() => {
-    showToast('📤 Prompt copied - ready to share!');
-  }).catch(() => {
-    showToast('📤 Link ready - paste manually!');
-  });
-}
-
-// Toast notification (better than alert)
-function showToast(message) {
-  // Remove existing toast
-  const oldToast = document.querySelector('.toast');
-  if (oldToast) oldToast.remove();
-  
-  // Create new toast
-  const toast = document.createElement('div');
-  toast.className = 'toast';
-  toast.textContent = message;
-  document.body.appendChild(toast);
-  
-  // Auto remove after 2 seconds
-  setTimeout(() => {
-    if (toast.parentNode) toast.remove();
-  }, 2000);
-        }
+  alert('SHARE WORKS!'); // PROOF IT CLICKS
+      }
 </script> 
 </body>
                                                                   </html>
