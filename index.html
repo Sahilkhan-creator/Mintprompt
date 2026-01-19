@@ -1073,14 +1073,12 @@
 .generate-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(255,214,10,0.5);
-}
-        /* 🔥 SHARE BUTTON - LEFT POSITION + PERFECT STYLING */
+        }
+        /* ONLY SHARE BUTTON - NO CONFLICTS */
 .prompt-actions {
-  display: flex;
-  gap: 10px;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: 15px;
+  margin: 15px 0;
+  text-align: center;
+  line-height: 1.6;
 }
 
 .share-btn {
@@ -1090,76 +1088,26 @@
   padding: 12px 20px;
   border-radius: 25px;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 15px;
   cursor: pointer;
-  order: -1; /* MOVES TO FAR LEFT */
+  margin: 5px;
+  display: inline-block;
+  float: left;
   box-shadow: 0 6px 20px rgba(255,107,107,0.4);
   transition: all 0.3s ease;
-  min-width: 80px;
-  text-align: center;
 }
 
 .share-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(255,107,107,0.6);
-  background: linear-gradient(135deg, #ff5252, #d32f2f);
 }
 
-.share-btn:active {
-  transform: translateY(-1px);
-}
-
-/* TOAST NOTIFICATION */
-.toast {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: linear-gradient(135deg, #00d4ff, #0099cc);
-  color: white !important;
-  padding: 15px 25px;
-  border-radius: 25px;
-  font-weight: 600;
-  font-size: 14px;
-  z-index: 9999;
-  box-shadow: 0 10px 30px rgba(0,212,255,0.4);
-  animation: slideIn 0.3s ease;
-  max-width: 300px;
-}
-
-@keyframes slideIn {
-  from { 
-    transform: translateX(100%); 
-    opacity: 0; 
-  }
-  to { 
-    transform: translateX(0); 
-    opacity: 1; 
-  }
-}
-
-@keyframes slideOut {
-  from { 
-    transform: translateX(0); 
-    opacity: 1; 
-  }
-  to { 
-    transform: translateX(100%); 
-    opacity: 0; 
-  }
-}
-
-/* RESPONSIVE MOBILE */
-@media (max-width: 480px) {
-  .prompt-actions {
-    flex-direction: column;
-  }
-  
-  .share-btn {
-    order: 0;
-    width: 100%;
-    margin-bottom: 8px;
-  }
-      }
+/* FLOAT CLEANUP */
+.prompt-actions::after {
+  content: "";
+  display: table;
+  clear: both;
+              }
     </style>
 </head>
 <body>
