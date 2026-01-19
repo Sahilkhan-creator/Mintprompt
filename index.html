@@ -1074,105 +1074,8 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(255,214,10,0.5);
 }
-.remix-btn {
-  background: linear-gradient(135deg, #a8e6cf, #88d8a3);
-  color: #1a1a2e;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 25px;
-  font-weight: 700;
-  cursor: pointer;
-  margin-left: 10px;
-  box-shadow: 0 4px 15px rgba(168,230,207,0.3);
-}
 
-.remix-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(168,230,207,0.5);
-}
-        /* REMIX MODAL - COMPLETE VERSION */
-.remix-modal {
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.8);
-  display: none; align-items: center; justify-content: center;
-  z-index: 1002;
-}
-
-.remix-container {
-  background: rgba(26,26,46,0.98); 
-  backdrop-filter: blur(25px);
-  border-radius: 25px; 
-  padding: 30px; 
-  width: 90%; 
-  max-width: 600px;
-  max-height: 80vh;
-  overflow-y: auto;
-}
-
-.remix-textarea {
-  width: 100%; 
-  min-height: 200px; 
-  padding: 20px; 
-  margin-bottom: 20px;
-  background: rgba(0,0,0,0.5); 
-  border: 2px solid rgba(255,255,255,0.2);
-  border-radius: 15px; 
-  color: white; 
-  font-size: 16px; 
-  font-family: monospace;
-  resize: vertical;
-  box-sizing: border-box;
-}
-
-.remix-actions { 
-  display: flex; 
-  gap: 15px; 
-  justify-content: flex-end; 
-}
-
-.cancel-btn, .save-btn {
-  padding: 12px 24px; 
-  border: none; 
-  border-radius: 20px; 
-  font-weight: 600; 
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.cancel-btn { 
-  background: rgba(255,255,255,0.2); 
-  color: white; 
-}
-
-.save-btn { 
-  background: linear-gradient(135deg, #ffd60a, #ff6b00); 
-  color: #000; 
-}
-
-.save-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255,214,10,0.4);
-}
-
-.remix-btn {
-  background: linear-gradient(135deg, #a8e6cf, #88d8a3);
-  color: #1a1a2e;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 25px;
-  font-weight: 700;
-  cursor: pointer;
-  margin-left: 10px;
-  box-shadow: 0 4px 15px rgba(168,230,207,0.3);
-}
-
-.remix-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(168,230,207,0.5);
-}
-
-
+        
         
     </style>
 </head>
@@ -1426,7 +1329,6 @@
             </div>
             <div class="modal-prompt" id="modalPrompt"></div>
             <button class="copy-btn" id="copyBtn">📋 Copy Prompt</button>
-            <button onclick="openRemix(this)" class="remix-btn">✏️ Remix</button>
              <button onclick="openAITools()" class="generate-btn">✨ Generate Now</button>
         </div>
     </div>
