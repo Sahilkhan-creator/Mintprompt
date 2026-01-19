@@ -1334,11 +1334,12 @@
             </div>
             <div class="modal-prompt" id="modalPrompt"></div>
             <button class="copy-btn" id="copyBtn">📋 Copy Prompt</button>
-             <button class="btn-share" 
-          onclick="shareCurrentPrompt()"
-          style="background:#6b21a8; color:white; padding:12px 28px; border:none; border-radius:10px; font-size:1rem; cursor:pointer;">
-    Share
-             </button>
+            <!-- Your Share button – keep your existing style, just update onclick -->
+<button class="btn-share" 
+        onclick="shareThisPrompt()"
+        style="background:#6b21a8; color:white; padding:12px 28px; border:none; border-radius:10px; font-size:1rem; cursor:pointer;">
+  Share
+</button> 
              <button onclick="openAITools()" class="generate-btn">✨ Generate Now</button>
         </div>
     </div>
@@ -2101,31 +2102,45 @@ document.addEventListener('click', function(e) {
   const analytics = getAnalytics(app);
     let currentPromptText = '';
     
-// Add this function – it will work with your current modal
-function shareCurrentPrompt() {
-  // Get the current prompt text from your modal
-  const promptText = document.getElementById("preview-text")?.textContent?.trim() || "";
-  
-  if (!promptText) {
-    alert("No prompt to share");
+// Add/replace this function in your <script> (put it at the bottom of body)
+function shareThisPrompt() {
+  // 1. Get the current prompt text from your modal
+  const promptElement = document.getElementById("preview-text"); // ← your actual ID from screenshot
+  if (!promptElement) {
+    alert("Couldn't find the prompt text. Please try again.");
     return;
   }
 
-  const shortText = promptText.slice(0, 140) + (promptText.length > 140 ? "..." : "");
-  const shareMessage = `Check out this awesome AI prompt!\n\n${shortText}\n\nFound on MintPrompt.in 🚀`;
+  const fullPrompt = promptElement.textContent.trim();
+  if (!fullPrompt) {
+    alert("No prompt to share yet.");
+    return;
+  }
 
-  // Modern Web Share API (works great on mobile)
+  // Prepare nice share message (shortened + call-to-action)
+  const shortPrompt = fullPrompt.substring(0, 120) + (fullPrompt.length > 120 ? "..." : "");
+  const shareText = `Amazing AI prompt from MintPrompt.in! 🚀\n\n${shortPrompt}\n\n`;
+  const pageUrl = window.location.href;  // or use a fixed link like "https://mintprompt.in"
+
+  // 2. Modern native share (what you see in your screenshot)
   if (navigator.share) {
     navigator.share({
-      title: "AI Image Prompt – MintPrompt",
-      text: shareMessage,
-      url: window.location.href
-    }).catch(() => {}); // silent fail if user cancels
+      title: "Cool AI Image Prompt – MintPrompt",
+      text: shareText,
+      url: pageUrl
+    })
+    .then(() => console.log("Share successful"))
+    .catch((error) => {
+      console.log("Share cancelled or failed", error);
+      // Silent fail – user might just cancel
+    });
   } 
-  // Fallback for desktop – opens Twitter/X compose window
+  // 3. Fallback for desktop / unsupported browsers (opens X/Twitter compose)
   else {
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareMessage)}&url=${encodeURIComponent(window.location.href)}`;
-    window.open(twitterUrl, '_blank', 'width=600,height=400');
+    const twitterIntent = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(pageUrl)}`;
+    window.open(twitterIntent, '_blank', 'width=600,height=400');
+    // Optional: show message
+    alert("Native share not available on this device/browser.\nOpening Twitter/X to share instead!");
   }
 }
 </script> 
