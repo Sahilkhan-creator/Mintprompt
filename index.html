@@ -1074,7 +1074,67 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(255,214,10,0.5);
 }
+.remix-btn {
+  background: linear-gradient(135deg, #a8e6cf, #88d8a3);
+  color: #1a1a2e;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 10px;
+  box-shadow: 0 4px 15px rgba(168,230,207,0.3);
+}
 
+.remix-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(168,230,207,0.5);
+}
+
+/* Remix Modal */
+.remix-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1002;
+}
+
+.remix-container {
+  background: rgba(26,26,46,0.98);
+  backdrop-filter: blur(25px);
+  border-radius: 25px;
+  padding: 30px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.remix-textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 20px;
+  background: rgba(0,0,0,0.5);
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 15px;
+  color: white;
+  font-size: 16px;
+  font-family: monospace;
+  resize: vertical;
+  margin-bottom: 20px;
+}
+
+.remix-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+    }
         
     </style>
 </head>
@@ -1328,6 +1388,7 @@
             </div>
             <div class="modal-prompt" id="modalPrompt"></div>
             <button class="copy-btn" id="copyBtn">📋 Copy Prompt</button>
+            <button onclick="openRemix(this)" class="remix-btn">✏️ Remix</button>
              <button onclick="openAITools()" class="generate-btn">✨ Generate Now</button>
         </div>
     </div>
@@ -2064,6 +2125,17 @@ document.addEventListener('click', function(e) {
   window.open('ai-tools.html', '_blank');
         }
     </script>
+    <!-- REMIX MODAL -->
+<div id="remixModal" class="remix-modal">
+  <div class="remix-container">
+    <h3>✏️ Remix Prompt</h3>
+    <textarea id="remixTextarea" class="remix-textarea" placeholder="Edit your prompt here..."></textarea>
+    <div class="remix-actions">
+      <button onclick="closeRemix()" class="cancel-btn">Cancel</button>
+      <button onclick="saveRemixedPrompt()" class="save-btn">💾 Copy Remixed</button>
+    </div>
+  </div>
+</div>
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
@@ -2086,6 +2158,36 @@ document.addEventListener('click', function(e) {
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+    let currentPromptText = '';
+
+function openRemix(button) {
+  // Get prompt text from closest card
+  const card = button.closest('.prompt-card');
+  currentPromptText = card.querySelector('.prompt-text').textContent;
+  
+  const modal = document.getElementById('remixModal');
+  document.getElementById('remixTextarea').value = currentPromptText;
+  modal.style.display = 'flex';
+}
+
+function saveRemixedPrompt() {
+  const remixed = document.getElementById('remixTextarea').value;
+  
+  // Copy to clipboard
+  navigator.clipboard.writeText(remixed).then(() => {
+    alert('✅ Remixed prompt copied!');
+    document.getElementById('remixModal').style.display = 'none';
+  });
+}
+
+function closeRemix() {
+  document.getElementById('remixModal').style.display = 'none';
+}
+
+// Close on outside click
+document.getElementById('remixModal').addEventListener('click', function(e) {
+  if (e.target === this) closeRemix();
+});
 </script> 
 </body>
                                                                   </html>
