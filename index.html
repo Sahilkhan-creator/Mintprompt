@@ -1360,7 +1360,10 @@
             </div>
             <div class="modal-prompt" id="modalPrompt"></div>
             <button class="copy-btn" id="copyBtn">📋 Copy Prompt</button>
-            <button onclick="sharePrompt(this)" style="float:left; padding:12px 20px; background:#ff4444; color:white; border:none; border-radius:20px; margin:5px;">📤 Share</button>
+           <button style="float:left;padding:12px 20px;background:#ff4444;color:white;border:none;border-radius:20px;cursor:pointer;margin:5px;font-size:16px;" 
+        onclick="alert('SHARE WORKS!');navigator.clipboard&&navigator.clipboard.writeText('mintprompt.in')||prompt('Copy:','mintprompt.in');alert('Link copied!');">
+  📤 Share
+           </button> 
              <button onclick="openAITools()" class="generate-btn">✨ Generate Now</button>
         </div>
     </div>
