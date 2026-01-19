@@ -1347,7 +1347,7 @@
             </div>
             <div class="modal-prompt" id="modalPrompt"></div>
             <button class="copy-btn" id="copyBtn">📋 Copy Prompt</button>
-            <button onclick="sharePrompt()" class="share-btn">📤 Share</button>
+            <button onclick="sharePrompt(this)" class="share-btn">📤 Share</button>
              <button onclick="openAITools()" class="generate-btn">✨ Generate Now</button>
         </div>
     </div>
@@ -2109,10 +2109,37 @@ document.addEventListener('click', function(e) {
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
     let currentPromptText = '';
-    function sharePrompt() {
-  // Get current prompt text (from closest card)
-  const card = event.target.closest('.prompt-card');
-  const promptText = card.querySelector('.prompt-text').textContent;
+    function sharePrompt(button) {
+  // Get prompt from closest card
+  const card = button.closest('.prompt-card');
+  const promptText = card.querySelector('.prompt-text');
+  
+  if (!promptText) {
+    alert('Prompt not found!');
+    return;
+  }
+  
+  const prompt = promptText.textContent;
+  const shareText = `Check this AI prompt from MintPrompt!
+
+"${prompt}"
+
+mintprompt.in`;
+  
+  // Mobile native share
+  if (navigator.share) {
+    navigator.share({
+      title: 'MintPrompt - AI Prompt',
+      text: shareText,
+      url: window.location.href
+    });
+  } else {
+    // Copy full prompt + link
+    navigator.clipboard.writeText(shareText).then(() => {
+      alert('📤 Prompt + Link copied! Paste anywhere!');
+    });
+  }
+    }
   
   if (navigator.share) {
     // Native share dialog (mobile)
