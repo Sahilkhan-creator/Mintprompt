@@ -1184,8 +1184,8 @@
   </p>
         </section>
         <div class="filters" id="filters">
-            <button class="filter-btn active" data-filter="new">New</button>
-            <button class="filter-btn" data-filter="all">All</button>
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="new">New</button>
             <button class="filter-btn" data-filter="Illustration / Art">Illustration / Art</button>
             <button class="filter-btn" data-filter="Anime">Anime</button>
             <button class="filter-btn" data-filter="realistic">realistic</button>
@@ -1763,7 +1763,7 @@ premium: false
 
         // State
 let favorites = JSON.parse(localStorage.getItem('promptFavorites')) || [];
-let currentFilter = 'new';
+let currentFilter = 'all';
 let searchTerm = '';
 const ITEMS_PER_PAGE = 6;  // NEW: Pagination items per page
 let currentPage = 1;       // NEW: Current page
