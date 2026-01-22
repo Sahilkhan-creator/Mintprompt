@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help Assistant - MintPrompt.in</title>
+    <title>Mint Assistant - MintPrompt.in</title>
     <style>
         * {
             margin: 0;
@@ -15,126 +15,184 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
             color: #e2e8f0;
-            min-height: 100vh;
-            padding: 20px 0;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .header h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 12px;
-            font-weight: 800;
-        }
-
-        .status-bar {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
-            padding: 16px 24px;
-            margin-bottom: 32px;
-            backdrop-filter: blur(12px);
-            text-align: center;
-        }
-
-        .back-btn {
-            background: rgba(255,255,255,0.1);
-            color: #e2e8f0;
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 12px 24px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            display: none;
-        }
-
-        .back-btn:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-1px);
-        }
-
-        .content-area {
-            min-height: 400px;
-        }
-
-        .help-card {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 20px;
-            padding: 32px;
-            margin-bottom: 24px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(16px);
-            position: relative;
+            height: 100vh;
             overflow: hidden;
         }
 
-        .help-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+        .chat-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
         }
 
-        .help-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(102, 126, 234, 0.3);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
-        }
-
-        .help-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .help-card.active {
-            border-color: #667eea;
-            background: rgba(102, 126, 234, 0.1);
-        }
-
-        .help-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 8px;
-        }
-
-        .help-subtitle {
-            color: #94a3b8;
-            font-size: 1rem;
-        }
-
-        .answer-content {
-            display: none;
-            margin-top: 24px;
+        .chat-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 24px;
-            background: rgba(20, 30, 50, 0.6);
-            border-radius: 16px;
-            border-left: 4px solid #667eea;
+            text-align: center;
         }
 
-        .answer-content.show {
-            display: block;
+        .chat-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .chat-subtitle {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .messages {
+            flex: 1;
+            padding: 24px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .message {
+            display: flex;
+            gap: 12px;
             animation: slideIn 0.4s ease;
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .bot-avatar {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .user-avatar {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+
+        .message-content {
+            max-width: 80%;
+            padding: 16px 20px;
+            border-radius: 20px;
+            line-height: 1.6;
+        }
+
+        .bot-message {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .user-message {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+
+        .message-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .option-btn {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #e2e8f0;
+            padding: 12px 16px;
+            border-radius: 16px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            text-align: left;
+            backdrop-filter: blur(10px);
+        }
+
+        .option-btn:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(102,126,234,0.4);
+            transform: translateX(4px);
+        }
+
+        .input-area {
+            padding: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .input-group {
+            display: flex;
+            gap: 12px;
+            align-items: flex-end;
+        }
+
+        .message-input {
+            flex: 1;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 20px;
+            padding: 16px 20px;
+            color: #e2e8f0;
+            font-size: 1rem;
+            backdrop-filter: blur(12px);
+            resize: none;
+            min-height: 20px;
+            max-height: 120px;
+        }
+
+        .message-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+        }
+
+        .send-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .send-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(102,126,234,0.4);
+        }
+
+        .send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
         }
 
         @keyframes slideIn {
@@ -148,328 +206,188 @@
             }
         }
 
-        .answer-text {
-            font-size: 1.1rem;
-            color: #cbd5e1;
-            line-height: 1.75;
-        }
-
-        .answer-text strong {
-            color: #e2e8f0;
-        }
-
-        .no-content {
-            text-align: center;
-            padding: 60px 20px;
-            color: #94a3b8;
-        }
-
-        .no-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-            color: #cbd5e1;
-        }
-
-        @media (max-width: 768px) {
-            .container {
+        @media (max-width: 480px) {
+            .chat-container {
+                margin: 0;
+                border-radius: 0;
+                height: 100vh;
+                max-width: 100%;
+            }
+            
+            .messages {
                 padding: 16px;
-            }
-            
-            .help-card {
-                padding: 24px;
-            }
-            
-            .help-title {
-                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Help Assistant</h1>
-            <p style="color: #94a3b8; font-size: 1.1rem;">Get answers about MintPrompt.in</p>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="chat-title">Mint Assistant</div>
+            <p class="chat-subtitle">Hi! Ask me about AI prompts</p>
         </div>
 
-        <div class="status-bar" id="statusBar">
-            Select a topic to get started
+        <div class="messages" id="messages">
+            <div class="message bot">
+                <div class="avatar bot-avatar">🤖</div>
+                <div class="message-content bot-message">
+                    <div>Hi! I'm here to help you with MintPrompt.in</div>
+                    <div class="message-options">
+                        <button class="option-btn" onclick="sendUserMessage('AI Prompt Generator')">AI Prompt Generator</button>
+                        <button class="option-btn" onclick="sendUserMessage('Using Prompts')">Using Prompts</button>
+                        <button class="option-btn" onclick="sendUserMessage('Categories Guide')">Categories Guide</button>
+                        <button class="option-btn" onclick="sendUserMessage('Troubleshooting')">Troubleshooting</button>
+                        <button class="option-btn" onclick="sendUserMessage('Contribute Prompts')">Contribute Prompts</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <button class="back-btn" id="backBtn" onclick="goBack()">
-            ← Back
-        </button>
-
-        <div class="content-area" id="contentArea">
-            <!-- Main topics will be generated here -->
+        <div class="input-area">
+            <div class="input-group">
+                <textarea 
+                    class="message-input" 
+                    id="messageInput" 
+                    placeholder="Type your question... (or use buttons above)"
+                    rows="1"
+                ></textarea>
+                <button class="send-btn" id="sendBtn" onclick="sendMessage()" disabled>
+                    ➤
+                </button>
+            </div>
         </div>
     </div>
 
     <script>
-        const helpData = {
-            'prompt-generator': {
-                title: 'AI Prompt Generator',
-                subtitle: 'Fix issues and learn usage',
-                subtopics: {
-                    'not-working': {
-                        title: 'AI prompt generator not working',
-                        answer: `If the prompt generator isn't responding:
-                        <ul style="color: #e2e8f0; margin-top: 16px;">
-                            <li>• Refresh the page (Ctrl+R / Cmd+R)</li>
-                            <li>• Clear browser cache and cookies</li>
-                            <li>• Try a different browser (Chrome recommended)</li>
-                            <li>• Check your internet connection</li>
-                            <li>• Disable browser extensions temporarily</li>
-                        </ul>
-                        <p style="margin-top: 16px; font-size: 0.95rem; color: #94a3b8;">Most issues resolve with a page refresh.</p>`
-                    },
-                    'how-to-use': {
-                        title: 'How to use AI prompt generator',
-                        answer: `<ol style="color: #e2e8f0; margin-top: 16px;">
-                            <li>1. Select your style (Realistic, Cinematic, etc.)</li>
-                            <li>2. Choose subject or enter custom text</li>
-                            <li>3. Adjust sliders for detail level</li>
-                            <li>4. Click "Generate Prompt"</li>
-                            <li>5. Copy the optimized prompt</li>
-                            <li>6. Paste into Midjourney/Stable Diffusion</li>
-                        </ol>`
-                    },
-                    'prompts-different': {
-                        title: 'Why prompts look different',
-                        answer: `Generated prompts vary because:
-                        <ul style="color: #e2e8f0; margin-top: 16px;">
-                            <li>• <strong>Randomization:</strong> Each generation adds unique modifiers</li>
-                            <li>• <strong>Style mixing:</strong> Blends multiple categories</li>
-                            <li>• <strong>Quality boosters:</strong> Adds 8k, lighting terms automatically</li>
-                        </ul>
-                        <p style="color: #cbd5e1; margin-top: 16px;">This ensures every prompt produces unique, high-quality AI art.</p>`
-                    }
-                }
-            },
-            'prompt-usage': {
-                title: 'Using Prompts',
-                subtitle: 'Copy, paste, and optimize',
-                subtopics: {
-                    'copy-paste': {
-                        title: 'How to copy prompts',
-                        answer: `Click the <strong>Copy</strong> button next to any prompt. 
-                        The prompt is copied to your clipboard instantly.
-                        <div style="margin-top: 20px; padding: 16px; background: rgba(102,126,234,0.1); border-radius: 12px; border-left: 3px solid #667eea;">
-                            <strong>Paste into:</strong> Midjourney (/imagine), Stable Diffusion web UI, DALL-E, Leonardo.ai
-                        </div>`
-                    },
-                    'different-results': {
-                        title: 'Different results from same prompt',
-                        answer: `Same prompt = different results because:
-                        <ul style="color: #e2e8f0; margin-top: 16px;">
-                            <li>• <strong>Seed variation:</strong> Random number changes composition</li>
-                            <li>• <strong>Model version:</strong> Different AI versions interpret differently</li>
-                            <li>• <strong>Sampling steps:</strong> More steps = more detail</li>
-                            <li>• <strong>Sampling method:</strong> Euler vs DPM++ affects style</li>
-                        </ul>`
-                    },
-                    'optimize-results': {
-                        title: 'Optimize your results',
-                        answer: `<p style="color: #e2e8f0;">Add these parameters to any prompt:</p>
-                        <ul style="color: #e2e8f0; margin-top: 12px;">
-                            <li><strong>--ar 16:9</strong> - Widescreen cinematic</li>
-                            <li><strong>--v 6</strong> - Midjourney version</li>
-                            <li><strong>--q 2</strong> - Higher quality</li>
-                            <li><strong>--s 750</strong> - Stylization level</li>
-                            <li><strong>negative prompt:</strong> blurry, lowres, text, watermark</li>
-                        </ul>`
-                    }
-                }
-            },
-            'categories': {
-                title: 'Categories Guide',
-                subtitle: 'Realistic, Cinematic, Illustration',
-                subtopics: {
-                    'realistic': {
-                        title: 'Realistic prompts',
-                        answer: `Perfect for photorealistic humans, environments, products:
-                        <ul style="color: #e2e8f0; margin-top: 16px;">
-                            <li>• Photorealistic portraits, landscapes</li>
-                            <li>• Product mockups, architecture</li>
-                            <li>• Use: <strong>photo, 8k, hyperrealistic, detailed skin</strong></li>
-                            <li>• Works best: Stable Diffusion XL, Midjourney V6</li>
-                        </ul>`
-                    },
-                    'cinematic': {
-                        title: 'Cinematic prompts',
-                        answer: `Movie-style dramatic lighting and composition:
-                        <ul style="color: #e2e8f0; margin-top: 16px;">
-                            <li>• Volumetric lighting, lens flares</li>
-                            <li>• Epic landscapes, dramatic portraits</li>
-                            <li>• Keywords: <strong>cinematic, epic, dramatic lighting, anamorphic</strong></li>
-                            <li>• Aspect ratio: <strong>--ar 21:9</strong></li>
-                        </ul>`
-                    },
-                    'experimental': {
-                        title: 'Experimental prompts',
-                        answer: `Surreal, impossible architecture, abstract art:
-                        <ul style="color: #e2e8f0; margin-top: 16px;">
-                            <li>• Dreamlike scenes, impossible geometry</li>
-                            <li>• Abstract concepts, surreal combinations</li>
-                            <li>• Keywords: <strong>surreal, dreamlike, impossible, fractal</strong></li>
-                            <li>• Best with: Flux.1, Midjourney --stylize 1000</li>
-                        </ul>`
-                    }
-                }
-            },
-            'troubleshooting': {
-                title: 'Troubleshooting',
-                subtitle: 'Fix common issues',
-                subtopics: {
-                    'blurry-images': {
-                        title: 'Images coming out blurry',
-                        answer: `Fix blurry results:
-                        <ul style="color: #e2e8f0; margin-top: 16px;">
-                            <li>1. Add <strong>8k, ultra detailed, hyperrealistic</strong></li>
-                            <li>2. Increase sampling steps: <strong>30-50 steps</strong></li>
-                            <li>3. Use <strong>Euler a</strong> or <strong>DPM++ 2M Karras</strong></li>
-                            <li>4. Upscale 2x with <strong>Hires fix</strong></li>
-                            <li>5. Negative: <strong>blurry, lowres, jpeg artifacts</strong></li>
-                        </ul>`
-                    },
-                    'wrong-style': {
-                        title: 'Wrong art style generated',
-                        answer: `Getting wrong style? Try:
-                        <ul style="color: #e2e8f0; margin-top: 16px;">
-                            <li>• Be specific: <strong>"photorealistic"</strong> not just "realistic"</li>
-                            <li>• Add artists: <strong>"by Greg Rutkowski"</strong></li>
-                            <li>• Use weights: <strong>(cyberpunk:1.3)</strong></li>
-                            <li>• Negative prompt: <strong>cartoon, anime, painting</strong></li>
-                        </ul>`
-                    },
-                    'ugly-faces': {
-                        title: 'Faces look deformed',
-                        answer: `Fix deformed faces:
-                        <ul style="color: #e2e8f0; margin-top: 16px;">
-                            <li>• Add: <strong>perfect face, symmetrical eyes</strong></li>
-                            <li>• Negative: <strong>deformed, extra limbs, mutated hands</strong></li>
-                            <li>• Use <strong>face restoration</strong> in A1111</li>
-                            <li>• Try <strong>Adetailer</strong> extension</li>
-                            <li>• Midjourney: <strong>--no deformities</strong></li>
-                        </ul>`
-                    }
-                }
-            },
-            'contribute': {
-                title: 'Contribute Prompts',
-                subtitle: 'Share with community',
-                subtopics: {
-                    'submit-prompt': {
-                        title: 'How to submit prompts',
-                        answer: `Share your prompts:
-                        <ol style="color: #e2e8f0; margin-top: 16px;">
-                            <li>1. Test prompt produces consistent results</li>
-                            <li>2. Include sample image if possible</li>
-                            <li>3. Email: sahil@example.com</li>
-                            <li>4. Subject: "Prompt Submission - [Category]"</li>
-                            <li>5. Top prompts get featured on homepage</li>
-                        </ol>`
-                    },
-                    'guidelines': {
-                        title: 'Submission guidelines',
-                        answer: `<ul style="color: #e2e8f0; margin-top: 16px;">
-                            <li>• Works consistently across seeds</li>
-                            <li>• No spelling errors</li>
-                            <li>• Clear category (realistic/cinematic/etc.)</li>
-                            <li>• Under 75 words/tokens</li>
-                            <li>• Include model used and settings</li>
-                            <li>• Bonus: Before/after examples</li>
-                        </ul>`
-                    },
-                    'featured': {
-                        title: 'Get featured',
-                        answer: `Featured prompts get:
-                        <ul style="color: #e2e8f0; margin-top: 16px;">
-                            <li>• Homepage placement</li>
-                            <li>• Attribution credit</li>
-                            <li>• Priority support</li>
-                            <li>• Community recognition</li>
-                            <li>• Featured badge on your profile</li>
-                        </ul>`
-                    }
-                }
-            }
+        const responses = {
+            'AI Prompt Generator': `Great choice! Here's how to use the AI Prompt Generator:
+
+1. **Select Style** - Choose Realistic, Cinematic, Illustration, or Experimental
+2. **Enter Subject** - Type what you want to create
+3. **Adjust Sliders** - Control detail level and creativity
+4. **Generate** - Click button to create optimized prompt
+5. **Copy & Use** - Paste directly into Midjourney/Stable Diffusion
+
+**Pro Tip:** Use "Generate" multiple times for variations!
+
+What specifically would you like help with?`,
+            
+            'Using Prompts': `Perfect! Here's the fastest way to use prompts:
+
+**Copy → Paste → Generate**
+1. Click 📋 Copy button next to any prompt
+2. Open your AI tool (Midjourney, Stable Diffusion, etc.)
+3. Paste prompt and hit generate
+
+**Quick Parameters:**
+• Midjourney: Add `--ar 16:9 --v 6`
+• Stable Diffusion: 30-50 steps, Euler a sampler
+
+Need help with a specific AI tool?`,
+
+            'Categories Guide': `Each category is optimized for different results:
+
+**🎬 Realistic** - Photorealistic people, products, environments
+• Keywords: photo, 8k, hyperrealistic, detailed skin
+• Best for: Portraits, product mockups
+
+**🎥 Cinematic** - Movie-style dramatic lighting
+• Keywords: volumetric lighting, anamorphic, epic
+• Aspect: --ar 21:9
+
+**✨ Illustration** - Vector art, concept design
+• Keywords: vector, clean lines, flat design
+
+**🌀 Experimental** - Surreal, impossible architecture
+• Keywords: dreamlike, fractal, surreal
+
+Which style interests you most?`,
+
+            'Troubleshooting': `Common fixes for most issues:
+
+**Blurry images?**
+• Add: 8k, ultra detailed, hyperrealistic
+• Negative: blurry, lowres, jpeg artifacts
+• Increase steps: 30-50
+
+**Wrong style?**
+• Be specific: "photorealistic" not just "realistic"
+• Add artists: "by Greg Rutkowski"
+• Use weights: (cyberpunk:1.3)
+
+**Deformed faces?**
+• Add: perfect face, symmetrical eyes
+• Negative: deformed, extra limbs, mutated hands
+
+What's your specific issue?`,
+
+            'Contribute Prompts': `Want to share prompts with community?
+
+**Submit Process:**
+1. Test prompt produces consistent results
+2. Email: sahil@example.com
+3. Subject: "Prompt Submission - [Category]"
+4. Include: prompt text + sample image
+
+**Guidelines:**
+• Works consistently across seeds
+• Under 75 tokens
+• Clear category
+• Bonus: before/after examples
+
+Top prompts get homepage features!
+
+Ready to submit?`
         };
 
-        let currentLevel = 'main';
-        let currentTopic = null;
+        const messagesEl = document.getElementById('messages');
+        const messageInput = document.getElementById('messageInput');
+        const sendBtn = document.getElementById('sendBtn');
 
-        function renderMainTopics() {
-            const contentArea = document.getElementById('contentArea');
-            const statusBar = document.getElementById('statusBar');
-            
-            statusBar.innerHTML = 'Select a topic to get started';
-            document.getElementById('backBtn').style.display = 'none';
-            currentLevel = 'main';
-            
-            contentArea.innerHTML = `
-                <div class="no-content" style="display: none;"></div>
-                ${Object.entries(helpData).map(([key, data]) => `
-                    <div class="help-card" onclick="selectTopic('${key}')">
-                        <div class="help-title">${data.title}</div>
-                        <div class="help-subtitle">${data.subtitle}</div>
-                    </div>
-                `).join('')}
-            `;
-        }
+        messageInput.addEventListener('input', function() {
+            sendBtn.disabled = this.value.trim() === '';
+        });
 
-        function selectTopic(topicId) {
-            currentTopic = topicId;
-            const topicData = helpData[topicId];
-            const contentArea = document.getElementById('contentArea');
-            const statusBar = document.getElementById('statusBar');
-            
-            statusBar.innerHTML = `Topic: ${topicData.title}`;
-            document.getElementById('backBtn').style.display = 'inline-flex';
-            currentLevel = 'subtopics';
-            
-            contentArea.innerHTML = `
-                <div style="margin-bottom: 24px;">
-                    <div class="help-title">${topicData.title}</div>
-                    <div class="help-subtitle">${topicData.subtitle}</div>
-                </div>
-                ${Object.entries(topicData.subtopics).map(([subId, subData]) => `
-                    <div class="help-card" onclick="showAnswer('${topicId}', '${subId}')">
-                        <div class="help-title">${subData.title}</div>
-                    </div>
-                `).join('')}
-            `;
-        }
+        messageInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
 
-        function showAnswer(topicId, subId) {
-            const topicData = helpData[topicId];
-            const subData = topicData.subtopics[subId];
-            const contentArea = document.getElementById('contentArea');
-            const statusBar = document.getElementById('statusBar');
-            
-            statusBar.innerHTML = `${topicData.title} → ${subData.title}`;
-            currentLevel = 'answer';
-            
-            contentArea.innerHTML = `
-                <div class="help-card active" style="cursor: default; transform: none;">
-                    <div class="help-title">${subData.title}</div>
-                    <div class="answer-content show">
-                        <div class="answer-text">${subData.answer}</div>
-                    </div>
+        function addMessage(content, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+            messageDiv.innerHTML = `
+                <div class="avatar ${isUser ? 'user-avatar' : 'bot-avatar'}">${isUser ? '👤' : '🤖'}</div>
+                <div class="message-content ${isUser ? 'user-message' : 'bot-message'}">
+                    ${content}
                 </div>
             `;
+            messagesEl.appendChild(messageDiv);
+            messagesEl.scrollTop = messagesEl.scrollHeight;
         }
 
-        function goBack() {
-            if (currentLevel === 'answer') {
-                selectTopic(currentTopic);
-            } else if (currentLevel === 'subtopics') {
-                renderMainTopics();
+        function sendUserMessage(text) {
+            addMessage(text, true);
+            messageInput.value = '';
+            sendBtn.disabled = true;
+            
+            setTimeout(() => {
+                const response = responses[text] || "That's a great question! For now, try checking our FAQ page or contact support. What else can I help with?";
+                addMessage(response);
+            }, 800);
+        }
+
+        function sendMessage() {
+            const text = messageInput.value.trim();
+            if (text) {
+                sendUserMessage(text);
             }
         }
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', renderMainTopics);
+        // Auto-focus input
+        messageInput.focus();
     </script>
 </body>
-  </html>
+</html>
