@@ -178,6 +178,34 @@
       background: #2a2d36;
       color: var(--text);
     }
+    .categories {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.cat {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.cat:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.cat.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+      }
   </style>
 </head>
 
@@ -192,6 +220,14 @@
 
   <div class="search-bar">
     <input type="text" placeholder="Search coding prompts..." oninput="searchPrompts(this.value)">
+  </div>
+  
+  <div class="categories">
+  <button class="cat active" onclick="filterCategory('all')">All</button>
+  <button class="cat" onclick="filterCategory('Frontend')">Frontend</button>
+  <button class="cat" onclick="filterCategory('Backend')">Backend</button>
+  <button class="cat" onclick="filterCategory('AI')">AI</button>
+  <button class="cat" onclick="filterCategory('Debugging')">Debugging</button>
   </div>
 
   <div class="grid" id="promptGrid"></div>
@@ -286,6 +322,33 @@ function searchPrompts(query) {
 }
 
 renderPrompts(prompts);
+  let activeCategory = "all";
+
+function filterCategory(cat) {
+  activeCategory = cat;
+
+  document.querySelectorAll(".cat").forEach(btn => {
+    btn.classList.remove("active");
+    if (btn.innerText.toLowerCase() === cat.toLowerCase()) {
+      btn.classList.add("active");
+    }
+    if (cat === "all" && btn.innerText === "All") {
+      btn.classList.add("active");
+    }
+  });
+
+  applyFilters();
+}
+
+function applyFilters() {
+  let list = prompts;
+
+  if (activeCategory !== "all") {
+    list = list.filter(p => p.category === activeCategory);
+  }
+
+  renderPrompts(list);
+  }
 </script>
 
 </body>
