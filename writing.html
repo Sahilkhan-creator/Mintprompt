@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Writing Prompts – MintPrompt</title>
+
+  <style>
+    :root {
+      --bg: #0e0e11;
+      --card: #16161d;
+      --text: #ffffff;
+      --border: #23232e;
+      --accent: #7c7cff;
+      --accent-soft: rgba(124,124,255,0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* ===== TOPBAR ===== */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .menu-btn {
+      font-size: 22px;
+      background: none;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    /* ===== SIDE MENU ===== */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      right: -260px;
+      width: 260px;
+      height: 100vh;
+      background: var(--card);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: right 0.3s ease;
+      z-index: 1001;
+    }
+
+    .side-menu a {
+      text-decoration: none;
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 8px;
+    }
+
+    .side-menu a:hover {
+      background: var(--accent-soft);
+    }
+
+    .side-menu.active {
+      right: 0;
+    }
+
+    #overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      display: none;
+      z-index: 1000;
+    }
+
+    #overlay.active {
+      display: block;
+    }
+
+    /* ===== CONTENT ===== */
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .categories {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      margin-bottom: 20px;
+    }
+
+    .category {
+      padding: 8px 14px;
+      border-radius: 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      white-space: nowrap;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .category.active {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+    }
+
+    /* ===== PROMPT CARDS ===== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card h3 {
+      font-size: 16px;
+      margin: 0 0 6px;
+    }
+
+    .card p {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* ===== MODAL ===== */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0,0,0,0.6);
+      z-index: 2000;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 16px;
+      max-width: 600px;
+      width: 90%;
+    }
+
+    .modal pre {
+      white-space: pre-wrap;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .copy-btn {
+      margin-top: 14px;
+      padding: 10px 14px;
+      background: var(--accent);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="logo">MintPrompt – Writing</div>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  </div>
+
+  <!-- SIDE MENU -->
+  <div class="side-menu" id="menu">
+    <a href="/">Home</a>
+    <a href="/coding.html">Coding Prompts</a>
+    <a href="/writing.html">Writing Prompts</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/privacy.html">Privacy</a>
+  </div>
+
+  <div id="overlay" onclick="toggleMenu()"></div>
+
+  <!-- CONTENT -->
+  <div class="container">
+    <div class="search-bar">
+      <input type="text" placeholder="Search writing prompts..." oninput="searchPrompts(this.value)">
+    </div>
+
+    <div class="categories">
+      <div class="category active">All</div>
+      <div class="category">Story</div>
+      <div class="category">Poetry</div>
+      <div class="category">Script</div>
+      <div class="category">Copywriting</div>
+      <div class="category">Blog</div>
+    </div>
+
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <pre id="modalText"></pre>
+      <button class="copy-btn" onclick="copyPrompt()">Copy Prompt</button>
+    </div>
+  </div>
+
+  <script>
+    const prompts = [
+      {
+        id: 1,
+        title: "Cinematic Short Story",
+        category: "Story",
+        preview: "Write a cinematic short story with strong emotional depth...",
+        full: "Write a cinematic short story with a strong emotional arc, vivid sensory details, and realistic dialogue. The story should feel grounded, human, and visually immersive."
+      },
+      {
+        id: 2,
+        title: "Modern Poetry Prompt",
+        category: "Poetry",
+        preview: "Create a modern free-verse poem exploring identity...",
+        full: "Create a modern free-verse poem exploring identity, solitude, and inner conflict using subtle metaphors and restrained language."
+      },
+      {
+        id: 3,
+        title: "YouTube Script Generator",
+        category: "Script",
+        preview: "Generate a high-retention YouTube script...",
+        full: "Generate a high-retention YouTube script with a strong hook, smooth pacing, engaging storytelling, and a memorable ending."
+      },
+      {
+        id: 4,
+        title: "AI Copywriting Prompt",
+        category: "Copywriting",
+        preview: "Write persuasive copy that converts...",
+        full: "Write persuasive marketing copy that feels human, trust-building, and conversion-focused without sounding salesy."
+      }
+    ];
+
+    const grid = document.getElementById("grid");
+    const modal = document.getElementById("modal");
+    const modalText = document.getElementById("modalText");
+
+    function render(data) {
+      grid.innerHTML = "";
+      data.forEach(p => {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = `<h3>${p.title}</h3><p>${p.preview}</p>`;
+        div.onclick = () => openModal(p.full);
+        grid.appendChild(div);
+      });
+    }
+
+    function openModal(text) {
+      modalText.textContent = text;
+      modal.classList.add("active");
+    }
+
+    modal.onclick = e => {
+      if (e.target === modal) modal.classList.remove("active");
+    };
+
+    function copyPrompt() {
+      navigator.clipboard.writeText(modalText.textContent);
+      alert("Prompt copied!");
+    }
+
+    function searchPrompts(q) {
+      q = q.toLowerCase();
+      render(prompts.filter(p =>
+        p.title.toLowerCase().includes(q) ||
+        p.preview.toLowerCase().includes(q)
+      ));
+    }
+
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("active");
+      document.getElementById("overlay").classList.toggle("active");
+    }
+
+    render(prompts);
+  </script>
+
+</body>
+      </html>
