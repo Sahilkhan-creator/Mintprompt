@@ -200,6 +200,13 @@
       cursor: pointer;
       font-weight: 600;
     }
+    .card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+      }
   </style>
 </head>
 
@@ -233,14 +240,12 @@
     </div>
 
     <div class="categories">
-      <div class="category active">All</div>
-      <div class="category">Story</div>
-      <div class="category">Poetry</div>
-      <div class="category">Script</div>
-      <div class="category">Copywriting</div>
-      <div class="category">Blog</div>
+  <div class="category active" onclick="filterCategory('All', this)">All</div>
+  <div class="category" onclick="filterCategory('Story', this)">Story</div>
+  <div class="category" onclick="filterCategory('Poetry', this)">Poetry</div>
+  <div class="category" onclick="filterCategory('Script', this)">Script</div>
+  <div class="category" onclick="filterCategory('Copywriting', this)">Copywriting</div>
     </div>
-
     <div class="grid" id="grid"></div>
   </div>
 
@@ -252,81 +257,161 @@
     </div>
   </div>
 
-  <script>
-    const prompts = [
-      {
-        id: 1,
-        title: "Cinematic Short Story",
-        category: "Story",
-        preview: "Write a cinematic short story with strong emotional depth...",
-        full: "Write a cinematic short story with a strong emotional arc, vivid sensory details, and realistic dialogue. The story should feel grounded, human, and visually immersive."
-      },
-      {
-        id: 2,
-        title: "Modern Poetry Prompt",
-        category: "Poetry",
-        preview: "Create a modern free-verse poem exploring identity...",
-        full: "Create a modern free-verse poem exploring identity, solitude, and inner conflict using subtle metaphors and restrained language."
-      },
-      {
-        id: 3,
-        title: "YouTube Script Generator",
-        category: "Script",
-        preview: "Generate a high-retention YouTube script...",
-        full: "Generate a high-retention YouTube script with a strong hook, smooth pacing, engaging storytelling, and a memorable ending."
-      },
-      {
-        id: 4,
-        title: "AI Copywriting Prompt",
-        category: "Copywriting",
-        preview: "Write persuasive copy that converts...",
-        full: "Write persuasive marketing copy that feels human, trust-building, and conversion-focused without sounding salesy."
-      }
-    ];
-
+<script>
+const prompts = [
+  {
+    id: 1,
+    title: "Cinematic Short Story",
+    category: "Story",
+    image: "https://i.imgur.com/XRJUGd0.jpeg",
+    preview: "Write a cinematic short story with emotional depth...",
+    full: "Write a cinematic short story with a strong emotional arc, vivid sensory details, and realistic dialogue."
+  },
+  {
+    id: 2,
+    title: "Modern Poetry Prompt",
+    category: "Poetry",
+    image: "https://i.imgur.com/ClwKJEp.jpeg",
+    preview: "Create a modern free-verse poem exploring identity...",
+    full: "Create a modern free-verse poem exploring identity, solitude, and inner conflict using subtle metaphors."
+  },
+  {
+    id: 3,
+    title: "YouTube Script Generator",
+    category: "Script",
+    image: "https://i.imgur.com/8Z3QSP1.jpeg",
+    preview: "Generate a high-retention YouTube script...",
+    full: "Generate a YouTube script with a strong hook, pacing, and CTA."
+  },
+  {
+    id: 4,
+    title: "AI Copywriting Prompt",
+    category: "Copywriting",
+    image: "https://i.imgur.com/wOjhjag.jpeg",
+    preview: "Write persuasive copy that converts...",
+    full: "Write persuasive marketing copy that feels human and high-converting."
+  }
+];
     const grid = document.getElementById("grid");
-    const modal = document.getElementById("modal");
-    const modalText = document.getElementById("modalText");
+const searchInput = document.getElementById("search");
+const modal = document.getElementById("modal");
+const modalText = document.getElementById("modal-text");
+const overlay = document.getElementById("overlay");
+const sideMenu = document.getElementById("sideMenu");
 
-    function render(data) {
-      grid.innerHTML = "";
-      data.forEach(p => {
-        const div = document.createElement("div");
-        div.className = "card";
-        div.innerHTML = `<h3>${p.title}</h3><p>${p.preview}</p>`;
-        div.onclick = () => openModal(p.full);
-        grid.appendChild(div);
-      });
-    }
+let activeCategory = "All";
 
-    function openModal(text) {
-      modalText.textContent = text;
-      modal.classList.add("active");
-    }
 
-    modal.onclick = e => {
-      if (e.target === modal) modal.classList.remove("active");
-    };
+/* =========================
+   RENDER PROMPTS
+========================= */
 
-    function copyPrompt() {
-      navigator.clipboard.writeText(modalText.textContent);
-      alert("Prompt copied!");
-    }
+function render(data) {
+  grid.innerHTML = "";
 
-    function searchPrompts(q) {
-      q = q.toLowerCase();
-      render(prompts.filter(p =>
-        p.title.toLowerCase().includes(q) ||
-        p.preview.toLowerCase().includes(q)
-      ));
-    }
+  if (data.length === 0) {
+    grid.innerHTML = "<p style='opacity:0.6'>No prompts found</p>";
+    return;
+  }
 
-    function toggleMenu() {
-      document.getElementById("menu").classList.toggle("active");
-      document.getElementById("overlay").classList.toggle("active");
-    }
+  data.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "card";
 
-    render(prompts);
+    card.innerHTML = `
+      <img src="${p.image}" alt="${p.title}">
+      <h3>${p.title}</h3>
+      <p>${p.preview}</p>
+    `;
+
+    card.addEventListener("click", () => openModal(p.full));
+    grid.appendChild(card);
+  });
+}
+
+
+/* =========================
+   CATEGORY FILTER
+========================= */
+
+function filterCategory(category, el) {
+  activeCategory = category;
+
+  document.querySelectorAll(".category").forEach(c =>
+    c.classList.remove("active")
+  );
+  el.classList.add("active");
+
+  applyFilters();
+}
+
+
+/* =========================
+   SEARCH + CATEGORY LOGIC
+========================= */
+
+function applyFilters() {
+  const query = searchInput.value.toLowerCase();
+
+  const filtered = prompts.filter(p =>
+    (activeCategory === "All" || p.category === activeCategory) &&
+    (
+      p.title.toLowerCase().includes(query) ||
+      p.preview.toLowerCase().includes(query)
+    )
+  );
+
+  render(filtered);
+}
+
+searchInput.addEventListener("input", applyFilters);
+
+
+/* =========================
+   MODAL
+========================= */
+
+function openModal(text) {
+  modalText.innerText = text;
+  modal.classList.add("active");
+  overlay.classList.add("active");
+}
+
+function closeModal() {
+  modal.classList.remove("active");
+  overlay.classList.remove("active");
+}
+
+
+/* =========================
+   COPY PROMPT
+========================= */
+
+function copyPrompt() {
+  navigator.clipboard.writeText(modalText.innerText)
+    .then(() => {
+      const btn = document.getElementById("copyBtn");
+      btn.innerText = "Copied ✓";
+      setTimeout(() => btn.innerText = "Copy", 1500);
+    });
+}
+
+
+/* =========================
+   MENU TOGGLE
+========================= */
+
+function toggleMenu() {
+  sideMenu.classList.toggle("active");
+  overlay.classList.toggle("active");
+}
+
+
+/* =========================
+   INIT
+========================= */
+
+render(prompts);
   </script>
 
 </body>
