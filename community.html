@@ -291,6 +291,30 @@
                 align-items: center;
             }
         }
+        .discord-btn {
+  display: inline-block;
+  background: linear-gradient(45deg, #5865F2, #7289da);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+}
+
+.discord-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
+  background: linear-gradient(45deg, #4752C4, #5B6eae);
+}
+
+.discord-btn:active {
+  transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -379,6 +403,10 @@
             <div class="cta-buttons">
                 <a href="/" class="btn-primary">Browse Prompts</a>
                 <a href="https://forms.gle/4XRH1BZ8qpULZTs68" class="btn-secondary">Submit Prompt</a>
+                <a href="https://discord.gg/daNfW4SWV" class="discord-btn" target="_blank">
+  🚀 Join Official Discord Server
+                </a>
+                
             </div>
         </div>
     </div>
