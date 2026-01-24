@@ -1,299 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Writing Prompts – MintPrompt</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MintPrompt – Writing Prompts</title>
 
-  <style>
-    :root {
-      --bg: #0e0e11;
-      --card: #16161d;
-      --text: #ffffff;
-      --border: #23232e;
-      --accent: #7c7cff;
-      --accent-soft: rgba(124,124,255,0.12);
-    }
+<style>
+:root {
+  --bg: #0f1115;
+  --card: #161922;
+  --text: #eaeaf0;
+  --border: #262a36;
+  --accent: #6ae3ff;
+  --accent-soft: rgba(106,227,255,0.12);
+}
 
-    * {
-      box-sizing: border-box;
-      font-family: Inter, system-ui, -apple-system, sans-serif;
-    }
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, sans-serif;
+}
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-    }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
 
-    /* ===== TOPBAR ===== */
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--border);
-    }
+/* ===== TOP BAR ===== */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
 
-    .logo {
-      font-weight: 700;
-      font-size: 18px;
-    }
+.logo {
+  font-weight: 700;
+  font-size: 18px;
+}
 
-    .menu-btn {
-      font-size: 22px;
-      background: none;
-      border: none;
-      color: var(--text);
-      cursor: pointer;
-    }
+.menu-btn {
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+}
 
-    /* ===== SIDE MENU ===== */
-    .side-menu {
-      position: fixed;
-      top: 0;
-      right: -260px;
-      width: 260px;
-      height: 100vh;
-      background: var(--card);
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      transition: right 0.3s ease;
-      z-index: 1001;
-    }
+/* ===== SIDE MENU ===== */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -260px;
+  width: 260px;
+  height: 100vh;
+  background: var(--card);
+  box-shadow: -10px 0 30px rgba(0,0,0,0.4);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: right .3s ease;
+  z-index: 1001;
+}
 
-    .side-menu a {
-      text-decoration: none;
-      color: var(--text);
-      padding: 10px 12px;
-      border-radius: 8px;
-    }
+.side-menu.active {
+  right: 0;
+}
 
-    .side-menu a:hover {
-      background: var(--accent-soft);
-    }
+.side-menu a {
+  text-decoration: none;
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 15px;
+}
 
-    .side-menu.active {
-      right: 0;
-    }
+.side-menu a:hover {
+  background: var(--accent-soft);
+}
 
-    #overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.4);
-      display: none;
-      z-index: 1000;
-    }
+/* ===== OVERLAY ===== */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  z-index: 1000;
+}
 
-    #overlay.active {
-      display: block;
-    }
+#overlay.active {
+  display: block;
+}
 
-    /* ===== CONTENT ===== */
-    .container {
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
+/* ===== CONTENT ===== */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
 
-    .search-bar input {
-      width: 100%;
-      padding: 14px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      color: var(--text);
-      font-size: 15px;
-      margin-bottom: 16px;
-    }
-
-    .categories {
-      display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      margin-bottom: 20px;
-    }
-
-    .category {
-      padding: 8px 14px;
-      border-radius: 20px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      white-space: nowrap;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .category.active {
-      background: var(--accent);
-      color: #000;
-      border-color: var(--accent);
-    }
-
-    /* ===== PROMPT CARDS ===== */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-    }
-
-    .card h3 {
-      font-size: 16px;
-      margin: 0 0 6px;
-    }
-
-    .card p {
-      font-size: 14px;
-      opacity: 0.8;
-    }
-
-    /* ===== MODAL ===== */
-    .modal {
-      position: fixed;
-      inset: 0;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      background: rgba(0,0,0,0.6);
-      z-index: 2000;
-    }
-
-    .modal.active {
-      display: flex;
-    }
-
-    .modal-content {
-      background: var(--card);
-      padding: 20px;
-      border-radius: 16px;
-      max-width: 600px;
-      width: 90%;
-    }
-
-    .modal pre {
-      white-space: pre-wrap;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .copy-btn {
-      margin-top: 14px;
-      padding: 10px 14px;
-      background: var(--accent);
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    .card img {
+.search-bar input {
   width: 100%;
-  height: 160px;
+  padding: 14px;
+  border-radius: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  outline: none;
+}
+
+/* ===== CATEGORIES ===== */
+.categories {
+  display: flex;
+  gap: 10px;
+  margin: 18px 0;
+  flex-wrap: wrap;
+}
+
+.category {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  opacity: .7;
+}
+
+.category.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  opacity: 1;
+}
+
+/* ===== GRID ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+  gap: 18px;
+}
+
+/* ===== CARD ===== */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  cursor: pointer;
+  transition: transform .15s ease, border .15s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
   object-fit: cover;
   border-radius: 10px;
-  margin-bottom: 10px;
-      }
-  </style>
+}
+
+.card h3 {
+  margin: 10px 0 6px;
+  font-size: 16px;
+}
+
+.card p {
+  font-size: 14px;
+  opacity: .75;
+}
+
+/* ===== MODAL ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1002;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  max-width: 600px;
+  width: 90%;
+  padding: 20px;
+}
+
+.modal-box pre {
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.modal-actions button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+</style>
 </head>
 
 <body>
 
-  <!-- TOPBAR -->
-  <div class="topbar">
-    <div class="logo">MintPrompt – Writing</div>
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="logo">MintPrompt / Writing</div>
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+</div>
+
+<!-- SIDE MENU -->
+<div class="side-menu" id="sideMenu">
+  <a href="/">Home</a>
+  <a href="/coding.html">Coding</a>
+  <a href="/writing.html">Writing</a>
+  <a href="/blog.html">Blog</a>
+  <a href="/faq.html">FAQ</a>
+  <a href="/about.html">About</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/terms.html">Terms</a>
+  <a href="/privacy.html">Privacy</a>
+</div>
+
+<div id="overlay" onclick="closeAll()"></div>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <div class="search-bar">
+    <input id="search" placeholder="Search writing prompts..." />
   </div>
 
-  <!-- SIDE MENU -->
-  <div class="side-menu" id="menu">
-    <a href="/">Home</a>
-    <a href="/coding.html">Coding Prompts</a>
-    <a href="/writing.html">Writing Prompts</a>
-    <a href="/blog.html">Blog</a>
-    <a href="/faq.html">FAQ</a>
-    <a href="/about.html">About</a>
-    <a href="/contact.html">Contact</a>
-    <a href="/terms.html">Terms</a>
-    <a href="/privacy.html">Privacy</a>
+  <div class="categories">
+    <div class="category active" onclick="filterCategory('All', this)">All</div>
+    <div class="category" onclick="filterCategory('Story', this)">Story</div>
+    <div class="category" onclick="filterCategory('Poetry', this)">Poetry</div>
+    <div class="category" onclick="filterCategory('Script', this)">Script</div>
+    <div class="category" onclick="filterCategory('Copywriting', this)">Copywriting</div>
   </div>
 
-  <div id="overlay" onclick="toggleMenu()"></div>
+  <div class="grid" id="grid"></div>
+</div>
 
-  <!-- CONTENT -->
-  <div class="container">
-    <div class="search-bar">
-      <input type="text" placeholder="Search writing prompts..." oninput="searchPrompts(this.value)">
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <pre id="modal-text"></pre>
+    <div class="modal-actions">
+      <button id="copyBtn" onclick="copyPrompt()">Copy</button>
+      <button onclick="closeModal()">Close</button>
     </div>
-
-    <div class="categories">
-  <div class="category active" onclick="filterCategory('All', this)">All</div>
-  <div class="category" onclick="filterCategory('Story', this)">Story</div>
-  <div class="category" onclick="filterCategory('Poetry', this)">Poetry</div>
-  <div class="category" onclick="filterCategory('Script', this)">Script</div>
-  <div class="category" onclick="filterCategory('Copywriting', this)">Copywriting</div>
-    </div>
-    <div class="grid" id="grid"></div>
   </div>
+</div>
 
-  <!-- MODAL -->
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <pre id="modalText"></pre>
-      <button class="copy-btn" onclick="copyPrompt()">Copy Prompt</button>
-    </div>
-  </div>
-
+<!-- JS -->
 <script>
 const prompts = [
   {
-    id: 1,
     title: "Cinematic Short Story",
     category: "Story",
     image: "https://i.imgur.com/XRJUGd0.jpeg",
     preview: "Write a cinematic short story with emotional depth...",
-    full: "Write a cinematic short story with a strong emotional arc, vivid sensory details, and realistic dialogue."
+    full: "Write a cinematic short story with vivid imagery, emotional pacing, realistic dialogue, and a powerful ending."
   },
   {
-    id: 2,
-    title: "Modern Poetry Prompt",
+    title: "Modern Free Verse Poem",
     category: "Poetry",
     image: "https://i.imgur.com/ClwKJEp.jpeg",
-    preview: "Create a modern free-verse poem exploring identity...",
-    full: "Create a modern free-verse poem exploring identity, solitude, and inner conflict using subtle metaphors."
+    preview: "Create a modern free-verse poem about identity...",
+    full: "Create a modern free-verse poem exploring solitude, identity, and quiet emotions using subtle metaphors."
   },
   {
-    id: 3,
-    title: "YouTube Script Generator",
+    title: "YouTube Script",
     category: "Script",
     image: "https://i.imgur.com/8Z3QSP1.jpeg",
     preview: "Generate a high-retention YouTube script...",
-    full: "Generate a YouTube script with a strong hook, pacing, and CTA."
+    full: "Generate a YouTube script with a strong hook, smooth pacing, storytelling flow, and CTA."
   },
   {
-    id: 4,
-    title: "AI Copywriting Prompt",
+    title: "High-Converting Copy",
     category: "Copywriting",
     image: "https://i.imgur.com/wOjhjag.jpeg",
     preview: "Write persuasive copy that converts...",
-    full: "Write persuasive marketing copy that feels human and high-converting."
+    full: "Write persuasive marketing copy that feels human, emotional, and conversion-focused."
   }
 ];
-    const grid = document.getElementById("grid");
-const searchInput = document.getElementById("search");
+
+const grid = document.getElementById("grid");
+const search = document.getElementById("search");
 const modal = document.getElementById("modal");
 const modalText = document.getElementById("modal-text");
 const overlay = document.getElementById("overlay");
@@ -301,118 +313,9 @@ const sideMenu = document.getElementById("sideMenu");
 
 let activeCategory = "All";
 
-
-/* =========================
-   RENDER PROMPTS
-========================= */
-
-function render(data) {
+function render(list) {
   grid.innerHTML = "";
-
-  if (data.length === 0) {
-    grid.innerHTML = "<p style='opacity:0.6'>No prompts found</p>";
-    return;
-  }
-
-  data.forEach(p => {
-    const card = document.createElement("div");
-    card.className = "card";
-
-    card.innerHTML = `
-      <img src="${p.image}" alt="${p.title}">
-      <h3>${p.title}</h3>
-      <p>${p.preview}</p>
-    `;
-
-    card.addEventListener("click", () => openModal(p.full));
-    grid.appendChild(card);
-  });
-}
-
-
-/* =========================
-   CATEGORY FILTER
-========================= */
-
-function filterCategory(category, el) {
-  activeCategory = category;
-
-  document.querySelectorAll(".category").forEach(c =>
-    c.classList.remove("active")
-  );
-  el.classList.add("active");
-
-  applyFilters();
-}
-
-
-/* =========================
-   SEARCH + CATEGORY LOGIC
-========================= */
-
-function applyFilters() {
-  const query = searchInput.value.toLowerCase();
-
-  const filtered = prompts.filter(p =>
-    (activeCategory === "All" || p.category === activeCategory) &&
-    (
-      p.title.toLowerCase().includes(query) ||
-      p.preview.toLowerCase().includes(query)
-    )
-  );
-
-  render(filtered);
-}
-
-searchInput.addEventListener("input", applyFilters);
-
-
-/* =========================
-   MODAL
-========================= */
-
-function openModal(text) {
-  modalText.innerText = text;
-  modal.classList.add("active");
-  overlay.classList.add("active");
-}
-
-function closeModal() {
-  modal.classList.remove("active");
-  overlay.classList.remove("active");
-}
-
-
-/* =========================
-   COPY PROMPT
-========================= */
-
-function copyPrompt() {
-  navigator.clipboard.writeText(modalText.innerText)
-    .then(() => {
-      const btn = document.getElementById("copyBtn");
-      btn.innerText = "Copied ✓";
-      setTimeout(() => btn.innerText = "Copy", 1500);
-    });
-}
-
-
-/* =========================
-   MENU TOGGLE
-========================= */
-
-function toggleMenu() {
-  sideMenu.classList.toggle("active");
-  overlay.classList.toggle("active");
-}
-
-
-/* =========================
-   INIT
-========================= */
-
-render(prompts);
-  </script>
-
-</body>
-      </html>
+  list.forEach(p => {
+    const c = document.createElement("div");
+    c.className = "card";
+    c.innerHTML = `
