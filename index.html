@@ -34,6 +34,41 @@
   gtag('js', new Date());
   gtag('config', 'G-95115E9KKT');
 </script>
+    <script>
+// Track when users copy prompts - WORKS ON ALL PAGES
+document.addEventListener('copy', function(e) {
+    // Get selected text
+    const selection = window.getSelection().toString();
+    
+    if (selection.length > 10 && selection.includes('--') || selection.includes('8k') || selection.includes('photorealistic')) {
+        // Send to Google Analytics 4
+        gtag('event', 'prompt_copied', {
+            'prompt_text': selection.substring(0, 100) + (selection.length > 100 ? '...' : ''),
+            'prompt_length': selection.length,
+            'page_path': window.location.pathname
+        });
+        
+        // Legacy Universal Analytics (if using)
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'prompt_copied', {
+                event_category: 'Prompts',
+                event_label: selection.substring(0, 50) + '...',
+                event_value: selection.length
+            });
+        }
+    }
+});
+
+// Optional: Track copy button clicks specifically
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('copy-prompt') || e.target.closest('.copy-prompt')) {
+        gtag('event', 'copy_button_clicked', {
+            'prompt_section': e.target.closest('[data-prompt-category]')?.dataset.promptCategory || 'unknown',
+            'page_path': window.location.pathname
+        });
+    }
+});
+                 </script>
     <style>
         .seo-h1 {
   position: absolute;
