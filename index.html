@@ -933,176 +933,6 @@ document.addEventListener('click', function(e) {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-}
-/* 🔐 PERMANENT AUTH BAR - PERFECT POSITION */
-.auth-bar {
-  position: fixed;
-  top: 110px;        /* EXACT: Below Videos/Rizwan/Logout buttons */
-  right: 60px;
-  z-index: 999;
-}
-
-.auth-content {
-  background: rgba(26,26,46,0.95);
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  padding: 0.4rem 0.8rem;    /* Compact size */
-  border: 1px solid rgba(255,255,255,0.15);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-  font-size: 0.85rem;
-}
-
-.login-btn {
-  background: linear-gradient(135deg, #00d4ff, #0099cc);
-  color: white;
-  border: none;
-  padding: 0.4rem 0.8rem;    /* Perfect mobile button */
-  border-radius: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  font-size: 0.8rem;
-  min-width: 65px;
-  transition: all 0.3s;
-}
-
-.login-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0,212,255,0.4);
-}
-
-.user-status {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  color: #ffd60a;
-  font-size: 0.85rem;
-  padding: 0.3rem 0;
-}
-
-.logout-btn {
-  background: rgba(255,255,255,0.2);
-  border: none;
-  color: white;
-  padding: 0.2rem 0.6rem;
-  border-radius: 8px;
-  font-size: 0.75rem;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.logout-btn:hover {
-  background: rgba(255,100,100,0.3);
-}
-
-/* MODAL - DROPDOWN BELOW BUTTON */
-.auth-modal {
-  position: fixed;
-  top: 145px;        /* Exactly below login button */
-  right: 20px;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-
-.auth-modal.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-.auth-container {
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  padding: 1.2rem;
-  width: 280px;
-  border: 1px solid rgba(255,255,255,0.2);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-}
-
-.tab-switcher {
-  display: flex;
-  margin-bottom: 1rem;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.tab-btn {
-  flex: 1;
-  padding: 0.7rem;
-  background: rgba(255,255,255,0.1);
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 0.85rem;
-}
-
-.tab-btn.active {
-  background: linear-gradient(135deg, #ffd60a, #ffaa00);
-  color: #000;
-}
-
-.auth-container input {
-  width: 100%;
-  padding: 0.9rem;
-  margin-bottom: 1rem;
-  background: rgba(0,0,0,0.4);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 10px;
-  color: white;
-  font-size: 0.9rem;
-  box-sizing: border-box;
-}
-
-.auth-container input::placeholder {
-  color: rgba(255,255,255,0.5);
-}
-
-.submit-btn {
-  width: 100%;
-  padding: 1rem;
-  background: linear-gradient(135deg, #ffd60a, #ffaa00);
-  color: #000;
-  border: none;
-  border-radius: 12px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.submit-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 15px rgba(255,214,10,0.4);
-}
-
-/* MOBILE RESPONSIVE */
-@media (max-width: 480px) {
-  .auth-bar {
-    top: 105px;
-    right: 15px;
-  }
-  
-  .auth-container {
-    width: 260px;
-  }
-      }
-        .generate-btn {
-  position: relative;
-  top: 15px;           /* DOWN */
-  right: -20px;        /* RIGHT */
-  display: block;
-  margin-top: 10px;
-  background: linear-gradient(135deg, #ffd60a, #ff6b00);
-  color: #000;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 25px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(255,214,10,0.3);
         }
 
 .generate-btn:hover {
@@ -1334,12 +1164,118 @@ document.addEventListener('click', function(e) {
     font-size: 1.4rem;
   }
                                }
-        
+    .auth-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .auth-modal.show { display: flex; }
+
+  /* Modal Content */
+  .auth-content {
+    background: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    width: 320px;
+    max-width: 90%;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    position: relative;
+    font-family: Arial, sans-serif;
+  }
+
+  .close-btn {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .tab-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .tab-btn {
+    flex: 1;
+    padding: 8px;
+    cursor: pointer;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 8px;
+    margin: 0 4px;
+    transition: 0.2s;
+  }
+  .tab-btn.active { background: #6200ee; color: #fff; }
+
+  form { display: flex; flex-direction: column; gap: 10px; }
+
+  input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #6200ee;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  button:hover { background: #4b00b5; }
+
+  .divider {
+    text-align: center;
+    margin: 12px 0;
+    font-size: 12px;
+    color: #888;
+  }
+
+  .google-btn {
+    background: #4285f4;
+  }
+  .google-btn:hover { background: #3367d6; }
+
+  /* Header */
+  .auth-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+  }
+
+  #userStatus {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+      }    
 
     </style>
 </head>
 <body>
-    <!-- LOGIN MODAL / AUTH BOX -->
+ !-- HEADER -->
+<div id="authBar" class="auth-bar">
+  <button id="loginBtn" onclick="toggleAuth()">Login</button>
+  <div id="userStatus" style="display:none;">
+    <span id="userName"></span>
+    <button onclick="logout()">Logout</button>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
 <div id="authModal" class="auth-modal">
   <div class="auth-content">
     <button class="close-btn" onclick="toggleAuth()">✖</button>
@@ -1373,15 +1309,7 @@ document.addEventListener('click', function(e) {
     <p id="auth-msg"></p>
   </div>
 </div>
-
-<!-- HEADER USER STATE -->
-<div id="authBar">
-  <button id="loginBtn" onclick="toggleAuth()">Login</button>
-  <div id="userStatus" style="display:none;">
-    <span id="userName"></span>
-    <button onclick="logout()">Logout</button>
-  </div>
-</div>
+    
 
     
 
@@ -2407,67 +2335,13 @@ setTimeout(function() {
 const supabaseUrl = "https://zqdrycjtvmtygyyoqlld.supabase.co";
 const supabaseKey = "sb_publishable_QTzP8FpPofn9mrXtmPrgHQ_I16inQxm";
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-</script>
-    <script>
-<!-- AUTH MODAL -->
-<div id="authModal" class="auth-modal">
-  <div class="auth-content">
-    <button class="close-btn" onclick="toggleAuth()">✖</button>
-
-    <!-- Tabs -->
-    <div class="tab-bar">
-      <button class="tab-btn active" onclick="showTab('login')">Login</button>
-      <button class="tab-btn" onclick="showTab('signup')">Sign Up</button>
-    </div>
-
-    <!-- LOGIN FORM -->
-    <form id="loginForm">
-      <input type="email" id="loginUser" placeholder="Email" required />
-      <input type="password" id="loginPass" placeholder="Password" required />
-      <button type="submit">Login</button>
-    </form>
-
-    <!-- SIGNUP FORM -->
-    <form id="signupForm" style="display:none;">
-      <input type="email" id="signupUser" placeholder="Email" required />
-      <input type="password" id="signupPass" placeholder="Password" required />
-      <input type="password" id="signupConfirm" placeholder="Confirm Password" required />
-      <button type="submit">Sign Up</button>
-    </form>
-
-    <div class="divider">or</div>
-
-    <!-- GOOGLE LOGIN -->
-    <button class="google-btn" onclick="loginWithGoogle()">
-      Continue with Google
-    </button>
-
-    <p id="auth-msg"></p>
-  </div>
-</div>
-
-<!-- HEADER USER STATUS -->
-<div id="authBar">
-  <button id="loginBtn" onclick="toggleAuth()">Login</button>
-  <div id="userStatus" style="display:none;">
-    <span id="userName"></span>
-    <button onclick="logout()">Logout</button>
-  </div>
-</div>
-
-<!-- SUPABASE CLIENT & AUTH LOGIC -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-const supabaseUrl = "https://zqdrycjtvmtygyyoqlld.supabase.co";
-const supabaseKey = "sb_publishable_QTzP8FpPofn9mrXtmPrgHQ_I16inQxm";
-const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 // Toggle modal
 function toggleAuth() {
   document.getElementById('authModal').classList.toggle('show');
 }
 
-// Tab switch
+// Tabs
 function showTab(tab) {
   document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
   document.getElementById('loginForm').style.display = 'none';
@@ -2477,7 +2351,7 @@ function showTab(tab) {
   else document.getElementById('loginForm').style.display = 'block';
 }
 
-// SIGNUP with Email Confirmation
+// Signup with email confirmation
 document.getElementById('signupForm').addEventListener('submit', async function(e){
   e.preventDefault();
   const email = document.getElementById('signupUser').value;
@@ -2490,17 +2364,14 @@ document.getElementById('signupForm').addEventListener('submit', async function(
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
-    options: {
-      emailRedirectTo: window.location.origin
-    }
+    options: { emailRedirectTo: window.location.origin }
   });
 
   if(error) return alert(error.message);
-  document.getElementById('auth-msg').innerText = 
-    `✅ Account created! Check your email (${email}) to confirm before logging in.`;
+  document.getElementById('auth-msg').innerText = `✅ Account created! Check ${email} to confirm.`;
 });
 
-// LOGIN
+// Login
 document.getElementById('loginForm').addEventListener('submit', async function(e){
   e.preventDefault();
   const email = document.getElementById('loginUser').value;
@@ -2513,7 +2384,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
   location.reload();
 });
 
-// GOOGLE LOGIN
+// Google login
 async function loginWithGoogle() {
   await supabase.auth.signInWithOAuth({
     provider: 'google',
@@ -2521,13 +2392,13 @@ async function loginWithGoogle() {
   });
 }
 
-// LOGOUT
+// Logout
 async function logout() {
   await supabase.auth.signOut();
   location.reload();
 }
 
-// INIT AUTH STATE
+// Init session state
 async function initAuth() {
   const { data } = await supabase.auth.getSession();
   if(data.session) {
@@ -2537,7 +2408,6 @@ async function initAuth() {
   }
 }
 
-// Listen to session changes
 supabase.auth.onAuthStateChange((event, session) => {
   if(session) {
     document.getElementById('loginBtn').style.display = 'none';
@@ -2548,7 +2418,6 @@ supabase.auth.onAuthStateChange((event, session) => {
 
 initAuth();
 </script>
-      </script>
 </body>
                                                                   </html>
 
