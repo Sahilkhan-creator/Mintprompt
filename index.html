@@ -1333,7 +1333,141 @@ document.addEventListener('click', function(e) {
   .loved-section h3 {
     font-size: 1.4rem;
   }
-                               }
+   /* FIXED MOBILE PAGINATION CSS - Add to your <style> section */
+
+/* Main pagination container - NO OVERFLOW */
+#paginationContainer {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 24px;
+    max-width: 100%;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    background: rgba(15,23,42,0.8);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    margin: 24px 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* Page numbers container */
+#pagNumbers {
+    display: flex !important;
+    gap: 6px;
+    flex-shrink: 0;
+    max-width: 50%;
+}
+
+/* Individual page number buttons */
+.pag-num {
+    min-width: 40px !important;
+    height: 40px !important;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.08);
+    color: #e2e8f0;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    flex-shrink: 0;
+    user-select: none;
+}
+
+.pag-num:hover:not(.active) {
+    background: rgba(102,126,234,0.2);
+    border-color: #667eea;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102,126,234,0.2);
+}
+
+.pag-num.active {
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+    border-color: #667eea !important;
+    color: white !important;
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.3);
+}
+
+/* Previous/Next buttons */
+#prevPage, #nextPage {
+    min-width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+#prevPage:disabled, #nextPage:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+#prevPage:not(:disabled):hover, #nextPage:not(:disabled):hover {
+    background: rgba(102,126,234,0.2);
+    border-color: #667eea;
+}
+
+/* Page info text */
+#pagInfo {
+    font-size: 14px;
+    color: #94a3b8;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 480px) {
+    #paginationContainer {
+        padding: 12px 16px !important;
+        gap: 4px;
+        margin: 20px 8px;
+    }
+    
+    #pagNumbers {
+        gap: 4px;
+    }
+    
+    .pag-num {
+        min-width: 36px !important;
+        height: 36px !important;
+        font-size: 13px !important;
+    }
+    
+    #prevPage, #nextPage {
+        min-width: 40px !important;
+        height: 40px !important;
+        font-size: 14px;
+    }
+    
+    #pagInfo {
+        font-size: 13px;
+        white-space: normal;
+        max-width: 120px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+    #paginationContainer {
+        padding: 10px 12px !important;
+        gap: 3px;
+    }
+    
+    .pag-num {
+        min-width: 34px !important;
+        height: 34px !important;
+        font-size: 12px !important;
+    }
+        }                            }
         
 
     </style>
@@ -2176,7 +2310,7 @@ function renderPagination(totalItems, totalPages) {
 function goToPage(page) {
     currentPage = page;
     renderGrid();
-}
+    }
 
 function createCard(prompt) {
     const isFavorite = favorites.includes(prompt.id);
