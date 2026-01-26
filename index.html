@@ -1163,24 +1163,24 @@ document.addEventListener('click', function(e) {
   .loved-section h3 {
     font-size: 1.4rem;
         }
-    .auth-btn {
-  padding: 8px 16px;
-  font-size: 14px;
-  border: none;
-  border-radius: 6px;
-  background-color: #6a5af9;
-  color: white;
-  cursor: pointer;
-  margin-right: 50px; /* adjust to place left of menu */
-  position: absolute; /* adjust based on your header layout */
-  top: 16px;         /* distance from top */
-  right: 80px;       /* distance from right, change to suit your layout */
-  transition: background 0.3s;
+    /* Login button in header */
+.login-btn-header {
+    background: #06b6d4;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-right: 12px; /* space between button and menu */
 }
 
-.auth-btn:hover {
-  background-color: #5846c7;
-}
+.login-btn-header:hover {
+    background: #036b8c;
+    transform: translateY(-2px);
+    }
     
 
     </style>
@@ -1204,8 +1204,7 @@ document.addEventListener('click', function(e) {
     <header class="header">
         <div class="header-content">
             <div class="logo">Mintprompt</div>
-            
-    <button id="authBtn" class="auth-btn">Login</button>
+            <button id="loginBtn" class="login-btn-header">Login</button>
     <button class="control-btn" id="favoritesToggle" title="Favorites">🛒</button>
 
     <button class="control-btn" id="menuToggle" title="Menu">☰</button>
@@ -2198,45 +2197,15 @@ setTimeout(function() {
         }
     }, 1000);
 }, 2000);
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
+            // Simple login button functionality
+  const loginBtn = document.getElementById("loginBtn");
 
-<script>
-  document.addEventListener("DOMContentLoaded", async () => {
-    const supabase = window.supabase.createClient(
-      "https://zqdrycjtvmtygyyqolld.supabase.co",
-      "sb_publishable_QTzP8FpPofn9mrXtmPrgHQ_I16inQxm"
-    );
-
-    const authBtn = document.getElementById("authBtn");
-
-    async function updateAuthButton() {
-      const { data: { session } } = await supabase.auth.getSession();
-
-      if (session) {
-        authBtn.textContent = "Logout";
-        authBtn.onclick = async () => {
-          await supabase.auth.signOut();
-          updateAuthButton();
-          location.reload();
-        };
-      } else {
-        authBtn.textContent = "Login";
-        authBtn.onclick = () => {
-          location.href = "login.html";
-        };
-      }
-    }
-
-    // Initial check
-    updateAuthButton();
-
-    // Listen for auth changes
-    supabase.auth.onAuthStateChange(() => {
-      updateAuthButton();
+  if (loginBtn) {
+    loginBtn.addEventListener("click", () => {
+      window.location.href = "login.html";
     });
-  });
-</script>
+  }
+    </script>   
 </body>
                                                                   </html>
 
