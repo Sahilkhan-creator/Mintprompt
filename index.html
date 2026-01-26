@@ -1287,162 +1287,122 @@ document.addEventListener('click', function(e) {
   .loved-section h3 {
     font-size: 1.4rem;
   }
-    /* COMPLETE PAGINATION CSS - Copy ALL to your <style> */
 
-/* Main Container */
+/* 🔥 MOBILE + DESKTOP PERFECT BUTTONS - FINAL FIX */
 #paginationContainer {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 8px !important;
-    padding: 16px 24px !important;
-    max-width: 100% !important;
-    background: rgba(15,23,42,0.95) !important;
-    backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(102,126,234,0.3) !important;
-    border-radius: 24px !important;
-    margin: 32px auto !important;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4) !important;
+    gap: 6px !important;
+    padding: 12px 20px !important;
+    background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(26,32,44,0.9)) !important;
+    border: 2px solid rgba(102,126,234,0.4) !important;
+    border-radius: 20px !important;
+    margin: 24px auto !important;
+    max-width: 95vw !important;
+    min-height: 56px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
 }
 
-/* Page Numbers Container */
 #pagNumbers {
     display: flex !important;
-    gap: 6px !important;
+    gap: 4px !important;
     flex-shrink: 0 !important;
 }
 
-/* Page Number Buttons */
-.pag-num {
-    min-width: 42px !important;
-    height: 42px !important;
-    border: 1px solid rgba(255,255,255,0.25) !important;
-    background: rgba(255,255,255,0.08) !important;
-    color: #e2e8f0 !important;
-    border-radius: 14px !important;
-    font-weight: 700 !important;
+#pagInfo {
+    color: #94a3b8 !important;
     font-size: 14px !important;
-    cursor: pointer !important;
+    font-weight: 500 !important;
+    padding: 0 8px !important;
+    white-space: nowrap !important;
+}
+
+/* FORCE ALL BUTTONS VISIBLE */
+.pag-num, #prevPage, #nextPage {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    transition: all 0.3s cubic-bezier(0.4,0,0.2,1) !important;
+    min-width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
     flex-shrink: 0 !important;
-    user-select: none !important;
+    text-decoration: none !important;
+    border: 2px solid rgba(255,255,255,0.3) !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* Page Numbers */
+.pag-num {
+    background: rgba(255,255,255,0.12) !important;
+    color: #e2e8f0 !important;
+    font-size: 15px !important;
+    padding: 0 8px !important;
 }
 
 .pag-num:hover:not(.active) {
-    background: rgba(102,126,234,0.25) !important;
+    background: rgba(102,126,234,0.35) !important;
     border-color: #667eea !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 20px rgba(102,126,234,0.25) !important;
+    transform: translateY(-1px) !important;
+    color: white !important;
 }
 
 .pag-num.active {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
     border-color: #667eea !important;
     color: white !important;
-    box-shadow: 0 0 0 4px rgba(102,126,234,0.3) !important;
-    transform: scale(1.05) !important;
+    box-shadow: 0 4px 15px rgba(102,126,234,0.4) !important;
 }
 
-/* Previous/Next Buttons */
+/* Prev/Next Buttons */
 #prevPage, #nextPage {
-    min-width: 48px !important;
-    height: 48px !important;
-    background: rgba(102,126,234,0.2) !important;
-    border: 1px solid #667eea !important;
+    background: rgba(102,126,234,0.25) !important;
     color: white !important;
-    border-radius: 14px !important;
     font-size: 18px !important;
-    font-weight: 700 !important;
-    cursor: pointer !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    transition: all 0.3s ease !important;
-    flex-shrink: 0 !important;
+    width: 48px !important;
 }
 
 #prevPage:hover:not(:disabled), #nextPage:hover:not(:disabled) {
     background: linear-gradient(135deg, #667eea, #764ba2) !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 8px 25px rgba(102,126,234,0.4) !important;
+    box-shadow: 0 6px 20px rgba(102,126,234,0.4) !important;
 }
 
 #prevPage:disabled, #nextPage:disabled {
-    background: rgba(255,255,255,0.1) !important;
-    border-color: rgba(255,255,255,0.3) !important;
+    background: rgba(100,100,100,0.3) !important;
+    border-color: rgba(255,255,255,0.2) !important;
     color: rgba(255,255,255,0.5) !important;
-    opacity: 0.5 !important;
     cursor: not-allowed !important;
-    transform: none !important;
 }
 
-/* Page Info */
-#pagInfo {
-    color: #94a3b8 !important;
-    font-size: 14px !important;
-    font-weight: 500 !important;
-    white-space: nowrap !important;
-    flex-shrink: 0 !important;
-}
-
-/* MOBILE RESPONSIVE */
+/* MOBILE */
 @media (max-width: 768px) {
     #paginationContainer {
-        padding: 14px 20px !important;
-        gap: 6px !important;
-        margin: 24px 12px !important;
-        max-width: calc(100vw - 24px) !important;
+        padding: 10px 16px !important;
+        gap: 3px !important;
+        margin: 20px 8px !important;
     }
     
-    .pag-num {
-        min-width: 38px !important;
-        height: 38px !important;
-        font-size: 13px !important;
+    .pag-num, #prevPage, #nextPage {
+        min-width: 40px !important;
+        height: 40px !important;
+        font-size: 14px !important;
     }
     
     #prevPage, #nextPage {
-        min-width: 44px !important;
-        height: 44px !important;
+        width: 44px !important;
         font-size: 16px !important;
     }
     
     #pagInfo {
         font-size: 13px !important;
-        max-width: 140px !important;
+        padding: 0 4px !important;
     }
-}
-
-@media (max-width: 480px) {
-    #paginationContainer {
-        padding: 12px 16px !important;
-        gap: 4px !important;
-    }
-    
-    .pag-num {
-        min-width: 36px !important;
-        height: 36px !important;
-        font-size: 12px !important;
-    }
-    
-    #prevPage, #nextPage {
-        min-width: 40px !important;
-        height: 40px !important;
-        font-size: 15px !important;
-    }
-    
-    #pagInfo {
-        font-size: 12px !important;
-        white-space: normal !important;
-    }
-}
-
-/* Ensure no conflicts */
-.pagination * {
-    box-sizing: border-box !important;
-        }
+      }
 
     </style>
 </head>
