@@ -2125,10 +2125,10 @@ premium: false
 let favorites = JSON.parse(localStorage.getItem('promptFavorites')) || [];
 let currentFilter = 'all';
 let searchTerm = '';
-const ITEMS_PER_PAGE = 6;  // NEW: Pagination items per page
-let currentPage = 1;       // NEW: Current page
+const ITEMS_PER_PAGE = 6;
+let currentPage = 1;
 
-// DOM elements
+// DOM elements - BULLETPROOF SELECTORS
 const grid = document.getElementById('grid');
 const filters = document.getElementById('filters');
 const searchInput = document.getElementById('searchInput');
@@ -2139,8 +2139,8 @@ const toast = document.getElementById('toast');
 const menuToggle = document.getElementById('menuToggle');
 const menu = document.getElementById('menu');
 
-// NEW: Pagination elements
-const paginationContainer = document.getElementById('paginationContainer');
+// 🔥 FIXED: CLASS SELECTORS (matches your CSS)
+const paginationContainer = document.querySelector('.pagination-container');
 
 // Initialize
 function init() {
@@ -2155,13 +2155,13 @@ function renderFilters() {
             filters.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             e.target.classList.add('active');
             currentFilter = e.target.dataset.filter;
-            currentPage = 1;  // RESET PAGE ON FILTER
+            currentPage = 1;
             renderGrid();
         });
     });
 }
 
-// UPDATED: New renderGrid with pagination
+// 🔥 NUCLEAR-PROOF renderGrid
 function renderGrid() {
     const filteredPrompts = prompts.filter(prompt => {
         const matchesFilter = currentFilter === 'all' || prompt.category === currentFilter;
@@ -2174,21 +2174,23 @@ function renderGrid() {
     });
 
     const totalPages = Math.ceil(filteredPrompts.length / ITEMS_PER_PAGE);
-    
-    // Slice current page
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const pagePrompts = filteredPrompts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
     grid.innerHTML = pagePrompts.length ? 
         pagePrompts.map(prompt => createCard(prompt)).join('') : '';
 
-    renderPagination(filteredPrompts.length, totalPages);  // NEW
+    renderPagination(filteredPrompts.length, totalPages);
     emptyState.classList.toggle('hidden', filteredPrompts.length > 0);
 }
 
-// NEW: Render pagination UI
+// 🔥 BULLETPROOF PAGINATION - CLASS SELECTORS ONLY
 function renderPagination(totalItems, totalPages) {
-    if (!paginationContainer) return;
+    // Safety check
+    if (!paginationContainer) {
+        console.warn('Pagination container not found!');
+        return;
+    }
     
     if (totalPages <= 1) {
         paginationContainer.classList.add('hidden');
@@ -2197,31 +2199,61 @@ function renderPagination(totalItems, totalPages) {
     
     paginationContainer.classList.remove('hidden');
     
-    const pagNumbers = document.getElementById('pagNumbers');
-    const pagInfo = document.getElementById('pagInfo');
-    const prevBtn = document.getElementById('prevPage');
-    const nextBtn = document.getElementById('nextPage');
+    // 🔥 FIXED: CLASS SELECTORS (matches your CSS)
+    const pagNumbers = paginationContainer.querySelector('.pag-numbers');
+    const pagInfo = paginationContainer.querySelector('.pag-info');
+    const prevBtn = paginationContainer.querySelector('.pag-btn#prevPage');
+    const nextBtn = paginationContainer.querySelector('.pag-btn#nextPage');
+    
+    // Safety checks
+    if (!pagNumbers) {
+        console.error('pag-numbers not found!');
+        return;
+    }
     
     // Page info
-    pagInfo.textContent = `${totalItems} prompts • Page ${currentPage} of ${totalPages}`;
+    if (pagInfo) pagInfo.textContent = `${totalItems} prompts • Page ${currentPage} of ${totalPages}`;
     
-    // Page numbers (simple 1,2,3... for your 17 prompts)
+    // 🔥 SLIDING WINDOW (MintPrompt.in style) - 5 pages max
     let pagesHtml = '';
-    for (let i = 1; i <= totalPages; i++) {
+    const maxVisible = 5;
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+    let endPage = Math.min(totalPages, startPage + maxVisible - 1);
+    
+    if (endPage - startPage + 1 < maxVisible) {
+        startPage = Math.max(1, endPage - maxVisible + 1);
+    }
+    
+    // Previous pages indicator
+    if (startPage > 1) {
+        pagesHtml += `<span class="pag-num" data-page="1">1</span>`;
+        if (startPage > 2) pagesHtml += `<span class="pag-num dots">...</span>`;
+    }
+    
+    // Page numbers
+    for (let i = startPage; i <= endPage; i++) {
         pagesHtml += `<span class="pag-num ${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</span>`;
     }
+    
+    // Next pages indicator
+    if (endPage < totalPages) {
+        if (endPage < totalPages - 1) pagesHtml += `<span class="pag-num dots">...</span>`;
+        pagesHtml += `<span class="pag-num" data-page="${totalPages}">${totalPages}</span>`;
+    }
+    
     pagNumbers.innerHTML = pagesHtml;
     
     // Button states
-    prevBtn.disabled = currentPage === 1;
-    nextBtn.disabled = currentPage === totalPages;
+    if (prevBtn) prevBtn.disabled = currentPage === 1;
+    if (nextBtn) nextBtn.disabled = currentPage === totalPages;
 }
 
-// NEW: Go to page
+// 🔥 Page navigation
 function goToPage(page) {
+    if (page < 1 || page > Math.ceil(prompts.length / ITEMS_PER_PAGE)) return;
     currentPage = page;
     renderGrid();
-    }
+}
 
 function createCard(prompt) {
     const isFavorite = favorites.includes(prompt.id);
@@ -2246,54 +2278,74 @@ function createCard(prompt) {
 
 function setupEventListeners() {
     // Search
-    searchInput.addEventListener('input', (e) => {
-        searchTerm = e.target.value;
-        currentPage = 1;  // RESET ON SEARCH
-        renderGrid();
-    });
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            searchTerm = e.target.value;
+            currentPage = 1;
+            renderGrid();
+        });
+    }
 
     // Favorites toggle
-    favoritesToggle.addEventListener('click', () => {
-        favoritesToggle.classList.toggle('liked');
-        currentPage = 1;  // RESET ON FAVORITES
-        renderGrid();
-    });
+    if (favoritesToggle) {
+        favoritesToggle.addEventListener('click', () => {
+            favoritesToggle.classList.toggle('liked');
+            currentPage = 1;
+            renderGrid();
+        });
+    }
 
     // Card clicks
-    grid.addEventListener('click', (e) => {
-        const card = e.target.closest('.card');
-        if (card && !card.classList.contains('premium-locked')) {
-            const promptId = parseInt(card.dataset.id);
-            const prompt = prompts.find(p => p.id === promptId);
-            openModal(prompt);
-        }
-    });
+    if (grid) {
+        grid.addEventListener('click', (e) => {
+            const card = e.target.closest('.card');
+            if (card && !card.classList.contains('premium-locked')) {
+                const promptId = parseInt(card.dataset.id);
+                const prompt = prompts.find(p => p.id === promptId);
+                if (prompt) openModal(prompt);
+            }
+        });
 
-    // Like buttons
-    grid.addEventListener('click', (e) => {
-        const likeBtn = e.target.closest('.like-btn');
-        if (likeBtn) {
-            const promptId = parseInt(likeBtn.dataset.id);
-            toggleFavorite(promptId);
-        }
-    });
+        // Like buttons
+        grid.addEventListener('click', (e) => {
+            const likeBtn = e.target.closest('.like-btn');
+            if (likeBtn) {
+                const promptId = parseInt(likeBtn.dataset.id);
+                toggleFavorite(promptId);
+            }
+        });
+    }
 
     // Modal controls
-    document.getElementById('closeModal').addEventListener('click', closeModal);
-    document.getElementById('copyBtn').addEventListener('click', copyPrompt);
-    modal.addEventListener('click', (e) => {
+    const closeModalBtn = document.getElementById('closeModal');
+    const copyBtn = document.getElementById('copyBtn');
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+    if (copyBtn) copyBtn.addEventListener('click', copyPrompt);
+    if (modal) modal.addEventListener('click', (e) => {
         if (e.target === modal) closeModal();
     });
 
-    // NEW: Pagination clicks
+    // 🔥 NUCLEAR-PROOF PAGINATION EVENT LISTENER
     document.addEventListener('click', (e) => {
-        if (e.target.id === 'prevPage' && !e.target.disabled) goToPage(currentPage - 1);
-        if (e.target.id === 'nextPage' && !e.target.disabled) goToPage(currentPage + 1);
-        if (e.target.classList.contains('pag-num')) {
+        // Prev/Next buttons
+        if (e.target.matches('.pag-btn#prevPage') && !e.target.disabled) {
+            goToPage(currentPage - 1);
+        }
+        if (e.target.matches('.pag-btn#nextPage') && !e.target.disabled) {
+            goToPage(currentPage + 1);
+        }
+        // Page numbers
+        if (e.target.classList.contains('pag-num') && !e.target.classList.contains('dots')) {
             const page = parseInt(e.target.dataset.page);
-            if (page !== currentPage) goToPage(page);
+            if (page && page !== currentPage) {
+                goToPage(page);
+            }
         }
     });
+}
+
+// Start app
+init();
 
     // Keyboard
     document.addEventListener('keydown', (e) => {
