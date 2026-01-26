@@ -1339,28 +1339,7 @@ document.addEventListener('click', function(e) {
     </style>
 </head>
 <body>
-    <div id="auth-box" style="max-width:320px;margin:40px auto;padding:20px;border:1px solid #ddd;border-radius:10px;">
-  <h2>Login</h2>
-
-  <input type="email" id="email" placeholder="Email"
-    style="width:100%;padding:10px;margin:8px 0;" />
-
-  <input type="password" id="password" placeholder="Password"
-    style="width:100%;padding:10px;margin:8px 0;" />
-
-  <button onclick="login()" style="width:100%;padding:10px;">Login</button>
-  <button onclick="signup()" style="width:100%;padding:10px;margin-top:6px;">
-    Sign Up
-  </button>
-
-  <hr style="margin:15px 0;" />
-
-  <button onclick="loginWithGoogle()" style="width:100%;padding:10px;">
-    Continue with Google
-  </button>
-
-  <p id="auth-msg" style="margin-top:10px;color:#555;"></p>
-    </div>
+    
     
 
 <!-- CUSTOM TOAST - PUT HERE -->
@@ -2584,66 +2563,6 @@ function fallbackShare(data) {
         }
 </script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script>
-  const supabaseUrl = "https://zqdrycjtvmtygyyoqlld.supabase.co";
-  const supabaseKey = "sb_publishable_QTzP8FpPofn9mrXtmPrgHQ_I16inQxm";
-
-  const supabase = window.supabase.createClient(
-    supabaseUrl,
-    supabaseKey
-  );
-
-  async function login() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password
-    });
-
-    document.getElementById("auth-msg").innerText =
-      error ? error.message : "Logged in successfully ✅";
-  }
-
-  async function signup() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    const { error } = await supabase.auth.signUp({
-      email,
-      password
-    });
-
-    document.getElementById("auth-msg").innerText =
-      error ? error.message : "Check your email to confirm 📧";
-  }
-
-  async function loginWithGoogle() {
-    await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: window.location.origin
-      }
-    });
-  }
-
-  // Detect user session
-  supabase.auth.onAuthStateChange((event, session) => {
-    if (session) {
-      document.getElementById("auth-box").innerHTML =
-        `<h3>Welcome 👋</h3>
-         <p>${session.user.email}</p>
-         <button onclick="logout()">Logout</button>`;
-    }
-  });
-
-  async function logout() {
-    await supabase.auth.signOut();
-    location.reload();
-  }
-        </script>
 </body>
                                                                   </html>
 
