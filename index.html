@@ -1163,25 +1163,7 @@ document.addEventListener('click', function(e) {
   .loved-section h3 {
     font-size: 1.4rem;
         }
-    .auth-btn {
-  padding: 8px 16px;
-  font-size: 14px;
-  border: none;
-  border-radius: 6px;
-  background-color: #6a5af9;
-  color: white;
-  cursor: pointer;
-  margin-right: 50px; /* adjust to place left of menu */
-  position: absolute; /* adjust based on your header layout */
-  top: 16px;         /* distance from top */
-  right: 80px;       /* distance from right, change to suit your layout */
-  transition: background 0.3s;
-}
 
-.auth-btn:hover {
-  background-color: #5846c7;
-}
-    
 
     </style>
 </head>
@@ -1205,7 +1187,19 @@ document.addEventListener('click', function(e) {
         <div class="header-content">
             <div class="logo">Mintprompt</div>
             
-    <button id="authBtn" class="auth-btn">Login</button>
+    <div id="authContainer" style="position: absolute; top: 20px; right: 20px; display: flex; align-items: center; gap: 10px;">
+  <span id="userEmail" style="display:none; font-size:14px; color:#333;"></span>
+  <button id="authBtn" style="
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #6C63FF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+  ">Login</button>
+</div
     <button class="control-btn" id="favoritesToggle" title="Favorites">🛒</button>
 
     <button class="control-btn" id="menuToggle" title="Menu">☰</button>
@@ -2201,40 +2195,48 @@ setTimeout(function() {
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
 
+<!-- Auth Script -->
 <script>
-  document.addEventListener("DOMContentLoaded", async () => {
-    const supabase = window.supabase.createClient(
-      "https://zqdrycjtvmtygyyqolld.supabase.co",
-      "sb_publishable_QTzP8FpPofn9mrXtmPrgHQ_I16inQxm"
-    );
+  // Initialize Supabase
+  const supabase = window.supabase.createClient(
+    "https://zqdrycjtvmtygyyoqlld.supabase.co",
+    "sb_publishable_QTzP8FpPofn9mrXtmPrgHQ_I16inQxm"
+  );
 
-    const authBtn = document.getElementById("authBtn");
+  const authBtn = document.getElementById("authBtn");
+  const userEmail = document.getElementById("userEmail");
 
-    async function updateAuthButton() {
-      const { data: { session } } = await supabase.auth.getSession();
+  async function updateAuthButton() {
+    const { data: { session } } = await supabase.auth.getSession();
 
-      if (session) {
-        authBtn.textContent = "Logout";
-        authBtn.onclick = async () => {
-          await supabase.auth.signOut();
-          updateAuthButton();
-          location.reload();
-        };
-      } else {
-        authBtn.textContent = "Login";
-        authBtn.onclick = () => {
-          location.href = "login.html";
-        };
-      }
+    if (session && session.user) {
+      // User is logged in
+      authBtn.textContent = "Logout";
+      userEmail.style.display = "inline-block";
+      userEmail.textContent = session.user.email;
+
+      authBtn.onclick = async () => {
+        await supabase.auth.signOut();
+        updateAuthButton();
+        location.reload();
+      };
+    } else {
+      // User is not logged in
+      authBtn.textContent = "Login";
+      userEmail.style.display = "none";
+
+      authBtn.onclick = () => {
+        location.href = "login.html"; // Redirect to login page
+      };
     }
+  }
 
-    // Initial check
+  // Initial run
+  updateAuthButton();
+
+  // Listen to auth changes
+  supabase.auth.onAuthStateChange(() => {
     updateAuthButton();
-
-    // Listen for auth changes
-    supabase.auth.onAuthStateChange(() => {
-      updateAuthButton();
-    });
   });
 </script>
 </body>
