@@ -1287,118 +1287,81 @@ document.addEventListener('click', function(e) {
   .loved-section h3 {
     font-size: 1.4rem;
   }
-    /* 🔥 MINT PROMPT PERFECT PAGINATION - Matches mintprompt.in */
+    /* 🚀 ULTIMATE FORCE VISIBLE - NOTHING CAN HIDE THESE BUTTONS */
+#paginationContainer * {
+    all: initial !important;
+    display: flex !important;
+    box-sizing: border-box !important;
+}
+
 #paginationContainer {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 4px !important;
-    padding: 8px 16px !important;
-    background: rgba(255,255,255,0.05) !important;
-    backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(255,255,255,0.1) !important;
-    border-radius: 16px !important;
-    margin: 24px auto !important;
-    max-width: 90vw !important;
-    min-height: 42px !important;
+    gap: 3px !important;
+    padding: 8px 12px !important;
+    background: rgba(20,30,50,0.95) !important;
+    border: 1px solid #667eea !important;
+    border-radius: 14px !important;
+    margin: 20px auto !important;
+    max-width: 95vw !important;
 }
 
-/* MintPrompt signature page numbers */
-#pagNumbers {
-    display: flex !important;
-    gap: 4px !important;
-}
-
-.pag-num {
-    width: 36px !important;
-    height: 36px !important;
-    background: rgba(255,255,255,0.08) !important;
-    border: 1px solid rgba(255,255,255,0.15) !important;
-    color: #e2e8f0 !important;
-    border-radius: 10px !important;
+.pag-num, #prevPage, #nextPage {
+    width: 34px !important;
+    height: 34px !important;
+    background: #667eea !important;
+    color: white !important;
+    border-radius: 8px !important;
     font-size: 13px !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
+    border: none !important;
+    margin: 0 1px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     cursor: pointer !important;
-    transition: all 0.3s ease !important;
     flex-shrink: 0 !important;
-}
-
-.pag-num:hover:not(.active) {
-    background: rgba(102,126,234,0.15) !important;
-    border-color: rgba(102,126,234,0.4) !important;
-    color: white !important;
 }
 
 .pag-num.active {
-    background: rgba(102,126,234,0.25) !important;
-    border-color: rgba(102,126,234,0.6) !important;
-    color: white !important;
+    background: #764ba2 !important;
+    box-shadow: 0 0 0 2px rgba(118,75,162,0.5) !important;
 }
 
-/* Compact Prev/Next - MintPrompt style */
 #prevPage, #nextPage {
-    width: 36px !important;
-    height: 36px !important;
-    background: rgba(102,126,234,0.15) !important;
-    border: 1px solid rgba(102,126,234,0.3) !important;
-    color: white !important;
-    border-radius: 10px !important;
     font-size: 14px !important;
-    font-weight: 600 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-    flex-shrink: 0 !important;
+    background: #5a67d8 !important;
 }
 
-#prevPage:hover:not(:disabled), #nextPage:hover:not(:disabled) {
-    background: rgba(102,126,234,0.3) !important;
-    border-color: #667eea !important;
+#prevPage:hover:not(:disabled), #nextPage:hover:not(:disabled), .pag-num:hover:not(.active) {
+    background: #4c51bf !important;
+    transform: scale(1.05) !important;
 }
 
 #prevPage:disabled, #nextPage:disabled {
-    opacity: 0.4 !important;
-    cursor: not-allowed !important;
+    background: #4a5568 !important;
+    opacity: 0.5 !important;
 }
 
-/* Hide page info on mobile */
+#pagNumbers {
+    gap: 2px !important;
+    display: flex !important;
+}
+
 #pagInfo {
     display: none !important;
 }
 
-@media (min-width: 769px) {
-    #pagInfo {
-        display: inline-flex !important;
-        color: #94a3b8 !important;
-        font-size: 13px !important;
-        margin: 0 12px !important;
-        white-space: nowrap !important;
-    }
-}
-
-/* Mobile - Ultra compact */
+/* MOBILE */
 @media (max-width: 480px) {
-    #paginationContainer {
-        padding: 6px 12px !important;
-        gap: 3px !important;
-        margin: 16px 8px !important;
-    }
-    
     .pag-num, #prevPage, #nextPage {
-        width: 32px !important;
-        height: 32px !important;
+        width: 30px !important;
+        height: 30px !important;
         font-size: 12px !important;
     }
-    
-    #pagNumbers {
-        gap: 2px !important;
     }
-        }
+  
 
 
     </style>
