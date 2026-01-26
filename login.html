@@ -171,14 +171,26 @@ function showLogin(){
 }
 
 /* ===== LOGIN ===== */
-loginForm.onsubmit = async (e)=>{
+loginForm.onsubmit = async (e) => {
   e.preventDefault();
-  const { error } = await supabase.auth.signInWithPassword({
+
+  const { data, error } = await supabase.auth.signInWithPassword({
     email: loginEmail.value,
     password: loginPassword.value
   });
-  if(error){ loginError.textContent = error.message; return; }
-  location.href="/dashboard.html";
+
+  if (error) {
+    loginError.textContent = error.message;
+    return;
+  }
+
+  if (!data.user.email_confirmed_at) {
+    loginError.textContent = "Please verify your email before logging in.";
+    await supabase.auth.signOut();
+    return;
+  }
+
+  location.href = "/dashboard.html";
 };
 
 /* ===== SIGNUP (EMAIL VERIFY) ===== */
@@ -188,7 +200,8 @@ signupForm.onsubmit = async (e)=>{
     email: signupEmail.value,
     password: signupPassword.value,
     options:{
-      emailRedirectTo: location.origin + "/login.html"
+      emailRedirectTo: 'https://mintprompt.in/login.html'
+     
     }
   });
   if(error){ signupError.textContent = error.message; return; }
