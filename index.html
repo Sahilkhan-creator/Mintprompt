@@ -1163,6 +1163,45 @@ document.addEventListener('click', function(e) {
   .loved-section h3 {
     font-size: 1.4rem;
         }
+    /* Login button styling */
+.auth-btn {
+    background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-right: 12px; /* space before menu button */
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover effect */
+.auth-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .auth-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+        margin-right: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+        margin-right: 6px;
+    }
+    }
 
     </style>
 </head>
@@ -1185,14 +1224,7 @@ document.addEventListener('click', function(e) {
     <header class="header">
         <div class="header-content">
             <div class="logo">Mintprompt</div>
-            <div class="search-container">
-                <svg class="search-icon" viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="m21 21-4.35-4.35"></path>
-                </svg>
-                <input type="text" class="search-input" placeholder="Search prompts..." id="searchInput">
-            </div>
-            <div class="controls">
+            <button id="authBtn" class="auth-btn">Login</button>
     <button class="control-btn" id="favoritesToggle" title="Favorites">🛒</button>
 
     <button class="control-btn" id="menuToggle" title="Menu">☰</button>
@@ -2185,6 +2217,44 @@ setTimeout(function() {
         }
     }, 1000);
 }, 2000);
+    </script>
+    <script>
+  // Initialize Supabase
+  const supabase = window.supabase.createClient(
+    "https://zqdrycjtvmtygyyqolld.supabase.co",
+    "sb_publishable_QTzP8FpPofn9mrXtmPrgHQ_I16inQxm"
+  );
+
+  const authBtn = document.getElementById("authBtn");
+
+  // Function to update button based on login state
+  async function updateAuthButton() {
+    const { data: { session } } = await supabase.auth.getSession();
+
+    if (session) {
+      // User is logged in
+      authBtn.textContent = "Logout";
+      authBtn.onclick = async () => {
+        await supabase.auth.signOut();
+        updateAuthButton(); // Update button after logout
+        location.reload();  // Optional: reload to update UI
+      };
+    } else {
+      // User is not logged in
+      authBtn.textContent = "Login";
+      authBtn.onclick = () => {
+        location.href = "login.html"; // Redirect to login page
+      };
+    }
+  }
+
+  // Run on page load
+  updateAuthButton();
+
+  // Optional: listen for auth state changes
+  supabase.auth.onAuthStateChange(() => {
+    updateAuthButton();
+  });
     </script>
     
 </body>
