@@ -1339,46 +1339,50 @@ document.addEventListener('click', function(e) {
     </style>
 </head>
 <body>
-    <!-- PERMANENT LOGIN BAR - TOP RIGHT -->
-<div id="authBar" class="auth-bar">
+    <!-- LOGIN MODAL / AUTH BOX -->
+<div id="authModal" class="auth-modal">
   <div class="auth-content">
-    <!-- LOGIN BUTTON (when not logged in) -->
-    <button onclick="toggleAuth()" class="login-btn" id="loginBtn">
-      👤 Login
-    </button>
-    
-    <!-- USER STATUS (when logged in) -->
-    <div id="userStatus" class="user-status" style="display:none;">
-      <span id="userName"></span>
-      <button onclick="logout()" class="logout-btn">Logout</button>
+    <button class="close-btn" onclick="toggleAuth()">✖</button>
+
+    <!-- Tabs -->
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="showTab('login')">Login</button>
+      <button class="tab-btn" onclick="showTab('signup')">Sign Up</button>
     </div>
+
+    <!-- LOGIN FORM -->
+    <form id="loginForm">
+      <input type="email" id="loginUser" placeholder="Email" required />
+      <input type="password" id="loginPass" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+
+    <!-- SIGNUP FORM -->
+    <form id="signupForm" style="display:none;">
+      <input type="email" id="signupUser" placeholder="Email" required />
+      <input type="password" id="signupPass" placeholder="Password" required />
+      <input type="password" id="signupConfirm" placeholder="Confirm Password" required />
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <div class="divider">or</div>
+
+    <!-- GOOGLE LOGIN -->
+    <button class="google-btn" onclick="loginWithGoogle()">Continue with Google</button>
+
+    <p id="auth-msg"></p>
   </div>
 </div>
 
-<!-- AUTH MODAL (pops below button) -->
-<div id="authModal" class="auth-modal">
-  <div class="auth-container">
-    <div class="tab-switcher">
-      <button class="tab-btn active" onclick="showTab('signup')">Sign Up</button>
-      <button class="tab-btn" onclick="showTab('login')">Login</button>
-    </div>
-    
-    <!-- SIGNUP FORM -->
-    <form id="signupForm">
-      <input type="text" id="signupUser" placeholder="Username" required>
-      <input type="password" id="signupPass" placeholder="Password" required>
-      <input type="password" id="signupConfirm" placeholder="Confirm Password" required>
-      <button type="submit" class="submit-btn">Create Account</button>
-    </form>
-    
-    <!-- LOGIN FORM -->
-    <form id="loginForm" style="display:none;">
-      <input type="text" id="loginUser" placeholder="Username" required>
-      <input type="password" id="loginPass" placeholder="Password" required>
-      <button type="submit" class="submit-btn">Sign In</button>
-    </form>
+<!-- HEADER USER STATE -->
+<div id="authBar">
+  <button id="loginBtn" onclick="toggleAuth()">Login</button>
+  <div id="userStatus" style="display:none;">
+    <span id="userName"></span>
+    <button onclick="logout()">Logout</button>
   </div>
 </div>
+
     
 
 <!-- CUSTOM TOAST - PUT HERE -->
@@ -2478,130 +2482,108 @@ document.addEventListener('click', function(e) {
         }
         
     </script>
-    
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyBoHIV18vtLbR0OVQ4BH7RrjYYEL4vpMww",
-    authDomain: "mintprompt-e676d.firebaseapp.com",
-    projectId: "mintprompt-e676d",
-    storageBucket: "mintprompt-e676d.firebasestorage.app",
-    messagingSenderId: "387878641820",
-    appId: "1:387878641820:web:32a3281ae69c8b50ad4d59",
-    measurementId: "G-1WCBX3XXCM"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-    let currentPromptText = '';
-    
-// Add/replace this function in your <script> (put it at the bottom of body)
-function shareThisPrompt() {
-  // 1. Get the current prompt text from your modal
-  const promptElement = document.getElementById("preview-text"); // ← your actual ID from screenshot
-  if (!promptElement) {
-    alert("Couldn't find the prompt text. Please try again.");
-    return;
-  }
-
-  const fullPrompt = promptElement.textContent.trim();
-  if (!fullPrompt) {
-    alert("No prompt to share yet.");
-    return;
-  }
-
-  // Prepare nice share message (shortened + call-to-action)
-  const shortPrompt = fullPrompt.substring(0, 120) + (fullPrompt.length > 120 ? "..." : "");
-  const shareText = `Amazing AI prompt from MintPrompt.in! 🚀\n\n${shortPrompt}\n\n`;
-  const pageUrl = window.location.href;  // or use a fixed link like "https://mintprompt.in"
-
-  // 2. Modern native share (what you see in your screenshot)
-  if (navigator.share) {
-    navigator.share({
-      title: "Cool AI Image Prompt – MintPrompt",
-      text: shareText,
-      url: pageUrl
-    })
-    .then(() => console.log("Share successful"))
-    .catch((error) => {
-      console.log("Share cancelled or failed", error);
-      // Silent fail – user might just cancel
-    });
-  } 
-  // 3. Fallback for desktop / unsupported browsers (opens X/Twitter compose)
-  else {
-    const twitterIntent = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(pageUrl)}`;
-    window.open(twitterIntent, '_blank', 'width=600,height=400');
-    // Optional: show message
-    alert("Native share not available on this device/browser.\nOpening Twitter/X to share instead!");
-  }
-}
-    // Call this function when user clicks your "Share" button
-async function sharePrompt() {
-  // 1. Get the prompt text from your modal (change selector if needed)
-  const promptTextElement = document.getElementById('preview-text');
-  
-  if (!promptTextElement) {
-    alert("Couldn't find the prompt text");
-    return;
-  }
-
-  const fullPrompt = promptTextElement.textContent.trim();
-  
-  if (!fullPrompt) {
-    alert("No prompt to share");
-    return;
-  }
-
-  // Prepare nice message (shortened + call to action)
-  const previewText = fullPrompt.length > 120 
-    ? fullPrompt.substring(0, 120) + '...' 
-    : fullPrompt;
-
-  const shareData = {
-    title: "AI Prompt from MintPrompt.in",
-    text: `Check out this amazing prompt!\n\n${previewText}\n\n`,
-    url: window.location.href   // or "https://mintprompt.in" if you prefer fixed link
-  };
-
-  // 2. Try native share (this creates the popup you want)
-  if (navigator.share) {
-    try {
-      await navigator.share(shareData);
-      console.log("Shared successfully");
-    } catch (err) {
-      // User cancelled or error → silent or show message
-      if (err.name !== 'AbortError') {
-        console.error("Share failed:", err);
-        fallbackShare(shareData);
-      }
-    }
-  } 
-  // 3. Fallback for desktop / unsupported browsers
-  else {
-    fallbackShare(shareData);
-  }
-}
-
-// Simple fallback: open Twitter/X compose window
-function fallbackShare(data) {
-  const message = `${data.text}${data.url}`;
-  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(message)}`;
-  
-  window.open(twitterUrl, '_blank', 'width=600,height=400');
-  // Optional: tell user what happened
-  // alert("Native share not available here.\nOpening Twitter/X instead!");
-        }
-</script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const supabaseUrl = "https://zqdrycjtvmtygyyoqlld.supabase.co";
+const supabaseKey = "sb_publishable_QTzP8FpPofn9mrXtmPrgHQ_I16inQxm";
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+</script>
+    <script>
+// 🔐 SUPABASE LOGIN SYSTEM
+
+async function initAuth() {
+  const { data } = await supabase.auth.getSession();
+  if (data.session) {
+    const email = data.session.user.email;
+    document.getElementById('loginBtn').style.display = 'none';
+    document.getElementById('userStatus').style.display = 'flex';
+    document.getElementById('userName').textContent = email;
+  }
+}
+
+// Toggle modal (UNCHANGED)
+function toggleAuth() {
+  document.getElementById('authModal').classList.toggle('show');
+}
+
+// Tabs (UNCHANGED)
+function showTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  document.getElementById('signupForm').style.display = 'none';
+  document.getElementById('loginForm').style.display = 'none';
+
+  event.target.classList.add('active');
+  document.getElementById(tab === 'signup' ? 'signupForm' : 'loginForm').style.display = 'block';
+}
+
+// 🆕 SIGNUP (SUPABASE)
+document.getElementById('signupForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const email = document.getElementById('signupUser').value;
+  const password = document.getElementById('signupPass').value;
+  const confirm = document.getElementById('signupConfirm').value;
+
+  if (password !== confirm) return alert('Passwords mismatch!');
+  if (password.length < 6) return alert('Password too short!');
+
+  const { error } = await supabase.auth.signUp({
+    email,
+    password
+  });
+
+  if (error) return alert(error.message);
+
+  alert('Account created! Check your email 📧');
+});
+
+// 🆕 LOGIN (SUPABASE)
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const email = document.getElementById('loginUser').value;
+  const password = document.getElementById('loginPass').value;
+
+  const { error } = await supabase.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if (error) return alert(error.message);
+
+  alert('Welcome back!');
+  location.reload();
+});
+
+// 🆕 LOGOUT
+async function logout() {
+  await supabase.auth.signOut();
+  location.reload();
+}
+
+// Session watcher (auto login state)
+supabase.auth.onAuthStateChange((event, session) => {
+  if (session) {
+    document.getElementById('loginBtn').style.display = 'none';
+    document.getElementById('userStatus').style.display = 'flex';
+    document.getElementById('userName').textContent = session.user.email;
+  }
+});
+
+// START
+initAuth();
+
+// Click outside modal (UNCHANGED)
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('#authBar') && !e.target.closest('#authModal')) {
+    document.getElementById('authModal').classList.remove('show');
+  }
+});
+
+function openAITools() {
+  window.open('ai-tools.html', '_blank');
+}
+      </script>
 </body>
                                                                   </html>
 
