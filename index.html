@@ -1287,101 +1287,119 @@ document.addEventListener('click', function(e) {
   .loved-section h3 {
     font-size: 1.4rem;
   }
-/* 🔧 COMPACT MOBILE PAGINATION - SMALLER + TIGHTER */
+    /* 🔥 MINT PROMPT PERFECT PAGINATION - Matches mintprompt.in */
 #paginationContainer {
     display: flex !important;
-    justify-content: center !important;
     align-items: center !important;
-    gap: 4px !important;        /* ← TIGHTER spacing */
-    padding: 8px 12px !important;  /* ← SMALLER padding */
-    background: rgba(15,23,42,0.95) !important;
-    border: 1px solid rgba(102,126,234,0.4) !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    padding: 8px 16px !important;
+    background: rgba(255,255,255,0.05) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
     border-radius: 16px !important;
-    margin: 20px auto !important;
+    margin: 24px auto !important;
     max-width: 90vw !important;
-    min-height: 44px !important;  /* ← SMALLER height */
+    min-height: 42px !important;
 }
 
+/* MintPrompt signature page numbers */
 #pagNumbers {
     display: flex !important;
-    gap: 3px !important;         /* ← TIGHTER page numbers */
+    gap: 4px !important;
 }
 
-#pagInfo {
-    display: none !important;    /* ← HIDE text on mobile - saves space */
-    font-size: 12px !important;
-    color: #94a3b8 !important;
-    padding: 0 4px !important;
-}
-
-/* SMALLER BUTTONS */
-.pag-num, #prevPage, #nextPage {
-    min-width: 36px !important;  /* ← SMALLER width */
-    height: 36px !important;     /* ← SMALLER height */
+.pag-num {
+    width: 36px !important;
+    height: 36px !important;
+    background: rgba(255,255,255,0.08) !important;
+    border: 1px solid rgba(255,255,255,0.15) !important;
+    color: #e2e8f0 !important;
     border-radius: 10px !important;
-    font-size: 14px !important;  /* ← SMALLER font */
-    font-weight: 700 !important;
-    border: 1px solid rgba(255,255,255,0.3) !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     cursor: pointer !important;
+    transition: all 0.3s ease !important;
     flex-shrink: 0 !important;
 }
 
-/* Page Numbers */
-.pag-num {
-    background: rgba(255,255,255,0.12) !important;
-    color: #e2e8f0 !important;
-    padding: 0 6px !important;
+.pag-num:hover:not(.active) {
+    background: rgba(102,126,234,0.15) !important;
+    border-color: rgba(102,126,234,0.4) !important;
+    color: white !important;
 }
 
 .pag-num.active {
-    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+    background: rgba(102,126,234,0.25) !important;
+    border-color: rgba(102,126,234,0.6) !important;
     color: white !important;
 }
 
-/* Prev/Next - COMPACT */
+/* Compact Prev/Next - MintPrompt style */
 #prevPage, #nextPage {
-    width: 36px !important;      /* ← FIXED width */
-    background: rgba(102,126,234,0.3) !important;
+    width: 36px !important;
+    height: 36px !important;
+    background: rgba(102,126,234,0.15) !important;
+    border: 1px solid rgba(102,126,234,0.3) !important;
     color: white !important;
-    font-size: 14px !important;  /* ← SMALLER arrows */
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    flex-shrink: 0 !important;
 }
 
-.pag-num:hover:not(.active), #prevPage:hover:not(:disabled), #nextPage:hover:not(:disabled) {
-    background: rgba(102,126,234,0.5) !important;
-    transform: none !important;  /* ← No transform = more compact */
+#prevPage:hover:not(:disabled), #nextPage:hover:not(:disabled) {
+    background: rgba(102,126,234,0.3) !important;
+    border-color: #667eea !important;
 }
 
-/* MOBILE ONLY - EXTRA SMALL */
+#prevPage:disabled, #nextPage:disabled {
+    opacity: 0.4 !important;
+    cursor: not-allowed !important;
+}
+
+/* Hide page info on mobile */
+#pagInfo {
+    display: none !important;
+}
+
+@media (min-width: 769px) {
+    #pagInfo {
+        display: inline-flex !important;
+        color: #94a3b8 !important;
+        font-size: 13px !important;
+        margin: 0 12px !important;
+        white-space: nowrap !important;
+    }
+}
+
+/* Mobile - Ultra compact */
 @media (max-width: 480px) {
     #paginationContainer {
-        padding: 6px 10px !important;
-        gap: 2px !important;
-        margin: 16px 4px !important;
-        border-radius: 14px !important;
+        padding: 6px 12px !important;
+        gap: 3px !important;
+        margin: 16px 8px !important;
     }
     
     .pag-num, #prevPage, #nextPage {
-        min-width: 32px !important;  /* ← MOBILE TINY */
+        width: 32px !important;
         height: 32px !important;
-        font-size: 13px !important;
+        font-size: 12px !important;
     }
     
     #pagNumbers {
         gap: 2px !important;
     }
-}
-
-/* DESKTOP - Show page info */
-@media (min-width: 769px) {
-    #pagInfo {
-        display: inline-flex !important;
-        margin: 0 8px !important;
-        font-size: 13px !important;
-    }
         }
+
 
     </style>
 </head>
