@@ -1,403 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MintPrompt - Login / Sign Up</title>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <style>
-        /* 🔥 MINT PROMPT.IN GLASSMORPHISM + GOLD GRADIENT */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Signup</title>
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            overflow-x: hidden;
-        }
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-        .container {
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #ffd60a, #ffaa00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 2rem;
-            text-shadow: 0 4px 20px rgba(255, 214, 10, 0.3);
-        }
-
-        /* 🔥 SUPABASE FLIP LOGIN - MintPrompt Style */
-        .wrapper {
-            --input-focus: #ffd60a;
-            --font-color: #e2e8f0;
-            --font-color-sub: #94a3b8;
-            --bg-color: rgba(255, 255, 255, 0.08);
-            --bg-color-alt: rgba(255, 255, 255, 0.12);
-            --main-color: #1e293b;
-            --purple-glow: rgba(102, 126, 234, 0.3);
-        }
-
-        .switch {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            width: 60px;
-            height: 24px;
-            margin-bottom: 2rem;
-        }
-
-        .card-side::before {
-            position: absolute;
-            content: 'Log in';
-            left: -80px;
-            top: 0;
-            width: 80px;
-            font-weight: 700;
-            color: rgba(226, 232, 240, 0.7);
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .card-side::after {
-            position: absolute;
-            content: 'Sign up';
-            right: -80px;
-            top: 0;
-            width: 80px;
-            font-weight: 700;
-            color: #ffd60a;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .toggle {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            border-radius: 12px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 20px;
-            width: 20px;
-            border: 2px solid #ffd60a;
-            border-radius: 50%;
-            left: 2px;
-            bottom: 2px;
-            background: linear-gradient(135deg, #ffd60a, #ffaa00);
-            box-shadow: 0 4px 16px rgba(255, 214, 10, 0.4);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .toggle:checked + .slider {
-            background: rgba(102, 126, 234, 0.2);
-            border-color: rgba(102, 126, 234, 0.4);
-        }
-
-        .toggle:checked + .slider:before {
-            transform: translateX(36px);
-            box-shadow: 0 0 20px rgba(255, 214, 10, 0.6);
-        }
-
-        .toggle:checked ~ .card-side:before {
-            color: #ffd60a;
-        }
-
-        .toggle:checked ~ .card-side:after {
-            color: rgba(226, 232, 240, 0.7);
-        }
-
-        .flip-card__inner {
-            width: 100%;
-            height: 420px;
-            position: relative;
-            background: transparent;
-            perspective: 1200px;
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-style: preserve-3d;
-        }
-
-        .toggle:checked ~ .flip-card__inner {
-            transform: rotateY(180deg);
-        }
-
-        .flip-card__front, .flip-card__back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            padding: 40px 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            backface-visibility: hidden;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 24px;
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            gap: 24px;
-        }
-
-        .flip-card__back {
-            transform: rotateY(180deg);
-        }
-
-        .title {
-            font-size: 28px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #ffd60a, #ffaa00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 8px;
-        }
-
-        .flip-card__input {
-            width: 100%;
-            height: 56px;
-            border-radius: 16px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(12px);
-            font-size: 16px;
-            font-weight: 500;
-            color: #e2e8f0;
-            padding: 0 20px;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .flip-card__input::placeholder {
-            color: rgba(148, 163, 184, 0.8);
-        }
-
-        .flip-card__input:focus {
-            border-color: #ffd60a;
-            background: rgba(255, 255, 255, 0.12);
-            box-shadow: 0 0 0 4px rgba(255, 214, 10, 0.2);
-        }
-
-        .flip-card__btn {
-            width: 100%;
-            height: 56px;
-            border-radius: 16px;
-            border: none;
-            background: linear-gradient(135deg, #ffd60a, #ffaa00);
-            font-size: 18px;
-            font-weight: 700;
-            color: #000;
-            cursor: pointer;
-            box-shadow: 0 12px 32px rgba(255, 214, 10, 0.4);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .flip-card__btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 16px 40px rgba(255, 214, 10, 0.5);
-        }
-
-        .flip-card__btn:active {
-            transform: translateY(0);
-        }
-
-        /* Toast */
-        .toast {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 16px 24px;
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            border-radius: 12px;
-            font-weight: 600;
-            box-shadow: 0 12px 32px rgba(16, 185, 129, 0.3);
-            transform: translateX(400px);
-            transition: transform 0.3s ease;
-            z-index: 1000;
-        }
-
-        .toast.show {
-            transform: translateX(0);
-        }
-
-        .error-toast {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            box-shadow: 0 12px 32px rgba(239, 68, 68, 0.3);
-        }
-
-        /* Mobile */
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 20px;
-            }
-            
-            .flip-card__front, .flip-card__back {
-                padding: 30px 20px;
-                height: 380px;
-            }
-            
-            .switch {
-                gap: 20px;
-            }
-            
-            .card-side::before, .card-side::after {
-                font-size: 12px;
-                left: -60px;
-                right: -60px;
-            }
-        }
-    </style>
+<style>
+/* ===== SAME GLASS UI ===== */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:Inter,sans-serif;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px
+}
+.login-container{width:100%;max-width:420px}
+.login-card{
+  background:rgba(255,255,255,.1);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:24px;
+  padding:40px;
+  color:#fff
+}
+.login-header{text-align:center;margin-bottom:32px}
+.login-header h2{font-size:2rem}
+.login-header p{opacity:.8}
+.form-group{margin-bottom:24px}
+.input-wrapper{position:relative}
+.input-wrapper input{
+  width:100%;
+  padding:16px;
+  border-radius:12px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.2);
+  color:#fff
+}
+.input-wrapper label{
+  position:absolute;
+  left:16px;
+  top:16px;
+  opacity:.7
+}
+.btn{
+  width:100%;
+  padding:16px;
+  border-radius:12px;
+  border:none;
+  background:linear-gradient(135deg,#6366f1,#06b6d4);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer
+}
+.divider{text-align:center;margin:24px 0;opacity:.7}
+.social-login{display:flex;gap:12px}
+.social-btn{
+  flex:1;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.1);
+  color:#fff;
+  cursor:pointer
+}
+.switch{text-align:center;margin-top:16px}
+.switch a{color:#06b6d4;cursor:pointer}
+.error{color:#ef4444;font-size:13px;margin-top:6px}
+.success{display:none;text-align:center}
+.hidden{display:none}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="logo">🍃 MintPrompt</div>
-        
-        <div class="wrapper">
-            <div class="card-switch">
-                <label class="switch">
-                    <input type="checkbox" class="toggle" id="toggle">
-                    <span class="slider"></span>
-                    <span class="card-side"></span>
-                    <div class="flip-card__inner">
-                        <!-- LOGIN -->
-                        <div class="flip-card__front">
-                            <div class="title">Welcome Back</div>
-                            <form class="flip-card__form" id="loginForm">
-                                <input class="flip-card__input" id="loginEmail" placeholder="Email" type="email" required>
-                                <input class="flip-card__input" id="loginPassword" placeholder="Password" type="password" required>
-                                <button type="submit" class="flip-card__btn">Sign In</button>
-                            </form>
-                        </div>
-                        <!-- SIGNUP -->
-                        <div class="flip-card__back">
-                            <div class="title">Create Account</div>
-                            <form class="flip-card__form" id="signupForm">
-                                <input class="flip-card__input" id="signupName" placeholder="Full Name" type="text" required>
-                                <input class="flip-card__input" id="signupEmail" placeholder="Email" type="email" required>
-                                <input class="flip-card__input" id="signupPassword" placeholder="Password" type="password" required>
-                                <button type="submit" class="flip-card__btn">Sign Up</button>
-                            </form>
-                        </div>
-                    </div>
-                </label>
-            </div>   
-        </div>
 
-        <!-- Toast -->
-        <div id="toast" class="toast"></div>
+<div class="login-container">
+<div class="login-card">
+
+<div class="login-header">
+<h2 id="title">Welcome Back</h2>
+<p id="subtitle">Sign in to your account</p>
+</div>
+
+<!-- LOGIN FORM -->
+<form id="loginForm">
+  <div class="form-group">
+    <div class="input-wrapper">
+      <input type="email" id="loginEmail" required>
+      <label>Email</label>
     </div>
+  </div>
 
-    <script>
-        // 🔥 SUPABASE - YOUR CREDENTIALS
-        const SUPABASE_URL = 'https://zqdrycjtvmtygyyoqlld.supabase.co';
-        const SUPABASE_ANON_KEY = 'sb_publishable_QTzP8FpPofn9mrXtmPrgHQ_I16inQxm';
+  <div class="form-group">
+    <div class="input-wrapper">
+      <input type="password" id="loginPassword" required>
+      <label>Password</label>
+    </div>
+    <div class="error" id="loginError"></div>
+  </div>
 
-        const supabase = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  <button class="btn">Sign In</button>
+</form>
 
-        const toggle = document.getElementById('toggle');
-        const loginForm = document.getElementById('loginForm');
-        const signupForm = document.getElementById('signupForm');
-        const toast = document.getElementById('toast');
+<!-- SIGNUP FORM -->
+<form id="signupForm" class="hidden">
+  <div class="form-group">
+    <div class="input-wrapper">
+      <input type="email" id="signupEmail" required>
+      <label>Email</label>
+    </div>
+  </div>
 
-        // 🔥 LOGIN
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
+  <div class="form-group">
+    <div class="input-wrapper">
+      <input type="password" id="signupPassword" required minlength="6">
+      <label>Password</label>
+    </div>
+    <div class="error" id="signupError"></div>
+  </div>
 
-            const { data, error } = await supabase.auth.signInWithPassword({
-                email,
-                password
-            });
+  <button class="btn">Create Account</button>
+</form>
 
-            if (error) {
-                showToast('Login failed: ' + error.message, 'error');
-                return;
-            }
+<div class="divider">or continue with</div>
 
-            showToast('Login successful! Redirecting...', 'success');
-            // Redirect after 1.5s
-            setTimeout(() => {
-                window.location.href = '/dashboard.html'; // Change to your dashboard
-            }, 1500);
-        });
+<div class="social-login">
+  <button class="social-btn" id="googleLogin">Google</button>
+  <button class="social-btn" id="githubLogin">GitHub</button>
+</div>
 
-        // 🔥 SIGNUP
-        signupForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('signupName').value;
-            const email = document.getElementById('signupEmail').value;
-            const password = document.getElementById('signupPassword').value;
+<div class="switch">
+<p id="switchText">
+Don’t have an account? <a onclick="showSignup()">Sign up</a>
+</p>
+</div>
 
-            const { data, error } = await supabase.auth.signUp({
-                email,
-                password,
-                options: {
-                    data: {
-                        full_name: name
-                    }
-                }
-            });
+<div class="success" id="successBox">
+<h3>Check your email 📩</h3>
+<p>Please verify your email before logging in.</p>
+</div>
 
-            if (error) {
-                showToast('Signup failed: ' + error.message, 'error');
-                return;
-            }
+</div>
+</div>
 
-            showToast('Check your email for confirmation!', 'success');
-        });
+<script>
+/* ===== SUPABASE ===== */
+const supabase = supabase.createClient(
+  "https://zqdrycjtvmtygyyoqlld.supabase.co",
+  "sb_publishable_QTzP8FpPofn9mrXtmPrgHQ_I16inQxm"
+);
 
-        // 🔥 TOAST NOTIFICATIONS
-        function showToast(message, type = 'success') {
-            toast.textContent = message;
-            toast.className = `toast show ${type === 'error' ? 'error-toast' : ''}`;
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 4000);
-        }
+/* ===== TOGGLE UI ===== */
+function showSignup(){
+  loginForm.classList.add("hidden");
+  signupForm.classList.remove("hidden");
+  title.textContent="Create Account";
+  subtitle.textContent="Sign up to get started";
+  switchText.innerHTML=`Already have an account? <a onclick="showLogin()">Login</a>`;
+}
+function showLogin(){
+  signupForm.classList.add("hidden");
+  loginForm.classList.remove("hidden");
+  title.textContent="Welcome Back";
+  subtitle.textContent="Sign in to your account";
+  switchText.innerHTML=`Don’t have an account? <a onclick="showSignup()">Sign up</a>`;
+}
 
-        // Flip animation already handled by CSS
-    </script>
+/* ===== LOGIN ===== */
+loginForm.onsubmit = async (e)=>{
+  e.preventDefault();
+  const { error } = await supabase.auth.signInWithPassword({
+    email: loginEmail.value,
+    password: loginPassword.value
+  });
+  if(error){ loginError.textContent = error.message; return; }
+  location.href="/dashboard.html";
+};
+
+/* ===== SIGNUP (EMAIL VERIFY) ===== */
+signupForm.onsubmit = async (e)=>{
+  e.preventDefault();
+  const { error } = await supabase.auth.signUp({
+    email: signupEmail.value,
+    password: signupPassword.value,
+    options:{
+      emailRedirectTo: location.origin + "/login.html"
+    }
+  });
+  if(error){ signupError.textContent = error.message; return; }
+  signupForm.classList.add("hidden");
+  document.querySelector(".social-login").classList.add("hidden");
+  document.querySelector(".divider").classList.add("hidden");
+  document.querySelector(".switch").classList.add("hidden");
+  successBox.style.display="block";
+};
+
+/* ===== OAUTH ===== */
+googleLogin.onclick=()=>supabase.auth.signInWithOAuth({provider:"google"});
+githubLogin.onclick=()=>supabase.auth.signInWithOAuth({provider:"github"});
+</script>
+
 </body>
-  </html>
+    </html>
