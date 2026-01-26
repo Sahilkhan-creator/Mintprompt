@@ -1287,81 +1287,130 @@ document.addEventListener('click', function(e) {
   .loved-section h3 {
     font-size: 1.4rem;
   }
-    /* 🚀 ULTIMATE FORCE VISIBLE - NOTHING CAN HIDE THESE BUTTONS */
-#paginationContainer * {
-    all: initial !important;
-    display: flex !important;
-    box-sizing: border-box !important;
-}
-
+    /* 🔥 MINT PROMPT.IN PERFECT MATCH - Glassmorphism + Purple */
 #paginationContainer {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 3px !important;
-    padding: 8px 12px !important;
-    background: rgba(20,30,50,0.95) !important;
-    border: 1px solid #667eea !important;
-    border-radius: 14px !important;
-    margin: 20px auto !important;
-    max-width: 95vw !important;
+    gap: 4px !important;
+    padding: 10px 16px !important;
+    background: rgba(15, 23, 42, 0.8) !important;
+    backdrop-filter: blur(24px) !important;
+    border: 1px solid rgba(102, 126, 234, 0.3) !important;
+    border-radius: 20px !important;
+    margin: 24px auto !important;
+    max-width: 90vw !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
 }
 
-.pag-num, #prevPage, #nextPage {
-    width: 34px !important;
-    height: 34px !important;
-    background: #667eea !important;
-    color: white !important;
-    border-radius: 8px !important;
+/* MintPrompt signature page container */
+#pagNumbers {
+    display: flex !important;
+    gap: 4px !important;
+}
+
+/* MintPrompt glassmorphism page buttons */
+.pag-num {
+    width: 36px !important;
+    height: 36px !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: rgba(226, 232, 240, 0.9) !important;
+    border-radius: 12px !important;
     font-size: 13px !important;
-    font-weight: 700 !important;
-    border: none !important;
-    margin: 0 1px !important;
+    font-weight: 600 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     flex-shrink: 0 !important;
 }
 
+.pag-num:hover:not(.active) {
+    background: rgba(102, 126, 234, 0.15) !important;
+    border-color: rgba(102, 126, 234, 0.4) !important;
+    color: white !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2) !important;
+}
+
 .pag-num.active {
-    background: #764ba2 !important;
-    box-shadow: 0 0 0 2px rgba(118,75,162,0.5) !important;
+    background: rgba(102, 126, 234, 0.25) !important;
+    border-color: rgba(102, 126, 234, 0.6) !important;
+    color: white !important;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.3),
+                0 4px 16px rgba(102, 126, 234, 0.2) !important;
 }
 
+/* MintPrompt prev/next buttons */
 #prevPage, #nextPage {
+    width: 36px !important;
+    height: 36px !important;
+    background: rgba(102, 126, 234, 0.12) !important;
+    border: 1px solid rgba(102, 126, 234, 0.3) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 12px !important;
     font-size: 14px !important;
-    background: #5a67d8 !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    flex-shrink: 0 !important;
 }
 
-#prevPage:hover:not(:disabled), #nextPage:hover:not(:disabled), .pag-num:hover:not(.active) {
-    background: #4c51bf !important;
-    transform: scale(1.05) !important;
+#prevPage:hover:not(:disabled), #nextPage:hover:not(:disabled) {
+    background: rgba(102, 126, 234, 0.25) !important;
+    border-color: rgba(102, 126, 234, 0.5) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.25) !important;
 }
 
 #prevPage:disabled, #nextPage:disabled {
-    background: #4a5568 !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    color: rgba(255, 255, 255, 0.4) !important;
     opacity: 0.5 !important;
+    cursor: not-allowed !important;
 }
 
-#pagNumbers {
-    gap: 2px !important;
-    display: flex !important;
-}
-
+/* Hide page counter on mobile */
 #pagInfo {
     display: none !important;
 }
 
-/* MOBILE */
+@media (min-width: 769px) {
+    #pagInfo {
+        display: inline-flex !important;
+        color: rgba(148, 163, 184, 0.9) !important;
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        margin: 0 12px !important;
+        padding: 4px 8px !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+        border-radius: 8px !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+}
+
+/* Mobile ultra-compact */
 @media (max-width: 480px) {
+    #paginationContainer {
+        padding: 8px 12px !important;
+        gap: 3px !important;
+        margin: 20px 8px !important;
+    }
+    
     .pag-num, #prevPage, #nextPage {
-        width: 30px !important;
-        height: 30px !important;
+        width: 32px !important;
+        height: 32px !important;
         font-size: 12px !important;
     }
-    }
-  
+        }
 
 
     </style>
