@@ -568,31 +568,43 @@ document.addEventListener('click', function(e) {
   line-height: 1.6;
   color: #cfcfcf;
             }
-        .pagination-container {
+.pagination-container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.25rem;
-    margin-top: 2rem;
-    padding: 0.5rem;
+    justify-content: flex-start; /* align left to keep it compact */
+    gap: 0.1rem;
+    padding: 0.25rem;
+    overflow-x: auto; /* scrolls if too wide */
+    white-space: nowrap; /* keeps all buttons in one line */
+    -webkit-overflow-scrolling: touch; /* smooth scroll on mobile */
 }
-.pag-btn {
-    padding: 0.4rem 0.75rem;
-    background: rgba(255,255,255,0.1);
+
+.pag-num, .pag-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+    min-width: 25px;
+    border-radius: 10px;
     border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 15px;
+    background: rgba(255,255,255,0.1);
     color: white;
     cursor: pointer;
-    font-size: 0.875rem;
-    transition: all 0.3s ease;
+    text-align: center;
+    flex: 0 0 auto; /* prevent shrinking */
+    transition: all 0.2s ease;
 }
+
+.pag-num.active,
+.pag-num:hover,
 .pag-btn:hover:not(:disabled) {
     background: linear-gradient(135deg,#ffd60a,#ffaa00);
     border-color: #ffd60a;
     color: #000;
-    transform: translateY(-1px);
 }
-.pag-btn:disabled {opacity:0.4;cursor:not-allowed;}
+
+.pag-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+                }       
 .pag-numbers {display:flex;gap:0.2rem;}
 .pag-num {
     padding:0.3rem 0.5rem;
