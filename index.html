@@ -1163,6 +1163,24 @@ document.addEventListener('click', function(e) {
   .loved-section h3 {
     font-size: 1.4rem;
         }
+    .auth-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #6a5af9;
+  color: white;
+  cursor: pointer;
+  margin-right: 50px; /* adjust to place left of menu */
+  position: absolute; /* adjust based on your header layout */
+  top: 16px;         /* distance from top */
+  right: 80px;       /* distance from right, change to suit your layout */
+  transition: background 0.3s;
+}
+
+.auth-btn:hover {
+  background-color: #5846c7;
+}
     
 
     </style>
@@ -1186,19 +1204,8 @@ document.addEventListener('click', function(e) {
     <header class="header">
         <div class="header-content">
             <div class="logo">Mintprompt</div>
-            <!-- Auth Button -->
-<button id="authBtn" style="
-  padding: 8px 16px;
-  border-radius: 8px;
-  border: none;
-  background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-">
-  Login
-</button>
+            
+    <button id="authBtn" class="auth-btn">Login</button>
     <button class="control-btn" id="favoritesToggle" title="Favorites">🛒</button>
 
     <button class="control-btn" id="menuToggle" title="Menu">☰</button>
@@ -2195,43 +2202,41 @@ setTimeout(function() {
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
 
 <script>
-  // Initialize Supabase
-  const supabase = window.supabase.createClient(
-    "https://zqdrycjtvmtygyyoqlld.supabase.co",
-    "sb_publishable_QTzP8FpPofn9mrXtmPrgHQ_I16inQxm"
-  );
+  document.addEventListener("DOMContentLoaded", async () => {
+    const supabase = window.supabase.createClient(
+      "https://zqdrycjtvmtygyyqolld.supabase.co",
+      "sb_publishable_QTzP8FpPofn9mrXtmPrgHQ_I16inQxm"
+    );
 
-  const authBtn = document.getElementById("authBtn");
+    const authBtn = document.getElementById("authBtn");
 
-  async function updateAuthButton() {
-    const { data: { session } } = await supabase.auth.getSession();
+    async function updateAuthButton() {
+      const { data: { session } } = await supabase.auth.getSession();
 
-    if (session) {
-      // User is logged in
-      authBtn.textContent = "Logout";
-      authBtn.onclick = async () => {
-        await supabase.auth.signOut();
-        updateAuthButton();
-        location.reload();
-      };
-    } else {
-      // User is not logged in
-      authBtn.textContent = "Login";
-      authBtn.onclick = () => {
-        location.href = "login.html";
-      };
+      if (session) {
+        authBtn.textContent = "Logout";
+        authBtn.onclick = async () => {
+          await supabase.auth.signOut();
+          updateAuthButton();
+          location.reload();
+        };
+      } else {
+        authBtn.textContent = "Login";
+        authBtn.onclick = () => {
+          location.href = "login.html";
+        };
+      }
     }
-  }
 
-  // Run on page load
-  updateAuthButton();
-
-  // Listen for auth state changes
-  supabase.auth.onAuthStateChange(() => {
+    // Initial check
     updateAuthButton();
+
+    // Listen for auth changes
+    supabase.auth.onAuthStateChange(() => {
+      updateAuthButton();
+    });
   });
 </script>
-    
 </body>
                                                                   </html>
 
