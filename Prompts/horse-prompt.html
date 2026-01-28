@@ -2,205 +2,276 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Horse AI Art Prompt – MintPrompt</title>
   <meta name="description" content="Free Horse AI Art Prompt to generate cinematic and realistic horse images using AI. Copy and use instantly.">
   <meta name="robots" content="index, follow">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <style>
-    {
-  height: 100%;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: #fff;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 12px; /* Tighter for mobile match */
-  box-sizing: border-box;
-}
+    html {
+      height: 100%;
+    }
 
-.prompt-card {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(18px);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-  /* Remove margin-bottom: 24px; for single card centering */
-  border: 1px solid rgba(255,255,255,0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  width: 100%;
-  max-width: 360px; /* Matches screenshot width */
-  margin: 0; /* No extra margins */
-}
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+    }
 
-.prompt-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 50px rgba(0,0,0,0.8);
-}
+    .container {
+      width: 100%;
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.image-wrapper {
-  width: 100%;
-  padding-top: 100%; /* 1:1 square */
-  position: relative;
-  overflow: hidden;
-}
+    .prompt-card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.15);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 20px;
+    }
 
-.prompt-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    .prompt-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      border-color: rgba(255,255,255,0.25);
+    }
 
-.prompt-card-body {
-  padding: 14px 16px;
-  }
+    .image-wrapper {
+      width: 100%;
+      padding-top: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .prompt-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .prompt-card:hover .prompt-img {
+      transform: scale(1.05);
+    }
+
+    .prompt-card-body {
+      padding: 18px 20px;
+    }
 
     .prompt-title {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 700;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+      line-height: 1.3;
     }
 
     .prompt-preview {
-      color: #ddd;
+      color: rgba(255,255,255,0.85);
       font-size: 0.95rem;
-      line-height: 1.4;
+      line-height: 1.5;
+      font-weight: 400;
     }
 
     .full-prompt-box {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(18px);
-      border-radius: 20px;
-      padding: 16px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.12);
+      width: 100%;
       margin-bottom: 24px;
     }
 
     .full-title {
-      font-size: 1.1rem;
-      margin-bottom: 12px;
+      font-size: 1.15rem;
+      margin-bottom: 16px;
       font-weight: 600;
+      color: rgba(255,255,255,0.95);
     }
 
     pre {
-      background: rgba(0,0,0,0.4);
-      padding: 14px;
-      border-radius: 12px;
+      background: rgba(0,0,0,0.45);
+      padding: 20px;
+      border-radius: 16px;
       white-space: pre-wrap;
-      line-height: 1.6;
+      line-height: 1.65;
       overflow-x: auto;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
+      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+      border: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 16px;
     }
 
     .copy-btn {
-      margin-top: 12px;
-      padding: 10px 16px;
-      background: #7c3aed;
+      width: 100%;
+      padding: 14px 20px;
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
       color: #fff;
       border: none;
-      border-radius: 12px;
+      border-radius: 16px;
       font-weight: 600;
+      font-size: 0.95rem;
       cursor: pointer;
-      transition: 0.3s;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
     }
 
     .copy-btn:hover {
-      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(124, 58, 237, 0.6);
     }
 
     .category {
-      margin-top: 10px;
+      margin-top: 12px;
       font-size: 0.85rem;
-      color: #ddd;
+      color: rgba(255,255,255,0.7);
+      font-weight: 500;
+      text-align: center;
     }
 
     .explore-btn {
-      display: block;
       width: 100%;
-      max-width: 300px;
-      margin: 20px auto 0;
-      padding: 14px 20px;
+      padding: 16px 24px;
       text-align: center;
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(16px);
       color: #fff;
       text-decoration: none;
       font-weight: 600;
-      border-radius: 14px;
+      font-size: 1rem;
+      border-radius: 20px;
       border: 1px solid rgba(255,255,255,0.2);
-      transition: 0.3s;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
 
     .explore-btn:hover {
-      background: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 8px;
+      }
+      
+      .prompt-card-body {
+        padding: 16px 18px;
+      }
+      
+      .full-prompt-box {
+        padding: 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
 
 <body>
-<div class="container">
+  <div class="container">
+    <h1 style="display:none;">Horse AI Art Prompt</h1>
 
-  <h1 style="display:none;">Horse AI Art Prompt</h1>
+    <div class="prompt-card" id="promptCard" role="img" aria-label="Horse AI art preview"></div>
 
-  <div class="prompt-card" id="promptCard"></div>
+    <div class="full-prompt-box" id="fullPromptBox"></div>
 
-  <div class="full-prompt-box" id="fullPromptBox"></div>
+    <a href="index.html" class="explore-btn" aria-label="Explore more AI prompts">
+      ← Explore more prompts
+    </a>
+  </div>
 
-  <a href="index.html" class="explore-btn">Explore more prompts</a>
-</div>
-
-<script>
-const promptData = {
-  id: 1,
-  title: "Horse AI Art Prompt",
-  preview: "Create cinematic, monochrome luxury editorial images with a human and horse using AI.",
-  image: "https://i.imgur.com/7UTIrV8.jpeg",
-  prompt: `Create a high-fashion, monochrome editorial image using the uploaded reference photo, preserving the subject’s exact identity, facial features, body structure, and posture. The composition emphasizes a grounded stance and restrained authority, portraying a symbolic and emotional tension between the human subject and the horse.
+  <script>
+    const promptData = {
+      id: 1,
+      title: "Horse AI Art Prompt",
+      preview: "Create cinematic, monochrome luxury editorial images with a human and horse using AI.",
+      image: "https://i.imgur.com/7UTIrV8.jpeg",
+      prompt: `Create a high-fashion, monochrome editorial image using the uploaded reference photo, preserving the subject's exact identity, facial features, body structure, and posture. The composition emphasizes a grounded stance and restrained authority, portraying a symbolic and emotional tension between the human subject and the horse.
 
 The scene should feel cinematic and conceptually luxurious, with matte textures, soft contrasts, and controlled shadows. Both the human and the horse are presented with calm intensity, reflecting introspection, discipline, and quiet power. The interaction should feel respectful and balanced, conveying a deep, unspoken connection rather than action or motion.
 
 Lighting should be soft yet directional, sculpting form and texture without harsh highlights. Maintain a monochrome palette throughout the image to enhance mood, symbolism, and editorial sophistication. The overall aesthetic should feel minimal, refined, and artistic, suitable for a luxury fashion editorial. No text, no logos, no watermarks, and no alterations to facial identity or proportions.`,
-  category: "AI Art"
-};
-</script>
+      category: "AI Art"
+    };
 
-<script>
-const card = document.getElementById("promptCard");
-card.innerHTML = `
-  <div class="image-wrapper">
-    <img src="${promptData.image}" class="prompt-img" alt="${promptData.title}">
-  </div>
-  <div class="prompt-card-body">
-    <div class="prompt-title">${promptData.title}</div>
-    <div class="prompt-preview">${promptData.preview}</div>
-  </div>
-`;
+    // Populate card
+    const card = document.getElementById("promptCard");
+    card.innerHTML = `
+      <div class="image-wrapper">
+        <img src="${promptData.image}" class="prompt-img" alt="${promptData.title}" loading="lazy">
+      </div>
+      <div class="prompt-card-body">
+        <div class="prompt-title">${promptData.title}</div>
+        <div class="prompt-preview">${promptData.preview}</div>
+      </div>
+    `;
 
-const fullBox = document.getElementById("fullPromptBox");
-fullBox.innerHTML = `
-  <div class="full-title">Full Prompt</div>
-  <pre id="promptText">${promptData.prompt}</pre>
-  <button class="copy-btn" onclick="copyPrompt()">Copy Prompt</button>
-  <div class="category">Category: ${promptData.category}</div>
-`;
+    // Populate full prompt
+    const fullBox = document.getElementById("fullPromptBox");
+    fullBox.innerHTML = `
+      <div class="full-title">Full Prompt</div>
+      <pre id="promptText">${promptData.prompt}</pre>
+      <button class="copy-btn" onclick="copyPrompt()" aria-label="Copy full prompt to clipboard">
+        📋 Copy Prompt
+      </button>
+      <div class="category">Category: ${promptData.category}</div>
+    `;
 
-function copyPrompt(){
-  navigator.clipboard.writeText(promptData.prompt);
-  alert("Prompt copied!");
-}
-</script>
+    // Enhanced copy function with feedback
+    function copyPrompt() {
+      navigator.clipboard.writeText(promptData.prompt).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '✅ Copied!';
+        btn.style.background = '#10b981';
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.style.background = '';
+        }, 2000);
+      }).catch(err => {
+        alert('Copy failed! Please select and copy manually.');
+        console.error('Copy failed:', err);
+      });
+    }
 
+    // Add smooth scroll behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
+  </script>
 </body>
 </html>
