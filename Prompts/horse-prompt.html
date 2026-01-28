@@ -139,6 +139,16 @@
     .explore-btn:hover {
       background: rgba(255,255,255,0.15);
     }
+    .image-wrapper {
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.4),
+    rgba(0,0,0,0.4)
+  );
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+      }
   </style>
 </head>
 
@@ -185,7 +195,9 @@ category: "AI Art"
 /* Prompt Card */
 const card = document.getElementById("promptCard");
 card.innerHTML = `
-  <img src="${promptData.image}" class="prompt-img" alt="${promptData.title}">
+  <div class="image-wrapper">
+    <img src="${promptData.image}" class="prompt-img" alt="${promptData.title}">
+  </div>
   <div class="prompt-card-body">
     <div class="prompt-title">${promptData.title}</div>
     <div class="prompt-preview">${promptData.preview}</div>
