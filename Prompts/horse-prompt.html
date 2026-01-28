@@ -23,8 +23,9 @@
     }
 
     .container {
-      width: 100%;
-      max-width: 400px; /* square card friendly */
+      width: 95%; /* fill more screen, closer view */
+      max-width: 400px; /* still keep card size safe */
+      margin: auto;
     }
 
     /* GLASS PROMPT CARD */
@@ -49,7 +50,7 @@
     /* IMAGE AS SQUARE */
     .image-wrapper {
       width: 100%;
-      aspect-ratio: 1/1; /* makes the image area square */
+      aspect-ratio: 1/1;
       overflow: hidden;
       display: flex;
       justify-content: center;
@@ -59,7 +60,7 @@
     .prompt-img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* fills the square perfectly */
+      object-fit: cover;
       display: block;
     }
 
