@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- 🔹 SEO (EDIT PER FILE) -->
+  <title>Horse AI Art Prompt – MintPrompt</title>
+  <meta name="description"
+        content="Free Horse AI Art Prompt to generate cinematic and realistic horse images using AI. Copy and use instantly.">
+  <meta name="robots" content="index, follow">
+
+  <!-- 🔹 MAIN PAGE STYLE -->
+  <style>
+    /* BODY */
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg,#667eea,#764ba2);
+      color: #fff;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    /* GLASS PROMPT CARD */
+    .prompt-card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(18px);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+      margin-bottom: 24px;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .prompt-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.8);
+    }
+
+    .prompt-img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      background: #000;
+    }
+
+    .prompt-card-body {
+      padding: 20px;
+    }
+
+    .prompt-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .prompt-preview {
+      color: #ddd;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    /* FULL PROMPT SECTION */
+    .full-prompt-box {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(18px);
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .full-title {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    pre {
+      background: rgba(0,0,0,0.4);
+      padding: 16px;
+      border-radius: 12px;
+      white-space: pre-wrap;
+      line-height: 1.6;
+      overflow-x: auto;
+      font-size: .95rem;
+    }
+
+    .copy-btn {
+      margin-top: 14px;
+      padding: 12px 18px;
+      background: #7c3aed;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .copy-btn:hover {
+      opacity: 0.9;
+    }
+
+    .category {
+      margin-top: 10px;
+      font-size: .85rem;
+      color: #ddd;
+    }
+
+    /* EXPLORE MORE PROMPTS BUTTON */
+    .explore-btn {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin: 30px auto 0;
+      padding: 14px 20px;
+      text-align: center;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: 0.3s;
+    }
+
+    .explore-btn:hover {
+      background: rgba(255,255,255,0.15);
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- SEO Heading -->
+  <h1 style="display:none;">Horse AI Art Prompt</h1>
+
+  <!-- 🔹 PROMPT CARD -->
+  <div class="prompt-card" id="promptCard"></div>
+
+  <!-- 🔹 FULL PROMPT -->
+  <div class="full-prompt-box" id="fullPromptBox"></div>
+
+  <!-- 🔹 EXPLORE MORE PROMPTS BUTTON -->
+  <a href="index.html" class="explore-btn">Explore more prompts</a>
+
+</div>
+
+<!-- ========================= -->
+<!-- 🔹 PROMPT DATA (EDIT ONLY THIS PART PER FILE) -->
+<!-- ========================= -->
+<script>
+const promptData = {
+  id: 1,
+  title: "Horse AI Art Prompt",
+  preview: "Create cinematic and ultra-realistic horse images using AI.",
+  image: "https://yourdomain.com/images/horse.jpg",
+  prompt: `Create a cinematic ultra-realistic image of a powerful horse
+running through misty fog, dramatic lighting, high detail, 8K resolution.
+Ultra sharp focus, volumetric lighting, photorealistic style.`,
+  category: "AI Art"
+};
+</script>
+
+<!-- ========================= -->
+<!-- 🔹 SYSTEM LOGIC -->
+<!-- ========================= -->
+<script>
+/* Prompt Card */
+const card = document.getElementById("promptCard");
+card.innerHTML = `
+  <img src="${promptData.image}" class="prompt-img" alt="${promptData.title}">
+  <div class="prompt-card-body">
+    <div class="prompt-title">${promptData.title}</div>
+    <div class="prompt-preview">${promptData.preview}</div>
+  </div>
+`;
+
+/* Full Prompt Section */
+const fullBox = document.getElementById("fullPromptBox");
+fullBox.innerHTML = `
+  <div class="full-title">Full Prompt</div>
+  <pre id="promptText">${promptData.prompt}</pre>
+  <button class="copy-btn" onclick="copyPrompt()">Copy Prompt</button>
+  <div class="category">Category: ${promptData.category}</div>
+`;
+
+function copyPrompt(){
+  navigator.clipboard.writeText(promptData.prompt);
+  alert("Prompt copied!");
+}
+</script>
+
+</body>
+  </html>
