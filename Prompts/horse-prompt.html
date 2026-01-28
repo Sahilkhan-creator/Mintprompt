@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <!-- SEO -->
   <title>Horse AI Art Prompt – MintPrompt</title>
-  <meta name="description"
-        content="Free Horse AI Art Prompt to generate cinematic and realistic horse images using AI. Copy and use instantly.">
+  <meta name="description" content="Free Horse AI Art Prompt to generate cinematic and realistic horse images using AI. Copy and use instantly.">
   <meta name="robots" content="index, follow">
 
   <style>
@@ -15,50 +13,56 @@
       font-family: 'Inter', sans-serif;
       background: linear-gradient(135deg,#667eea,#764ba2);
       color: #fff;
-      padding: 0;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
     }
 
-    /* Full-width container for mobile, compact for desktop */
     .container {
-      width: 95%;
+      width: 100%;
       max-width: 420px;
-      margin: auto;
+      padding: 0 10px;
     }
 
-    /* Prompt Card */
     .prompt-card {
       background: rgba(255,255,255,0.05);
       backdrop-filter: blur(18px);
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-      margin: 20px 0;
+      margin-bottom: 24px;
       border: 1px solid rgba(255,255,255,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
+    }
+
+    .prompt-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.8);
     }
 
     .image-wrapper {
       width: 100%;
-      aspect-ratio: 1/1; /* square */
+      padding-top: 100%; /* 1:1 square */
+      position: relative;
       overflow: hidden;
     }
 
     .prompt-img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
 
     .prompt-card-body {
-      padding: 14px;
+      padding: 14px 16px;
     }
 
     .prompt-title {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 700;
       margin-bottom: 6px;
     }
@@ -69,7 +73,6 @@
       line-height: 1.4;
     }
 
-    /* Full Prompt Box */
     .full-prompt-box {
       background: rgba(255,255,255,0.05);
       backdrop-filter: blur(18px);
@@ -77,29 +80,28 @@
       padding: 16px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.6);
       border: 1px solid rgba(255,255,255,0.2);
-      margin-bottom: 20px;
-      width: 100%;
+      margin-bottom: 24px;
     }
 
     .full-title {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin-bottom: 12px;
       font-weight: 600;
     }
 
     pre {
       background: rgba(0,0,0,0.4);
-      padding: 12px;
+      padding: 14px;
       border-radius: 12px;
       white-space: pre-wrap;
-      line-height: 1.5;
+      line-height: 1.6;
       overflow-x: auto;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
 
     .copy-btn {
       margin-top: 12px;
-      padding: 10px 18px;
+      padding: 10px 16px;
       background: #7c3aed;
       color: #fff;
       border: none;
@@ -123,7 +125,7 @@
       display: block;
       width: 100%;
       max-width: 300px;
-      margin: 20px auto;
+      margin: 20px auto 0;
       padding: 14px 20px;
       text-align: center;
       background: rgba(255,255,255,0.08);
@@ -139,27 +141,10 @@
     .explore-btn:hover {
       background: rgba(255,255,255,0.15);
     }
-
-    /* Make sure it scales nicely on small mobile */
-    @media (max-width: 480px) {
-      .container {
-        width: 95%;
-      }
-      .prompt-card-body {
-        padding: 12px;
-      }
-      .full-prompt-box {
-        padding: 12px;
-      }
-      pre {
-        font-size: 0.85rem;
-      }
-    }
   </style>
 </head>
 
 <body>
-
 <div class="container">
 
   <h1 style="display:none;">Horse AI Art Prompt</h1>
@@ -169,7 +154,6 @@
   <div class="full-prompt-box" id="fullPromptBox"></div>
 
   <a href="index.html" class="explore-btn">Explore more prompts</a>
-
 </div>
 
 <script>
@@ -185,7 +169,9 @@ The scene should feel cinematic and conceptually luxurious, with matte textures,
 Lighting should be soft yet directional, sculpting form and texture without harsh highlights. Maintain a monochrome palette throughout the image to enhance mood, symbolism, and editorial sophistication. The overall aesthetic should feel minimal, refined, and artistic, suitable for a luxury fashion editorial. No text, no logos, no watermarks, and no alterations to facial identity or proportions.`,
   category: "AI Art"
 };
+</script>
 
+<script>
 const card = document.getElementById("promptCard");
 card.innerHTML = `
   <div class="image-wrapper">
@@ -212,4 +198,4 @@ function copyPrompt(){
 </script>
 
 </body>
-  </html>
+</html>
