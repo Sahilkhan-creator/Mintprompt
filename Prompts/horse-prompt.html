@@ -8,62 +8,63 @@
   <meta name="robots" content="index, follow">
 
   <style>
-    body {
+    {
+  height: 100%;
+}
+
+body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: #fff;
-  padding: 10px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 12px; /* Tighter for mobile match */
   box-sizing: border-box;
-    }
+}
 
-    .container {
-      width: 100%;
-      max-width: 420px;
-      padding: 0 10px;
-    }
+.prompt-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  /* Remove margin-bottom: 24px; for single card centering */
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  max-width: 360px; /* Matches screenshot width */
+  margin: 0; /* No extra margins */
+}
 
-    .prompt-card {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(18px);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-      margin-bottom: 24px;
-      border: 1px solid rgba(255,255,255,0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
+.prompt-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0,0,0,0.8);
+}
 
-    .prompt-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 50px rgba(0,0,0,0.8);
-    }
+.image-wrapper {
+  width: 100%;
+  padding-top: 100%; /* 1:1 square */
+  position: relative;
+  overflow: hidden;
+}
 
-    .image-wrapper {
-      width: 100%;
-      padding-top: 100%; /* 1:1 square */
-      position: relative;
-      overflow: hidden;
-    }
+.prompt-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    .prompt-img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .prompt-card-body {
-      padding: 14px 16px;
-    }
+.prompt-card-body {
+  padding: 14px 16px;
+  }
 
     .prompt-title {
       font-size: 1.3rem;
