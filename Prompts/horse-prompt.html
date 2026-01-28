@@ -3,58 +3,45 @@
 <head>
   <meta charset="UTF-8">
 
-  <!-- 🔹 SEO -->
+  <!-- SEO -->
   <title>Horse AI Art Prompt – MintPrompt</title>
   <meta name="description"
         content="Free Horse AI Art Prompt to generate cinematic and realistic horse images using AI. Copy and use instantly.">
   <meta name="robots" content="index, follow">
 
-  <!-- 🔹 MAIN PAGE STYLE -->
   <style>
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
       background: linear-gradient(135deg,#667eea,#764ba2);
       color: #fff;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      min-height: 100vh;
+      padding: 10px 0;
     }
 
     .container {
-      width: 95%; /* fill more screen, closer view */
-      max-width: 400px; /* still keep card size safe */
+      width: 95%;
+      max-width: 420px;
       margin: auto;
     }
 
-    /* GLASS PROMPT CARD */
     .prompt-card {
       background: rgba(255,255,255,0.05);
       backdrop-filter: blur(18px);
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       border: 1px solid rgba(255,255,255,0.2);
       cursor: pointer;
+      width: 100%;
       display: flex;
       flex-direction: column;
     }
 
-    .prompt-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 50px rgba(0,0,0,0.8);
-    }
-
-    /* IMAGE AS SQUARE */
     .image-wrapper {
       width: 100%;
-      aspect-ratio: 1/1;
+      aspect-ratio: 1/1; /* square */
       overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
     .prompt-img {
@@ -64,9 +51,8 @@
       display: block;
     }
 
-    /* TEXT BELOW IMAGE */
     .prompt-card-body {
-      padding: 16px 20px;
+      padding: 16px 14px;
     }
 
     .prompt-title {
@@ -81,15 +67,15 @@
       line-height: 1.4;
     }
 
-    /* FULL PROMPT SECTION */
     .full-prompt-box {
       background: rgba(255,255,255,0.05);
       backdrop-filter: blur(18px);
       border-radius: 20px;
-      padding: 22px;
+      padding: 18px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.6);
       border: 1px solid rgba(255,255,255,0.2);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+      width: 100%;
     }
 
     .full-title {
@@ -109,7 +95,7 @@
     }
 
     .copy-btn {
-      margin-top: 14px;
+      margin-top: 12px;
       padding: 12px 18px;
       background: #7c3aed;
       color: #fff;
@@ -134,7 +120,7 @@
       display: block;
       width: 100%;
       max-width: 300px;
-      margin: 30px auto 0;
+      margin: 20px auto;
       padding: 14px 20px;
       text-align: center;
       background: rgba(255,255,255,0.08);
@@ -150,21 +136,6 @@
     .explore-btn:hover {
       background: rgba(255,255,255,0.15);
     }
-
-    /* MOBILE RESPONSIVE */
-    @media (max-width: 480px) {
-      .prompt-title {
-        font-size: 1.3rem;
-      }
-
-      .prompt-preview {
-        font-size: 0.95rem;
-      }
-
-      .full-title {
-        font-size: 1.1rem;
-      }
-    }
   </style>
 </head>
 
@@ -174,10 +145,8 @@
 
   <h1 style="display:none;">Horse AI Art Prompt</h1>
 
-  <!-- 🔹 PROMPT CARD -->
   <div class="prompt-card" id="promptCard"></div>
 
-  <!-- 🔹 FULL PROMPT -->
   <div class="full-prompt-box" id="fullPromptBox"></div>
 
   <a href="index.html" class="explore-btn">Explore more prompts</a>
@@ -198,7 +167,6 @@ Lighting should be soft yet directional, sculpting form and texture without hars
   category: "AI Art"
 };
 
-/* Prompt Card */
 const card = document.getElementById("promptCard");
 card.innerHTML = `
   <div class="image-wrapper">
@@ -210,7 +178,6 @@ card.innerHTML = `
   </div>
 `;
 
-/* Full Prompt Section */
 const fullBox = document.getElementById("fullPromptBox");
 fullBox.innerHTML = `
   <div class="full-title">Full Prompt</div>
