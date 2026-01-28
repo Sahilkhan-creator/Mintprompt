@@ -39,26 +39,24 @@
       border: 1px solid rgba(255,255,255,0.2);
     }
 
-    /* ✅ IMAGE FIX */
     .image-wrapper {
-      background: linear-gradient(
-        180deg,
-        rgba(0,0,0,0.35),
-        rgba(0,0,0,0.35)
-      );
-      padding: 16px;
-      display: flex;
-      justify-content: center;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.35),
+    rgba(0,0,0,0.35)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;              /* 🔴 remove padding */
     }
-
     .prompt-img {
-  width: 100%;
-  height: auto;
-  max-height: 45vh;   /* ⭐ KEY */
+  max-height: 45vh;        /* ✅ your value */
+  width: auto;
+  max-width: 100%;
   object-fit: contain;
-  border-radius: 16px;
   display: block;
-    }
+    } 
 
     .prompt-card-body {
       padding: 20px;
