@@ -3,9 +3,6 @@
 <head>
   <meta charset="UTF-8">
 
-  <!-- ✅ MOBILE FIX -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <!-- 🔹 SEO (EDIT PER FILE) -->
   <title>Horse AI Art Prompt – MintPrompt</title>
   <meta name="description"
@@ -14,13 +11,14 @@
 
   <!-- 🔹 MAIN PAGE STYLE -->
   <style>
+    /* BODY */
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
       background: linear-gradient(135deg,#667eea,#764ba2);
       color: #fff;
       padding: 20px;
-      min-height: 70vh;
+      min-height: 100vh;
     }
 
     .container {
@@ -37,27 +35,32 @@
       box-shadow: 0 10px 40px rgba(0,0,0,0.6);
       margin-bottom: 24px;
       border: 1px solid rgba(255,255,255,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      padding: 0; /* remove padding for full-bleed image */
     }
 
+    .prompt-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.8);
+    }
+
+    /* IMAGE FULL WIDTH */
     .image-wrapper {
-  background: linear-gradient(
-    180deg,
-    rgba(0,0,0,0.35),
-    rgba(0,0,0,0.35)
-  );
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;              /* 🔴 remove padding */
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4));
     }
-    .prompt-img {
-  max-height: 45vh;        /* ✅ your value */
-  width: auto;
-  max-width: 100%;
-  object-fit: contain;
-  display: block;
-    } 
 
+    .prompt-img {
+      width: 100%;
+      max-height: 45vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* TEXT BELOW IMAGE */
     .prompt-card-body {
       padding: 20px;
     }
@@ -82,6 +85,7 @@
       padding: 22px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.6);
       border: 1px solid rgba(255,255,255,0.2);
+      margin-bottom: 24px;
     }
 
     .full-title {
@@ -109,6 +113,11 @@
       border-radius: 12px;
       font-weight: 600;
       cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .copy-btn:hover {
+      opacity: 0.9;
     }
 
     .category {
@@ -117,8 +126,10 @@
       color: #ddd;
     }
 
+    /* EXPLORE MORE PROMPTS BUTTON */
     .explore-btn {
       display: block;
+      width: 100%;
       max-width: 300px;
       margin: 30px auto 0;
       padding: 14px 20px;
@@ -130,32 +141,25 @@
       font-weight: 600;
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,0.2);
+      transition: 0.3s;
     }
 
-    /* ✅ MOBILE POLISH */
-    @media (max-width: 600px) {
-      body {
-        padding: 14px;
-      }
+    .explore-btn:hover {
+      background: rgba(255,255,255,0.15);
+    }
 
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 600px) {
       .prompt-title {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
       }
 
       .prompt-preview {
         font-size: 0.95rem;
       }
 
-      .prompt-card-body {
-        padding: 16px;
-      }
-
-      .full-prompt-box {
-        padding: 18px;
-      }
-
-      pre {
-        font-size: 0.9rem;
+      .full-title {
+        font-size: 1.1rem;
       }
     }
   </style>
@@ -165,37 +169,43 @@
 
 <div class="container">
 
+  <!-- SEO Heading -->
   <h1 style="display:none;">Horse AI Art Prompt</h1>
 
-  <!-- PROMPT CARD -->
+  <!-- 🔹 PROMPT CARD -->
   <div class="prompt-card" id="promptCard"></div>
 
-  <!-- FULL PROMPT -->
+  <!-- 🔹 FULL PROMPT -->
   <div class="full-prompt-box" id="fullPromptBox"></div>
 
-  <!-- BACK TO HOME -->
+  <!-- 🔹 EXPLORE MORE PROMPTS BUTTON -->
   <a href="index.html" class="explore-btn">Explore more prompts</a>
 
 </div>
 
-<!-- 🔹 PROMPT DATA (EDIT ONLY THIS PART) -->
+<!-- ========================= -->
+<!-- 🔹 PROMPT DATA (EDIT ONLY THIS PART PER FILE) -->
+<!-- ========================= -->
 <script>
 const promptData = {
   id: 1,
   title: "Horse AI Art Prompt",
   preview: "Create cinematic, monochrome luxury editorial images with a human and horse using AI.",
   image: "https://i.imgur.com/7UTIrV8.jpeg",
-  prompt: `Create a high-fashion, monochrome editorial image using the uploaded reference photo, preserving the subject’s exact identity, facial features, body structure, and posture.
+  prompt: `Create a high-fashion, monochrome editorial image using the uploaded reference photo, preserving the subject’s exact identity, facial features, body structure, and posture. The composition emphasizes a grounded stance and restrained authority, portraying a symbolic and emotional tension between the human subject and the horse.
 
-The scene should feel cinematic and conceptually luxurious, with matte textures, soft contrasts, and controlled shadows. Both the human and the horse are presented with calm intensity, reflecting introspection and quiet power.
+The scene should feel cinematic and conceptually luxurious, with matte textures, soft contrasts, and controlled shadows. Both the human and the horse are presented with calm intensity, reflecting introspection, discipline, and quiet power. The interaction should feel respectful and balanced, conveying a deep, unspoken connection rather than action or motion.
 
-Maintain a monochrome palette throughout the image. No text, no logos, no watermarks.`,
+Lighting should be soft yet directional, sculpting form and texture without harsh highlights. Maintain a monochrome palette throughout the image to enhance mood, symbolism, and editorial sophistication. The overall aesthetic should feel minimal, refined, and artistic, suitable for a luxury fashion editorial. No text, no logos, no watermarks, and no alterations to facial identity or proportions.`,
   category: "AI Art"
 };
 </script>
 
+<!-- ========================= -->
 <!-- 🔹 SYSTEM LOGIC -->
+<!-- ========================= -->
 <script>
+/* Prompt Card */
 const card = document.getElementById("promptCard");
 card.innerHTML = `
   <div class="image-wrapper">
@@ -207,6 +217,7 @@ card.innerHTML = `
   </div>
 `;
 
+/* Full Prompt Section */
 const fullBox = document.getElementById("fullPromptBox");
 fullBox.innerHTML = `
   <div class="full-title">Full Prompt</div>
