@@ -189,57 +189,226 @@
       MintPrompt is built around this idea.
     </p>
   </article>
+  <article>
+  <h2>Common Prompt Engineering Mistakes Developers Make (2026)</h2>
+  <div class="meta">Published by MintPrompt · Educational Content</div>
+
+  <p>
+    Even experienced developers struggle with prompt engineering — but not because AI is too complex.
+    Most errors come from assumptions about how AI models interpret language.
+    Understanding these pitfalls helps you write stronger prompts and avoid wasted iterations.
+  </p>
+
+  <h3>1. Too Broad or Vague Instructions</h3>
+  <p>
+    A frequent mistake is using general language like “optimize this code” without specifics.
+    AI models respond to patterns, not intentions. Adding details like language, constraints,
+    or style guides narrows the response and improves accuracy.
+  </p>
+
+  <h3>2. Mixing Multiple Tasks in One Prompt</h3>
+  <p>
+    Asking an AI to “explain and refactor this code and then write tests” in one block often
+    produces messy results. Breaking tasks into separate prompts gives cleaner outputs and
+    avoids confusion.
+  </p>
+
+  <h3>3. Ignoring Context and Constraints</h3>
+  <p>
+    Without context — such as framework versions, input formats, libraries used, or target output expectations —
+    AI guesses based on patterns. That leads to unpredictable results. Always clarify the environment
+    and constraints in any prompt.
+  </p>
+
+  <h3>4. Assuming AI Understands Your Domain</h3>
+  <p>
+    AI has seen many examples, but it doesn’t *understand* specialized or proprietary systems.
+    When working with domain-specific logic, include sample inputs or reference definitions
+    so responses align with real system behavior.
+  </p>
+
+  <h3>5. Not Iterating or Refining Prompts</h3>
+  <p>
+    First outputs are rarely perfect. A single prompt iteration rarely solves complex tasks.
+    Refinement — adjusting clarity, order, and scope — is essential. Structured refinement ensures
+    the model stays aligned with your goals.
+  </p>
+
+  <h3>Why These Mistakes Matter</h3>
+  <p>
+    These common errors cost developers time, increase debugging cycles, and reduce confidence
+    in AI results. Recognizing them early leads to faster, more reliable workflows that scale.
+  </p>
+
+  <h3>Where MintPrompt Fits In</h3>
+  <p>
+    MintPrompt provides curated, developer-tested prompts that avoid these pitfalls.
+    Each prompt is designed with clarity, scope, and intent — so you spend time building, not
+    guessing.
+  </p>
+  </article>
 
   <!-- BLOG 3 -->
   <article>
-    <h2>Image Prompts vs Text Prompts — What’s the Difference?</h2>
-    <div class="meta">AI Prompt Education · MintPrompt</div>
+  <h2>Prompt Iteration: How Developers Refine AI Responses</h2>
+  <div class="meta">AI Prompt Education · MintPrompt</div>
 
-    <p>
-      Text prompts and image prompts follow very different structures.
-      Understanding this difference is essential for creators and developers.
-    </p>
+  <p>
+    The first AI response is rarely the best one.
+    Prompt iteration is the process of refining instructions step by step
+    to guide AI systems toward more accurate and reliable outputs.
+  </p>
 
-    <h3>Text Prompts</h3>
-    <p>
-      Text prompts are used for code, explanations, summaries, and chat-based outputs.
-      They focus on logic and instruction clarity.
-    </p>
+  <h3>What Is Prompt Iteration?</h3>
+  <p>
+    Prompt iteration involves adjusting clarity, constraints, and structure
+    based on previous AI outputs. Developers use this approach to reduce errors
+    and improve alignment with requirements.
+  </p>
 
-    <h3>Image Prompts</h3>
-    <p>
-      Image prompts rely on visual descriptions such as lighting, composition,
-      style, and realism.
-    </p>
+  <h3>Why Iteration Matters</h3>
+  <p>
+    AI models do not self-correct unless guided.
+    Iteration helps narrow the response space and removes ambiguity
+    that leads to inconsistent behavior.
+  </p>
 
-    <table>
-      <tr>
-        <th>Aspect</th>
-        <th>Text Prompts</th>
-        <th>Image Prompts</th>
-      </tr>
-      <tr>
-        <td>Focus</td>
-        <td>Logic & meaning</td>
-        <td>Visual detail</td>
-      </tr>
-      <tr>
-        <td>Structure</td>
-        <td>Instruction-based</td>
-        <td>Descriptive</td>
-      </tr>
-      <tr>
-        <td>Output</td>
-        <td>Text or code</td>
-        <td>Images</td>
-      </tr>
-    </table>
+  <table>
+    <tr>
+      <th>Iteration Step</th>
+      <th>Purpose</th>
+      <th>Result</th>
+    </tr>
+    <tr>
+      <td>Initial prompt</td>
+      <td>Define task</td>
+      <td>Baseline output</td>
+    </tr>
+    <tr>
+      <td>Refinement</td>
+      <td>Add constraints</td>
+      <td>Improved accuracy</td>
+    </tr>
+    <tr>
+      <td>Final prompt</td>
+      <td>Optimize clarity</td>
+      <td>Consistent results</td>
+    </tr>
+  </table>
 
-    <h3>Final Thoughts</h3>
-    <p>
-      Knowing how to structure prompts correctly allows creators to get better,
-      more predictable results from AI systems.
-    </p>
+  <h3>Final Thoughts</h3>
+  <p>
+    Iteration transforms prompting from guesswork into a repeatable workflow.
+    Developers who iterate consistently gain more control over AI behavior.
+  </p>
+</article>
+
+
+<article>
+  <h2>How to Measure Prompt Quality and Output Reliability</h2>
+  <div class="meta">AI Prompt Education · MintPrompt</div>
+
+  <p>
+    Not all prompts are equally effective.
+    Measuring prompt quality helps developers understand whether an AI response
+    can be trusted, reused, or scaled.
+  </p>
+
+  <h3>Consistency Over Creativity</h3>
+  <p>
+    A high-quality prompt produces stable outputs across multiple runs.
+    Creative variation is useful, but reliability is critical in development workflows.
+  </p>
+
+  <h3>Key Indicators of Prompt Quality</h3>
+  <p>
+    Developers evaluate prompts based on accuracy, repeatability,
+    and how closely outputs follow constraints.
+  </p>
+
+  <table>
+    <tr>
+      <th>Indicator</th>
+      <th>Low Quality</th>
+      <th>High Quality</th>
+    </tr>
+    <tr>
+      <td>Consistency</td>
+      <td>Random outputs</td>
+      <td>Predictable results</td>
+    </tr>
+    <tr>
+      <td>Accuracy</td>
+      <td>Frequent errors</td>
+      <td>Aligned with intent</td>
+    </tr>
+    <tr>
+      <td>Reusability</td>
+      <td>One-time use</td>
+      <td>Reusable across tasks</td>
+    </tr>
+  </table>
+
+  <h3>Final Thoughts</h3>
+  <p>
+    Measuring prompt quality ensures AI systems behave as expected.
+    Reliable prompts reduce debugging time and increase trust in AI-assisted workflows.
+  </p>
+</article>
+
+
+<article>
+  <h2>Prompt Engineering as a Design Skill, Not a Trick</h2>
+  <div class="meta">AI Prompt Education · MintPrompt</div>
+
+  <p>
+    Prompt engineering is often misunderstood as a shortcut.
+    In reality, it functions more like a design discipline that shapes
+    how AI systems respond under constraints.
+  </p>
+
+  <h3>From Guessing to Design</h3>
+  <p>
+    Early AI use relied on trial and error.
+    Modern prompt engineering applies structure, intent, and repeatability,
+    similar to API or system design.
+  </p>
+
+  <h3>Why Developers Should Treat Prompts Seriously</h3>
+  <p>
+    Prompts define AI behavior without changing code.
+    Poorly designed prompts introduce instability just like poorly designed interfaces.
+  </p>
+
+  <table>
+    <tr>
+      <th>Approach</th>
+      <th>Guessing</th>
+      <th>Design-Based</th>
+    </tr>
+    <tr>
+      <td>Method</td>
+      <td>Trial and error</td>
+      <td>Structured planning</td>
+    </tr>
+    <tr>
+      <td>Results</td>
+      <td>Inconsistent</td>
+      <td>Predictable</td>
+    </tr>
+    <tr>
+      <td>Scalability</td>
+      <td>Low</td>
+      <td>High</td>
+    </tr>
+  </table>
+
+  <h3>Final Thoughts</h3>
+  <p>
+    Treating prompt engineering as a design skill enables scalable,
+    dependable AI systems. Strong prompts are not clever tricks —
+    they are carefully constructed interfaces.
+  </p>
   </article>
 
 </main>
