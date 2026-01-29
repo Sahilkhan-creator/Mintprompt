@@ -1538,35 +1538,46 @@ print(response['choices'][0]['message']['content'])
 <!-- LIGHT JS (OPTIONAL UX) -->
 <script>
   console.log("MintPrompt blog loaded successfully.");
-  // Blog Search & Filter
+  // 🔍 ENHANCED LIVE BLOG SEARCH
 const searchInput = document.getElementById('blogSearch');
 const categoryBtns = document.querySelectorAll('.category-btn');
 const articles = document.querySelectorAll('article');
 
 function filterArticles() {
-  const searchTerm = searchInput.value.toLowerCase();
+  const searchTerm = searchInput.value.toLowerCase().trim();
   const activeCategory = document.querySelector('.category-btn.active').dataset.category;
+  
+  let visibleCount = 0;
   
   articles.forEach(article => {
     const title = article.querySelector('h2').textContent.toLowerCase();
+    const content = article.textContent.toLowerCase(); // Bonus: searches body too!
+    
+    // Category matching (same logic as before)
     const categoryMatch = activeCategory === 'all' || 
       (activeCategory === 'basics' && title.includes('prompt engineering') && !title.includes('mistakes')) ||
       (activeCategory === 'mistakes' && title.includes('mistakes')) ||
-      (activeCategory === 'advanced' && (title.includes('iteration') || title.includes('constraints') || title.includes('roles'))) ||
+      (activeCategory === 'advanced' && (title.includes('iteration') || title.includes('constraints') || title.includes('roles') || title.includes('measure'))) ||
       (activeCategory === 'debugging' && title.includes('debugging'));
     
-    const searchMatch = title.includes(searchTerm);
+    // Live search matching
+    const searchMatch = searchTerm === '' || title.includes(searchTerm) || content.includes(searchTerm);
     
     if (searchMatch && categoryMatch) {
       article.style.display = 'block';
+      article.style.opacity = '1';
+      visibleCount++;
     } else {
       article.style.display = 'none';
     }
   });
+  
+  console.log(`Found ${visibleCount} articles`); // Debug: check browser console
 }
 
-// Event listeners
-searchInput.addEventListener('input', filterArticles);
+// Event listeners (ALREADY LIVE)
+searchInput.addEventListener('input', filterArticles); // ← THIS = LIVE SEARCH
+searchInput.addEventListener('keyup', filterArticles);  // ← BONUS: Enter key
 
 categoryBtns.forEach(btn => {
   btn.addEventListener('click', () => {
