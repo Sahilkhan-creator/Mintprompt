@@ -289,6 +289,117 @@ ul li {
     min-width: 140px;
   }
   }
+    /* Blog Search & Categories */
+.blog-controls {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.search-container {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.search-input {
+  width: 100%;
+  height: 52px;
+  padding: 0 20px 0 50px;
+  background: rgba(158, 240, 26, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(158, 240, 26, 0.3);
+  border-radius: 16px;
+  color: #eaeaea;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 32px rgba(158, 240, 26, 0.05);
+}
+
+.search-input::placeholder {
+  color: #888;
+}
+
+.search-input:focus {
+  background: rgba(158, 240, 26, 0.15);
+  border-color: #9ef01a;
+  box-shadow: 0 12px 40px rgba(158, 240, 26, 0.15);
+}
+
+.search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ef01a;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.categories-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 12px 0;
+}
+
+.category-btn {
+  padding: 10px 24px;
+  background: rgba(158, 240, 26, 0.12);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(158, 240, 26, 0.25);
+  border-radius: 12px;
+  color: #ddd;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 20px rgba(158, 240, 26, 0.08);
+  border: none;
+}
+
+.category-btn:hover {
+  background: rgba(158, 240, 26, 0.25);
+  border-color: #9ef01a;
+  color: #9ef01a;
+  box-shadow: 0 8px 32px rgba(158, 240, 26, 0.2);
+  transform: translateY(-1px);
+}
+
+.category-btn.active {
+  background: linear-gradient(135deg, rgba(158, 240, 26, 0.3), rgba(158, 240, 26, 0.2));
+  border-color: #9ef01a;
+  color: #9ef01a;
+  box-shadow: 0 0 0 1px rgba(158, 240, 26, 0.4), 0 8px 32px rgba(158, 240, 26, 0.25);
+}
+
+@media (max-width: 768px) {
+  .blog-controls {
+    margin: 30px auto;
+    padding: 0 16px;
+    gap: 20px;
+  }
+  
+  .search-input {
+    height: 48px;
+    padding-left: 45px;
+    font-size: 0.95rem;
+  }
+  
+  .categories-container {
+    gap: 8px;
+  }
+  
+  .category-btn {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+  }
+  }
   </style>
 </head>
 
@@ -318,6 +429,21 @@ ul li {
   <h1>AI Prompt Engineering Guides</h1>
   <p>Educational resources for developers, creators, and builders using AI responsibly.</p>
 </header>
+  <!-- Blog Search & Categories -->
+<section class="blog-controls">
+  <div class="search-container">
+    <input type="text" class="search-input" placeholder="Search articles..." id="blogSearch">
+    <div class="search-icon">🔍</div>
+  </div>
+  
+  <div class="categories-container" id="categories">
+    <button class="category-btn active" data-category="all">All</button>
+    <button class="category-btn" data-category="basics">Basics</button>
+    <button class="category-btn" data-category="mistakes">Mistakes</button>
+    <button class="category-btn" data-category="advanced">Advanced</button>
+    <button class="category-btn" data-category="debugging">Debugging</button>
+  </div>
+</section>
 
 <main>
 
@@ -1412,6 +1538,43 @@ print(response['choices'][0]['message']['content'])
 <!-- LIGHT JS (OPTIONAL UX) -->
 <script>
   console.log("MintPrompt blog loaded successfully.");
+  // Blog Search & Filter
+const searchInput = document.getElementById('blogSearch');
+const categoryBtns = document.querySelectorAll('.category-btn');
+const articles = document.querySelectorAll('article');
+
+function filterArticles() {
+  const searchTerm = searchInput.value.toLowerCase();
+  const activeCategory = document.querySelector('.category-btn.active').dataset.category;
+  
+  articles.forEach(article => {
+    const title = article.querySelector('h2').textContent.toLowerCase();
+    const categoryMatch = activeCategory === 'all' || 
+      (activeCategory === 'basics' && title.includes('prompt engineering') && !title.includes('mistakes')) ||
+      (activeCategory === 'mistakes' && title.includes('mistakes')) ||
+      (activeCategory === 'advanced' && (title.includes('iteration') || title.includes('constraints') || title.includes('roles'))) ||
+      (activeCategory === 'debugging' && title.includes('debugging'));
+    
+    const searchMatch = title.includes(searchTerm);
+    
+    if (searchMatch && categoryMatch) {
+      article.style.display = 'block';
+    } else {
+      article.style.display = 'none';
+    }
+  });
+}
+
+// Event listeners
+searchInput.addEventListener('input', filterArticles);
+
+categoryBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    categoryBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterArticles();
+  });
+});
 </script>
   <script>
 function toggleMenu() {
