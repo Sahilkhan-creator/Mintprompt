@@ -774,6 +774,382 @@
   </p>
   </article>
   <article>
+  <h2>Step-by-Step Guide to Chain-of-Thought Prompting</h2>
+  <div class="meta">AI Prompt Education · MintPrompt</div>
+
+  <p>
+    Chain-of-thought prompting encourages AI to reason step by step instead of jumping to an answer. This approach is especially useful for complex coding tasks, logic problems, or multi-step reasoning.
+  </p>
+
+  <h3>Example: Solving a Math Problem</h3>
+  <p>
+    <strong>Prompt:</strong> "Solve 12 × 23 step by step, and show your calculations before giving the final answer."
+  </p>
+
+  <p>
+    <strong>AI Output:</strong> "Step 1: 12 × 20 = 240. Step 2: 12 × 3 = 36. Step 3: Add results: 240 + 36 = 276. Final Answer: 276."
+  </p>
+
+  <h3>How to Implement in Python (GPT API)</h3>
+  <pre><code>import openai
+
+prompt = "Solve 12 × 23 step by step, show calculations before final answer."
+
+response = openai.ChatCompletion.create(
+    model="gpt-4",
+    messages=[{"role": "user", "content": prompt}],
+    temperature=0
+)
+
+print(response['choices'][0]['message']['content'])
+</code></pre>
+
+  <h3>Step-by-Step Tips</h3>
+  <ul>
+    <li>Always instruct the model to show reasoning explicitly.</li>
+    <li>Break complex tasks into numbered steps in the prompt.</li>
+    <li>Use “Before giving the answer, explain each step” to reduce hallucinations.</li>
+  </ul>
+</article>
+
+<article>
+  <h2>Few-Shot Prompting: Teaching AI by Example</h2>
+  <div class="meta">AI Prompt Education · MintPrompt</div>
+
+  <p>
+    Few-shot prompting shows the AI a small number of examples so it can generalize and produce better results. This is useful when the task has a specific pattern.
+  </p>
+
+  <h3>Example: Formatting a Product List</h3>
+  <p>
+    <strong>Prompt:</strong><br>
+    "Format the following products into JSON. Example: Product Name: 'Laptop', Price: '$1200' → {'name': 'Laptop', 'price': 1200}<br>
+    Now format: Product Name: 'Phone', Price: '$800'"
+  </p>
+
+  <p>
+    <strong>AI Output:</strong> "{'name': 'Phone', 'price': 800}"
+  </p>
+
+  <h3>Python Implementation</h3>
+  <pre><code>prompt = """
+Format the following products into JSON.
+Example: Product Name: 'Laptop', Price: '$1200' → {'name': 'Laptop', 'price': 1200}
+Now format: Product Name: 'Phone', Price: '$800'
+"""
+
+response = openai.ChatCompletion.create(
+    model="gpt-4",
+    messages=[{"role": "user", "content": prompt}],
+    temperature=0
+)
+
+print(response['choices'][0]['message']['content'])
+</code></pre>
+
+  <h3>Few-Shot Tips</h3>
+  <ul>
+    <li>Provide 2–3 examples to set the pattern.</li>
+    <li>Keep examples clear and consistent.</li>
+    <li>For multi-step tasks, show the reasoning steps in each example.</li>
+  </ul>
+</article>
+
+<article>
+  <h2>Advanced Image Prompting: From Concept to Output</h2>
+  <div class="meta">AI Prompt Education · MintPrompt</div>
+
+  <p>
+    Image generation prompts require descriptive language, style guidance, and iterative refinement. Unlike text prompts, small changes can drastically affect the output.
+  </p>
+
+  <h3>Step-by-Step Example</h3>
+  <p>
+    <strong>Initial Prompt:</strong> "A cat on a chair"<br>
+    <strong>Issue:</strong> Generic image, low detail.
+  </p>
+
+  <p>
+    <strong>Refined Prompt:</strong> "A fluffy orange cat sitting on a Victorian-style armchair, soft sunlight from the window, cinematic photography style, ultra-realistic, high detail"
+  </p>
+
+  <h3>Python Implementation (Image API)</h3>
+  <pre><code>import openai
+
+prompt = "A fluffy orange cat sitting on a Victorian-style armchair, soft sunlight, cinematic photography, ultra-realistic"
+
+response = openai.Image.create(
+    prompt=prompt,
+    n=1,
+    size="1024x1024"
+)
+
+image_url = response['data'][0]['url']
+print(image_url)
+</code></pre>
+
+  <h3>Step-by-Step Tips</h3>
+  <ul>
+    <li>Specify style, lighting, perspective, and color.</li>
+    <li>Iterate prompts: compare outputs and refine adjectives.</li>
+    <li>Include negative prompts for unwanted artifacts (e.g., "no blur, no watermark").</li>
+  </ul>
+  </article>
+  <article>
+  <h2>Prompt Tuning: Using Temperature, Top_P, and Max Tokens</h2>
+  <div class="meta">AI Prompt Education · MintPrompt</div>
+
+  <p>
+    AI output can be controlled using parameters like temperature, top_p, and max tokens.
+    Understanding these allows developers to tune responses for creativity, focus, or brevity.
+  </p>
+
+  <h3>Parameter Examples</h3>
+  <ul>
+    <li><strong>Temperature:</strong> 0 = deterministic, 1 = creative/random outputs</li>
+    <li><strong>Top_P:</strong> Probability threshold for token selection; lower = focused, higher = diverse</li>
+    <li><strong>Max Tokens:</strong> Limits response length</li>
+  </ul>
+
+  <h3>Python Example</h3>
+  <pre><code>response = openai.ChatCompletion.create(
+    model="gpt-4",
+    messages=[{"role": "user", "content": "Explain Newton's Laws in simple terms"}],
+    temperature=0.3,
+    top_p=0.9,
+    max_tokens=150
+)
+print(response['choices'][0]['message']['content'])
+</code></pre>
+
+  <h3>Tips for Developers</h3>
+  <ul>
+    <li>Use temperature=0 for code generation or factual answers.</li>
+    <li>Use temperature 0.7–1 for creative writing or brainstorming.</li>
+    <li>Adjust top_p when you need more focused vs diverse outputs.</li>
+  </ul>
+</article>
+
+<article>
+  <h2>Multi-Step Reasoning for Complex Tasks</h2>
+  <div class="meta">AI Prompt Education · MintPrompt</div>
+
+  <p>
+    Complex tasks benefit from breaking instructions into multiple steps.
+    Multi-step prompts reduce errors and improve the accuracy of outputs.
+  </p>
+
+  <h3>Example: Planning a Travel Itinerary</h3>
+  <p>
+    <strong>Prompt:</strong> "Plan a 3-day trip to Paris. Step 1: List top attractions. Step 2: Suggest meals nearby. Step 3: Recommend travel times and transport."
+  </p>
+
+  <p>
+    The AI responds sequentially, step by step, instead of mixing tasks into a single paragraph.
+  </p>
+
+  <h3>Python Implementation</h3>
+  <pre><code>prompt = """
+Plan a 3-day trip to Paris.
+Step 1: List top attractions.
+Step 2: Suggest meals nearby.
+Step 3: Recommend travel times and transport.
+"""
+
+response = openai.ChatCompletion.create(
+    model="gpt-4",
+    messages=[{"role": "user", "content": prompt}],
+    temperature=0.5
+)
+print(response['choices'][0]['message']['content'])
+</code></pre>
+
+  <h3>Pro Tips</h3>
+  <ul>
+    <li>Explicitly number steps to guide reasoning.</li>
+    <li>For multi-part outputs, instruct the model to separate sections clearly.</li>
+    <li>Useful for coding, debugging, planning, and content generation.</li>
+  </ul>
+</article>
+
+<article>
+  <h2>Prompt Debugging: Fixing Unexpected AI Outputs</h2>
+  <div class="meta">AI Prompt Education · MintPrompt</div>
+
+  <p>
+    Even carefully written prompts can produce unexpected results. Debugging prompts is about analyzing failures and improving clarity.
+  </p>
+
+  <h3>Example: Incorrect JSON Output</h3>
+  <p>
+    <strong>Issue:</strong> The AI returned a string instead of JSON.<br>
+    <strong>Fix:</strong> Add explicit instructions: "Return only valid JSON, do not include extra text."
+  </p>
+
+  <h3>Python Debugging Example</h3>
+  <pre><code>prompt = "Return the user data as valid JSON only, no explanations."
+
+response = openai.ChatCompletion.create(
+    model="gpt-4",
+    messages=[{"role": "user", "content": prompt}],
+    temperature=0
+)
+print(response['choices'][0]['message']['content'])
+</code></pre>
+
+  <h3>Debugging Tips</h3>
+  <ul>
+    <li>Check if the model misunderstood instructions — reword and clarify.</li>
+    <li>Use examples (few-shot) to guide correct formatting.</li>
+    <li>Break tasks into smaller sub-prompts if needed.</li>
+  </ul>
+</article>
+
+<article>
+  <h2>Model-Specific Prompt Tweaks: GPT-3.5 vs GPT-4 vs Image Models</h2>
+  <div class="meta">AI Prompt Education · MintPrompt</div>
+
+  <p>
+    Different AI models respond differently to the same prompt. Understanding their strengths and quirks improves results.
+  </p>
+
+  <h3>Text Models</h3>
+  <p>
+    GPT-3.5: Faster, lighter, slightly less accurate with complex reasoning.<br>
+    GPT-4: More capable for multi-step reasoning, chain-of-thought, and detailed explanations.
+  </p>
+
+  <h3>Image Models</h3>
+  <p>
+    Text-to-image models respond to adjectives, style descriptors, and composition instructions. Be precise with lighting, mood, perspective, and format.
+  </p>
+
+  <h3>Example: Same Prompt, Different Models</h3>
+  <p>
+    Prompt: "A futuristic city skyline at sunset with flying cars."<br>
+    GPT-3.5 may give a short descriptive paragraph, GPT-4 may expand with more details, reasoning, or comparisons, while an image model creates visual output based on adjectives.
+  </p>
+
+  <h3>Tips for Developers</h3>
+  <ul>
+    <li>Adjust prompt length and complexity based on model capacity.</li>
+    <li>For image generation, include detailed visual descriptors.</li>
+    <li>Experiment and iterate; model behavior varies with parameters like temperature.</li>
+  </ul>
+  </article>
+  <article>
+  <h2>Prompt Iteration & Optimization: How to Improve Results Step by Step</h2>
+  <div class="meta">AI Prompt Education · MintPrompt</div>
+
+  <p>
+    Writing a perfect prompt rarely happens on the first try. Iterative prompting is about analyzing outputs, identifying weaknesses, and refining instructions.
+  </p>
+
+  <h3>Step 1: Analyze Output</h3>
+  <p>
+    Look at what the AI returned and note what is missing, incorrect, or unexpected.
+    This could be format issues, misunderstood instructions, or missing context.
+  </p>
+
+  <h3>Step 2: Refine Prompt</h3>
+  <p>
+    Modify wording, add constraints, include examples, or change the role/perspective.
+    Each iteration should address a specific problem identified in Step 1.
+  </p>
+
+  <h3>Python Example</h3>
+  <pre><code>prompt_v1 = "List popular programming languages."
+prompt_v2 = "List 5 popular programming languages in JSON format, with name and year created."
+
+response = openai.ChatCompletion.create(
+    model="gpt-4",
+    messages=[{"role": "user", "content": prompt_v2}],
+    temperature=0
+)
+print(response['choices'][0]['message']['content'])
+</code></pre>
+
+  <h3>Tips</h3>
+  <ul>
+    <li>Start broad, then narrow down with iterations.</li>
+    <li>Track versions of prompts — small tweaks can have large effects.</li>
+    <li>Test with multiple examples to ensure generalizability.</li>
+  </ul>
+</article>
+
+<article>
+  <h2>Prompt Memory & Context Management: Keeping AI Aligned Across Sessions</h2>
+  <div class="meta">AI Prompt Education · MintPrompt</div>
+
+  <p>
+    Context decay or “prompt memory” issues occur when AI forgets earlier instructions in long sessions. Proper management ensures outputs remain aligned with original intent.
+  </p>
+
+  <h3>Techniques to Maintain Context</h3>
+  <ul>
+    <li>Repeat critical instructions in later prompts.</li>
+    <li>Use system prompts to set global rules.</li>
+    <li>Chunk tasks into smaller prompts to maintain clarity.</li>
+  </ul>
+
+  <h3>Example: Multi-Step Workflow</h3>
+  <p>
+    Suppose you are generating a series of lesson plans:
+  </p>
+  <pre><code>system_prompt = "You are an expert educator creating lesson plans for middle school."
+user_prompt1 = "Generate 3 science lesson plans for students aged 12-14."
+user_prompt2 = "For each lesson plan, add 5 key questions and 3 activities."
+
+# Send system + user prompts to model
+</code></pre>
+
+  <h3>Tips</h3>
+  <ul>
+    <li>Keep system instructions consistent across prompts.</li>
+    <li>Reference previous outputs explicitly when needed.</li>
+    <li>Useful for chatbots, tutoring AI, or multi-turn workflows.</li>
+  </ul>
+</article>
+
+<article>
+  <h2>Multi-Modal Prompting: Combining Text, Images, and Code</h2>
+  <div class="meta">AI Prompt Education · MintPrompt</div>
+
+  <p>
+    Multi-modal prompting leverages AI’s ability to handle text, images, and code simultaneously. This is especially powerful for projects requiring rich outputs like annotated images, code explanations, or design assets.
+  </p>
+
+  <h3>Example: Code + Diagram Prompt</h3>
+  <p>
+    Prompt: "Write a Python function to sort a list of numbers and create a diagram showing the steps. Provide code and description in Markdown."
+  </p>
+
+  <p>
+    The AI can return:  
+    - Python code snippet  
+    - Step-by-step diagram explanation in Markdown  
+    - Optional commentary on performance or edge cases
+  </p>
+
+  <h3>Python Implementation (Text + Image)</h3>
+  <pre><code>prompt = "Generate a Python bubble sort function and provide a diagram of the sorting steps as a textual illustration."
+
+response = openai.ChatCompletion.create(
+    model="gpt-4",
+    messages=[{"role": "user", "content": prompt}],
+    temperature=0
+)
+print(response['choices'][0]['message']['content'])
+</code></pre>
+
+  <h3>Tips</h3>
+  <ul>
+    <li>Clearly separate instructions for text, code, and image elements.</li>
+    <li>Test output iteratively — some AI models need multiple attempts for diagrams or formatting.</li>
+    <li>Great for tutorials, documentation, and creative coding projects.</li>
+  </ul>
+    </article>
+  <article>
   <h2>Prompt Engineering as a Long-Term Skill</h2>
   <div class="meta">AI Prompt Education · MintPrompt</div>
 
@@ -821,6 +1197,7 @@
     a true collaborator in building smarter and more reliable solutions.
   </p>
   </article>
+  
   
 
 </main>
