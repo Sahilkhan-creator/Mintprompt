@@ -1530,7 +1530,14 @@ print(response['choices'][0]['message']['content'])
 <!-- LIGHT JS (OPTIONAL UX) -->
 <script>
   console.log("MintPrompt blog loaded successfully.");
-  // 🔍 ENHANCED LIVE BLOG SEARCH
+
+// Menu toggle function (existing)
+function toggleMenu() {
+  const dropdown = document.getElementById('menuDropdown');
+  dropdown.classList.toggle('show');
+}
+
+// Blog Search & Filter - H2 TITLES ONLY (UPDATED)
 const searchInput = document.getElementById('blogSearch');
 const categoryBtns = document.querySelectorAll('.category-btn');
 const articles = document.querySelectorAll('article');
@@ -1539,37 +1546,32 @@ function filterArticles() {
   const searchTerm = searchInput.value.toLowerCase().trim();
   const activeCategory = document.querySelector('.category-btn.active').dataset.category;
   
-  let visibleCount = 0;
-  
   articles.forEach(article => {
+    // SEARCH ONLY H2 TITLES
     const title = article.querySelector('h2').textContent.toLowerCase();
-    const content = article.textContent.toLowerCase(); // Bonus: searches body too!
     
-    // Category matching (same logic as before)
+    // Category matching
     const categoryMatch = activeCategory === 'all' || 
       (activeCategory === 'basics' && title.includes('prompt engineering') && !title.includes('mistakes')) ||
       (activeCategory === 'mistakes' && title.includes('mistakes')) ||
-      (activeCategory === 'advanced' && (title.includes('iteration') || title.includes('constraints') || title.includes('roles') || title.includes('measure'))) ||
-      (activeCategory === 'debugging' && title.includes('debugging'));
+      (activeCategory === 'advanced' && (title.includes('iteration') || title.includes('constraints') || title.includes('roles') || title.includes('measure') || title.includes('context') || title.includes('versioning'))) ||
+      (activeCategory === 'debugging' && (title.includes('debugging') || title.includes('review')));
     
-    // Live search matching
-    const searchMatch = searchTerm === '' || title.includes(searchTerm) || content.includes(searchTerm);
+    // H2 TITLE SEARCH ONLY
+    const titleMatch = searchTerm === '' || title.includes(searchTerm);
     
-    if (searchMatch && categoryMatch) {
+    if (titleMatch && categoryMatch) {
       article.style.display = 'block';
-      article.style.opacity = '1';
-      visibleCount++;
     } else {
       article.style.display = 'none';
     }
   });
-  
-  console.log(`Found ${visibleCount} articles`); // Debug: check browser console
 }
 
-// Event listeners (ALREADY LIVE)
-searchInput.addEventListener('input', filterArticles); // ← THIS = LIVE SEARCH
-searchInput.addEventListener('keyup', filterArticles);  // ← BONUS: Enter key
+// Event listeners
+if (searchInput) {
+  searchInput.addEventListener('input', filterArticles);
+}
 
 categoryBtns.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -1578,6 +1580,18 @@ categoryBtns.forEach(btn => {
     filterArticles();
   });
 });
+
+// Close menu when clicking outside (existing)
+document.addEventListener('click', function(event) {
+  const menu = document.querySelector('.menu-container');
+  const dropdown = document.getElementById('menuDropdown');
+  if (menu && dropdown && !menu.contains(event.target)) {
+    dropdown.classList.remove('show');
+  }
+});
+
+console.log("MintPrompt blog loaded successfully with live search!");
+
 </script>
   <script>
 function toggleMenu() {
