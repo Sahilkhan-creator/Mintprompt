@@ -201,6 +201,94 @@ ul li {
     font-size: 18px;
   }
     }
+    /* Menu Button - Top Left Fixed */
+.menu-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1001;
+  pointer-events: auto;
+}
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(158, 240, 26, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(158, 240, 26, 0.3);
+  border-radius: 12px;
+  color: #9ef01a;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(158, 240, 26, 0.1);
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.menu-btn:hover {
+  background: rgba(158, 240, 26, 0.25);
+  border-color: #9ef01a;
+  box-shadow: 0 6px 25px rgba(158, 240, 26, 0.2);
+  transform: translateY(-2px);
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background: rgba(15, 15, 15, 0.98);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(158, 240, 26, 0.2);
+  border-radius: 12px;
+  min-width: 160px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+  padding: 8px 0;
+}
+
+.menu-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.menu-dropdown a {
+  display: block;
+  padding: 12px 20px;
+  color: #eaeaea;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background 0.2s ease;
+}
+
+.menu-dropdown a:hover {
+  background: rgba(158, 240, 26, 0.1);
+  color: #9ef01a;
+}
+
+@media (max-width: 768px) {
+  .menu-container {
+    top: 15px;
+    left: 15px;
+  }
+  
+  .menu-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+  
+  .menu-dropdown {
+    min-width: 140px;
+  }
+  }
   </style>
 </head>
 
@@ -210,6 +298,20 @@ ul li {
   <a href="index.html" class="back-btn" title="Back to Home">
     ←
   </a>
+</div>
+  <!-- Menu Button - Top Left -->
+<div class="menu-container">
+  <button class="menu-btn" onclick="toggleMenu()" title="Menu">
+    ☰
+  </button>
+  <div class="menu-dropdown" id="menuDropdown">
+    <a href="community.html">Community</a>
+    <a href="contact.html">Contact</a>
+    <a href="faq.html">FAQ</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="about.html">About</a>
+  </div>
 </div>
 
 <header>
@@ -1311,6 +1413,21 @@ print(response['choices'][0]['message']['content'])
 <script>
   console.log("MintPrompt blog loaded successfully.");
 </script>
+  <script>
+function toggleMenu() {
+  const dropdown = document.getElementById('menuDropdown');
+  dropdown.classList.toggle('show');
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', function(event) {
+  const menu = document.querySelector('.menu-container');
+  const dropdown = document.getElementById('menuDropdown');
+  if (!menu.contains(event.target)) {
+    dropdown.classList.remove('show');
+  }
+});
+  </script>
 
 </body>
       </html>
