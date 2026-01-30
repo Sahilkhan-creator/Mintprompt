@@ -1346,6 +1346,75 @@ document.addEventListener('click', function(e) {
     font-size: 1.4rem;
   }
                                }
+        /* Social Footer Buttons */
+.social-footer {
+  max-width: 900px;
+  margin: 60px auto 40px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.social-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: rgba(158, 240, 26, 0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(158, 240, 26, 0.3);
+  border-radius: 16px;
+  color: #eaeaea;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(158, 240, 26, 0.1);
+  min-width: 140px;
+  justify-content: center;
+}
+
+.social-btn:hover {
+  background: rgba(158, 240, 26, 0.25);
+  border-color: #9ef01a;
+  color: #9ef01a;
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(158, 240, 26, 0.25);
+}
+
+.social-btn .icon {
+  font-size: 20px;
+}
+
+.social-btn.twitter:hover .icon { color: #1da1f2; }
+.social-btn.instagram:hover .icon { color: #e1306c; } 
+.social-btn.discord:hover .icon { color: #5865f2; }
+
+.social-text {
+  color: #888;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .social-grid {
+    gap: 16px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .social-btn {
+    min-width: 200px;
+    padding: 14px 20px;
+  }
+    }
         
 
     </style>
@@ -1563,6 +1632,24 @@ MintPrompt stays simple, fast, and creator-first — no distractions, no clutter
     </div>
   </div>
 </div>
+    <!-- Social Footer Buttons (Updated Links) -->
+<section class="social-footer">
+  <div class="social-grid">
+    <a href="https://x.com/mintprompt1" class="social-btn twitter" target="_blank" title="Twitter">
+      <span class="icon">🐦</span>
+      <span class="label">@mintprompt1</span>
+    </a>
+    <a href="https://www.instagram.com/mintprompt.in?igsh=NXA4bzdyd2gweHNh" class="social-btn instagram" target="_blank" title="Instagram">
+      <span class="icon">📸</span>
+      <span class="label">@mintprompt.in</span>
+    </a>
+    <a href="https://discord.gg/45GdmZyn6" class="social-btn discord" target="_blank" title="Discord">
+      <span class="icon">💬</span>
+      <span class="label">Server</span>
+    </a>
+  </div>
+  <p class="social-text">Join 2K+ developers • Prompts • Tutorials • Support</p>
+</section>
     <!-- FOOTER DONATION BAR -->
 <footer class="donation-footer">
     <div class="footer-content">
