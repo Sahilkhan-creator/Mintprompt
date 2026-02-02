@@ -392,6 +392,134 @@ ul li {
     font-size: 0.85rem;
   }
   }
+    /* 24h Limited Offer */
+.limited-offer {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.offer-card {
+  background: linear-gradient(135deg, rgba(158,240,26,0.15) 0%, rgba(15,15,15,0.95) 100%);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(158,240,26,0.4);
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(158,240,26,0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.offer-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #ff4444, #ff6666);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.offer-card h3 {
+  color: #ffffff;
+  font-size: 2rem;
+  margin: 20px 0 12px;
+  background: linear-gradient(135deg, #9ef01a, #7ed01a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.offer-card p {
+  color: #ddd;
+  font-size: 1.1rem;
+  margin: 0 0 24px;
+}
+
+.countdown {
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(158,240,26,0.5);
+  border-radius: 16px;
+  padding: 20px 32px;
+  margin: 24px auto;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #9ef01a;
+  font-family: 'Courier New', monospace;
+  min-width: 220px;
+  box-shadow: inset 0 0 20px rgba(158,240,26,0.1);
+}
+
+.time {
+  background: rgba(158,240,26,0.2);
+  padding: 4px 8px;
+  border-radius: 8px;
+  min-width: 40px;
+  display: inline-block;
+}
+
+.offer-price {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 20px 0;
+}
+
+.offer-price span:first-child {
+  color: #ffd60a;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.buy-now-btn {
+  background: linear-gradient(135deg, #9ef01a, #7ed01a);
+  color: #0f0f0f;
+  padding: 18px 40px;
+  border-radius: 16px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  margin: 20px 0;
+  box-shadow: 0 12px 40px rgba(158,240,26,0.4);
+  transition: all 0.3s ease;
+}
+
+.buy-now-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 60px rgba(158,240,26,0.6);
+}
+
+.guarantee {
+  color: #88ff88;
+  font-weight: 600;
+  margin: 16px 0 0;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .offer-card {
+    padding: 28px 20px;
+    margin: 30px 10px;
+  }
+  .countdown {
+    font-size: 1.8rem;
+    padding: 16px 24px;
+  }
+                               }
   </style>
 </head>
 
@@ -438,6 +566,22 @@ ul li {
 </section>
 
 <main>
+  <!-- 24h Limited Offer -->
+<section class="limited-offer" id="limitedOffer">
+  <div class="offer-card">
+    <div class="offer-badge">⏰ LIMITED TIME</div>
+    <h3>Ultimate Prompt Guide</h3>
+    <p>68-page developer handbook + 100+ prompts. <strong>Today Only!</strong></p>
+    <div class="countdown" id="countdown">
+      <span class="time" id="hours">24</span>:<span class="time" id="minutes">00</span>:<span class="time" id="seconds">00</span>
+    </div>
+    <div class="offer-price">$<span>4</span> <span class="original-price">$25</span></div>
+    <a href="https://mineblade.gumroad.com/l/oqyrek" class="buy-now-btn" target="_blank">
+      Buy Now → Instant PDF
+    </a>
+    <p class="guarantee">✅ Resets daily at 12PM • 30-Day Guarantee</p>
+  </div>
+</section>
 
   <!-- BLOG 1 -->
   <article>
@@ -1622,6 +1766,35 @@ document.addEventListener('click', function(event) {
   "inLanguage": "en-US"
 }
   </script>
+  <script>
+// 24h Countdown - Resets at 12PM IST Daily
+function updateCountdown() {
+  const now = new Date();
+  const today12PM = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12, 0, 0, 0);
+  
+  // If past 12PM today, target tomorrow 12PM
+  let target;
+  if (now >= today12PM) {
+    target = new Date(today12PM);
+    target.setDate(target.getDate() + 1);
+  } else {
+    target = today12PM;
+  }
+  
+  const diff = target - now;
+  
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+  
+  document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+  document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+  document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown(); // Initial call
+    </script>
 
 </body>
       </html>
