@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Join MintPrompt Creator Program | Get Featured</title>
+  <meta name="description" content="Join MintPrompt creators - Get featured on main page, Instagram collabs, Discord mentions. Create content, get reviews, earn recognition.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="MintPrompt Creator Program - Join Today">
+  <meta property="og:description" content="Get featured on homepage, Instagram collabs & Discord mentions.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;
+      background: #0f0f0f;
+      color: #eaeaea;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Header with Menu */
+    .menu-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1001;
+    }
+
+    .menu-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: rgba(158, 240, 26, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(158, 240, 26, 0.3);
+      border-radius: 12px;
+      color: #9ef01a;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(158, 240, 26, 0.1);
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .menu-btn:hover {
+      background: rgba(158, 240, 26, 0.25);
+      border-color: #9ef01a;
+      box-shadow: 0 6px 25px rgba(158, 240, 26, 0.2);
+    }
+
+    .menu-dropdown {
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background: rgba(15, 15, 15, 0.98);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(158, 240, 26, 0.2);
+      border-radius: 12px;
+      min-width: 180px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.2s ease;
+      padding: 8px 0;
+    }
+
+    .menu-dropdown.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .menu-link {
+      display: block;
+      padding: 14px 20px;
+      color: #eaeaea;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+
+    .menu-link:hover {
+      background: rgba(158, 240, 26, 0.1);
+      color: #9ef01a;
+    }
+
+    header {
+      padding: 80px 20px 40px;
+      text-align: center;
+      border-bottom: 1px solid #222;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      background: linear-gradient(135deg, #9ef01a, #7ed01a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+    }
+
+    header p {
+      max-width: 600px;
+      margin: 0 auto;
+      color: #bbb;
+      font-size: 1.1rem;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    /* Creator Cards */
+    .creator-program {
+      background: rgba(158, 240, 26, 0.08);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(158, 240, 26, 0.3);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .creator-program h2 {
+      color: #ffffff;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #9ef01a, #7ed01a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+    }
+
+    .benefit-card {
+      background: rgba(20, 20, 20, 0.8);
+      border: 1px solid rgba(158, 240, 26, 0.2);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.3s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(158, 240, 26, 0.15);
+      border-color: #9ef01a;
+    }
+
+    .benefit-icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .benefit-card h3 {
+      color: #9ef01a;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 32px 0;
+    }
+
+    .cta-button {
+      background: linear-gradient(135deg, #9ef01a, #7ed01a);
+      color: #0f0f0f;
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(158, 240, 26, 0.4);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 48px rgba(158, 240, 26, 0.5);
+    }
+
+    .secondary-btn {
+      background: rgba(158, 240, 26, 0.15);
+      color: #9ef01a;
+      border: 1px solid rgba(158, 240, 26, 0.3);
+    }
+
+    .secondary-btn:hover {
+      background: rgba(158, 240, 26, 0.25);
+      color: #ffffff;
+    }
+
+    footer {
+      border-top: 1px solid #222;
+      padding: 40px 20px;
+      text-align: center;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.2rem; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .action-buttons { flex-direction: column; align-items: center; }
+      .cta-button { width: 100%; max-width: 300px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Menu Button -->
+  <div class="menu-container">
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <div class="menu-dropdown" id="menuDropdown">
+      <a href="index.html" class="menu-link">🏠 Home</a>
+      <a href="blog.html" class="menu-link">📝 Blog</a>
+      <a href="community.html" class="menu-link">💬 Community</a>
+      <a href="creator.html" class="menu-link active">👨‍💻 Creator</a>
+      <a href="about.html" class="menu-link">ℹ️ About</a>
+    </div>
+  </div>
+
+  <header>
+    <h1>MintPrompt Creator Program</h1>
+    <p>Join creators getting featured on main page, Instagram collabs & Discord shoutouts. Create → Share → Get Recognized.</p>
+  </header>
+
+  <main>
+    <!-- Main Creator Program -->
+    <section class="creator-program">
+      <h2>🎯 Become Official Creator</h2>
+      <p><strong>Get featured on MintPrompt homepage</strong> + Instagram stories + Discord announcements</p>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <span class="benefit-icon">⭐</span>
+          <h3>Featured on Homepage</h3>
+          <p>Your prompts showcased to 10K+ monthly visitors</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-icon">📸</span>
+          <h3>Instagram Collabs</h3>
+          <p>Official @mintprompt.in reposts + stories</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-icon">💬</span>
+          <h3>Discord Recognition</h3>
+          <p>#creators channel + role + announcements</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-icon">📊</span>
+          <h3>Creator Analytics</h3>
+          <p>Track your prompt performance + earnings potential</p>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <a href="https://discord.gg/45GdmZyn6" class="cta-button" target="_blank">
+          💬 Join Discord Now
+        </a>
+        <a href="https://www.instagram.com/mintprompt.in?igsh=NXA4bzdyd2gweHNh" class="cta-button secondary-btn" target="_blank">
+          📸 Follow Instagram
+        </a>
+      </div>
+    </section>
+
+    <!-- Content Creation -->
+    <section class="creator-program">
+      <h2>✍️ Create & Share Content</h2>
+      <p>Post across socials mentioning <strong>@mintprompt1</strong> + your prompts → <strong>Chance to get featured!</strong></p>
+      
+      <div class="action-buttons" style="margin-top: 24px;">
+        <a href="https://twitter.com/intent/tweet?text=Check%20my%20AI%20prompt%20on%20%40mintprompt1%20mintprompt.in" 
+           class="cta-button secondary-btn" target="_blank">
+          🐦 Share on Twitter
+        </a>
+        <a href="#" class="cta-button secondary-btn" onclick="copySocialTemplate()">
+          📋 Copy Post Template
+        </a>
+      </div>
+    </section>
+
+    <!-- Request Review -->
+    <section class="creator-program">
+      <h2>⭐ Request Creator Review</h2>
+      <p>Submit your best prompts/content for official review & consideration</p>
+      
+      <div class="action-buttons">
+        <a href="https://forms.gle/YOUR_GOOGLE_FORM_LINK_HERE" class="cta-button" target="_blank">
+          📝 Submit Review Request
+        </a>
+      </div>
+      <p style="font-size: 0.9rem; color: #888; margin-top: 16px;">
+        Response within 48 hours • 100% free • No spam
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 MintPrompt Creator Program | 
+    <a href="/privacy" style="color: #9ef01a;">Privacy</a> | 
+    <a href="/terms" style="color: #9ef01a;">Terms</a>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('menuDropdown').classList.toggle('show');
+    }
+
+    document.addEventListener('click', function(e) {
+      const menu = document.querySelector('.menu-container');
+      const dropdown = document.getElementById('menuDropdown');
+      if (!menu.contains(e.target)) {
+        dropdown.classList.remove('show');
+      }
+    });
+
+    function copySocialTemplate() {
+      navigator.clipboard.writeText(
+        `🔥 Check my latest AI prompt on @mintprompt1!
+
+${window.location.origin}/blog.html
+
+#AIPrompts #PromptEngineering #MintPrompt`
+      );
+      alert('📋 Post template copied! Mention @mintprompt1 🚀');
+    }
+  </script>
+</body>
+</html>
