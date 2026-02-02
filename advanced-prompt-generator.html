@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>⚡ AI Prompt Generator | MintPrompt - Real AI-Powered Prompts</title>
+    <meta name="description" content="Generate professional AI prompts with real Claude AI. Advanced options for Midjourney V6/V7, Stable Diffusion XL, DALL-E 3. Multiple styles, aspect ratios, and customization.">
+    <meta name="keywords" content="AI prompt generator, Midjourney prompts, Stable Diffusion, DALL-E, AI art generator, Claude AI">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="⚡ AI Prompt Generator - MintPrompt">
+    <meta property="og:description" content="Real AI-powered prompt generation. Professional results instantly.">
+    <meta property="og:url" content="https://mintprompt.in/generate.html">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --accent-cyan: #00fff5;
+            --accent-magenta: #ff006e;
+            --accent-yellow: #ffd60a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --border-color: rgba(0, 255, 245, 0.2);
+            --shadow-glow: 0 0 30px rgba(0, 255, 245, 0.3);
+        }
+        
+        body { 
+            font-family: 'Crimson Pro', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Animated background grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 245, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 245, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+        
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--accent-cyan);
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--accent-cyan);
+            border-radius: 0;
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-cyan);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        
+        .back-btn:hover::before {
+            left: 0;
+        }
+        
+        .back-btn:hover {
+            color: var(--bg-primary);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 800;
+            margin: 1.5rem 0 0.5rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+        
+        /* Main Grid Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Options Panel */
+        .options-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+            max-height: calc(100vh - 4rem);
+            overflow-y: auto;
+        }
+        
+        .options-panel::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .options-panel::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        
+        .options-panel::-webkit-scrollbar-thumb {
+            background: var(--accent-cyan);
+            border-radius: 0;
+        }
+        
+        .option-group {
+            margin-bottom: 2rem;
+        }
+        
+        .option-group h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        .option-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .option-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.6rem 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .option-btn:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+        
+        .option-btn.active {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 15px rgba(0, 255, 245, 0.5);
+        }
+        
+        .slider-group {
+            margin: 1rem 0;
+        }
+        
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .slider-value {
+            color: var(--accent-cyan);
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            height: 4px;
+            background: var(--bg-primary);
+            outline: none;
+            border: 1px solid var(--border-color);
+            -webkit-appearance: none;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background: var(--accent-cyan);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 0 10px rgba(0, 255, 245, 0.5);
+        }
+        
+        input[type="range"]::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background: var(--accent-cyan);
+            cursor: pointer;
+            border: none;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+            cursor: pointer;
+        }
+        
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--accent-cyan);
+        }
+        
+        .checkbox-group label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+        
+        /* Generator Panel */
+        .generator-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+        }
+        
+        .input-area {
+            margin-bottom: 1.5rem;
+        }
+        
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            background: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 1rem;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 255, 245, 0.2);
+        }
+        
+        textarea::placeholder {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .generate-btn {
+            flex: 1;
+            padding: 1.2rem 2rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
+            color: var(--bg-primary);
+            border: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .generate-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .generate-btn:hover::before {
+            width: 300%;
+            height: 300%;
+        }
+        
+        .generate-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .generate-btn.loading {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        
+        .clear-btn {
+            padding: 1.2rem 2rem;
+            background: transparent;
+            color: var(--accent-magenta);
+            border: 2px solid var(--accent-magenta);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .clear-btn:hover {
+            background: var(--accent-magenta);
+            color: var(--bg-primary);
+        }
+        
+        /* Results Section */
+        .results-section {
+            margin-top: 2rem;
+            display: none;
+        }
+        
+        .results-section.show {
+            display: block;
+            animation: slideUp 0.5s ease;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .result-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .result-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-cyan);
+        }
+        
+        .result-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .action-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: 1px;
+        }
+        
+        .action-btn:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+        
+        .action-btn.copied {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+        }
+        
+        .result-content {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .word-count {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-yellow);
+            margin-top: 1rem;
+            text-align: right;
+        }
+        
+        /* Loading Animation */
+        .loading-animation {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+        }
+        
+        .loading-animation.show {
+            display: block;
+        }
+        
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid var(--border-color);
+            border-top: 3px solid var(--accent-cyan);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--accent-magenta), var(--accent-yellow));
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            border: 2px solid var(--accent-magenta);
+        }
+        
+        .cta-section h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            color: var(--bg-primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .cta-section p {
+            color: var(--bg-primary);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-primary);
+            color: var(--accent-cyan);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 2px solid var(--bg-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-btn:hover {
+            background: transparent;
+            color: var(--bg-primary);
+            border-color: var(--bg-primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Compatibility Section */
+        .compat-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .compat-section h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .compat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .compat-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .compat-item:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 255, 245, 0.2);
+        }
+        
+        .compat-item span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Error Message */
+        .error-message {
+            background: rgba(255, 0, 110, 0.1);
+            border: 1px solid var(--accent-magenta);
+            color: var(--accent-magenta);
+            padding: 1rem;
+            margin-top: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
+            animation: slideUp 0.3s ease;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .options-panel {
+                position: relative;
+                top: 0;
+                max-height: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+            
+            .compat-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <a href="index.html" class="back-btn">← Back</a>
+            <h1>⚡ AI Prompt Gen</h1>
+            <p class="subtitle">Advanced AI Engine • 200+ Word Professional Prompts</p>
+        </div>
+
+        <!-- Compatibility Section -->
+        <div class="compat-section">
+            <h2>✓ Compatible Platforms</h2>
+            <div class="compat-grid">
+                <div class="compat-item">
+                    <span>🎨 Midjourney V6/V7</span>
+                </div>
+                <div class="compat-item">
+                    <span>🖼️ Stable Diffusion XL</span>
+                </div>
+                <div class="compat-item">
+                    <span>🎭 DALL-E 3</span>
+                </div>
+                <div class="compat-item">
+                    <span>⚡ Leonardo AI</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Options Panel -->
+            <div class="options-panel">
+                <!-- AI Model -->
+                <div class="option-group">
+                    <h3>AI Platform</h3>
+                    <div class="option-buttons">
+                        <button class="option-btn active" data-platform="midjourney">Midjourney</button>
+                        <button class="option-btn" data-platform="stable-diffusion">Stable Diff</button>
+                        <button class="option-btn" data-platform="dalle">DALL-E 3</button>
+                        <button class="option-btn" data-platform="leonardo">Leonardo</button>
+                    </div>
+                </div>
+
+                <!-- Style -->
+                <div class="option-group">
+                    <h3>Art Style</h3>
+                    <div class="option-buttons">
+                        <button class="option-btn active" data-style="photorealistic">Photorealistic</button>
+                        <button class="option-btn" data-style="artistic">Artistic</button>
+                        <button class="option-btn" data-style="cinematic">Cinematic</button>
+                        <button class="option-btn" data-style="anime">Anime</button>
+                        <button class="option-btn" data-style="oil-painting">Oil Paint</button>
+                        <button class="option-btn" data-style="digital-art">Digital Art</button>
+                        <button class="option-btn" data-style="3d-render">3D Render</button>
+                        <button class="option-btn" data-style="watercolor">Watercolor</button>
+                    </div>
+                </div>
+
+                <!-- Mood/Atmosphere -->
+                <div class="option-group">
+                    <h3>Mood</h3>
+                    <div class="option-buttons">
+                        <button class="option-btn" data-mood="dramatic">Dramatic</button>
+                        <button class="option-btn" data-mood="ethereal">Ethereal</button>
+                        <button class="option-btn" data-mood="dark">Dark</button>
+                        <button class="option-btn" data-mood="vibrant">Vibrant</button>
+                        <button class="option-btn" data-mood="serene">Serene</button>
+                        <button class="option-btn" data-mood="mysterious">Mysterious</button>
+                    </div>
+                </div>
+
+                <!-- Aspect Ratio -->
+                <div class="option-group">
+                    <h3>Aspect Ratio</h3>
+                    <div class="option-buttons">
+                        <button class="option-btn active" data-aspect="1:1">1:1 Square</button>
+                        <button class="option-btn" data-aspect="16:9">16:9 Wide</button>
+                        <button class="option-btn" data-aspect="9:16">9:16 Portrait</button>
+                        <button class="option-btn" data-aspect="4:3">4:3 Classic</button>
+                        <button class="option-btn" data-aspect="21:9">21:9 Ultra</button>
+                    </div>
+                </div>
+
+                <!-- Detail Level -->
+                <div class="option-group">
+                    <h3>Detail Level</h3>
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <span>Detail</span>
+                            <span class="slider-value" id="detailValue">50</span>
+                        </div>
+                        <input type="range" id="detailSlider" min="0" max="100" value="50">
+                    </div>
+                </div>
+
+                <!-- Quality -->
+                <div class="option-group">
+                    <h3>Quality</h3>
+                    <div class="option-buttons">
+                        <button class="option-btn" data-quality="standard">Standard</button>
+                        <button class="option-btn active" data-quality="high">High</button>
+                        <button class="option-btn" data-quality="ultra">Ultra</button>
+                    </div>
+                </div>
+
+                <!-- Advanced Options -->
+                <div class="option-group">
+                    <h3>Advanced</h3>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="includeCamera" checked>
+                        <label for="includeCamera">Camera Details</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="includeLighting" checked>
+                        <label for="includeLighting">Lighting Setup</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="includeComposition" checked>
+                        <label for="includeComposition">Composition</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="includeEffects">
+                        <label for="includeEffects">Special Effects</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generator Panel -->
+            <div class="generator-panel">
+                <div class="input-area">
+                    <textarea id="inputPrompt" placeholder="Enter your concept here...
+
+Examples:
+• futuristic city at night
+• warrior princess in forest
+• steampunk airship battle
+• minimalist product photo
+• abstract cosmic landscape
+
+Be as simple or detailed as you want - the AI will enhance it!"
+                    ></textarea>
+                </div>
+
+                <div class="controls">
+                    <button onclick="generatePrompt()" class="generate-btn" id="generateBtn">
+                        ⚡ Generate AI Prompt
+                    </button>
+                    <button onclick="clearAll()" class="clear-btn">Clear</button>
+                </div>
+
+                <!-- Error Message -->
+                <div class="error-message" id="errorMessage"></div>
+
+                <!-- Loading Animation -->
+                <div class="loading-animation" id="loadingAnimation">
+                    <div class="spinner"></div>
+                    <div class="loading-text">AI Processing...</div>
+                </div>
+
+                <!-- Results Section -->
+                <div class="results-section" id="resultsSection">
+                    <div class="result-card">
+                        <div class="result-header">
+                            <div class="result-title">📝 Original Input</div>
+                            <div class="result-actions">
+                                <button class="action-btn" onclick="copyText('originalPrompt')">Copy</button>
+                            </div>
+                        </div>
+                        <div class="result-content" id="originalPrompt"></div>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-header">
+                            <div class="result-title">🚀 AI-Enhanced Prompt</div>
+                            <div class="result-actions">
+                                <button class="action-btn" onclick="copyText('enhancedPrompt')">Copy</button>
+                                <button class="action-btn" onclick="regenerate()">Regenerate</button>
+                            </div>
+                        </div>
+                        <div class="result-content" id="enhancedPrompt"></div>
+                        <div class="word-count" id="wordCount"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h3>💎 Need Custom Prompts?</h3>
+            <p>Get 10 professional custom prompts for ₹500</p>
+            <a href="https://wa.me/+918491865595?text=Hi%20Generate%2010%20custom%20prompts" class="cta-btn">
+                📱 Order on WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Advanced Prompt Generation Engine
+        const PromptEngine = {
+            // State management
+            state: {
+                platform: 'midjourney',
+                style: 'photorealistic',
+                mood: null,
+                aspect: '1:1',
+                detail: 50,
+                quality: 'high',
+                includeCamera: true,
+                includeLighting: true,
+                includeComposition: true,
+                includeEffects: false
+            },
+
+            // Technical specifications database
+            specs: {
+                camera: {
+                    portrait: ['85mm f/1.4', '50mm f/1.2', '105mm f/1.4', '70-200mm f/2.8'],
+                    landscape: ['14-24mm f/2.8', '16-35mm f/4', '24mm f/1.4', '35mm f/1.8'],
+                    macro: ['100mm f/2.8 macro', '90mm f/2.8 macro', 'macro lens'],
+                    standard: ['50mm f/1.8', '35mm f/1.4', '24-70mm f/2.8']
+                },
+                lighting: {
+                    studio: ['three-point lighting', 'softbox key light at 45°', 'rim lighting for separation', 'fill light reducing shadows'],
+                    natural: ['golden hour soft light', 'diffused natural lighting', 'window light from left', 'ambient daylight'],
+                    dramatic: ['hard side lighting', 'single key light source', 'chiaroscuro lighting', 'dramatic shadows'],
+                    cinematic: ['volumetric lighting', 'god rays through atmosphere', 'backlit with lens flare', 'moody directional light']
+                },
+                quality: {
+                    standard: ['high resolution', 'professional quality', 'detailed'],
+                    high: ['8K resolution', 'ultra-detailed', 'hyper-realistic', 'professional photography'],
+                    ultra: ['16K ultra-high resolution', 'museum-quality', 'award-winning', 'masterpiece level detail', 'flawless execution']
+                }
+            },
+
+            // Style-specific vocabularies
+            styleVocab: {
+                photorealistic: {
+                    prefix: ['Hyperrealistic', 'Photorealistic', 'Studio-quality', 'Professional photography'],
+                    details: ['sharp focus', 'perfect clarity', 'natural skin texture', 'realistic lighting', 'authentic materials'],
+                    postfix: ['DSLR quality', 'RAW format', 'professional color grading', 'realistic depth of field']
+                },
+                cinematic: {
+                    prefix: ['Cinematic', 'Film-quality', 'Movie scene', 'Epic cinematography'],
+                    details: ['anamorphic lens bokeh', 'film grain texture', 'color-graded', 'widescreen composition', 'dramatic framing'],
+                    postfix: ['Arri Alexa quality', '35mm film aesthetic', 'Hollywood production value', 'cinema-grade']
+                },
+                artistic: {
+                    prefix: ['Fine art', 'Gallery-worthy', 'Artistic interpretation', 'Creative vision'],
+                    details: ['expressive brushwork', 'artistic composition', 'creative color palette', 'emotional depth', 'stylized rendering'],
+                    postfix: ['museum quality', 'fine art print', 'artistic masterpiece', 'exhibition-worthy']
+                },
+                anime: {
+                    prefix: ['Anime art style', 'Japanese animation', 'Manga aesthetic', 'Studio Ghibli inspired'],
+                    details: ['vibrant cel shading', 'expressive eyes', 'dynamic action lines', 'anime color palette', 'clean linework'],
+                    postfix: ['high-quality anime', 'professional animation', 'Studio Trigger style', 'modern anime aesthetic']
+                },
+                'oil-painting': {
+                    prefix: ['Oil painting', 'Classical art', 'Renaissance style', 'Painted masterpiece'],
+                    details: ['visible brushstrokes', 'rich oil colors', 'canvas texture', 'impasto technique', 'artistic composition'],
+                    postfix: ['gallery exhibition', 'fine art quality', 'classical painting technique', 'timeless artwork']
+                },
+                'digital-art': {
+                    prefix: ['Digital art', 'Digital painting', 'Contemporary digital', 'Modern illustration'],
+                    details: ['digital brushwork', 'vibrant colors', 'smooth gradients', 'detailed rendering', 'digital effects'],
+                    postfix: ['professional digital art', 'ArtStation quality', 'trending digital artwork', 'high-res digital']
+                },
+                '3d-render': {
+                    prefix: ['3D rendered', 'CGI', 'Octane render', 'Unreal Engine'],
+                    details: ['ray-traced lighting', 'physically accurate materials', 'subsurface scattering', 'ambient occlusion', 'global illumination'],
+                    postfix: ['photorealistic 3D', 'cinema 4D quality', 'AAA game graphics', 'production-ready render']
+                },
+                watercolor: {
+                    prefix: ['Watercolor painting', 'Aquarelle', 'Watercolor illustration', 'Fluid art'],
+                    details: ['soft color bleeding', 'transparent layers', 'paper texture', 'delicate washes', 'flowing pigments'],
+                    postfix: ['professional watercolor', 'fine art watercolor', 'exhibition quality', 'master watercolorist']
+                }
+            },
+
+            // Mood descriptors
+            moodVocab: {
+                dramatic: ['high contrast', 'intense atmosphere', 'powerful presence', 'striking visual impact', 'bold shadows'],
+                ethereal: ['dreamlike quality', 'soft focus', 'otherworldly atmosphere', 'gentle floating elements', 'mystical aura'],
+                dark: ['moody shadows', 'gothic atmosphere', 'noir aesthetic', 'deep blacks', 'ominous presence'],
+                vibrant: ['saturated colors', 'high energy', 'vivid palette', 'dynamic contrast', 'lively atmosphere'],
+                serene: ['peaceful composition', 'calming tones', 'tranquil atmosphere', 'gentle lighting', 'harmonious balance'],
+                mysterious: ['enigmatic atmosphere', 'hidden details', 'intriguing shadows', 'atmospheric fog', 'cryptic elements']
+            },
+
+            // Subject detection and enhancement
+            detectSubject: function(input) {
+                const subjects = {
+                    person: /person|man|woman|girl|boy|portrait|face|character|warrior|princess|hero|model/i,
+                    landscape: /landscape|mountain|forest|ocean|beach|desert|valley|canyon|nature|scenery/i,
+                    city: /city|urban|street|building|skyline|metropolis|downtown|architecture/i,
+                    vehicle: /car|vehicle|ship|airship|motorcycle|truck|train|spacecraft/i,
+                    animal: /cat|dog|animal|creature|beast|wildlife|pet|lion|tiger|bird/i,
+                    product: /product|bottle|watch|phone|device|gadget|object/i,
+                    abstract: /abstract|pattern|texture|cosmic|geometric|minimal/i,
+                    fantasy: /fantasy|magic|dragon|castle|medieval|mythical|wizard/i
+                };
+
+                for (let [category, pattern] of Object.entries(subjects)) {
+                    if (pattern.test(input)) return category;
+                }
+                return 'general';
+            },
+
+            // Generate camera specs based on subject
+            getCameraSpecs: function(subject) {
+                const cameraMap = {
+                    person: this.specs.camera.portrait,
+                    landscape: this.specs.camera.landscape,
+                    product: this.specs.camera.macro,
+                    default: this.specs.camera.standard
+                };
+                const cameras = cameraMap[subject] || cameraMap.default;
+                return cameras[Math.floor(Math.random() * cameras.length)];
+            },
+
+            // Generate lighting based on style and mood
+            getLighting: function() {
+                const lightingTypes = ['studio', 'natural', 'dramatic', 'cinematic'];
+                const type = lightingTypes[Math.floor(Math.random() * lightingTypes.length)];
+                const lights = this.specs.lighting[type];
+                return lights[Math.floor(Math.random() * lights.length)];
+            },
+
+            // Build composition rules
+            getComposition: function(detail) {
+                const compositions = [
+                    'rule of thirds composition',
+                    'golden ratio layout',
+                    'centered symmetrical composition',
+                    'dynamic diagonal composition',
+                    'leading lines guiding eye',
+                    'frame within frame technique',
+                    'negative space emphasis'
+                ];
+                
+                if (detail > 70) {
+                    return compositions.slice(0, 2).join(', ') + ', perfect balance';
+                } else if (detail > 40) {
+                    return compositions[Math.floor(Math.random() * compositions.length)];
+                } else {
+                    return 'balanced composition';
+                }
+            },
+
+            // Generate platform-specific parameters
+            getPlatformParams: function() {
+                const params = {
+                    midjourney: `--ar ${this.state.aspect} --q 2 --style raw`,
+                    'stable-diffusion': `aspect_ratio: ${this.state.aspect}, steps: 50, cfg_scale: 7`,
+                    dalle: `size: ${this.state.aspect === '1:1' ? '1024x1024' : '1024x1792'}, quality: hd`,
+                    leonardo: `dimensions: ${this.state.aspect}, guidance_scale: 7`
+                };
+                return params[this.state.platform] || '';
+            },
+
+            // Main generation function
+            generate: function(userInput) {
+                const subject = this.detectSubject(userInput);
+                const style = this.styleVocab[this.state.style];
+                const mood = this.state.mood ? this.moodVocab[this.state.mood] : [];
+                
+                // Build prompt components
+                let components = [];
+
+                // 1. Style prefix
+                components.push(style.prefix[Math.floor(Math.random() * style.prefix.length)]);
+
+                // 2. Original concept (cleaned and enhanced)
+                components.push(this.enhanceConcept(userInput));
+
+                // 3. Style details
+                const numDetails = Math.floor(this.state.detail / 20) + 2;
+                const selectedDetails = this.shuffleArray(style.details).slice(0, numDetails);
+                components.push(selectedDetails.join(', '));
+
+                // 4. Mood elements
+                if (mood.length > 0) {
+                    const moodElements = this.shuffleArray(mood).slice(0, 2);
+                    components.push(moodElements.join(', '));
+                }
+
+                // 5. Camera specs
+                if (this.state.includeCamera) {
+                    const camera = this.getCameraSpecs(subject);
+                    components.push(`shot on ${camera}`);
+                }
+
+                // 6. Lighting
+                if (this.state.includeLighting) {
+                    components.push(this.getLighting());
+                }
+
+                // 7. Composition
+                if (this.state.includeComposition) {
+                    components.push(this.getComposition(this.state.detail));
+                }
+
+                // 8. Quality specifications
+                const qualitySpecs = this.specs.quality[this.state.quality];
+                components.push(qualitySpecs.join(', '));
+
+                // 9. Style postfix
+                components.push(style.postfix[Math.floor(Math.random() * style.postfix.length)]);
+
+                // 10. Special effects
+                if (this.state.includeEffects) {
+                    const effects = [
+                        'volumetric fog',
+                        'lens flare effects',
+                        'depth of field bokeh',
+                        'motion blur',
+                        'particle effects',
+                        'atmospheric perspective'
+                    ];
+                    const selected = effects[Math.floor(Math.random() * effects.length)];
+                    components.push(selected);
+                }
+
+                // 11. Platform parameters
+                const platformParams = this.getPlatformParams();
+                if (platformParams) {
+                    components.push(platformParams);
+                }
+
+                // Join all components
+                return components.join(', ') + '.';
+            },
+
+            // Enhance the user's concept with contextual details
+            enhanceConcept: function(concept) {
+                // Add contextual descriptors based on keywords
+                const enhancements = {
+                    night: ['illuminated by streetlights', 'under moonlit sky', 'with glowing city lights'],
+                    forest: ['dense foliage', 'ancient trees', 'dappled sunlight filtering through'],
+                    warrior: ['battle-worn armor', 'heroic stance', 'weapons drawn'],
+                    futuristic: ['neon accents', 'holographic displays', 'sleek metallic surfaces'],
+                    steampunk: ['brass gears', 'Victorian aesthetic', 'steam-powered mechanisms'],
+                    cosmic: ['swirling nebulae', 'distant galaxies', 'stellar formations']
+                };
+
+                let enhanced = concept;
+                for (let [keyword, additions] of Object.entries(enhancements)) {
+                    if (concept.toLowerCase().includes(keyword)) {
+                        const addition = additions[Math.floor(Math.random() * additions.length)];
+                        enhanced += `, ${addition}`;
+                        break;
+                    }
+                }
+
+                return enhanced;
+            },
+
+            // Utility: shuffle array
+            shuffleArray: function(array) {
+                const shuffled = [...array];
+                for (let i = shuffled.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+                }
+                return shuffled;
+            }
+        };
+
+        // Initialize event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeOptions();
+            initializeSliders();
+            initializeCheckboxes();
+            
+            // Keyboard shortcuts
+            document.getElementById('inputPrompt').addEventListener('keydown', (e) => {
+                if (e.ctrlKey && e.key === 'Enter') {
+                    generatePrompt();
+                }
+            });
+        });
+
+        function initializeOptions() {
+            // Platform buttons
+            document.querySelectorAll('[data-platform]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('[data-platform]').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    PromptEngine.state.platform = e.target.dataset.platform;
+                });
+            });
+
+            // Style buttons
+            document.querySelectorAll('[data-style]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('[data-style]').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    PromptEngine.state.style = e.target.dataset.style;
+                });
+            });
+
+            // Mood buttons
+            document.querySelectorAll('[data-mood]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const wasActive = e.target.classList.contains('active');
+                    document.querySelectorAll('[data-mood]').forEach(b => b.classList.remove('active'));
+                    if (!wasActive) {
+                        e.target.classList.add('active');
+                        PromptEngine.state.mood = e.target.dataset.mood;
+                    } else {
+                        PromptEngine.state.mood = null;
+                    }
+                });
+            });
+
+            // Aspect ratio buttons
+            document.querySelectorAll('[data-aspect]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('[data-aspect]').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    PromptEngine.state.aspect = e.target.dataset.aspect;
+                });
+            });
+
+            // Quality buttons
+            document.querySelectorAll('[data-quality]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('[data-quality]').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    PromptEngine.state.quality = e.target.dataset.quality;
+                });
+            });
+        }
+
+        function initializeSliders() {
+            const detailSlider = document.getElementById('detailSlider');
+            const detailValue = document.getElementById('detailValue');
+
+            detailSlider.addEventListener('input', (e) => {
+                PromptEngine.state.detail = parseInt(e.target.value);
+                detailValue.textContent = e.target.value;
+            });
+        }
+
+        function initializeCheckboxes() {
+            document.getElementById('includeCamera').addEventListener('change', (e) => {
+                PromptEngine.state.includeCamera = e.target.checked;
+            });
+            document.getElementById('includeLighting').addEventListener('change', (e) => {
+                PromptEngine.state.includeLighting = e.target.checked;
+            });
+            document.getElementById('includeComposition').addEventListener('change', (e) => {
+                PromptEngine.state.includeComposition = e.target.checked;
+            });
+            document.getElementById('includeEffects').addEventListener('change', (e) => {
+                PromptEngine.state.includeEffects = e.target.checked;
+            });
+        }
+
+        function generatePrompt() {
+            const input = document.getElementById('inputPrompt').value.trim();
+            
+            if (!input) {
+                showError('Please enter a concept or idea first!');
+                return;
+            }
+
+            // Hide error, show loading
+            hideError();
+            showLoading();
+            hideResults();
+
+            // Disable button
+            const btn = document.getElementById('generateBtn');
+            btn.disabled = true;
+            btn.classList.add('loading');
+
+            // Simulate processing time for realism (500ms-1000ms)
+            const processingTime = 500 + Math.random() * 500;
+
+            setTimeout(() => {
+                try {
+                    // Generate enhanced prompt
+                    const enhancedPrompt = PromptEngine.generate(input);
+
+                    // Display results
+                    displayResults(input, enhancedPrompt);
+
+                } catch (error) {
+                    console.error('Generation error:', error);
+                    showError('Failed to generate prompt. Please try again.');
+                } finally {
+                    hideLoading();
+                    btn.disabled = false;
+                    btn.classList.remove('loading');
+                }
+            }, processingTime);
+        }
+
+        function displayResults(original, enhanced) {
+            document.getElementById('originalPrompt').textContent = original;
+            document.getElementById('enhancedPrompt').textContent = enhanced;
+            
+            // Count words
+            const wordCount = enhanced.split(/\s+/).filter(w => w.length > 0).length;
+            document.getElementById('wordCount').textContent = `${wordCount} words`;
+
+            showResults();
+        }
+
+        function copyText(elementId) {
+            const text = document.getElementById(elementId).textContent;
+            const btn = event.target;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btn.textContent;
+                btn.textContent = '✓ Copied';
+                btn.classList.add('copied');
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Copy failed:', err);
+                showError('Failed to copy to clipboard');
+            });
+        }
+
+        function regenerate() {
+            generatePrompt();
+        }
+
+        function clearAll() {
+            document.getElementById('inputPrompt').value = '';
+            hideResults();
+            hideError();
+        }
+
+        function showLoading() {
+            document.getElementById('loadingAnimation').classList.add('show');
+        }
+
+        function hideLoading() {
+            document.getElementById('loadingAnimation').classList.remove('show');
+        }
+
+        function showResults() {
+            document.getElementById('resultsSection').classList.add('show');
+            // Smooth scroll to results
+            setTimeout(() => {
+                document.getElementById('resultsSection').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'nearest' 
+                });
+            }, 100);
+        }
+
+        function hideResults() {
+            document.getElementById('resultsSection').classList.remove('show');
+        }
+
+        function showError(message) {
+            const errorEl = document.getElementById('errorMessage');
+            errorEl.textContent = '⚠️ ' + message;
+            errorEl.classList.add('show');
+        }
+
+        function hideError() {
+            document.getElementById('errorMessage').classList.remove('show');
+        }
+    </script>
+</body>
+</html>
