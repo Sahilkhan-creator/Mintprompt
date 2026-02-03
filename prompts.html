@@ -1103,24 +1103,29 @@ document.addEventListener('click', function(e) {
       }
         .generate-btn {
   position: relative;
-  top: 15px;           /* DOWN */
-  right: -15px;        /* RIGHT */
-  display: block;
-  margin-top: 10px;
+  top: 18px;                    /* Slightly more space below copy btn */
+  left: 50%;                    /* Center horizontally */
+  transform: translateX(-50%);  /* Perfect pixel-perfect center */
+  display: inline-block;        /* Compact width */
+  margin: 0;                    /* Clean spacing */
   background: linear-gradient(135deg, #ffd60a, #ff6b00);
   color: #000;
   border: none;
-  padding: 7px 15px;
-  border-radius: 15px;
+  padding: 6px 18px;            /* Tighter padding = compact */
+  border-radius: 18px;
   font-weight: 700;
-  font-size: 0.60rem;
+  font-size: 0.65rem;           /* Perfect readable size */
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(255,214,10,0.3);
-        }
+  box-shadow: 0 4px 15px rgba(255,214,10,0.4);
+  text-decoration: none;        /* No underline for <a> */
+  white-space: nowrap;          /* Prevents text wrap */
+  transition: all 0.2s ease;    /* Smooth everything */
+}
 
 .generate-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(255,214,10,0.5);
+  transform: translateX(-50%) translateY(-2px);  /* Stays centered on hover */
+  box-shadow: 0 8px 25px rgba(255,214,10,0.6);
+  background: linear-gradient(135deg, #ffeb3b, #ff8c00);  /* Brighter hover */
         }
         /* ONLY SHARE BUTTON - NO CONFLICTS */
 .prompt-actions {
@@ -1773,7 +1778,7 @@ MintPrompt remains simple, fast, and creator-first — no clutter, no distractio
             </div>
             <div class="modal-prompt" id="modalPrompt"></div>
             <button class="copy-btn" id="copyBtn">📋 Copy Prompt</button>
-            <a href="https://phot.ai?ref=sahil23" target="_blank" class="generate-btn" title="Generate with Phot.AI">✨ Generate Now</a>
+            <a href="https://phot.ai?ref=sahil23" target="_blank" class="generate-btn" title="Generate with Phot.AI">✨ Generate image</a>
         </div>
     </div>
 
