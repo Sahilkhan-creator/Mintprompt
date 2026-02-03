@@ -780,6 +780,109 @@
   margin: 20px 0 !important;
   box-sizing: border-box !important;
                 }
+                .mp-team-card {
+  max-width: 400px;
+  margin: 60px auto 40px;
+  padding-bottom: 40px;
+}
+
+.mp-card-inner {
+  border: 2px solid #4f46e5;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.95);
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(79, 70, 229, 0.15);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.mp-card-inner:hover {
+  border-color: #6366f1;
+  box-shadow: 0 25px 50px rgba(79, 70, 229, 0.25);
+  transform: translateY(-4px);
+}
+
+.mp-avatar {
+  margin: 0 auto 20px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #4f46e5;
+  border-radius: 50%;
+}
+
+.mp-avatar-icon {
+  color: white;
+}
+
+.mp-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4f46e5;
+  margin: 0 0 8px 0;
+}
+
+.mp-role {
+  color: #94a3b8;
+  font-size: 1rem;
+  margin: 0 0 24px 0;
+  font-weight: 400;
+}
+
+.mp-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.mp-btn-primary, .mp-btn-secondary {
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 90px;
+}
+
+.mp-btn-primary {
+  background: #4f46e5;
+  color: white;
+}
+
+.mp-btn-primary:hover {
+  background: #3730a3;
+  transform: translateY(-1px);
+}
+
+.mp-btn-secondary {
+  background: rgba(255,255,255,0.1);
+  color: #e2e8f0;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.mp-btn-secondary:hover {
+  background: rgba(255,255,255,0.2);
+  color: white;
+}
+
+@media (max-width: 480px) {
+  .mp-team-card {
+    margin: 40px 20px;
+  }
+
+  .mp-buttons {
+    flex-direction: column;
+  }
+
+  .mp-btn-primary, .mp-btn-secondary {
+    min-width: 100%;
+            }
     </style>
 </head>
 <body>
@@ -983,6 +1086,24 @@
             </div>
         </div>
     </section>
+    
+    <div class="mp-team-card">
+  <div class="mp-card-inner">
+    <figure class="mp-avatar">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="mp-avatar-icon" viewBox="0 0 16 16">
+        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+      </svg>
+    </figure>
+    <h2 class="mp-name">Mvtsahil-Sahil Khan</h2>
+    <p class="mp-role">Ceo</p>
+    <div class="mp-buttons">
+      <a href="https://x.com/mvtsahil" class="mp-btn-primary" target="_blank">🐦 X</a>
+      <a href="https://www.instagram.com/mvtsahil?igsh=cTZvb2I4bmt1eWc3" class="mp-btn-primary" target="_blank">📸 Instagram</a>
+      <a href="https://sahilkhan31.blogspot.com/?m=1" class="mp-btn-secondary" target="_blank">💼 Portfolio</a>
+      <a href="mailto:mineblade3535@gmail.com" class="mp-btn-secondary" target="_blank">✉️ Contact</a>
+    </div>
+  </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
