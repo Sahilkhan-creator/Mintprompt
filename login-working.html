@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MintPrompt — Login & Sign Up</title>
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f0f14 0%, #1a1a2e 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background: rgba(22, 22, 34, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 214, 10, 0.1);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo-text {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffd60a 0%, #ff9500 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #aaa;
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #ccc;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="text"] {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(34, 34, 53, 0.8);
+      color: #fff;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #ffd60a;
+      background: rgba(34, 34, 53, 1);
+      box-shadow: 0 0 0 3px rgba(255, 214, 10, 0.1);
+    }
+
+    input::placeholder {
+      color: #666;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ffd60a 0%, #ff9500 100%);
+      color: #000;
+      box-shadow: 0 4px 15px rgba(255, 214, 10, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 214, 10, 0.4);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 12px;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-logout {
+      background: #ff6b6b;
+      color: #fff;
+    }
+
+    .btn-logout:hover {
+      background: #ff5252;
+    }
+
+    .divider {
+      text-align: center;
+      margin: 25px 0;
+      position: relative;
+    }
+
+    .divider::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .divider span {
+      background: rgba(22, 22, 34, 0.95);
+      padding: 0 15px;
+      position: relative;
+      color: #888;
+      font-size: 0.85rem;
+    }
+
+    .oauth-buttons {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .oauth-btn {
+      flex: 1;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(34, 34, 53, 0.6);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .oauth-btn:hover {
+      background: rgba(34, 34, 53, 0.9);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .switch-form {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .switch-form a {
+      color: #ffd60a;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .switch-form a:hover {
+      text-decoration: underline;
+    }
+
+    .error-message {
+      background: rgba(255, 107, 107, 0.1);
+      border: 1px solid rgba(255, 107, 107, 0.3);
+      color: #ff6b6b;
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .error-message.show {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+
+    .success-message {
+      background: rgba(0, 255, 136, 0.1);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      color: #00ff88;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .success-message.show {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .user-info {
+      background: rgba(34, 34, 53, 0.6);
+      padding: 16px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .user-info .email {
+      font-size: 0.85rem;
+      color: #aaa;
+      margin-bottom: 4px;
+    }
+
+    .user-info .user-email {
+      font-size: 1.05rem;
+      color: #ffd60a;
+      font-weight: 600;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #888;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: #ffd60a;
+    }
+
+    .loading {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 30px 20px;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .oauth-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="logo">
+      <div class="logo-text">MintPrompt</div>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <div id="loginSection">
+      <h2>Welcome Back</h2>
+      <p class="subtitle">Sign in to access all features</p>
+
+      <div class="error-message" id="loginError"></div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" placeholder="your@email.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="Enter your password" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Sign In</button>
+      </form>
+
+      <div class="divider"><span>OR</span></div>
+
+      <div class="oauth-buttons">
+        <button class="oauth-btn" id="googleLoginBtn">
+          <span>🔍</span> Google
+        </button>
+        <button class="oauth-btn" id="githubLoginBtn">
+          <span>💻</span> GitHub
+        </button>
+      </div>
+
+      <div class="switch-form">
+        Don't have an account? <a id="showSignupLink">Sign up</a>
+      </div>
+    </div>
+
+    <!-- SIGNUP FORM -->
+    <div id="signupSection" class="hidden">
+      <h2>Create Account</h2>
+      <p class="subtitle">Join MintPrompt today</p>
+
+      <div class="error-message" id="signupError"></div>
+      <div class="success-message" id="signupSuccess">
+        ✅ Account created successfully! Please check your email to verify your account.
+      </div>
+
+      <form id="signupForm">
+        <div class="form-group">
+          <label for="signupEmail">Email</label>
+          <input type="email" id="signupEmail" placeholder="your@email.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="signupPassword">Password</label>
+          <input type="password" id="signupPassword" placeholder="Create a password (min 6 characters)" required minlength="6" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create Account</button>
+      </form>
+
+      <div class="divider"><span>OR</span></div>
+
+      <div class="oauth-buttons">
+        <button class="oauth-btn" id="googleSignupBtn">
+          <span>🔍</span> Google
+        </button>
+        <button class="oauth-btn" id="githubSignupBtn">
+          <span>💻</span> GitHub
+        </button>
+      </div>
+
+      <div class="switch-form">
+        Already have an account? <a id="showLoginLink">Sign in</a>
+      </div>
+    </div>
+
+    <!-- LOGGED IN SECTION -->
+    <div id="loggedInSection" class="hidden">
+      <h2>You're Logged In</h2>
+      <p class="subtitle">Access all features</p>
+
+      <div class="user-info">
+        <div class="email">Logged in as:</div>
+        <div class="user-email" id="userEmailDisplay"></div>
+      </div>
+
+      <button class="btn btn-logout" id="logoutBtn">Sign Out</button>
+      <button class="btn btn-secondary" onclick="window.location.href='index.html'">Go to Homepage</button>
+    </div>
+
+    <a href="index.html" class="back-link" id="backLink">← Back to Home</a>
+  </div>
+
+  <script>
+    (function() {
+      'use strict';
+
+      // Initialize Supabase
+      const supabase = window.supabase.createClient(
+        'https://zqdrycjtvmtygyyoqlld.supabase.co',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpxZHJ5Y2p0dm10eWd5eW9xbGxkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc5Njk4MzAsImV4cCI6MjA1MzU0NTgzMH0.vqIy3KbLQR_3fOYsKbD0Y_NjYvJxvdTJIp9MKxPsXTU'
+      );
+
+      // Get DOM elements
+      const loginSection = document.getElementById('loginSection');
+      const signupSection = document.getElementById('signupSection');
+      const loggedInSection = document.getElementById('loggedInSection');
+      const backLink = document.getElementById('backLink');
+
+      const loginForm = document.getElementById('loginForm');
+      const signupForm = document.getElementById('signupForm');
+      
+      const loginError = document.getElementById('loginError');
+      const signupError = document.getElementById('signupError');
+      const signupSuccess = document.getElementById('signupSuccess');
+
+      const showSignupLink = document.getElementById('showSignupLink');
+      const showLoginLink = document.getElementById('showLoginLink');
+
+      const logoutBtn = document.getElementById('logoutBtn');
+      const userEmailDisplay = document.getElementById('userEmailDisplay');
+
+      // OAuth buttons
+      const googleLoginBtn = document.getElementById('googleLoginBtn');
+      const githubLoginBtn = document.getElementById('githubLoginBtn');
+      const googleSignupBtn = document.getElementById('googleSignupBtn');
+      const githubSignupBtn = document.getElementById('githubSignupBtn');
+
+      // Show/hide sections
+      function showLogin() {
+        loginSection.classList.remove('hidden');
+        signupSection.classList.add('hidden');
+        loggedInSection.classList.add('hidden');
+        loginError.classList.remove('show');
+      }
+
+      function showSignup() {
+        loginSection.classList.add('hidden');
+        signupSection.classList.remove('hidden');
+        loggedInSection.classList.add('hidden');
+        signupError.classList.remove('show');
+        signupSuccess.classList.remove('show');
+      }
+
+      function showLoggedIn(user) {
+        loginSection.classList.add('hidden');
+        signupSection.classList.add('hidden');
+        loggedInSection.classList.remove('hidden');
+        backLink.style.display = 'none';
+        userEmailDisplay.textContent = user.email;
+      }
+
+      // Check if user is already logged in
+      async function checkAuthState() {
+        const { data: { session } } = await supabase.auth.getSession();
+        
+        if (session && session.user) {
+          showLoggedIn(session.user);
+        }
+      }
+
+      // Login form handler
+      loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        loginError.classList.remove('show');
+
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        const submitBtn = loginForm.querySelector('button[type="submit"]');
+
+        submitBtn.classList.add('loading');
+        submitBtn.textContent = 'Signing in...';
+
+        try {
+          const { data, error } = await supabase.auth.signInWithPassword({
+            email: email,
+            password: password
+          });
+
+          if (error) throw error;
+
+          if (data.user && !data.user.email_confirmed_at) {
+            await supabase.auth.signOut();
+            throw new Error('Please verify your email before signing in. Check your inbox.');
+          }
+
+          // Get redirect URL from session storage
+          const redirectUrl = sessionStorage.getItem('redirectAfterLogin');
+          sessionStorage.removeItem('redirectAfterLogin');
+
+          // Redirect to intended page or homepage
+          window.location.href = redirectUrl || 'index.html';
+
+        } catch (error) {
+          loginError.textContent = error.message;
+          loginError.classList.add('show');
+        } finally {
+          submitBtn.classList.remove('loading');
+          submitBtn.textContent = 'Sign In';
+        }
+      });
+
+      // Signup form handler
+      signupForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        signupError.classList.remove('show');
+        signupSuccess.classList.remove('show');
+
+        const email = document.getElementById('signupEmail').value;
+        const password = document.getElementById('signupPassword').value;
+        const submitBtn = signupForm.querySelector('button[type="submit"]');
+
+        submitBtn.classList.add('loading');
+        submitBtn.textContent = 'Creating account...';
+
+        try {
+          const { data, error } = await supabase.auth.signUp({
+            email: email,
+            password: password,
+            options: {
+              emailRedirectTo: window.location.origin + '/index.html'
+            }
+          });
+
+          if (error) throw error;
+
+          // Show success message
+          signupSuccess.classList.add('show');
+          signupForm.reset();
+
+        } catch (error) {
+          signupError.textContent = error.message;
+          signupError.classList.add('show');
+        } finally {
+          submitBtn.classList.remove('loading');
+          submitBtn.textContent = 'Create Account';
+        }
+      });
+
+      // OAuth handlers
+      function handleOAuth(provider) {
+        const redirectUrl = sessionStorage.getItem('redirectAfterLogin') || 'index.html';
+        
+        supabase.auth.signInWithOAuth({
+          provider: provider,
+          options: {
+            redirectTo: window.location.origin + '/' + redirectUrl
+          }
+        });
+      }
+
+      googleLoginBtn.addEventListener('click', () => handleOAuth('google'));
+      githubLoginBtn.addEventListener('click', () => handleOAuth('github'));
+      googleSignupBtn.addEventListener('click', () => handleOAuth('google'));
+      githubSignupBtn.addEventListener('click', () => handleOAuth('github'));
+
+      // Logout handler
+      logoutBtn.addEventListener('click', async () => {
+        try {
+          await supabase.auth.signOut();
+          window.location.href = 'index.html';
+        } catch (error) {
+          alert('Error signing out: ' + error.message);
+        }
+      });
+
+      // Switch between login/signup
+      showSignupLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showSignup();
+      });
+
+      showLoginLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showLogin();
+      });
+
+      // Listen for auth state changes
+      supabase.auth.onAuthStateChange((event, session) => {
+        console.log('Auth state changed:', event, session);
+        
+        if (event === 'SIGNED_IN' && session) {
+          // Get redirect URL
+          const redirectUrl = sessionStorage.getItem('redirectAfterLogin');
+          sessionStorage.removeItem('redirectAfterLogin');
+          
+          // Redirect after a short delay
+          setTimeout(() => {
+            window.location.href = redirectUrl || 'index.html';
+          }, 500);
+        }
+      });
+
+      // Initialize
+      checkAuthState();
+
+    })();
+  </script>
+</body>
+</html>
