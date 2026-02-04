@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>⚡ AI Coding Prompt Generator | MintPrompt - Professional Dev Prompts</title>
+    <meta name="description" content="Generate professional coding and automation prompts with real AI. Advanced options for API development, automation workflows, scripts, and AI-powered applications.">
+    <meta name="keywords" content="coding prompt generator, AI dev prompts, automation prompts, API prompts, ChatGPT coding, Claude coding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO -->
+    <meta property="og:title" content="⚡ AI Coding Prompt Generator - MintPrompt">
+    <meta property="og:description" content="Real AI-powered coding prompt generation. Professional development prompts instantly.">
+    <meta property="og:url" content="https://mintprompt.in/coding-generator.html">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-95115E9KKT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-95115E9KKT');
+    </script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --accent-cyan: #00fff5;
+            --accent-magenta: #ff006e;
+            --accent-yellow: #ffd60a;
+            --accent-green: #00ff88;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --border-color: rgba(0, 255, 245, 0.2);
+            --shadow-glow: 0 0 30px rgba(0, 255, 245, 0.3);
+        }
+        
+        body { 
+            font-family: 'Crimson Pro', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Animated background grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 245, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 245, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+        
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--accent-cyan);
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--accent-cyan);
+            border-radius: 0;
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-cyan);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        
+        .back-btn:hover::before {
+            left: 0;
+        }
+        
+        .back-btn:hover {
+            color: var(--bg-primary);
+        }
+        
+        h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 1.5rem 0 0.5rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* Compatibility Section */
+        .compat-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .compat-section h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .compat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .compat-item {
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .compat-item:hover {
+            border-color: var(--accent-green);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+        }
+        
+        .compat-item span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+        
+        /* Options Panel */
+        .options-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            position: sticky;
+            top: 2rem;
+            max-height: calc(100vh - 4rem);
+            overflow-y: auto;
+        }
+        
+        .options-panel::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .options-panel::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        
+        .options-panel::-webkit-scrollbar-thumb {
+            background: var(--accent-cyan);
+            border-radius: 4px;
+        }
+        
+        .option-group {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .option-group:last-child {
+            border-bottom: none;
+        }
+        
+        .option-group h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .option-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .option-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-secondary);
+            padding: 0.6rem 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .option-btn:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+        
+        .option-btn.active {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 15px rgba(0, 255, 245, 0.5);
+        }
+        
+        .slider-group {
+            margin: 1rem 0;
+        }
+        
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .slider-value {
+            color: var(--accent-cyan);
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            height: 4px;
+            background: var(--bg-primary);
+            outline: none;
+            border: 1px solid var(--border-color);
+            -webkit-appearance: none;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background: var(--accent-cyan);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 0 10px rgba(0, 255, 245, 0.5);
+        }
+        
+        input[type="range"]::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background: var(--accent-cyan);
+            cursor: pointer;
+            border: none;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+            cursor: pointer;
+        }
+        
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--accent-cyan);
+        }
+        
+        .checkbox-group label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+        
+        /* Generator Panel */
+        .generator-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+        }
+        
+        .input-area {
+            margin-bottom: 1.5rem;
+        }
+        
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            background: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 1rem;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 255, 245, 0.2);
+        }
+        
+        textarea::placeholder {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .generate-btn {
+            flex: 1;
+            padding: 1.2rem 2rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            color: var(--bg-primary);
+            border: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .generate-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .generate-btn:hover::before {
+            width: 300%;
+            height: 300%;
+        }
+        
+        .generate-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .generate-btn.loading {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        
+        .clear-btn {
+            padding: 1.2rem 2rem;
+            background: transparent;
+            color: var(--accent-magenta);
+            border: 2px solid var(--accent-magenta);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .clear-btn:hover {
+            background: var(--accent-magenta);
+            color: var(--bg-primary);
+        }
+        
+        /* Loading Animation */
+        .loading-animation {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+        }
+        
+        .loading-animation.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(0, 255, 245, 0.1);
+            border-top: 4px solid var(--accent-cyan);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* Results Section */
+        .results-section {
+            display: none;
+            margin-top: 2rem;
+        }
+        
+        .results-section.show {
+            display: block;
+            animation: slideUp 0.4s ease;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .result-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .result-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .result-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .action-btn {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .action-btn:hover {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+        }
+        
+        .action-btn.copied {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+            color: var(--bg-primary);
+        }
+        
+        .result-content {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            white-space: pre-wrap;
+        }
+        
+        .word-count {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+        
+        /* Error Message */
+        .error-message {
+            background: rgba(255, 0, 110, 0.1);
+            border: 1px solid var(--accent-magenta);
+            color: var(--accent-magenta);
+            padding: 1rem;
+            margin-top: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
+            animation: slideUp 0.3s ease;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .options-panel {
+                position: relative;
+                top: 0;
+                max-height: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+            
+            .compat-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <a href="coding.html" class="back-btn">← Back to Prompts</a>
+            <h1>⚡ Code Gen</h1>
+            <p class="subtitle">Advanced Coding Prompt Engine • Production-Ready Code</p>
+        </div>
+
+        <!-- Compatibility Section -->
+        <div class="compat-section">
+            <h2>✓ Compatible AI Platforms</h2>
+            <div class="compat-grid">
+                <div class="compat-item">
+                    <span>💬 ChatGPT-4</span>
+                </div>
+                <div class="compat-item">
+                    <span>🤖 Claude Sonnet</span>
+                </div>
+                <div class="compat-item">
+                    <span>✨ GitHub Copilot</span>
+                </div>
+                <div class="compat-item">
+                    <span>🔥 Gemini Pro</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Options Panel -->
+            <div class="options-panel">
+                <!-- Project Type -->
+                <div class="option-group">
+                    <h3>Project Type</h3>
+                    <div class="option-buttons">
+                        <button class="option-btn active" data-project="api">REST API</button>
+                        <button class="option-btn" data-project="frontend">Frontend</button>
+                        <button class="option-btn" data-project="backend">Backend</button>
+                        <button class="option-btn" data-project="fullstack">Full Stack</button>
+                        <button class="option-btn" data-project="script">Script</button>
+                        <button class="option-btn" data-project="automation">Automation</button>
+                        <button class="option-btn" data-project="database">Database</button>
+                        <button class="option-btn" data-project="ai-ml">AI/ML</button>
+                    </div>
+                </div>
+
+                <!-- Tech Stack -->
+                <div class="option-group">
+                    <h3>Tech Stack</h3>
+                    <div class="option-buttons">
+                        <button class="option-btn active" data-stack="nodejs">Node.js</button>
+                        <button class="option-btn" data-stack="python">Python</button>
+                        <button class="option-btn" data-stack="react">React</button>
+                        <button class="option-btn" data-stack="typescript">TypeScript</button>
+                        <button class="option-btn" data-stack="go">Go</button>
+                        <button class="option-btn" data-stack="rust">Rust</button>
+                        <button class="option-btn" data-stack="java">Java</button>
+                        <button class="option-btn" data-stack="php">PHP</button>
+                    </div>
+                </div>
+
+                <!-- Complexity Level -->
+                <div class="option-group">
+                    <h3>Complexity</h3>
+                    <div class="option-buttons">
+                        <button class="option-btn" data-complexity="beginner">Beginner</button>
+                        <button class="option-btn active" data-complexity="intermediate">Intermediate</button>
+                        <button class="option-btn" data-complexity="advanced">Advanced</button>
+                        <button class="option-btn" data-complexity="expert">Expert</button>
+                    </div>
+                </div>
+
+                <!-- Code Style -->
+                <div class="option-group">
+                    <h3>Code Style</h3>
+                    <div class="option-buttons">
+                        <button class="option-btn active" data-style="clean">Clean Code</button>
+                        <button class="option-btn" data-style="functional">Functional</button>
+                        <button class="option-btn" data-style="oop">OOP</button>
+                        <button class="option-btn" data-style="minimal">Minimal</button>
+                    </div>
+                </div>
+
+                <!-- Architecture -->
+                <div class="option-group">
+                    <h3>Architecture</h3>
+                    <div class="option-buttons">
+                        <button class="option-btn" data-arch="monolith">Monolith</button>
+                        <button class="option-btn active" data-arch="microservices">Microservices</button>
+                        <button class="option-btn" data-arch="serverless">Serverless</button>
+                        <button class="option-btn" data-arch="event-driven">Event-Driven</button>
+                    </div>
+                </div>
+
+                <!-- Database -->
+                <div class="option-group">
+                    <h3>Database</h3>
+                    <div class="option-buttons">
+                        <button class="option-btn active" data-database="postgresql">PostgreSQL</button>
+                        <button class="option-btn" data-database="mongodb">MongoDB</button>
+                        <button class="option-btn" data-database="mysql">MySQL</button>
+                        <button class="option-btn" data-database="redis">Redis</button>
+                        <button class="option-btn" data-database="dynamodb">DynamoDB</button>
+                    </div>
+                </div>
+
+                <!-- Detail Level -->
+                <div class="option-group">
+                    <h3>Detail Level</h3>
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <span>Documentation</span>
+                            <span class="slider-value" id="detailValue">75</span>
+                        </div>
+                        <input type="range" id="detailSlider" min="0" max="100" value="75">
+                    </div>
+                </div>
+
+                <!-- Advanced Options -->
+                <div class="option-group">
+                    <h3>Include</h3>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="includeTests" checked>
+                        <label for="includeTests">Unit Tests</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="includeError" checked>
+                        <label for="includeError">Error Handling</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="includeAuth" checked>
+                        <label for="includeAuth">Authentication</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="includeDocker">
+                        <label for="includeDocker">Docker Config</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="includeCI">
+                        <label for="includeCI">CI/CD Pipeline</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="includeDocs" checked>
+                        <label for="includeDocs">Documentation</label>
+                    </div>
+                </div>
+
+                <!-- Output Format -->
+                <div class="option-group">
+                    <h3>Output Format</h3>
+                    <div class="option-buttons">
+                        <button class="option-btn active" data-format="detailed">Detailed</button>
+                        <button class="option-btn" data-format="stepbystep">Step-by-Step</button>
+                        <button class="option-btn" data-format="boilerplate">Boilerplate</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generator Panel -->
+            <div class="generator-panel">
+                <div class="input-area">
+                    <textarea id="inputPrompt" placeholder="Describe what you want to build...
+
+Examples:
+• Build a user authentication system with JWT
+• Create a real-time chat application
+• Develop a payment integration with Stripe
+• Build an automated email notification service
+• Create a GraphQL API for blog posts
+
+Be as specific or general as you want - the AI will structure it!"
+                    ></textarea>
+                </div>
+
+                <div class="controls">
+                    <button onclick="generatePrompt()" class="generate-btn" id="generateBtn">
+                        ⚡ Generate Coding Prompt
+                    </button>
+                    <button onclick="clearAll()" class="clear-btn">Clear</button>
+                </div>
+
+                <!-- Error Message -->
+                <div class="error-message" id="errorMessage"></div>
+
+                <!-- Loading Animation -->
+                <div class="loading-animation" id="loadingAnimation">
+                    <div class="spinner"></div>
+                    <div class="loading-text">AI Processing...</div>
+                </div>
+
+                <!-- Results Section -->
+                <div class="results-section" id="resultsSection">
+                    <div class="result-card">
+                        <div class="result-header">
+                            <div class="result-title">📝 Original Request</div>
+                            <div class="result-actions">
+                                <button class="action-btn" onclick="copyText('originalPrompt')">Copy</button>
+                            </div>
+                        </div>
+                        <div class="result-content" id="originalPrompt"></div>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-header">
+                            <div class="result-title">🚀 Production-Ready Prompt</div>
+                            <div class="result-actions">
+                                <button class="action-btn" onclick="copyText('enhancedPrompt')">Copy</button>
+                                <button class="action-btn" onclick="regenerate()">Regenerate</button>
+                            </div>
+                        </div>
+                        <div class="result-content" id="enhancedPrompt"></div>
+                        <div class="word-count" id="wordCount"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Advanced Coding Prompt Generation Engine
+        const CodingPromptEngine = {
+            // State management
+            state: {
+                project: 'api',
+                stack: 'nodejs',
+                complexity: 'intermediate',
+                style: 'clean',
+                arch: 'microservices',
+                database: 'postgresql',
+                detail: 75,
+                includeTests: true,
+                includeError: true,
+                includeAuth: true,
+                includeDocker: false,
+                includeCI: false,
+                includeDocs: true,
+                format: 'detailed'
+            },
+
+            // Technical specifications database
+            specs: {
+                project: {
+                    api: {
+                        name: 'REST API',
+                        focus: ['RESTful endpoints', 'HTTP methods', 'status codes', 'middleware', 'routing'],
+                        patterns: ['MVC architecture', 'repository pattern', 'service layer']
+                    },
+                    frontend: {
+                        name: 'Frontend Application',
+                        focus: ['component architecture', 'state management', 'routing', 'API integration', 'responsive design'],
+                        patterns: ['component composition', 'custom hooks', 'context providers']
+                    },
+                    backend: {
+                        name: 'Backend Service',
+                        focus: ['business logic', 'data processing', 'API integration', 'background jobs', 'caching'],
+                        patterns: ['layered architecture', 'dependency injection', 'factory pattern']
+                    },
+                    fullstack: {
+                        name: 'Full-Stack Application',
+                        focus: ['client-server architecture', 'API integration', 'database design', 'deployment', 'authentication'],
+                        patterns: ['monorepo structure', 'shared types', 'API contracts']
+                    },
+                    script: {
+                        name: 'Automation Script',
+                        focus: ['file operations', 'data processing', 'error handling', 'logging', 'CLI arguments'],
+                        patterns: ['procedural', 'modular functions', 'configuration files']
+                    },
+                    automation: {
+                        name: 'Automation Workflow',
+                        focus: ['task scheduling', 'webhooks', 'API integration', 'data transformation', 'notifications'],
+                        patterns: ['event-driven', 'pipeline pattern', 'orchestration']
+                    },
+                    database: {
+                        name: 'Database System',
+                        focus: ['schema design', 'indexing', 'query optimization', 'migrations', 'data validation'],
+                        patterns: ['normalization', 'denormalization', 'ACID compliance']
+                    },
+                    'ai-ml': {
+                        name: 'AI/ML Application',
+                        focus: ['model integration', 'prompt engineering', 'API usage', 'data preprocessing', 'response handling'],
+                        patterns: ['model-view-controller', 'chain of responsibility', 'strategy pattern']
+                    }
+                },
+                stack: {
+                    nodejs: {
+                        name: 'Node.js',
+                        frameworks: ['Express.js', 'Fastify', 'NestJS', 'Koa'],
+                        tools: ['npm/yarn', 'nodemon', 'dotenv', 'morgan'],
+                        testing: ['Jest', 'Mocha', 'Chai', 'Supertest']
+                    },
+                    python: {
+                        name: 'Python',
+                        frameworks: ['Flask', 'Django', 'FastAPI', 'Tornado'],
+                        tools: ['pip', 'virtualenv', 'poetry', 'black'],
+                        testing: ['pytest', 'unittest', 'nose2']
+                    },
+                    react: {
+                        name: 'React',
+                        frameworks: ['Next.js', 'Remix', 'Gatsby'],
+                        tools: ['Vite', 'Webpack', 'React Router', 'Redux'],
+                        testing: ['React Testing Library', 'Jest', 'Cypress']
+                    },
+                    typescript: {
+                        name: 'TypeScript',
+                        frameworks: ['Express + TS', 'NestJS', 'TypeORM'],
+                        tools: ['tsc', 'ts-node', 'ESLint', 'Prettier'],
+                        testing: ['Jest with ts-jest', 'Vitest']
+                    },
+                    go: {
+                        name: 'Go',
+                        frameworks: ['Gin', 'Echo', 'Fiber', 'Chi'],
+                        tools: ['go mod', 'go fmt', 'golangci-lint'],
+                        testing: ['testing package', 'testify', 'gomock']
+                    },
+                    rust: {
+                        name: 'Rust',
+                        frameworks: ['Actix', 'Rocket', 'Axum', 'Warp'],
+                        tools: ['cargo', 'rustfmt', 'clippy'],
+                        testing: ['built-in test framework', 'proptest']
+                    },
+                    java: {
+                        name: 'Java',
+                        frameworks: ['Spring Boot', 'Micronaut', 'Quarkus'],
+                        tools: ['Maven', 'Gradle', 'IntelliJ IDEA'],
+                        testing: ['JUnit', 'Mockito', 'TestNG']
+                    },
+                    php: {
+                        name: 'PHP',
+                        frameworks: ['Laravel', 'Symfony', 'CodeIgniter'],
+                        tools: ['Composer', 'PHPUnit', 'Psalm'],
+                        testing: ['PHPUnit', 'Pest', 'Codeception']
+                    }
+                },
+                complexity: {
+                    beginner: {
+                        instructions: 'detailed explanations for each step',
+                        code: 'simple, well-commented code with basic patterns',
+                        concepts: 'fundamental programming concepts'
+                    },
+                    intermediate: {
+                        instructions: 'clear implementation guidelines',
+                        code: 'production-ready code with best practices',
+                        concepts: 'design patterns and architectural decisions'
+                    },
+                    advanced: {
+                        instructions: 'advanced optimization techniques',
+                        code: 'enterprise-grade implementation',
+                        concepts: 'scalability, performance, and security considerations'
+                    },
+                    expert: {
+                        instructions: 'cutting-edge approaches and innovations',
+                        code: 'highly optimized, distributed systems',
+                        concepts: 'advanced algorithms, system design, and trade-offs'
+                    }
+                },
+                database: {
+                    postgresql: {
+                        name: 'PostgreSQL',
+                        features: ['JSONB support', 'full-text search', 'advanced indexing', 'transactions'],
+                        orm: ['Prisma', 'TypeORM', 'Sequelize', 'Knex']
+                    },
+                    mongodb: {
+                        name: 'MongoDB',
+                        features: ['document model', 'flexible schema', 'aggregation pipeline', 'indexing'],
+                        orm: ['Mongoose', 'Prisma', 'MongoDB Node Driver']
+                    },
+                    mysql: {
+                        name: 'MySQL',
+                        features: ['ACID compliance', 'replication', 'partitioning', 'stored procedures'],
+                        orm: ['Sequelize', 'TypeORM', 'Prisma']
+                    },
+                    redis: {
+                        name: 'Redis',
+                        features: ['in-memory storage', 'pub/sub', 'caching', 'session management'],
+                        orm: ['ioredis', 'node-redis', 'redis-om']
+                    },
+                    dynamodb: {
+                        name: 'DynamoDB',
+                        features: ['serverless', 'auto-scaling', 'single-digit latency', 'streams'],
+                        orm: ['AWS SDK', 'DynamoDB Toolbox', 'Dynamoose']
+                    }
+                }
+            },
+
+            // Generate enhanced coding prompt
+            generate: function(userInput) {
+                const {project, stack, complexity, style, arch, database, detail, 
+                       includeTests, includeError, includeAuth, includeDocker, includeCI, includeDocs, format} = this.state;
+
+                // Get specifications
+                const projectSpec = this.specs.project[project];
+                const stackSpec = this.specs.stack[stack];
+                const complexitySpec = this.specs.complexity[complexity];
+                const dbSpec = this.specs.database[database];
+
+                // Build the enhanced prompt
+                let prompt = '';
+
+                // Opening statement
+                prompt += `Create a ${complexitySpec.code} ${projectSpec.name.toLowerCase()} using ${stackSpec.name}`;
+                
+                if (project !== 'script' && project !== 'automation') {
+                    prompt += ` with ${arch} architecture`;
+                }
+                
+                prompt += `. `;
+
+                // Core requirement
+                prompt += `The application should ${userInput.trim()}. `;
+
+                // Technical requirements section
+                prompt += `\n\n## Technical Requirements:\n`;
+                prompt += `1. **Technology Stack**: ${stackSpec.name}`;
+                if (stackSpec.frameworks.length > 0) {
+                    prompt += ` (use ${stackSpec.frameworks[0]} framework)`;
+                }
+                prompt += `\n`;
+                
+                prompt += `2. **Database**: ${dbSpec.name}`;
+                if (dbSpec.orm.length > 0) {
+                    prompt += ` with ${dbSpec.orm[0]} ORM`;
+                }
+                prompt += `\n`;
+                
+                prompt += `3. **Code Quality**: Implement ${style} code principles with ${complexitySpec.concepts}\n`;
+
+                // Architecture & patterns
+                if (projectSpec.patterns.length > 0) {
+                    prompt += `4. **Architecture Patterns**: Follow ${projectSpec.patterns.join(', ')}\n`;
+                }
+
+                // Core features based on project type
+                prompt += `\n## Core Features:\n`;
+                projectSpec.focus.forEach((feature, idx) => {
+                    prompt += `${idx + 1}. ${feature.charAt(0).toUpperCase() + feature.slice(1)}\n`;
+                });
+
+                // Authentication
+                if (includeAuth && (project === 'api' || project === 'backend' || project === 'fullstack')) {
+                    prompt += `${projectSpec.focus.length + 1}. JWT-based authentication with refresh tokens\n`;
+                    prompt += `${projectSpec.focus.length + 2}. Role-based access control (RBAC)\n`;
+                }
+
+                // Error handling
+                if (includeError) {
+                    prompt += `\n## Error Handling:\n`;
+                    prompt += `- Implement comprehensive error handling with custom error classes\n`;
+                    prompt += `- Use try-catch blocks with proper error propagation\n`;
+                    prompt += `- Return meaningful error messages with appropriate HTTP status codes\n`;
+                    prompt += `- Log errors with context using a logging library\n`;
+                }
+
+                // Testing
+                if (includeTests) {
+                    prompt += `\n## Testing:\n`;
+                    prompt += `- Write unit tests using ${stackSpec.testing[0]}\n`;
+                    prompt += `- Include integration tests for API endpoints\n`;
+                    prompt += `- Aim for ${detail > 70 ? '80%+' : '60%+'} code coverage\n`;
+                    prompt += `- Test edge cases and error scenarios\n`;
+                }
+
+                // Database considerations
+                if (project !== 'frontend') {
+                    prompt += `\n## Database Design:\n`;
+                    dbSpec.features.forEach(feature => {
+                        prompt += `- Utilize ${feature}\n`;
+                    });
+                    prompt += `- Implement database migrations\n`;
+                    prompt += `- Include connection pooling and query optimization\n`;
+                }
+
+                // Docker configuration
+                if (includeDocker) {
+                    prompt += `\n## Docker Configuration:\n`;
+                    prompt += `- Create a multi-stage Dockerfile\n`;
+                    prompt += `- Include docker-compose.yml for local development\n`;
+                    prompt += `- Configure environment variables properly\n`;
+                    prompt += `- Optimize image size and build time\n`;
+                }
+
+                // CI/CD
+                if (includeCI) {
+                    prompt += `\n## CI/CD Pipeline:\n`;
+                    prompt += `- Set up GitHub Actions workflow (or equivalent)\n`;
+                    prompt += `- Include automated testing in pipeline\n`;
+                    prompt += `- Configure deployment to staging and production\n`;
+                    prompt += `- Add code quality checks and linting\n`;
+                }
+
+                // Security considerations
+                if (detail > 50) {
+                    prompt += `\n## Security:\n`;
+                    prompt += `- Implement input validation and sanitization\n`;
+                    prompt += `- Use parameterized queries to prevent SQL injection\n`;
+                    prompt += `- Add rate limiting to prevent abuse\n`;
+                    prompt += `- Implement CORS policies\n`;
+                    if (includeAuth) {
+                        prompt += `- Secure password storage with bcrypt/argon2\n`;
+                        prompt += `- Implement HTTPS/TLS encryption\n`;
+                    }
+                }
+
+                // Documentation
+                if (includeDocs) {
+                    prompt += `\n## Documentation:\n`;
+                    prompt += `- Include comprehensive README with setup instructions\n`;
+                    prompt += `- Document all API endpoints`;
+                    if (project === 'api' || project === 'fullstack') {
+                        prompt += ` using OpenAPI/Swagger`;
+                    }
+                    prompt += `\n`;
+                    prompt += `- Add inline code comments explaining complex logic\n`;
+                    prompt += `- Provide example .env file with all required variables\n`;
+                }
+
+                // Output format instructions
+                prompt += `\n## Output Format:\n`;
+                if (format === 'detailed') {
+                    prompt += `Provide a detailed implementation with:\n`;
+                    prompt += `- Complete file structure\n`;
+                    prompt += `- Full code for all major files\n`;
+                    prompt += `- Configuration files (package.json, .env.example, etc.)\n`;
+                    prompt += `- Detailed explanations of key decisions\n`;
+                } else if (format === 'stepbystep') {
+                    prompt += `Provide step-by-step instructions:\n`;
+                    prompt += `1. Project initialization and setup\n`;
+                    prompt += `2. Installing dependencies\n`;
+                    prompt += `3. File structure creation\n`;
+                    prompt += `4. Implementation of each feature\n`;
+                    prompt += `5. Testing and deployment\n`;
+                } else {
+                    prompt += `Provide production-ready boilerplate code with:\n`;
+                    prompt += `- Minimal but complete implementation\n`;
+                    prompt += `- All essential files and configurations\n`;
+                    prompt += `- Ready to run with minimal modifications\n`;
+                }
+
+                // Additional context based on detail level
+                if (detail > 75) {
+                    prompt += `\nProvide ${complexitySpec.instructions} and include best practices for production deployment, monitoring, and maintenance.`;
+                }
+
+                return prompt;
+            }
+        };
+
+        // Initialize event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeOptions();
+            initializeSliders();
+            initializeCheckboxes();
+            
+            // Keyboard shortcuts
+            document.getElementById('inputPrompt').addEventListener('keydown', (e) => {
+                if (e.ctrlKey && e.key === 'Enter') {
+                    generatePrompt();
+                }
+            });
+        });
+
+        function initializeOptions() {
+            // Project type buttons
+            document.querySelectorAll('[data-project]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('[data-project]').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    CodingPromptEngine.state.project = e.target.dataset.project;
+                });
+            });
+
+            // Stack buttons
+            document.querySelectorAll('[data-stack]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('[data-stack]').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    CodingPromptEngine.state.stack = e.target.dataset.stack;
+                });
+            });
+
+            // Complexity buttons
+            document.querySelectorAll('[data-complexity]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('[data-complexity]').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    CodingPromptEngine.state.complexity = e.target.dataset.complexity;
+                });
+            });
+
+            // Style buttons
+            document.querySelectorAll('[data-style]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('[data-style]').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    CodingPromptEngine.state.style = e.target.dataset.style;
+                });
+            });
+
+            // Architecture buttons
+            document.querySelectorAll('[data-arch]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('[data-arch]').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    CodingPromptEngine.state.arch = e.target.dataset.arch;
+                });
+            });
+
+            // Database buttons
+            document.querySelectorAll('[data-database]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('[data-database]').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    CodingPromptEngine.state.database = e.target.dataset.database;
+                });
+            });
+
+            // Format buttons
+            document.querySelectorAll('[data-format]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('[data-format]').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    CodingPromptEngine.state.format = e.target.dataset.format;
+                });
+            });
+        }
+
+        function initializeSliders() {
+            const detailSlider = document.getElementById('detailSlider');
+            const detailValue = document.getElementById('detailValue');
+
+            detailSlider.addEventListener('input', (e) => {
+                CodingPromptEngine.state.detail = parseInt(e.target.value);
+                detailValue.textContent = e.target.value;
+            });
+        }
+
+        function initializeCheckboxes() {
+            document.getElementById('includeTests').addEventListener('change', (e) => {
+                CodingPromptEngine.state.includeTests = e.target.checked;
+            });
+            document.getElementById('includeError').addEventListener('change', (e) => {
+                CodingPromptEngine.state.includeError = e.target.checked;
+            });
+            document.getElementById('includeAuth').addEventListener('change', (e) => {
+                CodingPromptEngine.state.includeAuth = e.target.checked;
+            });
+            document.getElementById('includeDocker').addEventListener('change', (e) => {
+                CodingPromptEngine.state.includeDocker = e.target.checked;
+            });
+            document.getElementById('includeCI').addEventListener('change', (e) => {
+                CodingPromptEngine.state.includeCI = e.target.checked;
+            });
+            document.getElementById('includeDocs').addEventListener('change', (e) => {
+                CodingPromptEngine.state.includeDocs = e.target.checked;
+            });
+        }
+
+        function generatePrompt() {
+            const input = document.getElementById('inputPrompt').value.trim();
+            
+            if (!input) {
+                showError('Please describe what you want to build first!');
+                return;
+            }
+
+            // Hide error, show loading
+            hideError();
+            showLoading();
+            hideResults();
+
+            // Disable button
+            const btn = document.getElementById('generateBtn');
+            btn.disabled = true;
+            btn.classList.add('loading');
+
+            // Simulate processing time
+            const processingTime = 600 + Math.random() * 400;
+
+            setTimeout(() => {
+                try {
+                    // Generate enhanced prompt
+                    const enhancedPrompt = CodingPromptEngine.generate(input);
+
+                    // Display results
+                    displayResults(input, enhancedPrompt);
+
+                    // Track generation
+                    gtag('event', 'coding_prompt_generated', {
+                        'project_type': CodingPromptEngine.state.project,
+                        'stack': CodingPromptEngine.state.stack,
+                        'complexity': CodingPromptEngine.state.complexity
+                    });
+
+                } catch (error) {
+                    console.error('Generation error:', error);
+                    showError('Failed to generate prompt. Please try again.');
+                } finally {
+                    hideLoading();
+                    btn.disabled = false;
+                    btn.classList.remove('loading');
+                }
+            }, processingTime);
+        }
+
+        function displayResults(original, enhanced) {
+            document.getElementById('originalPrompt').textContent = original;
+            document.getElementById('enhancedPrompt').textContent = enhanced;
+            
+            // Count words
+            const wordCount = enhanced.split(/\s+/).filter(w => w.length > 0).length;
+            document.getElementById('wordCount').textContent = `${wordCount} words • ${enhanced.length} characters`;
+
+            showResults();
+        }
+
+        function copyText(elementId) {
+            const text = document.getElementById(elementId).textContent;
+            const btn = event.target;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btn.textContent;
+                btn.textContent = '✓ Copied';
+                btn.classList.add('copied');
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.classList.remove('copied');
+                }, 2000);
+
+                // Track copy
+                gtag('event', 'copy_coding_prompt', {
+                    'prompt_type': elementId === 'enhancedPrompt' ? 'enhanced' : 'original'
+                });
+            }).catch(err => {
+                console.error('Copy failed:', err);
+                showError('Failed to copy to clipboard');
+            });
+        }
+
+        function regenerate() {
+            generatePrompt();
+        }
+
+        function clearAll() {
+            document.getElementById('inputPrompt').value = '';
+            hideResults();
+            hideError();
+        }
+
+        function showLoading() {
+            document.getElementById('loadingAnimation').classList.add('show');
+        }
+
+        function hideLoading() {
+            document.getElementById('loadingAnimation').classList.remove('show');
+        }
+
+        function showResults() {
+            document.getElementById('resultsSection').classList.add('show');
+            setTimeout(() => {
+                document.getElementById('resultsSection').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'nearest' 
+                });
+            }, 100);
+        }
+
+        function hideResults() {
+            document.getElementById('resultsSection').classList.remove('show');
+        }
+
+        function showError(message) {
+            const errorEl = document.getElementById('errorMessage');
+            errorEl.textContent = '⚠️ ' + message;
+            errorEl.classList.add('show');
+        }
+
+        function hideError() {
+            document.getElementById('errorMessage').classList.remove('show');
+        }
+    </script>
+
+    <!-- Firebase Analytics -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
+      
+      const firebaseConfig = {
+        apiKey: "AIzaSyBoHIV18vtLbR0OVQ4BH7RrjYYEL4vpMww",
+        authDomain: "mintprompt-e676d.firebaseapp.com",
+        projectId: "mintprompt-e676d",
+        storageBucket: "mintprompt-e676d.firebasestorage.app",
+        messagingSenderId: "387878641820",
+        appId: "1:387878641820:web:32a3281ae69c8b50ad4d59",
+        measurementId: "G-1WCBX3XXCM"
+      };
+      
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+</body>
+</html>
