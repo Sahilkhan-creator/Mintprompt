@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "title": "Build an n8n Automation for Content Posting",
+    "category": "automation",
+    "preview": "Create a workflow that auto-generates and posts content across multiple platforms using n8n and AI APIs.",
+    "full": "Design a complete n8n automation workflow that: 1) Uses OpenAI API to generate social media posts based on trending topics, 2) Formats content appropriately for Twitter, LinkedIn, and Instagram, 3) Schedules posts using Buffer or native platform APIs, 4) Logs all activities to a Google Sheet for tracking, 5) Sends Slack notifications on successful posts or errors. Include error handling, retry logic, and environment variable setup. The workflow should run daily at 9 AM and generate 3 unique posts per platform.",
+    "premium": false
+  },
+  {
+    "id": 2,
+    "title": "Build an Automated API Monitoring Script",
+    "category": "automation",
+    "preview": "Create a script that monitors API uptime, logs errors, and sends alerts when issues are detected.",
+    "full": "Write a production-ready Node.js script that monitors a REST API endpoint every 5 minutes. The script should log response time, status codes, and failures to a local JSON file. If the API fails more than 3 times consecutively, send an email alert using Nodemailer. Use clean async/await patterns, environment variables for configuration, and include detailed comments explaining each major step. Add graceful shutdown handling and comprehensive error logging.",
+    "premium": false
+  },
+  {
+    "id": 3,
+    "title": "Create a REST API with Express and MongoDB",
+    "category": "backend",
+    "preview": "Build a complete RESTful API with authentication, CRUD operations, and MongoDB integration.",
+    "full": "Create a production-ready Express.js REST API with the following features: 1) User authentication using JWT tokens, 2) CRUD endpoints for a 'products' resource with validation, 3) MongoDB integration using Mongoose with proper schema design, 4) Middleware for error handling and request logging, 5) Rate limiting to prevent abuse, 6) API documentation using Swagger/OpenAPI, 7) Environment-based configuration, 8) Comprehensive error responses with proper HTTP status codes. Include folder structure recommendations and security best practices.",
+    "premium": false
+  },
+  {
+    "id": 4,
+    "title": "Python Web Scraper with Error Handling",
+    "category": "scripts",
+    "preview": "Build a robust web scraper that handles pagination, retries, and exports data to CSV.",
+    "full": "Write a Python web scraper using BeautifulSoup and Requests that: 1) Scrapes product data (title, price, rating, URL) from an e-commerce site, 2) Handles pagination automatically, 3) Implements exponential backoff retry logic for failed requests, 4) Respects robots.txt and includes user-agent rotation, 5) Saves data to CSV with proper encoding, 6) Logs progress and errors to a file, 7) Uses command-line arguments for URL and output file. Include detailed comments and exception handling for network errors, missing elements, and rate limiting.",
+    "premium": false
+  },
+  {
+    "id": 5,
+    "title": "Stripe Payment Integration Guide",
+    "category": "apis",
+    "preview": "Complete implementation of Stripe payment processing with webhooks and subscription handling.",
+    "full": "Create a comprehensive Stripe integration that includes: 1) One-time payment processing with card tokenization, 2) Subscription creation and management with multiple tiers, 3) Webhook handling for payment success/failure events, 4) Customer portal integration for self-service subscription management, 5) Invoice generation and email notifications, 6) Proper error handling and refund processing, 7) Security best practices including signature verification for webhooks. Provide both frontend (React/vanilla JS) and backend (Node.js) code examples with environment configuration.",
+    "premium": false
+  },
+  {
+    "id": 6,
+    "title": "React Component Library Setup",
+    "category": "coding",
+    "preview": "Set up a reusable React component library with TypeScript, Storybook, and npm publishing.",
+    "full": "Guide me through creating a professional React component library that includes: 1) Project setup with TypeScript, Rollup, and proper package.json configuration, 2) Component development with props validation and TypeScript interfaces, 3) Storybook integration for component documentation and testing, 4) CSS-in-JS styling solution (styled-components or Emotion), 5) Unit testing with Jest and React Testing Library, 6) Automated versioning and changelog generation, 7) npm publishing workflow with GitHub Actions, 8) README with usage examples and contribution guidelines. Include folder structure and best practices for maintainability.",
+    "premium": false
+  },
+  {
+    "id": 7,
+    "title": "Dockerize a Full-Stack Application",
+    "category": "backend",
+    "preview": "Create Docker configuration for a complete application with database, backend, and frontend.",
+    "full": "Write a complete Docker setup for a full-stack application that includes: 1) Dockerfile for Node.js backend with multi-stage builds, 2) Dockerfile for React frontend with nginx serving, 3) docker-compose.yml orchestrating backend, frontend, PostgreSQL, and Redis, 4) Environment variable management across services, 5) Volume configuration for data persistence, 6) Health checks and restart policies, 7) Development vs production configurations, 8) .dockerignore file optimization. Include commands for building, running, and debugging the containerized application.",
+    "premium": false
+  },
+  {
+    "id": 8,
+    "title": "AI-Powered Email Classifier",
+    "category": "ai-workflows",
+    "preview": "Build an email classification system using OpenAI API that automatically tags and routes incoming emails.",
+    "full": "Create a Node.js application that: 1) Connects to Gmail API to fetch new emails, 2) Uses OpenAI GPT-4 to classify emails into categories (urgent, customer support, marketing, personal, spam), 3) Extracts key information (sender priority, action items, deadlines) from email content, 4) Applies Gmail labels automatically based on classification, 5) Sends priority emails to Slack with summaries, 6) Logs all classifications to a database for training data, 7) Runs on a schedule using cron or cloud functions. Include OAuth2 setup, prompt engineering best practices, and error handling for API rate limits.",
+    "premium": false
+  },
+  {
+    "id": 9,
+    "title": "GitHub Actions CI/CD Pipeline",
+    "category": "automation",
+    "preview": "Set up a complete CI/CD pipeline with testing, linting, building, and deployment to production.",
+    "full": "Create a GitHub Actions workflow that: 1) Triggers on push to main and pull requests, 2) Runs linting (ESLint) and code formatting checks (Prettier), 3) Executes unit and integration tests with coverage reporting, 4) Builds the application with environment-specific configurations, 5) Runs security vulnerability scans, 6) Deploys to staging on PR merge and production on release tags, 7) Sends deployment notifications to Slack, 8) Implements rollback on deployment failure. Include separate jobs for frontend and backend, caching strategies for faster builds, and secrets management.",
+    "premium": false
+  },
+  {
+    "id": 10,
+    "title": "Real-Time Chat Application with WebSockets",
+    "category": "coding",
+    "preview": "Build a production-ready real-time chat app using Socket.io with rooms, typing indicators, and message history.",
+    "full": "Develop a complete real-time chat application with: 1) Socket.io server setup with authentication and room management, 2) React frontend with message components and real-time updates, 3) User presence tracking (online/offline/typing indicators), 4) Message persistence using MongoDB with pagination, 5) Private and group chat rooms with permissions, 6) File upload support for images and documents, 7) Message read receipts and delivery status, 8) Emoji reactions and reply threading, 9) Notification system for offline messages. Include security considerations, rate limiting, and scalability patterns for handling thousands of concurrent users.",
+    "premium": false
+  },
+  {
+    "id": 11,
+    "title": "GraphQL API with Apollo Server",
+    "category": "apis",
+    "preview": "Create a GraphQL API with queries, mutations, subscriptions, and DataLoader for optimization.",
+    "full": "Build a complete GraphQL API using Apollo Server that includes: 1) Schema design with types, queries, mutations, and subscriptions, 2) Resolvers with authentication and authorization, 3) DataLoader implementation to prevent N+1 query problems, 4) Real-time updates using GraphQL subscriptions, 5) Error handling with custom error classes, 6) Input validation and sanitization, 7) Pagination using cursor-based approach, 8) File upload handling, 9) Integration with PostgreSQL using Prisma or TypeORM, 10) GraphQL Playground setup for testing. Include performance optimization techniques and security best practices.",
+    "premium": false
+  },
+  {
+    "id": 12,
+    "title": "Automated Data Pipeline with Python",
+    "category": "scripts",
+    "preview": "Build an ETL pipeline that extracts data from multiple sources, transforms it, and loads into a data warehouse.",
+    "full": "Create a Python ETL pipeline that: 1) Extracts data from multiple sources (CSV files, REST APIs, PostgreSQL), 2) Transforms data using Pandas (cleaning, normalization, aggregation), 3) Validates data quality with custom rules and logging, 4) Loads processed data into a data warehouse (BigQuery or Snowflake), 5) Implements incremental loading to avoid processing duplicates, 6) Schedules pipeline execution using Airflow or Prefect, 7) Sends email reports with processing statistics, 8) Handles failures with retry logic and alerting. Include modular code structure, configuration files, and comprehensive logging.",
+    "premium": false
+  },
+  {
+    "id": 13,
+    "title": "Serverless Function with AWS Lambda",
+    "category": "backend",
+    "preview": "Deploy a serverless API using AWS Lambda, API Gateway, and DynamoDB with proper IAM configuration.",
+    "full": "Create a serverless application on AWS that includes: 1) Lambda function written in Node.js for processing HTTP requests, 2) API Gateway configuration with RESTful endpoints and CORS, 3) DynamoDB table setup with proper indexing for queries, 4) IAM roles and policies following least-privilege principle, 5) Environment variables and secrets management using AWS Systems Manager, 6) CloudWatch logging and monitoring with custom metrics, 7) Local development setup using SAM or Serverless Framework, 8) Deployment automation with CloudFormation or Terraform. Include cost optimization strategies and cold start mitigation techniques.",
+    "premium": false
+  },
+  {
+    "id": 14,
+    "title": "AI Content Generator with LangChain",
+    "category": "ai-workflows",
+    "preview": "Build a content generation system using LangChain that creates SEO-optimized articles with citations.",
+    "full": "Develop an AI-powered content generation system that: 1) Uses LangChain to orchestrate multiple LLM calls, 2) Researches topics by querying web search APIs and extracting key information, 3) Generates comprehensive articles with proper structure (intro, body, conclusion), 4) Includes citations and fact-checking against sources, 5) Optimizes content for SEO with keyword integration, 6) Generates meta descriptions and suggested titles, 7) Implements custom prompts for different content types (blog posts, product descriptions, social media), 8) Saves generated content to database with version history. Include memory management, token optimization, and quality validation steps.",
+    "premium": false
+  },
+  {
+    "id": 15,
+    "title": "Automated Testing Suite with Playwright",
+    "category": "automation",
+    "preview": "Create end-to-end tests for web applications with parallel execution, screenshots, and CI integration.",
+    "full": "Set up a comprehensive testing framework using Playwright that: 1) Tests critical user flows (login, checkout, form submissions), 2) Runs tests in parallel across Chrome, Firefox, and Safari, 3) Captures screenshots and videos on test failures, 4) Implements page object model for maintainability, 5) Includes visual regression testing for UI changes, 6) Integrates with CI/CD pipeline (GitHub Actions or Jenkins), 7) Generates HTML test reports with pass/fail statistics, 8) Handles authentication state and cookies, 9) Tests mobile responsive layouts, 10) Includes accessibility testing with axe-core. Provide folder structure, helper utilities, and debugging strategies.",
+    "premium": false
+  },
+  {
+    "id": 16,
+    "title": "Microservices Architecture Setup",
+    "category": "backend",
+    "preview": "Design a microservices system with service discovery, API gateway, and inter-service communication.",
+    "full": "Create a microservices architecture that includes: 1) Multiple Node.js services (user service, product service, order service) with clear boundaries, 2) API Gateway using Kong or Express Gateway for routing and rate limiting, 3) Service discovery with Consul or Kubernetes DNS, 4) Inter-service communication using REST and message queues (RabbitMQ or Kafka), 5) Centralized logging with ELK stack (Elasticsearch, Logstash, Kibana), 6) Distributed tracing using Jaeger or Zipkin, 7) Configuration management with environment-based configs, 8) Health checks and circuit breakers using resilience4j patterns. Include Docker Compose setup for local development and deployment considerations.",
+    "premium": false
+  },
+  {
+    "id": 17,
+    "title": "OAuth2 Authentication Implementation",
+    "category": "apis",
+    "preview": "Implement OAuth2 authentication with Google, GitHub, and email/password login using Passport.js.",
+    "full": "Build a complete authentication system that supports: 1) OAuth2 login with Google and GitHub using Passport.js strategies, 2) Traditional email/password authentication with bcrypt hashing, 3) JWT token generation and refresh token flow, 4) Email verification for new accounts, 5) Password reset functionality with secure tokens, 6) Session management with Redis for token storage, 7) Role-based access control (RBAC) middleware, 8) Account linking for users with multiple login methods, 9) Rate limiting on auth endpoints to prevent brute force attacks. Include frontend integration examples, security headers, and GDPR-compliant user data handling.",
+    "premium": false
+  },
+  {
+    "id": 18,
+    "title": "Slack Bot with Custom Commands",
+    "category": "automation",
+    "preview": "Create a Slack bot that responds to commands, schedules messages, and integrates with external APIs.",
+    "full": "Develop a Slack bot using Bolt.js that: 1) Responds to slash commands (/report, /standup, /reminder), 2) Listens to message events and responds to mentions, 3) Integrates with external APIs (Jira, GitHub, Google Calendar), 4) Schedules recurring messages using node-cron, 5) Creates interactive messages with buttons and modals, 6) Stores user preferences in MongoDB, 7) Sends direct messages and posts to channels based on triggers, 8) Implements permission checks for admin-only commands, 9) Logs all interactions for analytics. Include OAuth installation flow, environment setup, and deployment to Heroku or AWS.",
+    "premium": false
+  },
+  {
+    "id": 19,
+    "title": "Image Processing Pipeline",
+    "category": "scripts",
+    "preview": "Build a Node.js service that resizes, optimizes, and uploads images to cloud storage with CDN integration.",
+    "full": "Create an image processing service that: 1) Accepts image uploads via REST API endpoint, 2) Validates file type, size, and dimensions, 3) Generates multiple sizes (thumbnail, medium, large) using Sharp library, 4) Optimizes images for web (compression, format conversion to WebP), 5) Uploads processed images to AWS S3 or Google Cloud Storage, 6) Configures CDN (CloudFront or Cloudflare) for fast delivery, 7) Stores metadata (URLs, dimensions, sizes) in database, 8) Implements lazy loading URLs and responsive image srcset, 9) Handles errors and provides progress updates for large batches. Include cleanup of temporary files and caching strategies.",
+    "premium": false
+  },
+  {
+    "id": 20,
+    "title": "AI-Powered Code Review Assistant",
+    "category": "ai-workflows",
+    "preview": "Create a GitHub bot that automatically reviews pull requests using AI and suggests improvements.",
+    "full": "Build an automated code review system that: 1) Listens to GitHub webhook events for new pull requests, 2) Fetches code changes using GitHub API, 3) Analyzes code using OpenAI GPT-4 with custom prompts for code quality, security, and best practices, 4) Detects code smells, potential bugs, and performance issues, 5) Posts review comments directly on the pull request with line-specific suggestions, 6) Checks for consistent coding style and naming conventions, 7) Provides summary report with overall assessment, 8) Integrates with existing CI/CD to block merges on critical issues. Include rate limiting for API calls, caching of reviews, and customizable review rules per repository.",
+    "premium": false
+  }
+]
