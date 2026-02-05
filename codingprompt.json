@@ -1,12 +1,14 @@
 [
   {
     "id": 1,
-    "title": "Build an n8n Automation for Content Posting",
-    "category": "automation",
-    "preview": "Create a workflow that auto-generates and posts content across multiple platforms using n8n and AI APIs.",
-    "full": "Design a complete n8n automation workflow that: 1) Uses OpenAI API to generate social media posts based on trending topics, 2) Formats content appropriately for Twitter, LinkedIn, and Instagram, 3) Schedules posts using Buffer or native platform APIs, 4) Logs all activities to a Google Sheet for tracking, 5) Sends Slack notifications on successful posts or errors. Include error handling, retry logic, and environment variable setup. The workflow should run daily at 9 AM and generate 3 unique posts per platform.",
-    "premium": false,
-    "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=300&fit=crop"
+    "title": "Multi-AI Code Engine - World's First 3-AI Coding System",
+    "category": "premium-coding",
+    "preview": "Telegram bot combines Gemini 3 + Kimi 2.5 + Claude 4.5. Import n8n workflow → Get ZIP files better than Cursor.",
+    "full": "Complete n8n workflow JSON + optimized prompts for world's first multi-AI coding system: 1) Telegram Trigger (text/files), 2) Intent recognition AI Agent, 3) User project storage (Google Drive by user_id), 4) Gemini 3 Logic Planner (debug/planning), 5) Kimi 2.5 Code Generator (creative implementation), 6) Claude Sonnet 4.5 Final Polish (lint/format/validate), 7) Summary generator, 8) ZIP archive creation, 9) Telegram ZIP delivery with changelog. Pay-per-use APIs only ($0.03/request). No file limits, fully editable, beats Cursor Pro. Includes exact setup video script, API key configs, test cases. First 1000 sales @ $12.",
+    "premium": true,
+    "price": "$12 (First 1000 only)",
+    "productLink": "https://gumroad.com/l/multi-ai-code-engine",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop"
   },
   {
     "id": 2,
@@ -189,4 +191,15 @@
     "premium": false,
     "image": "https://images.unsplash.com/photo-1542903660-eedba2cda473?w=400&h=300&fit=crop"
   }
+  {
+    "id": 21,
+    "title": "Enterprise SaaS Starter Kit - Complete Blueprint",
+    "category": "premium-coding",
+    "preview": "Full-stack SaaS boilerplate with authentication, payments, multi-tenancy, and admin dashboard.",
+    "full": "A comprehensive enterprise-ready SaaS starter kit that includes: 1) Next.js 14 frontend with TypeScript and Tailwind CSS, 2) Supabase backend with PostgreSQL, real-time subscriptions, and Row Level Security, 3) Stripe integration for subscriptions and usage-based billing, 4) Multi-tenant architecture with organization management, 5) Role-based access control (RBAC) with granular permissions, 6) Admin dashboard with analytics and user management, 7) Email system with transactional emails (Resend/SendGrid), 8) Onboarding flows and feature flags, 9) SEO optimization and OpenGraph tags, 10) CI/CD pipeline with automated testing and deployment. Includes complete documentation, database schemas, API routes, and deployment guides for Vercel/AWS.",
+    "premium": true,
+    "price": "$49",
+    "productLink": "https://gumroad.com/your-product-link",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop"
+  },
 ]
