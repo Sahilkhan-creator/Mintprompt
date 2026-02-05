@@ -6,7 +6,7 @@
     "preview": "Telegram bot combines Gemini 3 + Kimi 2.5 + Claude 4.5. Import n8n workflow → Get ZIP files better than Cursor.",
     "full": "Complete n8n workflow JSON + optimized prompts for world's first multi-AI coding system: 1) Telegram Trigger (text/files), 2) Intent recognition AI Agent, 3) User project storage (Google Drive by user_id), 4) Gemini 3 Logic Planner (debug/planning), 5) Kimi 2.5 Code Generator (creative implementation), 6) Claude Sonnet 4.5 Final Polish (lint/format/validate), 7) Summary generator, 8) ZIP archive creation, 9) Telegram ZIP delivery with changelog. Pay-per-use APIs only ($0.03/request). No file limits, fully editable, beats Cursor Pro. Includes exact setup video script, API key configs, test cases. First 1000 sales @ $12.",
     "premium": true,
-    "price": "$12 (First 1000 only)",
+    "price": "$6 (First 1000 only)",
     "productLink": "https://mineblade.gumroad.com/l/hjxsh",
     "image": "https://i.imgur.com/BZ8cZ0b.jpeg"
   },
