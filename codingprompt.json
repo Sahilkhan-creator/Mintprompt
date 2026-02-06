@@ -17,10 +17,9 @@
     "preview": "Complete n8n workflow that auto-generates viral YouTube Shorts with VEO3 AI video + GPT content creation.",
     "full": "Production-ready n8n automation that creates and publishes daily viral-style YouTube Shorts completely hands-free. Features: 1) Daily scheduled GPT-powered viral idea generation (web dev/AI/cybersecurity niches), 2) Structured VEO3 prompt engineering for cinematic 9:16 before/after transformation videos, 3) VEO3 API integration for automatic video rendering, 4) Google Sheets tracking (idea, caption, prompt details, status, YouTube URL), 5) Direct YouTube Shorts upload with optimized titles/captions/hashtags, 6) Full error handling and retry logic, 7) Production-ready workflow with detailed setup instructions. Perfect for creators scaling consistent short-form content. Download the complete n8n workflow JSON and import directly into your n8n instance.",
     "premium": true,
-    "workflow": true,
-    "downloadUrl": "https://mineblade.gumroad.com/l/jhlmy",
-    "fileType": "json",
-    "fileName": "veo3-youtube-shorts-automation.json"
+    "price": "$1 (First 1000 only)",
+    "productLink": "https://mineblade.gumroad.com/l/jhlmy",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop"
   },
   {
     "id": 3,
