@@ -69,5 +69,17 @@
     "preview": "Create Docker configuration for a complete application with database, backend, and frontend.",
     "full": "Write a complete Docker setup for a full-stack application that includes: 1) Dockerfile for Node.js backend with multi-stage builds, 2) Dockerfile for React frontend with nginx serving, 3) docker-compose.yml orchestrating backend, frontend, PostgreSQL, and Redis, 4) Environment variable management across services, 5) Volume configuration for data persistence, 6) Health checks and restart policies, 7) Development vs production configurations, 8) .dockerignore file optimization. Include commands for building, running, and debugging the containerized application.",
     "premium": false
+  },
+  {
+  "id": 3,
+  "title": "Automate Blog Content Creation with GPT-4, Perplexity & WordPress",
+  "category": "automation",
+  "preview": "Download a complete n8n workflow to automate blog content creation using GPT-4, Perplexity, and WordPress.",
+  "full": "Complex multi-step n8n automation that fully automates blog content creation and publishing. This workflow orchestrates GPT-4 for content generation, Perplexity for research and fact-checking, and WordPress for automated publishing. It integrates with Notion for content planning, Lmchatopenai for AI processing, and Slack for real-time notifications and workflow monitoring. Built using 17 nodes and connected to 9 different services, this production-ready automation handles data processing, content structuring, and publishing with minimal human input. Download the complete n8n workflow JSON and import it directly into your n8n instance.",
+  "premium": false,
+  "workflow": true,
+  "downloadUrl": "workflows/automate-blog-content.json",
+  "fileType": "json",
+  "fileName": "automate-blog-content.json"
   }
 ]
