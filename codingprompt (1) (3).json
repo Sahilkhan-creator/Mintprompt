@@ -1,0 +1,97 @@
+[
+  {
+    "id": 1,
+    "title": "Multi-AI Code Engine - World's First 3-AI Coding System",
+    "category": "premium-coding",
+    "preview": "Telegram bot combines Gemini 3 + Kimi 2.5 + Claude 4.5. Import n8n workflow → Get ZIP files better than Cursor.",
+    "full": "Complete n8n workflow JSON + optimized prompts for world's first multi-AI coding system: 1) Telegram Trigger (text/files), 2) Intent recognition AI Agent, 3) User project storage (Google Drive by user_id), 4) Gemini 3 Logic Planner (debug/planning), 5) Kimi 2.5 Code Generator (creative implementation), 6) Claude Sonnet 4.5 Final Polish (lint/format/validate), 7) Summary generator, 8) ZIP archive creation, 9) Telegram ZIP delivery with changelog. Pay-per-use APIs only ($0.03/request). No file limits, fully editable, beats Cursor Pro. Includes exact setup video script, API key configs, test cases. First 1000 sales @ $12.",
+    "premium": true,
+    "price": "$12 (First 1000 only)",
+    "productLink": "https://gumroad.com/l/multi-ai-code-engine",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 2,
+    "title": "Build an n8n Automation for Content Posting",
+    "category": "automation",
+    "preview": "Download complete n8n workflow JSON with AI-powered social media automation across all platforms.",
+    "full": "Complete n8n automation workflow that creates and posts AI-generated content to Twitter, Instagram, Facebook, LinkedIn, Threads, and YouTube Shorts. Features: 1) Multi-platform AI agent with dedicated tools for each social network, 2) GPT-4o integration for intelligent content generation, 3) Automated image creation using Pollinations.ai, 4) Smart content formatting per platform, 5) Window buffer memory for conversation context, 6) Gmail notifications on completion, 7) System prompt composition from Google Docs, 8) Production-ready error handling and retry logic. Download the complete n8n workflow JSON and import directly into your n8n instance. Includes detailed setup instructions and all required node configurations.",
+    "premium": false,
+    "workflow": true,
+    "downloadUrl": "workflows/workflow-social-media.json",
+    "fileType": "json",
+    "fileName": "social-media-automation.json"
+  },
+  {
+    "id": 3,
+    "title": "Complete API Integration Guide - Stripe + PayPal",
+    "category": "apis",
+    "preview": "Comprehensive PDF guide with code examples for integrating Stripe and PayPal payment gateways.",
+    "full": "This 50-page PDF guide covers everything you need to integrate payment processing: 1) Stripe API setup with webhooks, subscriptions, and refunds, 2) PayPal REST API integration with checkout flows, 3) Security best practices including PCI compliance, 4) Complete Node.js and React code examples, 5) Error handling patterns, 6) Testing strategies with sandbox environments, 7) Production deployment checklist, 8) Common issues and solutions. Includes copy-paste ready code snippets and architectural diagrams.",
+    "premium": false,
+    "workflow": true,
+    "downloadUrl": "https://example.com/guides/payment-integration-guide.pdf",
+    "fileType": "pdf",
+    "fileName": "payment-integration-guide.pdf"
+  },
+  {
+    "id": 4,
+    "title": "Docker & Kubernetes Cheat Sheet",
+    "category": "backend",
+    "preview": "Visual cheat sheet with all essential Docker and K8s commands, best practices, and deployment patterns.",
+    "full": "High-resolution infographic cheat sheet (PNG format) containing: 1) 100+ Docker commands with explanations, 2) Dockerfile best practices and multi-stage builds, 3) Docker Compose configurations for common stacks, 4) Kubernetes architecture overview, 5) kubectl command reference, 6) Pod, Service, Deployment, and ConfigMap examples, 7) Helm chart basics, 8) Networking and storage concepts. Perfect for printing or keeping as desktop wallpaper. Designed by professional DevOps engineers.",
+    "premium": false,
+    "workflow": true,
+    "downloadUrl": "https://images.unsplash.com/photo-1605745341112-85968b19335b?w=2000&h=3000&fit=crop",
+    "fileType": "image",
+    "fileName": "docker-kubernetes-cheatsheet.png"
+  },
+  {
+    "id": 5,
+    "title": "Build an Automated API Monitoring Script",
+    "category": "automation",
+    "preview": "Create a script that monitors API uptime, logs errors, and sends alerts when issues are detected.",
+    "full": "Write a production-ready Node.js script that monitors a REST API endpoint every 5 minutes. The script should log response time, status codes, and failures to a local JSON file. If the API fails more than 3 times consecutively, send an email alert using Nodemailer. Use clean async/await patterns, environment variables for configuration, and include detailed comments explaining each major step. Add graceful shutdown handling and comprehensive error logging.",
+    "premium": false
+  },
+  {
+    "id": 6,
+    "title": "Create a REST API with Express and MongoDB",
+    "category": "backend",
+    "preview": "Build a complete RESTful API with authentication, CRUD operations, and MongoDB integration.",
+    "full": "Create a production-ready Express.js REST API with the following features: 1) User authentication using JWT tokens, 2) CRUD endpoints for a 'products' resource with validation, 3) MongoDB integration using Mongoose with proper schema design, 4) Middleware for error handling and request logging, 5) Rate limiting to prevent abuse, 6) API documentation using Swagger/OpenAPI, 7) Environment-based configuration, 8) Comprehensive error responses with proper HTTP status codes. Include folder structure recommendations and security best practices.",
+    "premium": false
+  },
+  {
+    "id": 7,
+    "title": "Python Web Scraper with Error Handling",
+    "category": "scripts",
+    "preview": "Build a robust web scraper that handles pagination, retries, and exports data to CSV.",
+    "full": "Write a Python web scraper using BeautifulSoup and Requests that: 1) Scrapes product data (title, price, rating, URL) from an e-commerce site, 2) Handles pagination automatically, 3) Implements exponential backoff retry logic for failed requests, 4) Respects robots.txt and includes user-agent rotation, 5) Saves data to CSV with proper encoding, 6) Logs progress and errors to a file, 7) Uses command-line arguments for URL and output file. Include detailed comments and exception handling for network errors, missing elements, and rate limiting.",
+    "premium": false
+  },
+  {
+    "id": 8,
+    "title": "Stripe Payment Integration Guide",
+    "category": "apis",
+    "preview": "Complete implementation of Stripe payment processing with webhooks and subscription handling.",
+    "full": "Create a comprehensive Stripe integration that includes: 1) One-time payment processing with card tokenization, 2) Subscription creation and management with multiple tiers, 3) Webhook handling for payment success/failure events, 4) Customer portal integration for self-service subscription management, 5) Invoice generation and email notifications, 6) Proper error handling and refund processing, 7) Security best practices including signature verification for webhooks. Provide both frontend (React/vanilla JS) and backend (Node.js) code examples with environment configuration.",
+    "premium": false
+  },
+  {
+    "id": 9,
+    "title": "React Component Library Setup",
+    "category": "coding",
+    "preview": "Set up a reusable React component library with TypeScript, Storybook, and npm publishing.",
+    "full": "Guide me through creating a professional React component library that includes: 1) Project setup with TypeScript, Rollup, and proper package.json configuration, 2) Component development with props validation and TypeScript interfaces, 3) Storybook integration for component documentation and testing, 4) CSS-in-JS styling solution (styled-components or Emotion), 5) Unit testing with Jest and React Testing Library, 6) Automated versioning and changelog generation, 7) npm publishing workflow with GitHub Actions, 8) README with usage examples and contribution guidelines. Include folder structure and best practices for maintainability.",
+    "premium": false
+  },
+  {
+    "id": 10,
+    "title": "Dockerize a Full-Stack Application",
+    "category": "backend",
+    "preview": "Create Docker configuration for a complete application with database, backend, and frontend.",
+    "full": "Write a complete Docker setup for a full-stack application that includes: 1) Dockerfile for Node.js backend with multi-stage builds, 2) Dockerfile for React frontend with nginx serving, 3) docker-compose.yml orchestrating backend, frontend, PostgreSQL, and Redis, 4) Environment variable management across services, 5) Volume configuration for data persistence, 6) Health checks and restart policies, 7) Development vs production configurations, 8) .dockerignore file optimization. Include commands for building, running, and debugging the containerized application.",
+    "premium": false
+  }
+]
