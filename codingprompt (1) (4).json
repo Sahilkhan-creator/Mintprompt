@@ -1,0 +1,215 @@
+[
+  {
+    "id": 1,
+    "title": "Multi-AI Code Engine - World's First 3-AI Coding System",
+    "category": "premium-coding",
+    "preview": "Telegram bot combines Gemini 3 + Kimi 2.5 + Claude 4.5. Import n8n workflow → Get ZIP files better than Cursor.",
+    "full": "Complete n8n workflow JSON + optimized prompts for world's first multi-AI coding system: 1) Telegram Trigger (text/files), 2) Intent recognition AI Agent, 3) User project storage (Google Drive by user_id), 4) Gemini 3 Logic Planner (debug/planning), 5) Kimi 2.5 Code Generator (creative implementation), 6) Claude Sonnet 4.5 Final Polish (lint/format/validate), 7) Summary generator, 8) ZIP archive creation, 9) Telegram ZIP delivery with changelog. Pay-per-use APIs only ($0.03/request). No file limits, fully editable, beats Cursor Pro. Includes exact setup video script, API key configs, test cases. First 1000 sales @ $12.",
+    "premium": true,
+    "price": "$12 (First 1000 only)",
+    "productLink": "https://gumroad.com/l/multi-ai-code-engine",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 2,
+    "title": "Viral VEO3 Shorts Machine: Auto-Generate & Publish YouTube AI Videos Daily",
+    "category": "automation",
+    "preview": "Complete n8n workflow that auto-generates viral YouTube Shorts with VEO3 AI video + GPT content creation.",
+    "full": "Production-ready n8n automation that creates and publishes daily viral-style YouTube Shorts completely hands-free. Features: 1) Daily scheduled GPT-powered viral idea generation (web dev/AI/cybersecurity niches), 2) Structured VEO3 prompt engineering for cinematic 9:16 before/after transformation videos, 3) VEO3 API integration for automatic video rendering, 4) Google Sheets tracking (idea, caption, prompt details, status, YouTube URL), 5) Direct YouTube Shorts upload with optimized titles/captions/hashtags, 6) Full error handling and retry logic, 7) Production-ready workflow with detailed setup instructions. Perfect for creators scaling consistent short-form content. Download the complete n8n workflow JSON and import directly into your n8n instance.",
+    "premium": true,
+    "price": "$1 (First 1000 only)",
+    "productLink": "https://mineblade.gumroad.com/l/jhlmy",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 3,
+    "title": "Discord MT5 Trading Bot: Execute Forex Trades via Chat",
+    "category": "trading",
+    "preview": "AI-powered Discord bot that executes MT5 forex trades from simple chat commands like 'buy EU market 2% sl 50'.",
+    "full": "Production-ready n8n workflow transforms Discord into your live trading terminal. Features: 1) GPT-4o-mini AI classifies 6 command types instantly, 2) Regex + AI fallback parses flexible syntax (EU=EURUSD, GU=GBPUSD), 3) Market/limit orders routed to your MT5 broker via local webhooks, 4) Signal management (view/clear pending trades), 5) Real-time Discord feedback with confirmations/errors, 6) Risk management with % position sizing + SL/TP automation, 7) Mobile-ready - trade from Discord phone app, 8) Full error handling. Works with any MT5 broker account. Includes complete workflow JSON + setup guide. Perfect for hands-free forex execution.",
+    "premium": true,
+    "price": "$3",
+    "productLink": "https://mineblade.gumroad.com/l/iketek",
+    "image": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 4,
+    "title": "Build an Automated API Monitoring Script",
+    "category": "automation",
+    "preview": "Create a script that monitors API uptime, logs errors, and sends alerts when issues are detected.",
+    "full": "Write a production-ready Node.js script that monitors a REST API endpoint every 5 minutes. The script should log response time, status codes, and failures to a local JSON file. If the API fails more than 3 times consecutively, send an email alert using Nodemailer. Use clean async/await patterns, environment variables for configuration, and include detailed comments explaining each major step. Add graceful shutdown handling and comprehensive error logging.",
+    "premium": false
+  },
+  {
+    "id": 5,
+    "title": "Create a REST API with Express and MongoDB",
+    "category": "backend",
+    "preview": "Build a complete RESTful API with authentication, CRUD operations, and MongoDB integration.",
+    "full": "Create a production-ready Express.js REST API with the following features: 1) User authentication using JWT tokens, 2) CRUD endpoints for a 'products' resource with validation, 3) MongoDB integration using Mongoose with proper schema design, 4) Middleware for error handling and request logging, 5) Rate limiting to prevent abuse, 6) API documentation using Swagger/OpenAPI, 7) Environment-based configuration, 8) Comprehensive error responses with proper HTTP status codes. Include folder structure recommendations and security best practices.",
+    "premium": false
+  },
+  {
+    "id": 6,
+    "title": "Python Web Scraper with Error Handling",
+    "category": "scripts",
+    "preview": "Build a robust web scraper that handles pagination, retries, and exports data to CSV.",
+    "full": "Write a Python web scraper using BeautifulSoup and Requests that: 1) Scrapes product data (title, price, rating, URL) from an e-commerce site, 2) Handles pagination automatically, 3) Implements exponential backoff retry logic for failed requests, 4) Respects robots.txt and includes user-agent rotation, 5) Saves data to CSV with proper encoding, 6) Logs progress and errors to a file, 7) Uses command-line arguments for URL and output file. Include detailed comments and exception handling for network errors, missing elements, and rate limiting.",
+    "premium": false
+  },
+  {
+    "id": 7,
+    "title": "Stripe Payment Integration Guide",
+    "category": "apis",
+    "preview": "Complete implementation of Stripe payment processing with webhooks and subscription handling.",
+    "full": "Create a comprehensive Stripe integration that includes: 1) One-time payment processing with card tokenization, 2) Subscription creation and management with multiple tiers, 3) Webhook handling for payment success/failure events, 4) Customer portal integration for self-service subscription management, 5) Invoice generation and email notifications, 6) Proper error handling and refund processing, 7) Security best practices including signature verification for webhooks. Provide both frontend (React/vanilla JS) and backend (Node.js) code examples with environment configuration.",
+    "premium": false
+  },
+  {
+    "id": 8,
+    "title": "React Component Library Setup",
+    "category": "coding",
+    "preview": "Set up a reusable React component library with TypeScript, Storybook, and npm publishing.",
+    "full": "Guide me through creating a professional React component library that includes: 1) Project setup with TypeScript, Rollup, and proper package.json configuration, 2) Component development with props validation and TypeScript interfaces, 3) Storybook integration for component documentation and testing, 4) CSS-in-JS styling solution (styled-components or Emotion), 5) Unit testing with Jest and React Testing Library, 6) Automated versioning and changelog generation, 7) npm publishing workflow with GitHub Actions, 8) README with usage examples and contribution guidelines. Include folder structure and best practices for maintainability.",
+    "premium": false
+  },
+  {
+    "id": 9,
+    "title": "Dockerize a Full-Stack Application",
+    "category": "backend",
+    "preview": "Create Docker configuration for a complete application with database, backend, and frontend.",
+    "full": "Write a complete Docker setup for a full-stack application that includes: 1) Dockerfile for Node.js backend with multi-stage builds, 2) Dockerfile for React frontend with nginx serving, 3) docker-compose.yml orchestrating backend, frontend, PostgreSQL, and Redis, 4) Environment variable management across services, 5) Volume configuration for data persistence, 6) Health checks and restart policies, 7) Development vs production configurations, 8) .dockerignore file optimization. Include commands for building, running, and debugging the containerized application.",
+    "premium": false
+  },
+  {
+    "id": 10,
+    "title": "Automate Blog Content Creation with GPT-4, Perplexity & WordPress",
+    "category": "automation",
+    "preview": "Download a complete n8n workflow to automate blog content creation using GPT-4, Perplexity, and WordPress.",
+    "full": "Complex multi-step n8n automation that fully automates blog content creation and publishing. This workflow orchestrates GPT-4 for content generation, Perplexity for research and fact-checking, and WordPress for automated publishing. It integrates with Notion for content planning, Lmchatopenai for AI processing, and Slack for real-time notifications and workflow monitoring. Built using 17 nodes and connected to 9 different services, this production-ready automation handles data processing, content structuring, and publishing with minimal human input. Download the complete n8n workflow JSON and import it directly into your n8n instance.",
+    "premium": false,
+    "workflow": true,
+    "downloadUrl": "workflows/automate-blog-content.json",
+    "fileType": "json",
+    "fileName": "automate-blog-content.json"
+  },
+  {
+    "id": 11,
+    "title": "Build a Real-Time Chat Application with Socket.io",
+    "category": "backend",
+    "preview": "Create a production-ready WebSocket chat app with rooms, typing indicators, and message persistence.",
+    "full": "Develop a complete real-time chat application using Node.js, Socket.io, and MongoDB that includes: 1) Socket.io server configuration with CORS and authentication middleware, 2) User authentication system with JWT tokens stored in HTTP-only cookies, 3) Real-time messaging with instant delivery and read receipts, 4) Chat rooms with public and private options, 5) Typing indicators showing when other users are composing messages, 6) Message history with MongoDB persistence and pagination, 7) Online/offline status tracking for all users, 8) File upload support for images and documents with size limits, 9) Message editing and deletion with sync across all clients, 10) Emoji support and reaction system. Include React frontend components, proper error handling, rate limiting to prevent spam, and scalability patterns for horizontal scaling with Redis adapter.",
+    "premium": false
+  },
+  {
+    "id": 12,
+    "title": "Implement GraphQL API with Apollo Server",
+    "category": "apis",
+    "preview": "Build a complete GraphQL API with subscriptions, DataLoader optimization, and authentication.",
+    "full": "Create a production-ready GraphQL API using Apollo Server v4 with the following features: 1) Schema-first design with type definitions for User, Post, Comment models, 2) Query resolvers with pagination (cursor-based), filtering, and sorting, 3) Mutation resolvers for CRUD operations with input validation using Yup or Joi, 4) Subscription resolvers for real-time updates (new posts, comments), 5) Authentication middleware using JWT with role-based access control (RBAC), 6) DataLoader implementation to solve N+1 query problems and batch database requests, 7) Custom scalar types (Date, Email, URL) with validation, 8) Error handling with custom error codes and user-friendly messages, 9) Query complexity analysis to prevent expensive queries, 10) Integration with PostgreSQL using Prisma ORM, 11) Apollo Studio integration for monitoring and analytics. Include comprehensive tests using Jest and detailed documentation.",
+    "premium": false
+  },
+  {
+    "id": 13,
+    "title": "Create Microservices Architecture with Node.js",
+    "category": "backend",
+    "preview": "Design a scalable microservices system with service mesh, API gateway, and inter-service communication.",
+    "full": "Build a complete microservices architecture with the following components: 1) API Gateway using Express Gateway or Kong for routing, authentication, and rate limiting, 2) Three microservices (User Service, Product Service, Order Service) each with its own database, 3) Inter-service communication using both REST APIs and RabbitMQ message queue for async operations, 4) Service discovery with Consul or etcd for dynamic service registration, 5) Centralized logging using ELK stack (Elasticsearch, Logstash, Kibana) with structured JSON logs, 6) Distributed tracing with Jaeger to track requests across services, 7) Circuit breaker pattern using Opossum to handle service failures gracefully, 8) Health check endpoints for each service with liveness and readiness probes, 9) Docker Compose configuration for local development with all services, 10) Kubernetes manifests for production deployment with ConfigMaps and Secrets, 11) Shared authentication service with JWT tokens and refresh token rotation. Include best practices for database per service pattern, saga pattern for distributed transactions, and monitoring with Prometheus and Grafana.",
+    "premium": false
+  },
+  {
+    "id": 14,
+    "title": "Build Advanced Testing Suite with Jest and Playwright",
+    "category": "testing",
+    "preview": "Implement comprehensive testing strategy with unit, integration, and E2E tests for a full-stack app.",
+    "full": "Create a complete testing infrastructure for a Node.js/React application that includes: 1) Unit tests with Jest for business logic, utilities, and React components using React Testing Library, 2) Integration tests for API endpoints with supertest, testing database operations with an in-memory MongoDB instance, 3) End-to-end tests with Playwright covering critical user flows (signup, login, checkout, password reset), 4) Visual regression testing using Playwright screenshots with automatic comparison, 5) API contract testing to ensure backend contracts match frontend expectations, 6) Test coverage reporting with Istanbul, enforcing minimum 80% coverage, 7) Mock service worker (MSW) setup for mocking API calls in frontend tests, 8) Database fixtures and factories for consistent test data, 9) Parallel test execution configuration to speed up CI/CD pipeline, 10) GitHub Actions workflow that runs all tests on pull requests with caching, 11) Test organization using test suites, describe blocks, and proper naming conventions. Include best practices for testing async code, handling authentication in tests, and debugging failed tests.",
+    "premium": false
+  },
+  {
+    "id": 15,
+    "title": "Implement Advanced Caching Strategy with Redis",
+    "category": "backend",
+    "preview": "Design multi-layer caching system with Redis for API responses, database queries, and sessions.",
+    "full": "Build a comprehensive caching strategy using Redis that includes: 1) Response caching middleware for Express API endpoints with configurable TTL, 2) Database query result caching with cache invalidation on data updates, 3) Cache-aside (lazy loading) pattern for frequently accessed data, 4) Write-through caching for critical data requiring consistency, 5) Session storage in Redis for stateless authentication across multiple servers, 6) Rate limiting using Redis with sliding window algorithm, 7) Pub/Sub implementation for real-time notifications and cache invalidation across instances, 8) Redis Sorted Sets for leaderboards and ranking systems, 9) Cache warming strategy to preload hot data on application startup, 10) Cache key naming conventions and namespace organization, 11) Redis Cluster configuration for high availability and sharding, 12) Monitoring with Redis Slow Log and memory usage analytics. Include cache stampede prevention, proper error handling when Redis is unavailable (graceful degradation), and cache hit ratio optimization techniques.",
+    "premium": false
+  },
+  {
+    "id": 16,
+    "title": "Build Serverless API with AWS Lambda and DynamoDB",
+    "category": "cloud",
+    "preview": "Create a complete serverless REST API using AWS Lambda, API Gateway, and DynamoDB with CDK.",
+    "full": "Develop a production-ready serverless application on AWS that includes: 1) AWS CDK (Cloud Development Kit) infrastructure as code for all resources in TypeScript, 2) Lambda functions written in Node.js handling CRUD operations for a todo application, 3) API Gateway REST API with request validation, CORS configuration, and custom domain, 4) DynamoDB table with proper partition key, sort key, and GSI (Global Secondary Index) design, 5) Lambda layers for shared dependencies to reduce deployment package size, 6) Environment variables and secrets management using AWS Systems Manager Parameter Store, 7) IAM roles following least-privilege principle for each Lambda function, 8) CloudWatch Logs and custom CloudWatch metrics for monitoring, 9) Lambda Power Tuning to optimize memory/cost ratio, 10) X-Ray integration for distributed tracing and performance analysis, 11) API Gateway usage plans and API keys for rate limiting, 12) Lambda@Edge for request/response transformation at CloudFront edge locations, 13) Automated deployment pipeline with GitHub Actions and CDK deploy. Include cold start optimization techniques, error handling best practices, and cost optimization strategies.",
+    "premium": false
+  },
+  {
+    "id": 17,
+    "title": "Create OAuth2 & OpenID Connect Authentication Server",
+    "category": "security",
+    "preview": "Build a complete OAuth2 authorization server with PKCE, refresh tokens, and social login integration.",
+    "full": "Implement a full-featured OAuth2 and OpenID Connect server using Node.js that includes: 1) Authorization Code flow with PKCE (Proof Key for Code Exchange) for enhanced security, 2) Client Credentials flow for machine-to-machine authentication, 3) Refresh token rotation with automatic revocation of old tokens, 4) JWT access tokens with RSA signature and proper claims (iss, sub, aud, exp, iat), 5) OpenID Connect ID tokens with user profile information, 6) Social login integration (Google, GitHub, Facebook) using Passport.js, 7) Multi-factor authentication (TOTP) using speakeasy library, 8) Consent screen for third-party application authorization, 9) Token introspection and revocation endpoints, 10) Dynamic client registration for third-party applications, 11) Rate limiting on token endpoints to prevent brute force attacks, 12) Secure password storage using bcrypt with salt rounds of 12+, 13) Session management with Redis for authorization codes and refresh tokens, 14) Admin dashboard for managing clients, users, and issued tokens. Include CSRF protection, secure cookie settings, proper CORS configuration, and comprehensive security audit logging.",
+    "premium": false
+  },
+  {
+    "id": 18,
+    "title": "Build Event-Driven Architecture with Kafka",
+    "category": "backend",
+    "preview": "Design event-driven microservices using Apache Kafka for reliable, scalable message processing.",
+    "full": "Create a complete event-driven architecture using Apache Kafka that includes: 1) Kafka cluster setup with ZooKeeper for distributed coordination, 2) Producer services publishing domain events (OrderCreated, PaymentProcessed, InventoryUpdated), 3) Consumer groups for parallel processing with automatic offset management, 4) Event schema registry using Avro for schema evolution and compatibility, 5) Dead letter queue pattern for failed message processing with retry logic, 6) Event sourcing implementation storing all state changes as events, 7) CQRS (Command Query Responsibility Segregation) pattern with separate read and write models, 8) Saga pattern for distributed transactions across microservices, 9) Event replay capability for rebuilding state from event log, 10) Kafka Connect for integrating with databases using CDC (Change Data Capture), 11) Kafka Streams for real-time stream processing and aggregations, 12) Monitoring with Kafka Manager and metrics export to Prometheus. Include idempotent consumers to handle duplicate messages, exactly-once semantics configuration, partition key selection strategy, and disaster recovery procedures.",
+    "premium": false
+  },
+  {
+    "id": 19,
+    "title": "Implement Advanced ETL Pipeline with Airflow",
+    "category": "data-engineering",
+    "preview": "Build production-ready data pipeline using Apache Airflow with data validation and error handling.",
+    "full": "Develop a comprehensive ETL (Extract, Transform, Load) pipeline using Apache Airflow that includes: 1) DAG (Directed Acyclic Graph) definition with task dependencies and scheduling using cron expressions, 2) Custom operators for extracting data from multiple sources (PostgreSQL, REST APIs, S3, SFTP), 3) Data transformation using Pandas with data quality checks (null validation, type checking, range validation), 4) Loading data into data warehouse (Snowflake, BigQuery, or Redshift) with incremental updates, 5) XCom for passing data between tasks efficiently, 6) Dynamic DAG generation based on configuration files or database metadata, 7) SLA monitoring with email alerts on task failures or delays, 8) Retry logic with exponential backoff for transient failures, 9) Sensor operators for waiting on external dependencies (file arrival, API availability), 10) Branching logic for conditional task execution based on runtime parameters, 11) Custom hooks for reusable connection management, 12) Airflow variables and connections stored in encrypted backend, 13) Lineage tracking for data provenance and debugging. Include best practices for testing DAGs, handling large datasets with chunking, managing connection pools, and optimizing task parallelism with pools and priorities.",
+    "premium": false
+  },
+  {
+    "id": 20,
+    "title": "Create Advanced Web Scraper with Puppeteer",
+    "category": "scripts",
+    "preview": "Build intelligent web scraper handling SPAs, pagination, CAPTCHA solving, and anti-bot detection.",
+    "full": "Develop a sophisticated web scraping system using Puppeteer that includes: 1) Headless Chrome automation with stealth plugins to avoid bot detection, 2) User agent rotation and realistic browser fingerprinting (screen size, fonts, WebGL), 3) Cookie and session management to maintain login state across pages, 4) Automatic CAPTCHA solving using 2captcha or Anti-Captcha service integration, 5) Infinite scroll and lazy-loaded content handling with intersection observers, 6) Dynamic content extraction from Single Page Applications (SPAs) with wait strategies, 7) Proxy rotation using residential proxies to avoid IP bans, 8) Rate limiting and random delays to mimic human behavior, 9) Screenshot capture and PDF generation for archiving, 10) Network request interception for blocking ads and tracking scripts, 11) Data extraction using cheerio for parsing HTML efficiently, 12) Error recovery with retry logic for network failures and timeouts, 13) Concurrent page processing with connection pooling, 14) Data validation and cleaning before export to CSV/JSON/MongoDB, 15) Monitoring dashboard showing scraping progress, success rate, and errors. Include robots.txt compliance checking, handling of different encodings, memory leak prevention, and Docker containerization for deployment.",
+    "premium": false
+  },
+  {
+    "id": 21,
+    "title": "Build Multi-Tenant SaaS Application Architecture",
+    "category": "saas",
+    "preview": "Design complete multi-tenant SaaS platform with tenant isolation, billing, and subscription management.",
+    "full": "Create a production-ready multi-tenant SaaS architecture that includes: 1) Tenant isolation strategy using either database-per-tenant or schema-per-tenant approach, 2) Subdomain-based tenant routing (tenant1.yourapp.com) with automatic SSL certificate provisioning, 3) Tenant-aware middleware that identifies tenant from subdomain, custom domain, or JWT claims, 4) Row-level security (RLS) in PostgreSQL for data isolation within shared database, 5) Subscription management with Stripe integration (trial periods, plan upgrades/downgrades, prorated billing), 6) Usage-based billing tracking API calls, storage, or active users per tenant, 7) Feature flags per subscription tier (free, pro, enterprise) using LaunchDarkly or custom solution, 8) Tenant onboarding flow with email verification and guided setup wizard, 9) Admin panel for managing tenants, viewing usage metrics, and manual interventions, 10) Tenant-specific customization (branding, email templates, custom domains), 11) Data export and import functionality for tenant migration, 12) Webhook system for tenant events (signup, subscription change, cancellation), 13) Rate limiting per tenant to prevent abuse, 14) Backup and restore procedures per tenant. Include strategies for handling tenant deletion, GDPR compliance, audit logging per tenant, and disaster recovery planning.",
+    "premium": false
+  },
+  {
+    "id": 22,
+    "title": "Implement Progressive Web App (PWA) with Service Workers",
+    "category": "frontend",
+    "preview": "Convert web app into installable PWA with offline support, push notifications, and background sync.",
+    "full": "Transform a web application into a full-featured Progressive Web App that includes: 1) Service worker implementation with caching strategies (cache-first, network-first, stale-while-revalidate), 2) App manifest configuration for install prompts and app icons across devices, 3) Offline functionality with IndexedDB for storing data locally, 4) Background sync API for queuing actions when offline and syncing when connection restored, 5) Push notification system with web-push library and VAPID keys, 6) Add to home screen prompt with custom install UI, 7) App shell architecture for instant loading experience, 8) Precaching critical assets using Workbox for zero-latency navigation, 9) Dynamic content caching with cache expiration policies, 10) Update notification when new service worker version is available, 11) Periodic background sync for fetching fresh data, 12) Share target API for receiving shared content from other apps, 13) Badging API for showing unread counts on app icon, 14) File handling API for opening files with your PWA, 15) Lighthouse audit optimization for PWA score of 90+. Include fallback strategies for older browsers, proper cache versioning, debugging techniques for service workers, and analytics tracking for offline usage.",
+    "premium": false
+  },
+  {
+    "id": 23,
+    "title": "Create Advanced CI/CD Pipeline with Jenkins",
+    "category": "devops",
+    "preview": "Build enterprise-grade Jenkins pipeline with blue-green deployment, automated testing, and rollback.",
+    "full": "Develop a comprehensive CI/CD pipeline using Jenkins that includes: 1) Declarative Jenkinsfile with stages (Build, Test, Security Scan, Deploy, Smoke Test), 2) Multi-branch pipeline supporting feature branches, develop, and main with different deployment targets, 3) Docker image building with multi-stage Dockerfiles and image scanning using Trivy, 4) Automated testing including unit tests, integration tests, and E2E tests with parallel execution, 5) Code quality gates using SonarQube with quality profile enforcement, 6) Security scanning with OWASP Dependency Check and SAST tools, 7) Artifact management with Nexus or Artifactory for versioned releases, 8) Blue-green deployment strategy with health checks before traffic switch, 9) Canary deployments with gradual traffic shifting (10%, 50%, 100%), 10) Automated rollback on failed health checks or error rate thresholds, 11) Slack/email notifications with detailed build reports and test results, 12) Environment promotion workflow from dev → staging → production with manual approval gates, 13) Database migration execution with Flyway or Liquibase, 14) Secrets management using HashiCorp Vault or AWS Secrets Manager, 15) Performance testing with JMeter or k6 load tests. Include pipeline-as-code best practices, shared libraries for reusable steps, credential rotation, and disaster recovery procedures.",
+    "premium": false
+  },
+  {
+    "id": 24,
+    "title": "Build Real-Time Analytics Dashboard with WebSockets",
+    "category": "frontend",
+    "preview": "Create live dashboard with real-time data visualization using WebSockets, Chart.js, and stream processing.",
+    "full": "Develop a real-time analytics dashboard that includes: 1) WebSocket server using Socket.io for bi-directional real-time communication, 2) React dashboard with live updating charts using Chart.js or Recharts, 3) Real-time metrics including concurrent users, requests per second, error rates, and response times, 4) Event stream processing for aggregating metrics from multiple sources, 5) Time-series data visualization with zoom, pan, and time range selection, 6) Multi-tab dashboard with different views (overview, performance, errors, users), 7) Alert system with threshold-based notifications (CPU > 80%, error rate > 5%), 8) Historical data comparison showing trends over time (today vs yesterday, this week vs last week), 9) Drill-down functionality for detailed views of specific metrics, 10) Server-sent events (SSE) as fallback for environments without WebSocket support, 11) Data buffering and batching to reduce network overhead, 12) Automatic reconnection with exponential backoff on connection loss, 13) User authentication with room-based access control (different users see different dashboards), 14) Export functionality for downloading reports as CSV or PDF, 15) Responsive design working on desktop, tablet, and mobile. Include memory leak prevention, efficient chart updates without re-rendering, backend data aggregation using time-bucketing, and monitoring of dashboard performance itself.",
+    "premium": false
+  },
+  {
+    "id": 25,
+    "title": "Implement Machine Learning Model Deployment API",
+    "category": "ai-ml",
+    "preview": "Deploy ML models as REST API with FastAPI, model versioning, A/B testing, and monitoring.",
+    "full": "Create a production-ready ML model serving infrastructure using FastAPI that includes: 1) FastAPI REST API with endpoints for predictions, model metadata, and health checks, 2) Model loading from cloud storage (S3, GCS) with local caching for performance, 3) Multiple model version management with ability to serve different versions simultaneously, 4) A/B testing framework for comparing model performance with traffic splitting, 5) Request validation using Pydantic models with type checking and field validation, 6) Batch prediction endpoint for processing multiple inputs efficiently, 7) Async processing for long-running predictions using Celery task queue, 8) Model monitoring tracking prediction latency, throughput, and error rates, 9) Data drift detection comparing input distributions against training data, 10) Explainability endpoints using SHAP or LIME for model interpretability, 11) Feature store integration for consistent feature engineering, 12) Authentication using API keys with rate limiting per client, 13) Response caching for frequently requested predictions, 14) Graceful model updates with zero-downtime deployment, 15) Prometheus metrics export for monitoring and alerting. Include preprocessing pipelines, post-processing validation, handling of missing values and outliers, GPU acceleration support, and horizontal scaling with load balancing.",
+    "premium": false
+  }
+]
