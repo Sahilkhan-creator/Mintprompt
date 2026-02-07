@@ -1,0 +1,583 @@
+[
+  {
+    "id": 1,
+    "title": "Multi-AI Code Engine - World's First 3-AI Coding System",
+    "category": "premium-coding",
+    "preview": "Telegram bot combines Gemini 3 + Kimi 2.5 + Claude 4.5. Import n8n workflow \u2192 Get ZIP files better than Cursor.",
+    "full": "Complete n8n workflow JSON + optimized prompts for world's first multi-AI coding system: 1) Telegram Trigger (text/files), 2) Intent recognition AI Agent, 3) User project storage (Google Drive by user_id), 4) Gemini 3 Logic Planner (debug/planning), 5) Kimi 2.5 Code Generator (creative implementation), 6) Claude Sonnet 4.5 Final Polish (lint/format/validate), 7) Summary generator, 8) ZIP archive creation, 9) Telegram ZIP delivery with changelog. Pay-per-use APIs only ($0.03/request). No file limits, fully editable, beats Cursor Pro. Includes exact setup video script, API key configs, test cases. First 1000 sales @ $12.",
+    "premium": true,
+    "price": "$12 (First 1000 only)",
+    "productLink": "https://gumroad.com/l/multi-ai-code-engine",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 2,
+    "title": "Viral VEO3 Shorts Machine: Auto-Generate & Publish YouTube AI Videos Daily",
+    "category": "automation",
+    "preview": "Complete n8n workflow that auto-generates viral YouTube Shorts with VEO3 AI video + GPT content creation.",
+    "full": "Production-ready n8n automation that creates and publishes daily viral-style YouTube Shorts completely hands-free. Features: 1) Daily scheduled GPT-powered viral idea generation (web dev/AI/cybersecurity niches), 2) Structured VEO3 prompt engineering for cinematic 9:16 before/after transformation videos, 3) VEO3 API integration for automatic video rendering, 4) Google Sheets tracking (idea, caption, prompt details, status, YouTube URL), 5) Direct YouTube Shorts upload with optimized titles/captions/hashtags, 6) Full error handling and retry logic, 7) Production-ready workflow with detailed setup instructions. Perfect for creators scaling consistent short-form content. Download the complete n8n workflow JSON and import directly into your n8n instance.",
+    "premium": true,
+    "price": "$1 (First 1000 only)",
+    "productLink": "https://mineblade.gumroad.com/l/jhlmy",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 3,
+    "title": "Discord MT5 Trading Bot: Execute Forex Trades via Chat",
+    "category": "trading",
+    "preview": "AI-powered Discord bot that executes MT5 forex trades from simple chat commands like 'buy EU market 2% sl 50'.",
+    "full": "Production-ready n8n workflow transforms Discord into your live trading terminal. Features: 1) GPT-4o-mini AI classifies 6 command types instantly, 2) Regex + AI fallback parses flexible syntax (EU=EURUSD, GU=GBPUSD), 3) Market/limit orders routed to your MT5 broker via local webhooks, 4) Signal management (view/clear pending trades), 5) Real-time Discord feedback with confirmations/errors, 6) Risk management with % position sizing + SL/TP automation, 7) Mobile-ready - trade from Discord phone app, 8) Full error handling. Works with any MT5 broker account. Includes complete workflow JSON + setup guide. Perfect for hands-free forex execution.",
+    "premium": true,
+    "price": "$3",
+    "productLink": "https://mineblade.gumroad.com/l/iketek",
+    "image": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 4,
+    "title": "Automate Blog Content Creation with GPT-4, Perplexity & WordPress",
+    "category": "automation",
+    "preview": "Download a complete n8n workflow to automate blog content creation using GPT-4, Perplexity, and WordPress.",
+    "full": "Complex multi-step n8n automation that fully automates blog content creation and publishing. This workflow orchestrates GPT-4 for content generation, Perplexity for research and fact-checking, and WordPress for automated publishing. It integrates with Notion for content planning, Lmchatopenai for AI processing, and Slack for real-time notifications and workflow monitoring. Built using 17 nodes and connected to 9 different services, this production-ready automation handles data processing, content structuring, and publishing with minimal human input. Download the complete n8n workflow JSON and import it directly into your n8n instance.",
+    "premium": false,
+    "workflow": true,
+    "downloadUrl": "workflows/automate-blog-content.json",
+    "fileType": "json",
+    "fileName": "automate-blog-content.json"
+  },
+  {
+    "id": 5,
+    "title": "Build an Automated API Monitoring Script",
+    "category": "automation",
+    "preview": "Create a script that monitors API uptime, logs errors, and sends alerts when issues are detected.",
+    "full": "Write a production-ready Node.js script that monitors a REST API endpoint every 5 minutes. The script should log response time, status codes, and failures to a local JSON file. If the API fails more than 3 times consecutively, send an email alert using Nodemailer. Use clean async/await patterns, environment variables for configuration, and include detailed comments explaining each major step. Add graceful shutdown handling and comprehensive error logging.",
+    "premium": false
+  },
+  {
+    "id": 6,
+    "title": "Create a REST API with Express and MongoDB",
+    "category": "backend",
+    "preview": "Build a complete RESTful API with authentication, CRUD operations, and MongoDB integration.",
+    "full": "Create a production-ready Express.js REST API with the following features: 1) User authentication using JWT tokens, 2) CRUD endpoints for a 'products' resource with validation, 3) MongoDB integration using Mongoose with proper schema design, 4) Middleware for error handling and request logging, 5) Rate limiting to prevent abuse, 6) API documentation using Swagger/OpenAPI, 7) Environment-based configuration, 8) Comprehensive error responses with proper HTTP status codes. Include folder structure recommendations and security best practices.",
+    "premium": false
+  },
+  {
+    "id": 7,
+    "title": "Python Web Scraper with Error Handling",
+    "category": "scripts",
+    "preview": "Build a robust web scraper that handles pagination, retries, and exports data to CSV.",
+    "full": "Write a Python web scraper using BeautifulSoup and Requests that: 1) Scrapes product data (title, price, rating, URL) from an e-commerce site, 2) Handles pagination automatically, 3) Implements exponential backoff retry logic for failed requests, 4) Respects robots.txt and includes user-agent rotation, 5) Saves data to CSV with proper encoding, 6) Logs progress and errors to a file, 7) Uses command-line arguments for URL and output file. Include detailed comments and exception handling for network errors, missing elements, and rate limiting.",
+    "premium": false
+  },
+  {
+    "id": 8,
+    "title": "Stripe Payment Integration Guide",
+    "category": "apis",
+    "preview": "Complete implementation of Stripe payment processing with webhooks and subscription handling.",
+    "full": "Create a comprehensive Stripe integration that includes: 1) One-time payment processing with card tokenization, 2) Subscription creation and management with multiple tiers, 3) Webhook handling for payment success/failure events, 4) Customer portal integration for self-service subscription management, 5) Invoice generation and email notifications, 6) Proper error handling and refund processing, 7) Security best practices including signature verification for webhooks. Provide both frontend (React/vanilla JS) and backend (Node.js) code examples with environment configuration.",
+    "premium": false
+  },
+  {
+    "id": 9,
+    "title": "React Component Library Setup",
+    "category": "coding",
+    "preview": "Set up a reusable React component library with TypeScript, Storybook, and npm publishing.",
+    "full": "Guide me through creating a professional React component library that includes: 1) Project setup with TypeScript, Rollup, and proper package.json configuration, 2) Component development with props validation and TypeScript interfaces, 3) Storybook integration for component documentation and testing, 4) CSS-in-JS styling solution (styled-components or Emotion), 5) Unit testing with Jest and React Testing Library, 6) Automated versioning and changelog generation, 7) npm publishing workflow with GitHub Actions, 8) README with usage examples and contribution guidelines. Include folder structure and best practices for maintainability.",
+    "premium": false
+  },
+  {
+    "id": 10,
+    "title": "Dockerize a Full-Stack Application",
+    "category": "backend",
+    "preview": "Create Docker configuration for a complete application with database, backend, and frontend.",
+    "full": "Write a complete Docker setup for a full-stack application that includes: 1) Dockerfile for Node.js backend with multi-stage builds, 2) Dockerfile for React frontend with nginx serving, 3) docker-compose.yml orchestrating backend, frontend, PostgreSQL, and Redis, 4) Environment variable management across services, 5) Volume configuration for data persistence, 6) Health checks and restart policies, 7) Development vs production configurations, 8) .dockerignore file optimization. Include commands for building, running, and debugging the containerized application.",
+    "premium": false
+  },
+  {
+    "id": 11,
+    "title": "Build a Real-Time WebSocket Chat Application",
+    "category": "backend",
+    "preview": "Create a production-ready real-time chat application using Socket.io with rooms, authentication, and message persistence.",
+    "full": "Develop a complete real-time chat system with the following features: 1) WebSocket server using Socket.io with connection pooling and reconnection logic, 2) JWT-based authentication for socket connections with token refresh, 3) Private messaging and public chat rooms with join/leave events, 4) Typing indicators and user presence tracking (online/offline/away), 5) Message persistence using MongoDB with pagination and message history retrieval, 6) File sharing support for images and documents with size validation, 7) Message editing, deletion, and read receipts, 8) Rate limiting to prevent spam and abuse, 9) Admin controls for user management and moderation. Include both backend Socket.io server code and React frontend components with complete error handling and reconnection strategies.",
+    "premium": false
+  },
+  {
+    "id": 12,
+    "title": "Implement OAuth2 Social Login System",
+    "category": "authentication",
+    "preview": "Build a complete OAuth2 authentication system supporting Google, GitHub, and Facebook login with account linking.",
+    "full": "Create a comprehensive OAuth2 authentication system that includes: 1) OAuth2 flow implementation for Google, GitHub, and Facebook using Passport.js strategies, 2) Account linking for users with multiple OAuth providers, 3) JWT token generation with access and refresh token rotation, 4) Email/password fallback authentication with bcrypt password hashing, 5) Email verification workflow with secure token generation, 6) Password reset functionality with time-limited tokens, 7) User profile merging when linking accounts, 8) Session management with Redis for scalability, 9) CSRF protection and secure cookie handling, 10) Rate limiting on authentication endpoints. Include complete Express.js backend with React frontend login forms, proper error handling, and security best practices following OWASP guidelines.",
+    "premium": false
+  },
+  {
+    "id": 13,
+    "title": "Build a GraphQL API with Subscriptions and DataLoader",
+    "category": "apis",
+    "preview": "Create a production-ready GraphQL API with queries, mutations, real-time subscriptions, and optimized data fetching.",
+    "full": "Develop a complete GraphQL API using Apollo Server that includes: 1) Schema design with proper type definitions, interfaces, and unions, 2) Query resolvers with pagination using cursor-based approach, 3) Mutation resolvers with input validation using Yup or Joi, 4) Real-time subscriptions using PubSub for live data updates, 5) DataLoader implementation to prevent N+1 query problems and batch database requests, 6) Authentication and authorization middleware with context-based user verification, 7) Custom directives for field-level permissions (@auth, @hasRole), 8) Error handling with custom error classes and error codes, 9) File upload handling for single and multiple files, 10) Rate limiting and query complexity analysis to prevent abuse, 11) PostgreSQL integration using Prisma or TypeORM with connection pooling, 12) GraphQL Playground configuration for development and testing. Include complete schema definition, resolver implementations, and subscription setup with Redis for production scalability.",
+    "premium": false
+  },
+  {
+    "id": 14,
+    "title": "Create a Microservices Architecture with Node.js",
+    "category": "backend",
+    "preview": "Design and implement a production-ready microservices system with service discovery, API gateway, and inter-service communication.",
+    "full": "Build a complete microservices architecture that includes: 1) Multiple independent services (User Service, Product Service, Order Service, Notification Service) with clear domain boundaries, 2) API Gateway using Kong or Express Gateway for request routing, authentication, and rate limiting, 3) Service discovery using Consul or Kubernetes DNS for dynamic service registration, 4) Inter-service communication via REST APIs and message queues (RabbitMQ or Kafka), 5) Event-driven architecture with domain events for loose coupling, 6) Centralized logging with ELK stack (Elasticsearch, Logstash, Kibana) for log aggregation, 7) Distributed tracing using Jaeger or Zipkin for request flow visualization, 8) Circuit breaker pattern using Hystrix or resilience4j for fault tolerance, 9) Database per service pattern with PostgreSQL and MongoDB, 10) Configuration management with environment-based configs and secret management, 11) Health checks and monitoring endpoints for each service, 12) Docker Compose setup for local development with hot-reload. Include complete folder structure, service templates, communication patterns, and deployment strategies for cloud environments.",
+    "premium": false
+  },
+  {
+    "id": 15,
+    "title": "Build an Advanced Caching Strategy with Redis",
+    "category": "backend",
+    "preview": "Implement a production-grade caching system using Redis with cache invalidation, warming, and distributed locking.",
+    "full": "Create a comprehensive caching solution that includes: 1) Redis connection setup with connection pooling and cluster support, 2) Multi-layer caching strategy (in-memory cache + Redis) with automatic fallback, 3) Cache-aside pattern implementation with lazy loading, 4) Write-through and write-behind caching patterns for different use cases, 5) Smart cache invalidation strategies (TTL, LRU, manual invalidation), 6) Cache warming on application startup for frequently accessed data, 7) Distributed locking using Redis for preventing cache stampede, 8) Cache key design patterns and namespace organization, 9) JSON serialization/deserialization with compression for large objects, 10) Pub/Sub pattern for cache synchronization across multiple instances, 11) Cache hit/miss ratio monitoring and analytics, 12) Cache versioning strategy for schema changes. Include middleware for Express.js, caching decorators for TypeScript, error handling for Redis connection failures, and performance benchmarking code. Add Redis configuration for production with persistence options (RDB/AOF).",
+    "premium": false
+  },
+  {
+    "id": 16,
+    "title": "Implement Advanced Git Workflows and CI/CD Pipeline",
+    "category": "automation",
+    "preview": "Set up a complete CI/CD pipeline with GitHub Actions, automated testing, code quality checks, and multi-environment deployment.",
+    "full": "Create a production-ready CI/CD pipeline that includes: 1) Git branching strategy (GitFlow or trunk-based) with protected branches and PR requirements, 2) GitHub Actions workflows for automated testing on every push and PR, 3) Linting and code formatting checks using ESLint, Prettier, and commitlint, 4) Unit testing with Jest and integration testing with Supertest, 5) Code coverage reporting with Codecov integration and minimum coverage thresholds, 6) Security vulnerability scanning using npm audit and Snyk, 7) Docker image building with multi-stage builds and layer caching, 8) Automated versioning using semantic-release based on conventional commits, 9) Deployment to multiple environments (dev, staging, production) with environment-specific configurations, 10) Automated rollback on deployment failures with health check validation, 11) Slack/Discord notifications for build status and deployment updates, 12) Database migration execution during deployment with rollback support, 13) Secrets management using GitHub Secrets and environment variables, 14) Performance testing integration with Lighthouse CI for frontend apps. Include complete .github/workflows YAML files, pre-commit hooks configuration, and deployment scripts for AWS, Vercel, or DigitalOcean.",
+    "premium": false
+  },
+  {
+    "id": 17,
+    "title": "Build a Serverless REST API with AWS Lambda and DynamoDB",
+    "category": "backend",
+    "preview": "Create a production-ready serverless API using AWS Lambda, API Gateway, and DynamoDB with proper IAM policies and monitoring.",
+    "full": "Develop a complete serverless application on AWS that includes: 1) Lambda functions written in Node.js with proper async/await error handling, 2) API Gateway configuration with RESTful endpoints, request validation, and CORS setup, 3) DynamoDB table design with primary keys, secondary indexes (GSI/LSI), and query optimization, 4) IAM roles and policies following least-privilege principle for Lambda execution, 5) Environment variable management and secrets using AWS Systems Manager Parameter Store or Secrets Manager, 6) CloudWatch logging with structured logs and custom metrics for monitoring, 7) Lambda layers for shared code and dependencies to reduce deployment size, 8) API Gateway Lambda authorizer for JWT token validation, 9) Request throttling and rate limiting at API Gateway level, 10) DynamoDB auto-scaling configuration for production workloads, 11) VPC configuration if accessing private resources, 12) Local development environment using SAM CLI or Serverless Framework, 13) Infrastructure as Code using CloudFormation or Terraform, 14) Cost optimization strategies (memory tuning, cold start reduction). Include complete handler functions, DynamoDB query patterns, deployment scripts, and monitoring dashboards setup.",
+    "premium": false
+  },
+  {
+    "id": 18,
+    "title": "Create an Advanced Search System with Elasticsearch",
+    "category": "backend",
+    "preview": "Implement a production-grade full-text search engine with Elasticsearch, including faceted search, autocomplete, and relevance tuning.",
+    "full": "Build a comprehensive search solution that includes: 1) Elasticsearch cluster setup with proper node roles (master, data, ingest), 2) Index design with custom analyzers, tokenizers, and filters for different languages, 3) Mapping configuration with proper field types, multi-fields, and nested objects, 4) Full-text search with fuzzy matching, phrase matching, and proximity queries, 5) Faceted search with aggregations for filtering by categories, price ranges, and tags, 6) Autocomplete and search-as-you-type functionality using edge n-grams, 7) Relevance tuning with custom scoring, boosting fields, and function score queries, 8) Synonym handling and stemming for better search recall, 9) Bulk indexing with batching and error handling, 10) Real-time index updates with refresh intervals optimization, 11) Search result highlighting for matched terms, 12) Pagination with scroll API for large result sets, 13) Query optimization and performance monitoring with slow log analysis, 14) Integration with Node.js using official Elasticsearch client. Include index templates, search query builders, aggregation examples, and performance benchmarking scripts.",
+    "premium": false
+  },
+  {
+    "id": 19,
+    "title": "Build a Video Streaming Platform Backend",
+    "category": "backend",
+    "preview": "Create a production-ready video streaming service with adaptive bitrate streaming, CDN integration, and user analytics.",
+    "full": "Develop a complete video streaming backend that includes: 1) Video upload and processing pipeline using FFmpeg for transcoding, 2) Adaptive bitrate streaming (HLS/DASH) with multiple quality levels, 3) Video chunking and segmentation for optimal streaming performance, 4) CDN integration (CloudFront or Cloudflare) for global content delivery, 5) Signed URLs and token-based authentication for secure video access, 6) User progress tracking with resume playback functionality, 7) Real-time viewer analytics and watch time metrics, 8) Thumbnail generation at multiple timestamps, 9) Subtitle/caption support with WebVTT format, 10) DRM integration for premium content protection, 11) Concurrent stream limiting per user account, 12) Video metadata management (title, description, tags, categories), 13) Search functionality with Elasticsearch for video discovery, 14) Recommendation system based on watch history and user preferences, 15) S3/Cloud Storage integration for video file storage with lifecycle policies. Include complete upload handler, transcoding queue system using Bull or AWS MediaConvert, streaming endpoint configuration, and player integration examples for web and mobile.",
+    "premium": false
+  },
+  {
+    "id": 20,
+    "title": "Implement Advanced Rate Limiting and API Throttling",
+    "category": "backend",
+    "preview": "Build a production-grade rate limiting system with Redis, supporting multiple algorithms and distributed environments.",
+    "full": "Create a comprehensive rate limiting solution that includes: 1) Multiple rate limiting algorithms (Token Bucket, Leaky Bucket, Fixed Window, Sliding Window), 2) Redis-based distributed rate limiting for multi-instance deployments, 3) Per-user, per-IP, and per-endpoint rate limit configurations, 4) Tiered rate limits based on user subscription level (free/premium/enterprise), 5) Custom rate limit headers (X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset), 6) Graceful degradation when Redis is unavailable with in-memory fallback, 7) Rate limit bypass for whitelisted IPs and API keys, 8) Dynamic rate limit adjustment based on system load, 9) Rate limit analytics and monitoring dashboard, 10) Custom error responses with retry-after information, 11) Integration with Express.js middleware and Fastify decorators, 12) GraphQL query complexity-based rate limiting, 13) WebSocket connection rate limiting, 14) Automated testing for rate limit scenarios. Include complete middleware implementation, Redis Lua scripts for atomic operations, configuration examples, and load testing scripts to validate rate limiting under high traffic.",
+    "premium": false
+  },
+  {
+    "id": 21,
+    "title": "Build a Multi-Tenant SaaS Architecture",
+    "category": "backend",
+    "preview": "Design and implement a production-ready multi-tenant SaaS application with tenant isolation, billing, and resource management.",
+    "full": "Develop a complete multi-tenant SaaS platform that includes: 1) Tenant isolation strategies (database per tenant vs shared database with row-level security), 2) Dynamic tenant routing based on subdomain or custom domain, 3) Tenant provisioning and onboarding workflow with automated setup, 4) Role-based access control (RBAC) within each tenant organization, 5) Usage tracking and quota management per tenant (API calls, storage, users), 6) Subscription and billing integration with Stripe for tiered pricing plans, 7) Tenant-specific customization (branding, custom fields, feature flags), 8) Data export functionality for tenant data portability, 9) Cross-tenant analytics and reporting for platform administrators, 10) Automatic tenant suspension on payment failure with grace period, 11) Database migration system that handles schema changes across all tenants, 12) Background job processing with tenant context propagation, 13) Monitoring and alerting per tenant with resource usage dashboards, 14) Compliance features (GDPR data deletion, audit logging, data encryption). Include complete middleware for tenant resolution, database connection pooling strategies, subscription lifecycle management, and deployment guide for scaling to thousands of tenants.",
+    "premium": false
+  },
+  {
+    "id": 22,
+    "title": "Build a Netflix Clone with Video Streaming",
+    "category": "fullstack",
+    "preview": "Create a video streaming platform with user profiles, watchlists, and adaptive streaming.",
+    "full": "Build a Netflix-style streaming platform: 1) Video upload and HLS/DASH transcoding using FFmpeg, 2) User profiles with personalized recommendations, 3) Continue watching and watch history tracking, 4) Watchlist/favorites functionality, 5) Multi-device syncing for playback position, 6) Subscription tiers with Stripe integration, 7) Content rating and parental controls, 8) Search with filters (genre, year, rating), 9) Trailer auto-play on hover, 10) Download for offline viewing, 11) Subtitle support with multiple languages, 12) Admin CMS for content management. Use Next.js, MongoDB, AWS S3/CloudFront for CDN, and implement JWT authentication with role-based access.",
+    "premium": false
+  },
+  {
+    "id": 23,
+    "title": "Create an Airbnb Clone with Booking System",
+    "category": "fullstack",
+    "preview": "Build a property rental marketplace with search, booking calendar, and payment processing.",
+    "full": "Develop a vacation rental platform: 1) Property listings with image galleries and amenities, 2) Advanced search with map integration (Mapbox/Google Maps), 3) Date range picker with availability calendar, 4) Booking system with instant and request-to-book options, 5) Stripe Connect for host payouts, 6) Review and rating system for properties and guests, 7) Host dashboard for managing listings and bookings, 8) Messaging system between hosts and guests, 9) Price calculation with cleaning fees and service charges, 10) Cancellation policies and refund handling, 11) Guest verification with ID upload, 12) Favorite/saved listings, 13) Email and SMS notifications. Include geolocation-based search, PostgreSQL database, image optimization with Sharp, and responsive design.",
+    "premium": false
+  },
+  {
+    "id": 24,
+    "title": "Build an Uber Clone with Real-Time Tracking",
+    "category": "fullstack",
+    "preview": "Create a ride-hailing app with live driver tracking, fare estimation, and payment integration.",
+    "full": "Develop a ride-sharing platform: 1) Real-time driver location tracking using Socket.io and Google Maps API, 2) Fare estimation based on distance and surge pricing, 3) Driver and rider matching algorithm, 4) In-app chat between driver and rider, 5) Route optimization and ETA calculation, 6) Payment integration with Stripe and wallet balance, 7) Ride history and receipts, 8) Driver ratings and feedback system, 9) Trip sharing with real-time updates to contacts, 10) Promo codes and referral system, 11) SOS emergency button with location sharing, 12) Driver onboarding with document verification, 13) Admin panel for managing users, drivers, and trips. Use React Native for mobile apps, Node.js backend, PostgreSQL with PostGIS for geospatial queries, and Redis for caching.",
+    "premium": false
+  },
+  {
+    "id": 25,
+    "title": "Create a Notion Clone with Block-Based Editor",
+    "category": "fullstack",
+    "preview": "Build a collaborative note-taking app with rich text editing and database views.",
+    "full": "Develop a Notion-style workspace: 1) Block-based editor using Slate.js or TipTap with drag-and-drop, 2) Multiple block types (text, headings, lists, code, images, embeds), 3) Slash commands for quick block creation, 4) Database views (table, kanban, calendar, gallery), 5) Real-time collaboration with operational transformation, 6) Nested pages and sidebar navigation, 7) Templates for common use cases, 8) Properties and formulas in databases, 9) File attachments and image uploads, 10) Comments and discussions on blocks, 11) Version history and page recovery, 12) Workspace sharing with permissions, 13) Dark mode and customizable themes, 14) Export to Markdown, PDF, and HTML. Include PostgreSQL for structured data, MongoDB for document storage, WebSocket for real-time sync, and full-text search.",
+    "premium": false
+  },
+  {
+    "id": 26,
+    "title": "Build a Slack Clone with Team Communication",
+    "category": "fullstack",
+    "preview": "Create a real-time team messaging platform with channels, threads, and file sharing.",
+    "full": "Develop a team collaboration platform: 1) Real-time messaging with WebSockets and message threading, 2) Public and private channels with member management, 3) Direct messages and group chats, 4) File sharing with preview for images, PDFs, and documents, 5) @mentions and notifications system, 6) Emoji reactions and custom emojis, 7) Message editing, deletion, and pinning, 8) Search across all messages and files, 9) User presence indicators (online/away/offline), 10) Video and voice calls using WebRTC, 11) Integration with third-party apps and bots, 12) Workspace settings and member invites, 13) Message formatting with markdown, 14) Status updates and user profiles. Use React, Node.js with Socket.io, MongoDB for message storage, Redis for presence data, and S3 for file storage.",
+    "premium": false
+  },
+  {
+    "id": 27,
+    "title": "Build a Spotify Clone with Music Streaming",
+    "category": "fullstack",
+    "preview": "Create a music streaming platform with playlists, recommendations, and audio player.",
+    "full": "Music streaming app with: audio player, playlists, search, user library, recommendations, social features, artist pages, album views, queue management, and lyrics display.",
+    "premium": false
+  },
+  {
+    "id": 28,
+    "title": "Create a LinkedIn Clone with Professional Networking",
+    "category": "fullstack",
+    "preview": "Build a professional social network with profiles, connections, and job postings.",
+    "full": "Professional network with: user profiles, connection requests, job board, company pages, feed with posts, messaging, endorsements, and recommendations.",
+    "premium": false
+  },
+  {
+    "id": 29,
+    "title": "Build a Twitter Clone with Real-Time Feed",
+    "category": "fullstack",
+    "preview": "Create a microblogging platform with tweets, likes, and trending topics.",
+    "full": "Social media platform with: tweet posting, retweets, likes, comments, hashtags, trending topics, user profiles, follower system, and notifications.",
+    "premium": false
+  },
+  {
+    "id": 30,
+    "title": "Create a Discord Clone with Voice Channels",
+    "category": "fullstack",
+    "preview": "Build a community platform with text and voice channels for gaming and communities.",
+    "full": "Community platform with: servers, text/voice channels, roles and permissions, WebRTC voice chat, screen sharing, DMs, and bot integration.",
+    "premium": false
+  },
+  {
+    "id": 31,
+    "title": "Build a Medium Clone for Blogging",
+    "category": "fullstack",
+    "preview": "Create a publishing platform with stories, claps, and reading lists.",
+    "full": "Publishing platform with: story editor, claps/reactions, reading lists, comments, tags, author profiles, paywall for premium content, and follow system.",
+    "premium": false
+  },
+  {
+    "id": 32,
+    "title": "Build a Food Delivery App",
+    "category": "fullstack",
+    "preview": "Create a food ordering platform with restaurant menus and delivery tracking.",
+    "full": "Detailed implementation guide for build a food delivery app with authentication, database design, API endpoints, frontend components, and deployment instructions. Includes best practices for scalability, security, and user experience.",
+    "premium": false
+  },
+  {
+    "id": 33,
+    "title": "Create a Fitness Tracking App",
+    "category": "mobile",
+    "preview": "Build a workout and nutrition tracking app with progress charts.",
+    "full": "Detailed implementation guide for create a fitness tracking app with authentication, database design, API endpoints, frontend components, and deployment instructions. Includes best practices for scalability, security, and user experience.",
+    "premium": false
+  },
+  {
+    "id": 34,
+    "title": "Build a Recipe Sharing Platform",
+    "category": "fullstack",
+    "preview": "Create a cooking community with recipes, meal planning, and shopping lists.",
+    "full": "Detailed implementation guide for build a recipe sharing platform with authentication, database design, API endpoints, frontend components, and deployment instructions. Includes best practices for scalability, security, and user experience.",
+    "premium": false
+  },
+  {
+    "id": 35,
+    "title": "Create a Photo Sharing App Like Instagram",
+    "category": "fullstack",
+    "preview": "Build a social media app with photo filters and stories.",
+    "full": "Detailed implementation guide for create a photo sharing app like instagram with authentication, database design, API endpoints, frontend components, and deployment instructions. Includes best practices for scalability, security, and user experience.",
+    "premium": false
+  },
+  {
+    "id": 36,
+    "title": "Build a Learning Management System (LMS)",
+    "category": "fullstack",
+    "preview": "Create an online education platform with courses and quizzes.",
+    "full": "Detailed implementation guide for build a learning management system (lms) with authentication, database design, API endpoints, frontend components, and deployment instructions. Includes best practices for scalability, security, and user experience.",
+    "premium": false
+  },
+  {
+    "id": 37,
+    "title": "Create a Weather Dashboard App",
+    "category": "frontend",
+    "preview": "Build a weather app with forecasts, maps, and historical data.",
+    "full": "Detailed implementation guide for create a weather dashboard app with authentication, database design, API endpoints, frontend components, and deployment instructions. Includes best practices for scalability, security, and user experience.",
+    "premium": false
+  },
+  {
+    "id": 38,
+    "title": "Build a Portfolio Generator",
+    "category": "fullstack",
+    "preview": "Create a tool that generates developer portfolios from GitHub data.",
+    "full": "Detailed implementation guide for build a portfolio generator with authentication, database design, API endpoints, frontend components, and deployment instructions. Includes best practices for scalability, security, and user experience.",
+    "premium": false
+  },
+  {
+    "id": 39,
+    "title": "Create a Habit Tracker App",
+    "category": "fullstack",
+    "preview": "Build a habit formation app with streaks and reminders.",
+    "full": "Detailed implementation guide for create a habit tracker app with authentication, database design, API endpoints, frontend components, and deployment instructions. Includes best practices for scalability, security, and user experience.",
+    "premium": false
+  },
+  {
+    "id": 40,
+    "title": "Build a Budget Tracking App",
+    "category": "fullstack",
+    "preview": "Create a personal finance app with expense tracking and budgets.",
+    "full": "Detailed implementation guide for build a budget tracking app with authentication, database design, API endpoints, frontend components, and deployment instructions. Includes best practices for scalability, security, and user experience.",
+    "premium": false
+  },
+  {
+    "id": 41,
+    "title": "Create a Job Board Platform",
+    "category": "fullstack",
+    "preview": "Build a job posting site with applications and company profiles.",
+    "full": "Detailed implementation guide for create a job board platform with authentication, database design, API endpoints, frontend components, and deployment instructions. Includes best practices for scalability, security, and user experience.",
+    "premium": false
+  },
+  {
+    "id": 42,
+    "title": "Build a Real Estate Listing Platform",
+    "category": "fullstack",
+    "preview": "Create a property marketplace with search filters, virtual tours, and agent connections.",
+    "full": "Real estate platform with: property listings, advanced search (price, location, bedrooms), map view integration, image galleries with 360\u00b0 tours, mortgage calculator, agent profiles, contact forms, saved searches, property comparisons, and email alerts for new listings. Include geolocation search, PostgreSQL database, and responsive design.",
+    "premium": false
+  },
+  {
+    "id": 43,
+    "title": "Create a Customer Support Ticketing System",
+    "category": "fullstack",
+    "preview": "Build a help desk platform with ticket management, knowledge base, and live chat.",
+    "full": "Support system with: ticket creation and assignment, priority levels, status tracking, canned responses, knowledge base with search, live chat widget, customer portal, SLA tracking, email integration, reporting dashboard, team collaboration, and automation rules. Use Node.js, MongoDB, Socket.io for real-time updates.",
+    "premium": false
+  },
+  {
+    "id": 44,
+    "title": "Build an Event Management Platform",
+    "category": "fullstack",
+    "preview": "Create an event booking system with ticketing, check-in, and attendee management.",
+    "full": "Event platform with: event creation and publishing, ticket sales with Stripe, QR code tickets, attendee check-in system, event discovery with filters, calendar integration, email reminders, seating charts, refund management, analytics dashboard, and organizer tools. Include PostgreSQL, email automation, and PDF ticket generation.",
+    "premium": false
+  },
+  {
+    "id": 45,
+    "title": "Create a Podcast Hosting Platform",
+    "category": "fullstack",
+    "preview": "Build a podcast platform with audio hosting, RSS feeds, and analytics.",
+    "full": "Podcast platform with: audio file upload and hosting, RSS feed generation, episode scheduling, show pages, embedded players, download/stream analytics, transcription integration, chapter markers, show notes with markdown, monetization with ads, listener engagement metrics, and multi-show management. Use S3 for audio storage, CDN for delivery.",
+    "premium": false
+  },
+  {
+    "id": 46,
+    "title": "Build a Hotel Booking System",
+    "category": "fullstack",
+    "preview": "Create a hotel reservation platform with room availability and booking management.",
+    "full": "Hotel booking system with: room search with dates and occupancy, availability calendar, photo galleries, amenities listing, booking checkout with Stripe, confirmation emails, booking management dashboard, pricing rules (seasonal rates), room types, guest reviews, special offers, and cancellation policies. Include PostgreSQL, email automation, and admin panel.",
+    "premium": false
+  },
+  {
+    "id": 47,
+    "title": "Create a Marketplace Platform Like Etsy",
+    "category": "fullstack",
+    "preview": "Build a multi-vendor marketplace with product listings and seller dashboards.",
+    "full": "Marketplace with: vendor registration and stores, product listings with variants, shopping cart, order processing, seller dashboards, review system, messaging between buyers/sellers, Stripe Connect for vendor payouts, search and filters, featured listings, shipping integrations, and dispute resolution. Use Next.js, PostgreSQL, and Cloudinary for images.",
+    "premium": false
+  },
+  {
+    "id": 48,
+    "title": "Build a URL Shortener with Analytics",
+    "category": "backend",
+    "preview": "Create a URL shortening service with click tracking and custom domains.",
+    "full": "URL shortener with: custom short URLs, QR code generation, click analytics (location, device, referrer), link expiration, password protection, custom domains, branded links, bulk URL shortening, API access, link editing, A/B testing links, and export reports. Include Redis for caching, PostgreSQL for data, and rate limiting.",
+    "premium": false
+  },
+  {
+    "id": 49,
+    "title": "Create a Quiz and Survey Builder",
+    "category": "fullstack",
+    "preview": "Build a survey platform with form builder and response analytics.",
+    "full": "Survey platform with: drag-and-drop form builder, question types (multiple choice, text, rating), conditional logic, response collection, analytics dashboard, export to CSV/Excel, email invitations, response limits, quiz scoring, timer for quizzes, results pages, and embed codes. Use React for builder, Node.js backend, and Chart.js for analytics.",
+    "premium": false
+  },
+  {
+    "id": 50,
+    "title": "Build a Cryptocurrency Portfolio Tracker",
+    "category": "fullstack",
+    "preview": "Create a crypto tracking app with real-time prices and portfolio analytics.",
+    "full": "Crypto tracker with: portfolio management, real-time price updates via CoinGecko/CoinMarketCap API, profit/loss calculations, transaction history, multiple exchange support, price alerts, watchlists, charts with historical data, news integration, and tax reporting. Use React, Node.js, WebSocket for live prices, and MongoDB for data storage.",
+    "premium": false
+  },
+  {
+    "id": 51,
+    "title": "Create a CRM System for Sales Teams",
+    "category": "fullstack",
+    "preview": "Build a customer relationship management platform with lead tracking and pipelines.",
+    "full": "CRM system with: lead/contact management, deal pipelines with drag-and-drop, activity tracking (calls, emails, meetings), task management, email integration, sales forecasting, reporting dashboard, team collaboration, document storage, automated workflows, and custom fields. Include PostgreSQL, calendar integration, and email parsing.",
+    "premium": false
+  },
+  {
+    "id": 52,
+    "title": "Build a Donation and Crowdfunding Platform",
+    "category": "fullstack",
+    "preview": "Create a fundraising platform with campaign pages and payment processing.",
+    "full": "Fundraising platform with: campaign creation with rich media, donation tiers and rewards, progress tracking, social sharing, backer dashboard, campaign updates, comments, Stripe integration for payments, recurring donations, team fundraising, analytics, and thank-you emails. Use Next.js, PostgreSQL, and Stripe for processing.",
+    "premium": false
+  },
+  {
+    "id": 53,
+    "title": "Create an Online Code Editor and Compiler",
+    "category": "fullstack",
+    "preview": "Build a browser-based IDE with code execution for multiple languages.",
+    "full": "Online IDE with: Monaco Editor integration, syntax highlighting, code execution for Python/JavaScript/Java/C++, file management, project workspaces, collaborative editing, terminal emulator, debugging tools, code sharing with links, version control, themes, and extensions support. Use Docker containers for sandboxed code execution and WebSocket for collaboration.",
+    "premium": false
+  },
+  {
+    "id": 54,
+    "title": "Build a Restaurant Management System",
+    "category": "fullstack",
+    "preview": "Create a POS system with menu management, orders, and inventory tracking.",
+    "full": "Restaurant system with: digital menu with categories, order taking (dine-in/takeaway/delivery), kitchen display system, table management, bill splitting, payment integration, inventory tracking, supplier management, employee shifts, sales reports, and customer loyalty program. Include receipt printing, real-time order updates, and offline mode.",
+    "premium": false
+  },
+  {
+    "id": 55,
+    "title": "Create a Gym Management Software",
+    "category": "fullstack",
+    "preview": "Build a fitness center management platform with memberships and class scheduling.",
+    "full": "Gym software with: member registration and profiles, membership plans with billing, class scheduling and booking, check-in system with QR codes, trainer assignment, workout logging, attendance tracking, payment collection, freeze/cancel memberships, email notifications, and progress reports. Use PostgreSQL, Stripe for payments, and QR code generation.",
+    "premium": false
+  },
+  {
+    "id": 56,
+    "title": "Build a Stock Trading Simulator",
+    "category": "fullstack",
+    "preview": "Create a paper trading platform with real-time stock data and portfolio management.",
+    "full": "Trading simulator with: real-time stock prices via Alpha Vantage API, virtual portfolio with buy/sell orders, watchlists, market orders and limit orders, portfolio performance tracking, charts with technical indicators, news integration, leaderboards, trading competitions, and educational resources. Use React for charts (Recharts/TradingView), Node.js backend, and MongoDB.",
+    "premium": false
+  },
+  {
+    "id": 57,
+    "title": "Create a Telemedicine Platform",
+    "category": "fullstack",
+    "preview": "Build a telehealth app with video consultations and appointment booking.",
+    "full": "Telemedicine platform with: patient registration, doctor profiles and availability, appointment booking, video consultation using WebRTC, prescription management, medical records storage, payment integration, calendar sync, SMS/email reminders, chat messaging, file sharing (lab results), and HIPAA compliance features. Use Twilio for video, PostgreSQL for data, and encryption for sensitive info.",
+    "premium": false
+  },
+  {
+    "id": 58,
+    "title": "Build a News Aggregator Platform",
+    "category": "fullstack",
+    "preview": "Create a news reader with RSS feeds, personalization, and saved articles.",
+    "full": "News aggregator with: RSS feed parsing, content categorization, personalized feed based on interests, saved/bookmarked articles, search functionality, trending topics, source management, offline reading, dark mode, reading progress sync, sharing to social media, and newsletter digest. Use Node.js for feed parsing, MongoDB for storage, and machine learning for recommendations.",
+    "premium": false
+  },
+  {
+    "id": 59,
+    "title": "Create a Document Collaboration Platform",
+    "category": "fullstack",
+    "preview": "Build a Google Docs alternative with real-time editing and version control.",
+    "full": "Document platform with: real-time collaborative editing using OT or CRDT, rich text formatting, comments and suggestions, version history, document sharing with permissions, templates, export to PDF/Word, offline editing, mobile apps, folder organization, and search. Use Quill.js or ProseMirror for editor, WebSocket for sync, and MongoDB for storage.",
+    "premium": false
+  },
+  {
+    "id": 60,
+    "title": "Build a Parking Spot Finder App",
+    "category": "mobile",
+    "preview": "Create a parking availability app with reservations and navigation.",
+    "full": "Parking app with: map view of available spots, real-time availability updates, spot reservation and booking, navigation to parking location, pricing and payment integration, parking history, favorites, reviews and ratings, parking reminders, and multi-city support. Use Google Maps API, React Native, Node.js backend, and PostgreSQL with PostGIS.",
+    "premium": false
+  },
+  {
+    "id": 61,
+    "title": "Create a Language Learning Platform",
+    "category": "fullstack",
+    "preview": "Build a Duolingo-style app with lessons, exercises, and progress tracking.",
+    "full": "Language learning platform with: structured lessons and courses, interactive exercises (fill-in-blank, matching, speaking), spaced repetition system, streak tracking, achievements and gamification, pronunciation practice, progress dashboard, vocabulary builder, daily goals, and leaderboards. Use React, Node.js, speech recognition API, and MongoDB.",
+    "premium": false
+  },
+  {
+    "id": 62,
+    "title": "Build a Freelancer Marketplace",
+    "category": "fullstack",
+    "preview": "Create a platform connecting freelancers with clients for project work.",
+    "full": "Freelancer marketplace with: freelancer profiles with portfolios, job posting by clients, proposal system, milestone-based payments with escrow, time tracking, messaging system, contract management, dispute resolution, review and rating system, and project collaboration tools. Use Stripe Connect for payments, Next.js frontend, and PostgreSQL database.",
+    "premium": false
+  },
+  {
+    "id": 63,
+    "title": "Create a Music Production Collaboration Platform",
+    "category": "fullstack",
+    "preview": "Build a platform for musicians to collaborate on tracks remotely.",
+    "full": "Music collaboration platform with: project workspaces, audio file upload and versioning, commenting on specific timestamps, real-time collaboration, DAW integration, stem sharing, mixing and mastering tools, project sharing, credit management, and licensing. Use Web Audio API, S3 for audio storage, WebSocket for real-time features, and MongoDB.",
+    "premium": false
+  },
+  {
+    "id": 64,
+    "title": "Build a Virtual Event Platform",
+    "category": "fullstack",
+    "preview": "Create an online conference platform with live streaming and networking.",
+    "full": "Virtual event platform with: live streaming using WebRTC or third-party service, multiple concurrent sessions, chat and Q&A, networking lounges with video chat, virtual expo booths, attendee directory, calendar with session scheduling, on-demand replay, polls and surveys, and analytics dashboard. Use Next.js, Socket.io, and integration with Zoom/Twitch for streaming.",
+    "premium": false
+  },
+  {
+    "id": 65,
+    "title": "Create a Subscription Box Service Platform",
+    "category": "fullstack",
+    "preview": "Build a subscription e-commerce platform with recurring billing.",
+    "full": "Subscription platform with: product catalog for subscription boxes, customization options, subscription management (pause, cancel, skip), recurring billing with Stripe, shipping integrations, referral program, gift subscriptions, preference surveys, unboxing experience portal, and customer feedback. Use Next.js, PostgreSQL, and Stripe Subscriptions API.",
+    "premium": false
+  },
+  {
+    "id": 66,
+    "title": "Build a Legal Document Generator",
+    "category": "fullstack",
+    "preview": "Create a platform for generating legal documents with templates and customization.",
+    "full": "Legal document platform with: template library (contracts, agreements, NDAs), dynamic form builder, conditional logic, e-signature integration, document preview and editing, version control, team collaboration, document storage, audit trail, and export to PDF. Use React for form builder, Node.js backend, and DocuSign API for signatures.",
+    "premium": false
+  },
+  {
+    "id": 67,
+    "title": "Create a Smart Home Dashboard",
+    "category": "fullstack",
+    "preview": "Build a home automation control panel with device integration.",
+    "full": "Smart home dashboard with: device discovery and pairing, real-time status monitoring, automation rules and scenes, scheduling, energy usage tracking, multi-room control, voice command integration, mobile app, notifications and alerts, and third-party integrations (Philips Hue, Nest, Alexa). Use MQTT for device communication, React for UI, and Node.js backend.",
+    "premium": false
+  },
+  {
+    "id": 68,
+    "title": "Build a Car Rental Platform",
+    "category": "fullstack",
+    "preview": "Create a vehicle rental marketplace with booking and fleet management.",
+    "full": "Car rental platform with: vehicle listings with specs and photos, availability calendar, booking system with insurance options, pricing calculator, payment integration, driver verification, rental agreements, GPS tracking, damage reporting, customer reviews, and fleet management dashboard for owners. Use Next.js, PostgreSQL, Stripe, and Google Maps API.",
+    "premium": false
+  },
+  {
+    "id": 69,
+    "title": "Create a Grocery Delivery App",
+    "category": "fullstack",
+    "preview": "Build a grocery ordering platform with delivery scheduling and inventory sync.",
+    "full": "Grocery delivery app with: product catalog with categories, shopping cart with saved lists, delivery time slot selection, real-time order tracking, substitute item preferences, recurring orders, digital receipts, loyalty points, coupon system, inventory management, and driver assignment. Use React Native, Node.js, Socket.io for tracking, and PostgreSQL.",
+    "premium": false
+  },
+  {
+    "id": 70,
+    "title": "Build a Pet Adoption Platform",
+    "category": "fullstack",
+    "preview": "Create an animal shelter platform with pet listings and adoption applications.",
+    "full": "Pet adoption platform with: pet profiles with photos and descriptions, search filters (species, age, size), adoption application forms, approval workflow, favorites list, success stories, donation system, foster program management, event calendar, and volunteer coordination. Include PostgreSQL, image uploads, email notifications, and admin panel.",
+    "premium": false
+  },
+  {
+    "id": 71,
+    "title": "Create a Tutoring Marketplace Platform",
+    "category": "fullstack",
+    "preview": "Build a platform connecting students with tutors for online and in-person lessons.",
+    "full": "Tutoring marketplace with: tutor profiles with qualifications and ratings, subject and level filtering, session booking with calendar integration, video call integration for online tutoring, payment processing with Stripe Connect, homework help requests, progress tracking, session notes, review system, and messaging. Use Next.js, PostgreSQL, WebRTC for video, and calendar sync.",
+    "premium": false
+  }
+]
