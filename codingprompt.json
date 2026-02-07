@@ -23,6 +23,17 @@
   },
   {
     "id": 3,
+    "title": "Discord MT5 Trading Bot: Execute Forex Trades via Chat",
+    "category": "trading",
+    "preview": "AI-powered Discord bot that executes MT5 forex trades from simple chat commands like 'buy EU market 2% sl 50'.",
+    "full": "Production-ready n8n workflow transforms Discord into your live trading terminal. Features: 1) GPT-4o-mini AI classifies 6 command types instantly, 2) Regex + AI fallback parses flexible syntax (EU=EURUSD, GU=GBPUSD), 3) Market/limit orders routed to your MT5 broker via local webhooks, 4) Signal management (view/clear pending trades), 5) Real-time Discord feedback with confirmations/errors, 6) Risk management with % position sizing + SL/TP automation, 7) Mobile-ready - trade from Discord phone app, 8) Full error handling. Works with any MT5 broker account. Includes complete workflow JSON + setup guide. Perfect for hands-free forex execution.",
+    "premium": true,
+    "price": "$3",
+    "productLink": "https://mineblade.gumroad.com/l/iketek",
+    "image": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 4,
     "title": "Build an Automated API Monitoring Script",
     "category": "automation",
     "preview": "Create a script that monitors API uptime, logs errors, and sends alerts when issues are detected.",
@@ -30,7 +41,7 @@
     "premium": false
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "Create a REST API with Express and MongoDB",
     "category": "backend",
     "preview": "Build a complete RESTful API with authentication, CRUD operations, and MongoDB integration.",
@@ -38,7 +49,7 @@
     "premium": false
   },
   {
-    "id": 5,
+    "id": 6,
     "title": "Python Web Scraper with Error Handling",
     "category": "scripts",
     "preview": "Build a robust web scraper that handles pagination, retries, and exports data to CSV.",
@@ -46,7 +57,7 @@
     "premium": false
   },
   {
-    "id": 6,
+    "id": 7,
     "title": "Stripe Payment Integration Guide",
     "category": "apis",
     "preview": "Complete implementation of Stripe payment processing with webhooks and subscription handling.",
@@ -54,7 +65,7 @@
     "premium": false
   },
   {
-    "id": 7,
+    "id": 8,
     "title": "React Component Library Setup",
     "category": "coding",
     "preview": "Set up a reusable React component library with TypeScript, Storybook, and npm publishing.",
@@ -62,7 +73,7 @@
     "premium": false
   },
   {
-    "id": 8,
+    "id": 9,
     "title": "Dockerize a Full-Stack Application",
     "category": "backend",
     "preview": "Create Docker configuration for a complete application with database, backend, and frontend.",
@@ -70,7 +81,7 @@
     "premium": false
   },
   {
-  "id": 3,
+  "id": 10,
   "title": "Automate Blog Content Creation with GPT-4, Perplexity & WordPress",
   "category": "automation",
   "preview": "Download a complete n8n workflow to automate blog content creation using GPT-4, Perplexity, and WordPress.",
