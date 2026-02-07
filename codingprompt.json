@@ -12,6 +12,17 @@
   },
   {
     "id": 2,
+    "title": "Spotify Clone Pro: Production-Ready Music Streaming SaaS",
+    "category": "web-development",
+    "preview": "Complete Next.js 15 + Supabase Spotify clone with gapless streaming, AI recommendations, social features, and Stripe monetization.",
+    "full": "Production-ready Spotify clone 'SoundWave Pro' – FULLSTACK music streaming platform that rivals Spotify Premium. Features: 1) Pixel-perfect responsive UI (mobile/desktop) with dark/light themes, 2) HTML5 gapless audio streaming + equalizer/lyrics/offline mode, 3) Complete features: search, playlists, queue mgmt, artist pages, recommendations, 4) Social: follow/share/activity feed, 5) Stripe subscriptions (Free/Pro tiers), 6) Enterprise backend (Prisma + Redis + tRPC), 7) PWA-ready with 1-click Vercel deploy. Includes 5K+ lines clean code, demo data (100+ tracks), DB schema, and full setup guide. Launch your $10K/mo music SaaS today.",
+    "premium": true,
+    "price": "$1 (First 1000 only)",
+    "productLink": "https://mineblade.gumroad.com/l/nvgri",
+    "image": "https://images.unsplash.com/photo-1611945387914-b791a5f90b78?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 2,
     "title": "Viral VEO3 Shorts Machine: Auto-Generate & Publish YouTube AI Videos Daily",
     "category": "automation",
     "preview": "Complete n8n workflow that auto-generates viral YouTube Shorts with VEO3 AI video + GPT content creation.",
