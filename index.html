@@ -247,10 +247,18 @@
         }
 
         .hero-ctas {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
+    display: flex;
+    gap: 0.5rem;        /* Halved from 1rem for tighter spacing [web:2] */
+    flex-wrap: wrap;
+    justify-content: center;  /* Centers items, prevents edge-stretching */
+    max-width: 20rem;   /* Caps total width; adjust as needed [web:6] */
+    margin: 0 auto;     /* Centers the whole block */
+}
+
+.hero-ctas > * {      /* Target direct children (buttons/links) */
+    flex: 1;          /* Equal width within container [web:4] */
+    min-width: 8rem;  /* Prevents buttons from shrinking too small */
+}
 
         .btn {
             padding: 1rem 2rem;
