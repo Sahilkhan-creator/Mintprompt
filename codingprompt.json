@@ -232,14 +232,358 @@
     "premium": false
   },
   {
-    "id": 27,
-    "title": "Build a Spotify Clone with Music Streaming",
+    "id": 28,
+    "title": "Create a LinkedIn Clone with Professional Networking",
     "category": "fullstack",
-    "preview": "Create a music streaming platform with playlists, recommendations, and audio player.",
-    "full": "Music streaming app with: audio player, playlists, search, user library, recommendations, social features, artist pages, album views, queue management, and lyrics display.",
+    "preview": "Build a professional social network with profiles, connections, and job postings.",
+    "full": "Build a professional networking platform using React, Node.js, and PostgreSQL. Features: 1) User profiles with photo, headline, experience, education, and skills, 2) Connection system with requests and 1st/2nd/3rd degree networks, 3) News feed with posts supporting text, images, and videos, 4) Post engagement with likes, comments, and shares, 5) Job board with postings and applications, 6) Company pages with followers and updates, 7) Skill endorsements from connections, 8) Recommendations and testimonials, 9) Messaging system with chat and file sharing, 10) Search for people, jobs, and companies, 11) Notifications for connections and engagement, 12) Premium features with profile analytics. Tech: PostgreSQL for data, Redis for caching, Socket.io for messaging, AWS S3 for media. Include feed algorithm, SEO optimization, and mobile-responsive design.",
+    "premium": false
+  },
+  {
+    "id": 29,
+    "title": "Build a Twitter Clone with Real-Time Feed",
+    "category": "fullstack",
+    "preview": "Create a microblogging platform with tweets, likes, and trending topics.",
+    "full": "Develop a microblogging platform using Next.js, Node.js, and PostgreSQL. Core features: 1) Tweet composition with 280 characters and media attachments, 2) Threading for tweet chains, 3) Real-time feed with WebSocket updates, 4) Engagement: likes, retweets, quote tweets, 5) Reply system with conversation threads, 6) User profiles with bio and follower counts, 7) Follow/unfollow system, 8) Trending topics with hashtag tracking, 9) Mentions with @username autocomplete, 10) Direct messaging, 11) Search for tweets and users, 12) Notifications for engagement. Tech: PostgreSQL for data, Redis for timeline caching, Socket.io for real-time, Elasticsearch for search. Include feed algorithm, media processing, and mobile apps.",
+    "premium": false
+  },
+  {
+    "id": 30,
+    "title": "Create a Discord Clone with Voice Channels",
+    "category": "fullstack",
+    "preview": "Build a community platform with text and voice channels for gaming and communities.",
+    "full": "Build a real-time communication platform using React, Node.js, and WebRTC. Features: 1) Server creation with channels and categories, 2) Role-based permissions system, 3) Text messaging with markdown and emojis, 4) File sharing with drag-and-drop, 5) Voice channels with WebRTC audio, 6) Video chat and screen sharing, 7) Direct messages and group DMs, 8) User presence (online/offline/idle), 9) Rich embeds for links and media, 10) Bot integration with webhooks, 11) Moderation tools (kick, ban, timeout), 12) Server boost perks. Tech: PostgreSQL, Redis, Socket.io, WebRTC with TURN servers. Include voice quality optimization, message history, and mobile apps.",
+    "premium": false
+  },
+  {
+    "id": 31,
+    "title": "Build a Medium Clone for Blogging",
+    "category": "fullstack",
+    "preview": "Create a publishing platform with stories, claps, and reading lists.",
+    "full": "Create a content publishing platform using Next.js, Node.js, and PostgreSQL. Features: 1) Rich text editor with formatting and embeds, 2) Draft autosave and version history, 3) Featured images with captions, 4) Clap system (up to 50 per reader), 5) Reading time estimation, 6) Tag system for categorization, 7) Publications for collaborative writing, 8) Reading lists for bookmarking, 9) Highlight and annotation system, 10) Comment threads, 11) Follow authors and publications, 12) Stats dashboard for authors. Tech: PostgreSQL, Elasticsearch for search, Redis for caching. Include SEO optimization, responsive typography, and social sharing.",
+    "premium": false
+  },
+  {
+    "id": 32,
+    "title": "Build a Food Delivery App",
+    "category": "fullstack",
+    "preview": "Create a food ordering platform with restaurant menus and delivery tracking.",
+    "full": "Build a food delivery platform using React Native, Node.js, and PostgreSQL. Features: 1) Location-based restaurant discovery, 2) Digital menus with photos and descriptions, 3) Item customization and special instructions, 4) Shopping cart and checkout, 5) Multiple payment methods with Stripe, 6) Real-time order tracking with maps, 7) Driver location tracking, 8) Push notifications for order updates, 9) Order history and reordering, 10) Restaurant ratings and reviews, 11) Search with filters (cuisine, rating, delivery time), 12) Promo codes and loyalty points. Tech: PostgreSQL with PostGIS, Redis, Socket.io, Google Maps API. Include restaurant dashboard, driver app, and admin panel.",
+    "premium": false
+  },
+  {
+    "id": 33,
+    "title": "Create a Fitness Tracking App",
+    "category": "mobile",
+    "preview": "Build a workout and nutrition tracking app with progress charts.",
+    "full": "Develop a fitness tracking app using React Native, Node.js, and PostgreSQL. Features: 1) Workout logging with exercise library, 2) Custom workout creation, 3) Progress photos with timeline, 4) Body measurements tracking, 5) Apple Health and Google Fit integration, 6) Nutrition tracking with food database, 7) Macro and calorie goals, 8) Water intake logging, 9) Achievement badges and streaks, 10) Charts showing progress trends, 11) Workout timer with rest periods, 12) Personal records tracking. Tech: PostgreSQL, health API integration, Chart.js. Include offline mode, Apple Watch app, and workout export.",
+    "premium": false
+  },
+  {
+    "id": 34,
+    "title": "Build a Recipe Sharing Platform",
+    "category": "fullstack",
+    "preview": "Create a cooking community with recipes, meal planning, and shopping lists.",
+    "full": "Create a recipe platform using Next.js, Node.js, and PostgreSQL. Features: 1) Recipe creation with photos and ingredients, 2) Step-by-step instructions, 3) Nutritional information calculation, 4) Dietary filters (vegan, keto, gluten-free), 5) Ingredient-based search, 6) Recipe collections and cookbooks, 7) Rating and review system, 8) Meal planning calendar, 9) Shopping list generation, 10) Recipe scaling calculator, 11) Cooking mode with timers, 12) Social sharing and following. Tech: PostgreSQL, Elasticsearch, Redis. Include print-friendly format, video support, and mobile app.",
+    "premium": false
+  },
+  {
+    "id": 35,
+    "title": "Create a Photo Sharing App Like Instagram",
+    "category": "fullstack",
+    "preview": "Build a social media app with photo filters and stories.",
+    "full": "Build a photo-sharing platform using React Native, Node.js, and AWS S3. Features: 1) Photo upload with filters, 2) Photo editing (crop, brightness, contrast), 3) Caption with hashtags and mentions, 4) Feed with infinite scroll, 5) Stories with 24-hour expiration, 6) Direct messaging, 7) User profiles with photo grid, 8) Follow/unfollow system, 9) Likes and comments, 10) Explore page with recommendations, 11) Search for users and hashtags, 12) Live video streaming. Tech: PostgreSQL, Redis, Socket.io, AWS S3/CloudFront. Include content moderation, analytics, and IGTV-style video.",
+    "premium": false
+  },
+  {
+    "id": 36,
+    "title": "Build a Learning Management System (LMS)",
+    "category": "fullstack",
+    "preview": "Create an online education platform with courses and quizzes.",
+    "full": "Develop an LMS platform using Next.js, Node.js, and PostgreSQL. Features: 1) Course creation with curriculum builder, 2) Video lectures with HLS streaming, 3) Quiz builder with auto-grading, 4) Assignment submission and grading, 5) Progress tracking for students, 6) Certificate generation on completion, 7) Discussion forums per course, 8) Student dashboard with enrolled courses, 9) Course search and filtering, 10) Payment integration with Stripe, 11) Instructor analytics, 12) Live class integration. Tech: AWS S3, MediaConvert, PostgreSQL, Redis. Include mobile apps, offline video download, and SCORM compliance.",
+    "premium": false
+  },
+  {
+    "id": 37,
+    "title": "Create a Weather Dashboard App",
+    "category": "frontend",
+    "preview": "Build a weather app with forecasts, maps, and historical data.",
+    "full": "Build a weather dashboard using React and weather APIs. Features: 1) Current weather with temperature and conditions, 2) Location search with autocomplete, 3) Hourly forecast (48 hours), 4) 7-day forecast, 5) Weather maps (radar, temperature, precipitation), 6) Air quality index, 7) Weather alerts and warnings, 8) Sunrise/sunset times, 9) Historical weather data, 10) Multiple saved locations, 11) Weather widgets, 12) Push notifications for alerts. Tech: OpenWeatherMap API, Google Maps, Chart.js, Redis for caching. Include dark mode, PWA support, and customizable units.",
+    "premium": false
+  },
+  {
+    "id": 38,
+    "title": "Build a Portfolio Generator",
+    "category": "fullstack",
+    "preview": "Create a tool that generates developer portfolios from GitHub data.",
+    "full": "Create a portfolio generator using Next.js, GitHub API, and template engines. Features: 1) GitHub OAuth authentication, 2) Automatic data import (profile, repos, stats), 3) Repository selection for featuring, 4) Language statistics with charts, 5) Contribution graphs, 6) Template marketplace (15+ designs), 7) Customization (colors, fonts, layout), 8) About section editor, 9) Skills with ratings, 10) Experience and education sections, 11) Blog integration, 12) Contact form, 13) Analytics dashboard, 14) SEO optimization, 15) PDF resume export. Tech: GitHub GraphQL API, Next.js, PostgreSQL. Include custom domain support and one-click deployment.",
+    "premium": false
+  },
+  {
+    "id": 39,
+    "title": "Create a Habit Tracker App",
+    "category": "fullstack",
+    "preview": "Build a habit formation app with streaks and reminders.",
+    "full": "Build a habit tracking app using React Native, Node.js, and PostgreSQL. Features: 1) Habit creation with icons and colors, 2) Frequency setting (daily, weekly, custom), 3) Reminder notifications, 4) Streak tracking (current and longest), 5) Calendar view with heatmap, 6) Daily checklist with swipe-to-complete, 7) Progress charts and statistics, 8) Journal notes per habit, 9) Achievement badges, 10) Social accountability with friends, 11) Habit templates, 12) Data export. Tech: PostgreSQL, push notifications, offline-first. Include widgets, Apple Watch app, and cloud sync.",
+    "premium": false
+  },
+  {
+    "id": 40,
+    "title": "Build a Budget Tracking App",
+    "category": "fullstack",
+    "preview": "Create a personal finance app with expense tracking and budgets.",
+    "full": "Develop a budgeting app using React Native, Node.js, and Plaid API. Features: 1) Bank account connection via Plaid, 2) Automatic transaction import, 3) Manual transaction entry with receipts, 4) Category-based budgets, 5) Budget tracking with alerts, 6) Bill tracking and reminders, 7) Savings goals, 8) Net worth tracking, 9) Debt payoff calculator, 10) Cash flow analysis, 11) Custom reports, 12) Multi-currency support. Tech: PostgreSQL, Plaid API, Chart.js. Include receipt OCR, export to CSV, and financial insights with AI.",
+    "premium": false
+  },
+  {
+    "id": 41,
+    "title": "Create a Job Board Platform",
+    "category": "fullstack",
+    "preview": "Build a job posting site with applications and company profiles.",
+    "full": "Build a job board using Next.js, Node.js, and PostgreSQL. Features: 1) Employer job posting, 2) Job seeker profiles with resume upload, 3) Resume builder with templates, 4) One-click apply, 5) Application tracking for seekers, 6) Applicant tracking system (ATS) for employers, 7) Saved jobs and alerts, 8) Company pages, 9) Advanced search with filters, 10) Analytics for employers, 11) Featured job listings, 12) Salary insights. Tech: Elasticsearch, PostgreSQL, S3. Include LinkedIn integration, skills assessments, and mobile apps.",
+    "premium": false
+  },
+  {
+    "id": 42,
+    "title": "Build a Real Estate Listing Platform",
+    "category": "fullstack",
+    "preview": "Create a property marketplace with search filters, virtual tours, and agent connections.",
+    "full": "Develop a real estate platform using Next.js, Node.js, and PostgreSQL. Features: 1) Property listings with photos, 2) 360° virtual tours, 3) Interactive maps, 4) Advanced search filters, 5) Mortgage calculator, 6) Property comparison, 7) Saved searches with alerts, 8) Agent profiles, 9) Contact forms and scheduling, 10) Market trends analytics, 11) School district info, 12) Neighborhood data. Tech: PostgreSQL with PostGIS, Google Maps, S3. Include MLS integration, price drop alerts, and mobile app.",
+    "premium": false
+  },
+  {
+    "id": 43,
+    "title": "Create a Customer Support Ticketing System",
+    "category": "fullstack",
+    "preview": "Build a help desk platform with ticket management, knowledge base, and live chat.",
+    "full": "Build a help desk system using React, Node.js, and PostgreSQL. Features: 1) Multi-channel ticket creation (email, web, chat), 2) Priority levels and status tracking, 3) Canned responses library, 4) Knowledge base with search, 5) Live chat widget, 6) Customer portal, 7) SLA tracking, 8) Team collaboration, 9) Automation rules, 10) Reporting dashboard, 11) Email integration, 12) CSAT surveys. Tech: PostgreSQL, Socket.io, Elasticsearch, Redis. Include agent mobile app, chatbot integration, and comprehensive analytics.",
+    "premium": false
+  },
+  {
+    "id": 44,
+    "title": "Build an Event Management Platform",
+    "category": "fullstack",
+    "preview": "Create an event booking system with ticketing, check-in, and attendee management.",
+    "full": "Create an event platform using Next.js, Node.js, and Stripe. Features: 1) Event creation with details and images, 2) Multiple ticket types with pricing, 3) Discount codes, 4) Stripe payment processing, 5) QR code tickets, 6) Mobile check-in app, 7) Seating chart builder, 8) Waitlist management, 9) Event discovery with search, 10) Calendar integration, 11) Email confirmations, 12) Analytics dashboard. Tech: PostgreSQL, Stripe, QR generation, SendGrid. Include refund management, recurring events, and virtual event support.",
+    "premium": false
+  },
+  {
+    "id": 45,
+    "title": "Create a Podcast Hosting Platform",
+    "category": "fullstack",
+    "preview": "Build a podcast platform with audio hosting, RSS feeds, and analytics.",
+    "full": "Build a podcast platform using Next.js, Node.js, and AWS S3. Features: 1) Audio file upload and hosting, 2) RSS feed generation, 3) Episode scheduling, 4) Embeddable player, 5) Download and streaming analytics, 6) Transcription support, 7) Distribution to Apple/Spotify, 8) Show notes editor, 9) Listener demographics, 10) Monetization options, 11) Private podcasts, 12) Website generation. Tech: AWS S3/CloudFront, PostgreSQL, FFmpeg. Include unlimited storage, mobile app, and mastering integration.",
+    "premium": false
+  },
+  {
+    "id": 46,
+    "title": "Build a Hotel Booking System",
+    "category": "fullstack",
+    "preview": "Create a hotel reservation platform with room availability and booking management.",
+    "full": "Develop a hotel booking system using Next.js, Node.js, and PostgreSQL. Features: 1) Room search with dates, 2) Availability calendar, 3) Photo galleries, 4) Dynamic pricing, 5) Stripe payment processing, 6) Booking confirmations, 7) Guest portal, 8) Cancellation management, 9) Hotel dashboard, 10) Channel management, 11) Add-on services, 12) Reviews and ratings. Tech: PostgreSQL, Stripe, SendGrid, iCalendar. Include multi-currency, virtual tours, and mobile apps.",
+    "premium": false
+  },
+  {
+    "id": 47,
+    "title": "Create a Marketplace Platform Like Etsy",
+    "category": "fullstack",
+    "preview": "Build a multi-vendor marketplace with product listings and seller dashboards.",
+    "full": "Build a marketplace using Next.js, Stripe Connect, and PostgreSQL. Features: 1) Vendor registration and shops, 2) Product listings with variants, 3) Shopping cart, 4) Stripe Connect for split payments, 5) Order management, 6) Seller dashboard with analytics, 7) Messaging between buyers/sellers, 8) Review system, 9) Shipping integrations, 10) Search with filters, 11) Wishlist, 12) Dispute resolution. Tech: PostgreSQL, Elasticsearch, Stripe Connect, S3. Include commission system, featured listings, and mobile apps.",
+    "premium": false
+  },
+  {
+    "id": 48,
+    "title": "Build a URL Shortener with Analytics",
+    "category": "backend",
+    "preview": "Create a URL shortening service with click tracking and custom domains.",
+    "full": "Develop a URL shortener using Node.js, PostgreSQL, and Redis. Features: 1) Custom short URLs, 2) QR code generation, 3) Link expiration, 4) Password protection, 5) Custom domains, 6) Click analytics (location, device, browser), 7) Real-time dashboard, 8) Link editing, 9) A/B testing, 10) Bulk shortening, 11) API access, 12) Export reports. Tech: PostgreSQL, Redis for caching, GeoIP. Include rate limiting, anti-phishing, and browser extension.",
+    "premium": false
+  },
+  {
+    "id": 49,
+    "title": "Create a Quiz and Survey Builder",
+    "category": "fullstack",
+    "preview": "Build a survey platform with form builder and response analytics.",
+    "full": "Build a survey platform using React, Node.js, and PostgreSQL. Features: 1) Drag-and-drop form builder, 2) Multiple question types, 3) Conditional logic, 4) Quiz mode with scoring, 5) Timer for quizzes, 6) Response collection, 7) Analytics dashboard with charts, 8) Email invitations, 9) Custom branding, 10) Export to CSV/Excel, 11) Access control, 12) Multi-page surveys. Tech: PostgreSQL, Chart.js, email service. Include embed codes, webhooks, and mobile-responsive surveys.",
+    "premium": false
+  },
+  {
+    "id": 50,
+    "title": "Build a Cryptocurrency Portfolio Tracker",
+    "category": "fullstack",
+    "preview": "Create a crypto tracking app with real-time prices and portfolio analytics.",
+    "full": "Develop a crypto tracker using React, Node.js, and WebSocket APIs. Features: 1) Portfolio management, 2) Real-time price updates via WebSocket, 3) Exchange integration (Coinbase, Binance), 4) Profit/loss calculation, 5) Price alerts, 6) Watchlist, 7) Interactive charts, 8) News integration, 9) Tax reporting, 10) Multiple portfolios, 11) Dark mode, 12) Mobile apps. Tech: PostgreSQL, CoinGecko API, Chart.js, WebSocket. Include staking tracking, DeFi integration, and NFT support.",
+    "premium": false
+  },
+  {
+    "id": 51,
+    "title": "Create a CRM System for Sales Teams",
+    "category": "fullstack",
+    "preview": "Build a customer relationship management platform with lead tracking and pipelines.",
+    "full": "Build a CRM using React, Node.js, and PostgreSQL. Features: 1) Contact management, 2) Company accounts, 3) Lead scoring, 4) Deal pipeline with kanban, 5) Activity tracking, 6) Email integration (Gmail/Outlook), 7) Task management, 8) Calendar integration, 9) Sales automation, 10) Reporting dashboard, 11) Custom fields, 12) Mobile apps. Tech: PostgreSQL, Redis, email APIs. Include phone integration, LinkedIn sync, and forecasting.",
+    "premium": false
+  },
+  {
+    "id": 52,
+    "title": "Build a Donation and Crowdfunding Platform",
+    "category": "fullstack",
+    "preview": "Create a fundraising platform with campaign pages and payment processing.",
+    "full": "Create a crowdfunding platform using Next.js, Node.js, and Stripe. Features: 1) Campaign creation with stories, 2) Donation tiers with perks, 3) Stripe integration, 4) Campaign updates, 5) Comment section, 6) Social sharing, 7) Progress tracking, 8) Team fundraising, 9) Thank you messages, 10) Donor dashboard, 11) Analytics, 12) Withdrawal management. Tech: PostgreSQL, Stripe, SendGrid. Include recurring donations, matching donations, and impact reporting.",
     "premium": false
   },
   
+  {
+    "id": 53,
+    "title": "Create an Online Code Editor and Compiler",
+    "category": "fullstack",
+    "preview": "Build a browser-based IDE with code execution for multiple languages.",
+    "full": "Build an online IDE using React, Monaco Editor, and Docker. Features: 1) Monaco Editor with syntax highlighting, 2) Code completion, 3) Multi-language support (Python, JS, Java, C++), 4) Sandboxed execution in Docker, 5) File explorer, 6) Terminal emulator, 7) Collaborative editing, 8) Version control, 9) Debugging tools, 10) Code sharing, 11) Theme customization, 12) Export to ZIP. Tech: Docker, Monaco, Socket.io, PostgreSQL. Include extension marketplace and mobile support.",
+    "premium": false
+  },
+  {
+    "id": 54,
+    "title": "Build a Restaurant Management System",
+    "category": "fullstack",
+    "preview": "Create a POS system with menu management, orders, and inventory tracking.",
+    "full": "Develop a restaurant POS using React, Node.js, and PostgreSQL. Features: 1) Digital menu builder, 2) Order taking (dine-in/takeout), 3) Kitchen display system, 4) Table management, 5) Payment processing, 6) Inventory tracking, 7) Supplier management, 8) Employee shifts, 9) Sales reports, 10) Customer loyalty, 11) Reservation system, 12) Delivery integration. Tech: PostgreSQL, Stripe Terminal, Socket.io. Include receipt printing, offline mode, and mobile app.",
+    "premium": false
+  },
+  {
+    "id": 55,
+    "title": "Create a Gym Management Software",
+    "category": "fullstack",
+    "preview": "Build a fitness center management platform with memberships and class scheduling.",
+    "full": "Build gym software using React, Node.js, and PostgreSQL. Features: 1) Member registration, 2) Membership plans with billing, 3) Class scheduling and booking, 4) QR check-in system, 5) Trainer assignment, 6) Attendance tracking, 7) Payment collection with Stripe, 8) Freeze/cancel memberships, 9) Email notifications, 10) Progress reports, 11) Equipment tracking, 12) Staff management. Tech: PostgreSQL, Stripe, QR codes. Include member app, trainer app, and analytics dashboard.",
+    "premium": false
+  },
+  {
+    "id": 56,
+    "title": "Build a Stock Trading Simulator",
+    "category": "fullstack",
+    "preview": "Create a paper trading platform with real-time stock data and portfolio management.",
+    "full": "Create a trading simulator using React, Node.js, and stock APIs. Features: 1) Real-time stock prices, 2) Virtual portfolio ($100k start), 3) Market and limit orders, 4) Portfolio tracking, 5) Interactive charts with indicators, 6) Watchlist, 7) Stock details and news, 8) Leaderboard, 9) Trading competitions, 10) Educational resources, 11) Transaction history, 12) Analytics. Tech: Alpha Vantage API, PostgreSQL, Chart.js. Include options trading, mobile app, and paper trading journal.",
+    "premium": false
+  },
+  {
+    "id": 57,
+    "title": "Create a Telemedicine Platform",
+    "category": "fullstack",
+    "preview": "Build a telehealth app with video consultations and appointment booking.",
+    "full": "Build a telemedicine platform using React, Node.js, and Twilio Video. Features: 1) Patient registration, 2) Doctor profiles, 3) Appointment scheduling, 4) Video consultations with Twilio, 5) E-prescriptions, 6) Medical records storage, 7) Secure messaging, 8) Payment integration, 9) Insurance verification, 10) Patient portal, 11) Doctor dashboard, 12) Analytics. Tech: PostgreSQL, Twilio Video, Stripe. Include HIPAA compliance, mobile apps, and symptom checker.",
+    "premium": false
+  },
+  {
+    "id": 58,
+    "title": "Build a News Aggregator Platform",
+    "category": "fullstack",
+    "preview": "Create a news reader with RSS feeds, personalization, and saved articles.",
+    "full": "Develop a news aggregator using Next.js, Node.js, and RSS parsing. Features: 1) RSS feed aggregation, 2) Content categorization, 3) Personalized feed, 4) Bookmarking, 5) Offline reading, 6) Text-to-speech, 7) Search functionality, 8) Trending topics, 9) Source credibility ratings, 10) Dark mode, 11) Newsletter digest, 12) Multi-device sync. Tech: PostgreSQL, Elasticsearch, Redis. Include browser extension, mobile apps, and podcast integration.",
+    "premium": false
+  },
+  {
+    "id": 59,
+    "title": "Create a Document Collaboration Platform",
+    "category": "fullstack",
+    "preview": "Build a Google Docs alternative with real-time editing and version control.",
+    "full": "Build a document platform using React, Node.js, and OT/CRDT. Features: 1) Real-time collaborative editing, 2) Rich text formatting, 3) Comments and suggestions, 4) Version history, 5) Document sharing with permissions, 6) Export to PDF/DOCX, 7) Folder organization, 8) Templates, 9) Search and replace, 10) Table support, 11) Image embedding, 12) Offline mode. Tech: PostgreSQL, WebSocket, S3. Include mobile apps, desktop apps, and Google Drive integration.",
+    "premium": false
+  },
+  {
+    "id": 60,
+    "title": "Build a Parking Spot Finder App",
+    "category": "mobile",
+    "preview": "Create a parking availability app with reservations and navigation.",
+    "full": "Develop a parking app using React Native, Node.js, and Google Maps. Features: 1) Real-time parking availability map, 2) Location-based search, 3) Filters by type and price, 4) Turn-by-turn navigation, 5) Reservation system, 6) Payment with Stripe, 7) QR code entry/exit, 8) Parking timer, 9) History tracking, 10) Favorites, 11) Price comparison, 12) Reviews and ratings. Tech: PostgreSQL with PostGIS, Google Maps, Stripe. Include multi-city support, parking validation, and push notifications.",
+    "premium": false
+  },
+  {
+    "id": 61,
+    "title": "Create a Language Learning Platform",
+    "category": "fullstack",
+    "preview": "Build a Duolingo-style app with lessons, exercises, and progress tracking.",
+    "full": "Build a language learning app using React, Node.js, and speech APIs. Features: 1) Multiple language courses, 2) Skill tree progression, 3) Multiple exercise types, 4) Speech recognition practice, 5) Listening exercises, 6) Vocabulary builder with SRS, 7) Streak tracking, 8) XP and achievement system, 9) Leaderboard, 10) Stories for reading, 11) Progress dashboard, 12) Offline mode. Tech: PostgreSQL, Web Speech API, Redis. Include podcasts, chatbot practice, and mobile apps.",
+    "premium": false
+  },
+  {
+    "id": 62,
+    "title": "Build a Freelancer Marketplace",
+    "category": "fullstack",
+    "preview": "Create a platform connecting freelancers with clients for project work.",
+    "full": "Create a freelance marketplace using Next.js, Node.js, and Stripe Connect. Features: 1) Freelancer profiles with portfolios, 2) Job posting by clients, 3) Proposal system, 4) Milestone-based payments with escrow, 5) Time tracking, 6) Messaging system, 7) Contract management, 8) Dispute resolution, 9) Review and rating, 10) Search with filters, 11) Client and freelancer dashboards, 12) Platform fees. Tech: PostgreSQL, Stripe Connect, Elasticsearch. Include verification badges, analytics, and mobile apps.",
+    "premium": false
+  },
+  {
+    "id": 63,
+    "title": "Create a Music Production Collaboration Platform",
+    "category": "fullstack",
+    "preview": "Build a platform for musicians to collaborate on tracks remotely.",
+    "full": "Build a music collaboration platform using React, Node.js, and Web Audio API. Features: 1) Project creation with audio upload, 2) Version control for audio files, 3) Stem management, 4) Waveform visualization, 5) Timestamp comments, 6) Real-time collaboration, 7) Basic mixing (volume, pan), 8) Export to WAV/MP3, 9) DAW integration, 10) Credit management, 11) Licensing options, 12) Project privacy controls. Tech: AWS S3, PostgreSQL, Web Audio API. Include sample library, mobile app, and SoundCloud integration.",
+    "premium": false
+  },
+  {
+    "id": 64,
+    "title": "Build a Virtual Event Platform",
+    "category": "fullstack",
+    "preview": "Create an online conference platform with live streaming and networking.",
+    "full": "Create a virtual event platform using Next.js, Node.js, and WebRTC. Features: 1) Live streaming, 2) Multiple concurrent sessions, 3) Chat and Q&A, 4) Networking lounges with video, 5) Virtual expo booths, 6) Attendee directory, 7) Session scheduling, 8) On-demand replay, 9) Polls and surveys, 10) Analytics dashboard, 11) Registration system, 12) Ticketing integration. Tech: WebRTC, Socket.io, PostgreSQL. Include Zoom integration, mobile app, and recording capabilities.",
+    "premium": false
+  },
+  {
+    "id": 65,
+    "title": "Create a Subscription Box Service Platform",
+    "category": "fullstack",
+    "preview": "Build a subscription e-commerce platform with recurring billing.",
+    "full": "Build a subscription platform using Next.js, Node.js, and Stripe Subscriptions. Features: 1) Product catalog for boxes, 2) Customization options, 3) Subscription management (pause, cancel, skip), 4) Recurring billing with Stripe, 5) Shipping integrations, 6) Referral program, 7) Gift subscriptions, 8) Preference surveys, 9) Customer portal, 10) Analytics, 11) Email notifications, 12) Inventory management. Tech: PostgreSQL, Stripe Subscriptions, shipping APIs. Include unboxing portal, feedback system, and mobile app.",
+    "premium": false
+  },
+  {
+    "id": 66,
+    "title": "Build a Legal Document Generator",
+    "category": "fullstack",
+    "preview": "Create a platform for generating legal documents with templates and customization.",
+    "full": "Create a legal document platform using React, Node.js, and DocuSign. Features: 1) Template library (contracts, NDAs, agreements), 2) Dynamic form builder, 3) Conditional logic, 4) E-signature integration with DocuSign, 5) Document preview and editing, 6) Version control, 7) Team collaboration, 8) Document storage, 9) Audit trail, 10) Export to PDF, 11) Custom fields, 12) Search functionality. Tech: PostgreSQL, DocuSign API, PDF generation. Include lawyer review options, multilingual templates, and mobile app.",
+    "premium": false
+  },
+  {
+    "id": 67,
+    "title": "Create a Smart Home Dashboard",
+    "category": "fullstack",
+    "preview": "Build a home automation control panel with device integration.",
+    "full": "Build a smart home dashboard using React, Node.js, and MQTT. Features: 1) Device discovery and pairing, 2) Real-time status monitoring, 3) Automation rules and scenes, 4) Scheduling, 5) Energy usage tracking, 6) Multi-room control, 7) Voice command integration, 8) Mobile app, 9) Notifications and alerts, 10) Third-party integrations (Hue, Nest, Alexa), 11) User management, 12) Device grouping. Tech: MQTT, React, Node.js, PostgreSQL. Include security features, offline mode, and custom device support.",
+    "premium": false
+  },
+  {
+    "id": 68,
+    "title": "Build a Car Rental Platform",
+    "category": "fullstack",
+    "preview": "Create a vehicle rental marketplace with booking and fleet management.",
+    "full": "Develop a car rental platform using Next.js, Node.js, and Stripe. Features: 1) Vehicle listings with photos and specs, 2) Availability calendar, 3) Booking system with insurance options, 4) Pricing calculator, 5) Payment integration with Stripe, 6) Driver verification, 7) GPS tracking, 8) Damage reporting, 9) Customer reviews, 10) Fleet management dashboard, 11) Rental agreements, 12) Email confirmations. Tech: PostgreSQL, Stripe, Google Maps. Include multi-location support, mobile app, and analytics.",
+    "premium": false
+  },
+  {
+    "id": 69,
+    "title": "Create a Grocery Delivery App",
+    "category": "fullstack",
+    "preview": "Build a grocery ordering platform with delivery scheduling and inventory sync.",
+    "full": "Build a grocery delivery app using React Native, Node.js, and PostgreSQL. Features: 1) Product catalog with categories, 2) Shopping cart with saved lists, 3) Delivery time slot selection, 4) Real-time order tracking, 5) Substitute item preferences, 6) Recurring orders, 7) Digital receipts, 8) Loyalty points, 9) Coupon system, 10) Inventory management, 11) Driver assignment, 12) Payment processing. Tech: PostgreSQL, Socket.io, Stripe. Include restaurant dashboard, driver app, and push notifications.",
+    "premium": false
+  },
+  {
+    "id": 70,
+    "title": "Build a Pet Adoption Platform",
+    "category": "fullstack",
+    "preview": "Create an animal shelter platform with pet listings and adoption applications.",
+    "full": "Create a pet adoption platform using Next.js, Node.js, and PostgreSQL. Features: 1) Pet profiles with photos, 2) Search filters (species, age, size), 3) Adoption application forms, 4) Approval workflow, 5) Favorites list, 6) Success stories, 7) Donation system with Stripe, 8) Foster program management, 9) Event calendar, 10) Volunteer coordination, 11) Email notifications, 12) Admin panel. Tech: PostgreSQL, Stripe, image uploads, SendGrid. Include mobile app, social sharing, and analytics.",
+    "premium": false
+  },
+  {
+    "id": 71,
+    "title": "Create a Tutoring Marketplace Platform",
+    "category": "fullstack",
+    "preview": "Build a platform connecting students with tutors for online and in-person lessons.",
+    "full": "Build a tutoring marketplace using Next.js, Node.js, and WebRTC. Features: 1) Tutor profiles with qualifications, 2) Subject and level filtering, 3) Session booking with calendar, 4) Video call integration with WebRTC, 5) Payment processing with Stripe Connect, 6) Homework help requests, 7) Progress tracking, 8) Session notes, 9) Review system, 10) Messaging, 11) Tutor dashboard, 12) Student dashboard. Tech: PostgreSQL, WebRTC, Stripe Connect, calendar API. Include mobile app, group sessions, and certification tracking.",
+    "premium": false
+  },
   {
     "id": 72,
     "title": "Build a Complete Project Management System Like Asana",
