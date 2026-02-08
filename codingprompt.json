@@ -240,6 +240,175 @@
     "premium": false
   },
   {
+    "id": 40,
+    "title": "Build a Budget Tracking App",
+    "category": "fullstack",
+    "preview": "Create a personal finance app with expense tracking and budgets.",
+    "full": "Detailed implementation guide for build a budget tracking app with authentication, database design, API endpoints, frontend components, and deployment instructions. Includes best practices for scalability, security, and user experience.",
+    "premium": false
+  },
+  {
+    "id": 41,
+    "title": "Create a Job Board Platform",
+    "category": "fullstack",
+    "preview": "Build a job posting site with applications and company profiles.",
+    "full": "Detailed implementation guide for create a job board platform with authentication, database design, API endpoints, frontend components, and deployment instructions. Includes best practices for scalability, security, and user experience.",
+    "premium": false
+  },
+  {
+    "id": 42,
+    "title": "Build a Real Estate Listing Platform",
+    "category": "fullstack",
+    "preview": "Create a property marketplace with search filters, virtual tours, and agent connections.",
+    "full": "Real estate platform with: property listings, advanced search (price, location, bedrooms), map view integration, image galleries with 360\u00b0 tours, mortgage calculator, agent profiles, contact forms, saved searches, property comparisons, and email alerts for new listings. Include geolocation search, PostgreSQL database, and responsive design.",
+    "premium": false
+  },
+  {
+    "id": 43,
+    "title": "Create a Customer Support Ticketing System",
+    "category": "fullstack",
+    "preview": "Build a help desk platform with ticket management, knowledge base, and live chat.",
+    "full": "Support system with: ticket creation and assignment, priority levels, status tracking, canned responses, knowledge base with search, live chat widget, customer portal, SLA tracking, email integration, reporting dashboard, team collaboration, and automation rules. Use Node.js, MongoDB, Socket.io for real-time updates.",
+    "premium": false
+  },
+  {
+    "id": 44,
+    "title": "Build an Event Management Platform",
+    "category": "fullstack",
+    "preview": "Create an event booking system with ticketing, check-in, and attendee management.",
+    "full": "Event platform with: event creation and publishing, ticket sales with Stripe, QR code tickets, attendee check-in system, event discovery with filters, calendar integration, email reminders, seating charts, refund management, analytics dashboard, and organizer tools. Include PostgreSQL, email automation, and PDF ticket generation.",
+    "premium": false
+  },
+  {
+    "id": 45,
+    "title": "Create a Podcast Hosting Platform",
+    "category": "fullstack",
+    "preview": "Build a podcast platform with audio hosting, RSS feeds, and analytics.",
+    "full": "Podcast platform with: audio file upload and hosting, RSS feed generation, episode scheduling, show pages, embedded players, download/stream analytics, transcription integration, chapter markers, show notes with markdown, monetization with ads, listener engagement metrics, and multi-show management. Use S3 for audio storage, CDN for delivery.",
+    "premium": false
+  },
+  {
+    "id": 46,
+    "title": "Build a Hotel Booking System",
+    "category": "fullstack",
+    "preview": "Create a hotel reservation platform with room availability and booking management.",
+    "full": "Hotel booking system with: room search with dates and occupancy, availability calendar, photo galleries, amenities listing, booking checkout with Stripe, confirmation emails, booking management dashboard, pricing rules (seasonal rates), room types, guest reviews, special offers, and cancellation policies. Include PostgreSQL, email automation, and admin panel.",
+    "premium": false
+  },
+  {
+    "id": 47,
+    "title": "Create a Marketplace Platform Like Etsy",
+    "category": "fullstack",
+    "preview": "Build a multi-vendor marketplace with product listings and seller dashboards.",
+    "full": "Marketplace with: vendor registration and stores, product listings with variants, shopping cart, order processing, seller dashboards, review system, messaging between buyers/sellers, Stripe Connect for vendor payouts, search and filters, featured listings, shipping integrations, and dispute resolution. Use Next.js, PostgreSQL, and Cloudinary for images.",
+    "premium": false
+  },
+  {
+    "id": 48,
+    "title": "Build a URL Shortener with Analytics",
+    "category": "backend",
+    "preview": "Create a URL shortening service with click tracking and custom domains.",
+    "full": "URL shortener with: custom short URLs, QR code generation, click analytics (location, device, referrer), link expiration, password protection, custom domains, branded links, bulk URL shortening, API access, link editing, A/B testing links, and export reports. Include Redis for caching, PostgreSQL for data, and rate limiting.",
+    "premium": false
+  },
+  {
+    "id": 49,
+    "title": "Create a Quiz and Survey Builder",
+    "category": "fullstack",
+    "preview": "Build a survey platform with form builder and response analytics.",
+    "full": "Survey platform with: drag-and-drop form builder, question types (multiple choice, text, rating), conditional logic, response collection, analytics dashboard, export to CSV/Excel, email invitations, response limits, quiz scoring, timer for quizzes, results pages, and embed codes. Use React for builder, Node.js backend, and Chart.js for analytics.",
+    "premium": false
+  },
+  {
+    "id": 50,
+    "title": "Build a Cryptocurrency Portfolio Tracker",
+    "category": "fullstack",
+    "preview": "Create a crypto tracking app with real-time prices and portfolio analytics.",
+    "full": "Crypto tracker with: portfolio management, real-time price updates via CoinGecko/CoinMarketCap API, profit/loss calculations, transaction history, multiple exchange support, price alerts, watchlists, charts with historical data, news integration, and tax reporting. Use React, Node.js, WebSocket for live prices, and MongoDB for data storage.",
+    "premium": false
+  },
+  
+  {
+    "id": 51,
+    "title": "Create a CRM System for Sales Teams",
+    "category": "fullstack",
+    "preview": "Build a customer relationship management platform with lead tracking and pipelines.",
+    "full": "CRM system with: lead/contact management, deal pipelines with drag-and-drop, activity tracking (calls, emails, meetings), task management, email integration, sales forecasting, reporting dashboard, team collaboration, document storage, automated workflows, and custom fields. Include PostgreSQL, calendar integration, and email parsing.",
+    "premium": false
+  },
+  {
+    "id": 52,
+    "title": "Build a Donation and Crowdfunding Platform",
+    "category": "fullstack",
+    "preview": "Create a fundraising platform with campaign pages and payment processing.",
+    "full": "Fundraising platform with: campaign creation with rich media, donation tiers and rewards, progress tracking, social sharing, backer dashboard, campaign updates, comments, Stripe integration for payments, recurring donations, team fundraising, analytics, and thank-you emails. Use Next.js, PostgreSQL, and Stripe for processing.",
+    "premium": false
+  },
+  {
+    "id": 53,
+    "title": "Create an Online Code Editor and Compiler",
+    "category": "fullstack",
+    "preview": "Build a browser-based IDE with code execution for multiple languages.",
+    "full": "Online IDE with: Monaco Editor integration, syntax highlighting, code execution for Python/JavaScript/Java/C++, file management, project workspaces, collaborative editing, terminal emulator, debugging tools, code sharing with links, version control, themes, and extensions support. Use Docker containers for sandboxed code execution and WebSocket for collaboration.",
+    "premium": false
+  },
+  {
+    "id": 54,
+    "title": "Build a Restaurant Management System",
+    "category": "fullstack",
+    "preview": "Create a POS system with menu management, orders, and inventory tracking.",
+    "full": "Restaurant system with: digital menu with categories, order taking (dine-in/takeaway/delivery), kitchen display system, table management, bill splitting, payment integration, inventory tracking, supplier management, employee shifts, sales reports, and customer loyalty program. Include receipt printing, real-time order updates, and offline mode.",
+    "premium": false
+  },
+  {
+    "id": 55,
+    "title": "Create a Gym Management Software",
+    "category": "fullstack",
+    "preview": "Build a fitness center management platform with memberships and class scheduling.",
+    "full": "Gym software with: member registration and profiles, membership plans with billing, class scheduling and booking, check-in system with QR codes, trainer assignment, workout logging, attendance tracking, payment collection, freeze/cancel memberships, email notifications, and progress reports. Use PostgreSQL, Stripe for payments, and QR code generation.",
+    "premium": false
+  },
+  {
+    "id": 56,
+    "title": "Build a Stock Trading Simulator",
+    "category": "fullstack",
+    "preview": "Create a paper trading platform with real-time stock data and portfolio management.",
+    "full": "Trading simulator with: real-time stock prices via Alpha Vantage API, virtual portfolio with buy/sell orders, watchlists, market orders and limit orders, portfolio performance tracking, charts with technical indicators, news integration, leaderboards, trading competitions, and educational resources. Use React for charts (Recharts/TradingView), Node.js backend, and MongoDB.",
+    "premium": false
+  },
+  {
+    "id": 57,
+    "title": "Create a Telemedicine Platform",
+    "category": "fullstack",
+    "preview": "Build a telehealth app with video consultations and appointment booking.",
+    "full": "Telemedicine platform with: patient registration, doctor profiles and availability, appointment booking, video consultation using WebRTC, prescription management, medical records storage, payment integration, calendar sync, SMS/email reminders, chat messaging, file sharing (lab results), and HIPAA compliance features. Use Twilio for video, PostgreSQL for data, and encryption for sensitive info.",
+    "premium": false
+  },
+  {
+    "id": 58,
+    "title": "Build a News Aggregator Platform",
+    "category": "fullstack",
+    "preview": "Create a news reader with RSS feeds, personalization, and saved articles.",
+    "full": "News aggregator with: RSS feed parsing, content categorization, personalized feed based on interests, saved/bookmarked articles, search functionality, trending topics, source management, offline reading, dark mode, reading progress sync, sharing to social media, and newsletter digest. Use Node.js for feed parsing, MongoDB for storage, and machine learning for recommendations.",
+    "premium": false
+  },
+  {
+    "id": 59,
+    "title": "Create a Document Collaboration Platform",
+    "category": "fullstack",
+    "preview": "Build a Google Docs alternative with real-time editing and version control.",
+    "full": "Document platform with: real-time collaborative editing using OT or CRDT, rich text formatting, comments and suggestions, version history, document sharing with permissions, templates, export to PDF/Word, offline editing, mobile apps, folder organization, and search. Use Quill.js or ProseMirror for editor, WebSocket for sync, and MongoDB for storage.",
+    "premium": false
+  },
+  {
+    "id": 60,
+    "title": "Build a Parking Spot Finder App",
+    "category": "mobile",
+    "preview": "Create a parking availability app with reservations and navigation.",
+    "full": "Parking app with: map view of available spots, real-time availability updates, spot reservation and booking, navigation to parking location, pricing and payment integration, parking history, favorites, reviews and ratings, parking reminders, and multi-city support. Use Google Maps API, React Native, Node.js backend, and PostgreSQL with PostGIS.",
+    "premium": false
+  },
+  {
     "id": 72,
     "title": "Build a Complete Project Management System Like Asana",
     "category": "fullstack",
