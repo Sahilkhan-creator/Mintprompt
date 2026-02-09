@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell on MintPrompt - Keep 100% Revenue</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Sell your AI prompts, workflows, and automation templates on MintPrompt. Keep 100% of your sales. No commission. Featured exposure.">
+    <meta name="author" content="MintPrompt">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 214, 10, 0.15);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffd60a 0%, #ff9500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffd60a;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0 8rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd60a 0%, #ff9500 100%);
+            color: #000;
+            padding: 1rem 3rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 214, 10, 0.3);
+        }
+
+        /* Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Why Sell Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 214, 10, 0.15);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 214, 10, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        /* Steps Section */
+        .steps {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #ffd60a 0%, #ff9500 100%);
+            color: #000;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Benefits Section */
+        .benefits-list {
+            max-width: 700px;
+            margin: 3rem auto;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #ffd60a;
+        }
+
+        .benefit-item .icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-item p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+
+        /* Important Note */
+        .important-note {
+            background: rgba(255, 100, 100, 0.05);
+            border: 2px solid rgba(255, 100, 100, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .important-note h3 {
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .important-note ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .important-note li {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .important-note li:before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, rgba(255, 214, 10, 0.1) 0%, rgba(255, 149, 0, 0.05) 100%);
+            border: 2px solid rgba(255, 214, 10, 0.3);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 5rem 0;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .final-cta p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 214, 10, 0.15);
+            padding: 3rem 0;
+            margin-top: 5rem;
+            text-align: center;
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .step {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .final-cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo" onclick="window.location.href='index.html'">MintPrompt</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="prompts.html">Prompts</a>
+                <a href="plans.html">Pricing</a>
+                <a href="sell.html" style="color: #ffd60a;">Sell</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Sell AI Prompts.<br>Keep 100% Revenue.</h1>
+            <p>No commission. No hidden fees. Just exposure, visibility, and a platform that puts your work in front of real buyers.</p>
+            <a href="https://wa.me/1234567890" class="cta-button">Sell Now →</a>
+        </div>
+    </section>
+
+    <!-- Why Sell Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Why Sell on MintPrompt</h2>
+            <p class="section-subtitle">MintPrompt isn't another marketplace taking a cut. We're a subscription-based platform built for creators who want control over their earnings.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">100% of Sales Go to You</h3>
+                    <p class="feature-description">We don't take commission. Ever. You set the price, you keep the full amount.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <h3 class="feature-title">Manual Quality Review</h3>
+                    <p class="feature-description">Every product is checked before going live. No spam, no junk.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3 class="feature-title">Featured Placement</h3>
+                    <p class="feature-description">Paid plans get homepage rotation and spotlight positioning.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">Dedicated Product Pages</h3>
+                    <p class="feature-description">Your products live on MintPrompt.in with full SEO and discoverability.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3 class="feature-title">Organic Exposure</h3>
+                    <p class="feature-description">Even free-tier products rotate through the homepage feed.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">No Sales Pressure</h3>
+                    <p class="feature-description">We provide the stage. You bring the product. Buyers decide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section" style="background: rgba(255, 255, 255, 0.02);">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Selling on MintPrompt is straightforward. No complex onboarding, no approval queues.</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Choose Your Plan</h3>
+                        <p>Pick a subscription tier based on how many products you want to list per month. Plans start at $4/month.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Subscribe via Gumroad</h3>
+                        <p>All payments are handled through Gumroad. Secure, simple, recurring.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Submit Your Product</h3>
+                        <p>After subscribing, submit your product details—title, description, price, files, and preview images.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Manual Review</h3>
+                        <p>We review submissions for quality and relevance. This typically takes 24-48 hours.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Go Live & Earn</h3>
+                        <p>Once approved, your product goes live with a dedicated page. Share it, promote it, and keep 100% of what you make.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">What You Get as a Seller</h2>
+            
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <span class="icon">✅</span>
+                    <p><strong>Your own product pages</strong> — Clean, professional listings on MintPrompt.in</p>
+                </div>
+
+                <div class="benefit-item">
+                    <span class="icon">✅</span>
+                    <p><strong>Homepage visibility</strong> — Organic rotation for all sellers, priority for paid plans</p>
+                </div>
+
+                <div class="benefit-item">
+                    <span class="icon">✅</span>
+                    <p><strong>No revenue sharing</strong> — You set the price. You keep the full amount.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <span class="icon">✅</span>
+                    <p><strong>Quality control</strong> — We reject low-effort submissions to maintain platform trust</p>
+                </div>
+
+                <div class="benefit-item">
+                    <span class="icon">✅</span>
+                    <p><strong>Promotional exposure</strong> — Pro plan sellers get Instagram mentions and featured spotlights</p>
+                </div>
+
+                <div class="benefit-item">
+                    <span class="icon">✅</span>
+                    <p><strong>Simple workflow</strong> — No dashboards, no analytics overload. Just upload and sell.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Note Section -->
+    <section class="section">
+        <div class="container">
+            <div class="important-note">
+                <h3>Important: What We Don't Promise</h3>
+                <p style="margin-bottom: 1rem;">MintPrompt provides <strong>exposure and visibility</strong>, not guaranteed sales.</p>
+                <ul>
+                    <li>We don't promise X sales per month.</li>
+                    <li>We don't guarantee traffic or conversions.</li>
+                    <li>Products are manually reviewed. Low-quality or irrelevant submissions may be rejected.</li>
+                    <li>Your earnings depend on product quality, pricing, and your own promotion efforts.</li>
+                </ul>
+                <p style="margin-top: 1.5rem; font-weight: 600;">We give you the platform. You bring the product. Buyers make the decision.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section">
+        <div class="container">
+            <div class="final-cta">
+                <h2>Ready to Start Selling?</h2>
+                <p>Join AI creators, prompt engineers, and automation builders already selling on MintPrompt.</p>
+                <a href="https://wa.me/1234567890" class="cta-button">Sell Now →</a>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">(This button will redirect to WhatsApp to get started.)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 MintPrompt by Sahil Khan – Auric LLC. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

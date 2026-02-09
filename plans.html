@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans - MintPrompt</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="MintPrompt pricing plans for sellers. No commission, just monthly subscriptions. Keep 100% of your sales revenue.">
+    <meta name="author" content="MintPrompt">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 214, 10, 0.15);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffd60a 0%, #ff9500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffd60a;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5rem 0 3rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Pricing Cards */
+        .pricing-section {
+            padding: 4rem 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(255, 214, 10, 0.15);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 214, 10, 0.4);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .pricing-card.popular {
+            border-color: #ffd60a;
+            background: rgba(255, 214, 10, 0.05);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #ffd60a 0%, #ff9500 100%);
+            color: #000;
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .plan-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .plan-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-price span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .plan-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: #ffd60a;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .plan-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #ffd60a 0%, #ff9500 100%);
+            color: #000;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .plan-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 214, 10, 0.3);
+        }
+
+        .ideal-for {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .ideal-for strong {
+            color: #ffd60a;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* How Payment Works */
+        .payment-section {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 800px;
+            margin: 4rem auto;
+            border: 1px solid rgba(255, 214, 10, 0.15);
+        }
+
+        .payment-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .payment-steps {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .payment-steps li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+
+        .payment-steps li:before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: linear-gradient(135deg, #ffd60a 0%, #ff9500 100%);
+            color: #000;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .payment-note {
+            background: rgba(100, 200, 255, 0.05);
+            border: 1px solid rgba(100, 200, 255, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .faq-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 214, 10, 0.15);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-item h3 {
+            color: #ffd60a;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .faq-item p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(255, 214, 10, 0.1) 0%, rgba(255, 149, 0, 0.05) 100%);
+            border: 2px solid rgba(255, 214, 10, 0.3);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 4rem auto;
+            max-width: 800px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd60a 0%, #ff9500 100%);
+            color: #000;
+            padding: 1.2rem 3rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 214, 10, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 214, 10, 0.15);
+            padding: 3rem 0;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-note {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+
+            .pricing-card.popular:hover {
+                transform: translateY(-8px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .plan-name {
+                font-size: 1.5rem;
+            }
+
+            .plan-price {
+                font-size: 2rem;
+            }
+
+            .payment-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo" onclick="window.location.href='index.html'">MintPrompt</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="prompts.html">Prompts</a>
+                <a href="plans.html" style="color: #ffd60a;">Pricing</a>
+                <a href="sell.html">Sell</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Simple Pricing. No Commission.</h1>
+            <p>Choose a plan based on how many products you want to list per month. All plans keep 100% of your sales revenue.</p>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="pricing-grid">
+                
+                <!-- Starter Plan -->
+                <div class="pricing-card">
+                    <div class="plan-icon">🟢</div>
+                    <h3 class="plan-name">Starter Plan</h3>
+                    <div class="plan-price">$4<span> / month</span></div>
+                    <p class="plan-description">Best for beginners testing the waters.</p>
+                    
+                    <div class="ideal-for">
+                        <strong>Ideal for:</strong>
+                        Creators just starting out or testing a few products.
+                    </div>
+
+                    <ul class="plan-features">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Upload <strong>2 products per month</strong></span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Standard placement on MintPrompt</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Products stay live permanently</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Basic visibility insights</span>
+                        </li>
+                        <li>
+                            <span class="check-icon" style="opacity: 0.3;">✗</span>
+                            <span style="opacity: 0.5;">No homepage rotation</span>
+                        </li>
+                    </ul>
+
+                    <a href="https://wa.me/1234567890?text=I'm%20interested%20in%20the%20Starter%20Plan%20($4/month)" class="plan-button">Choose Starter →</a>
+                    <p style="text-align: center; font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-top: 1rem;">Redirects to WhatsApp</p>
+                </div>
+
+                <!-- Creator Plan (Popular) -->
+                <div class="pricing-card popular">
+                    <div class="popular-badge">⭐ Most Popular</div>
+                    <div class="plan-icon">🔵</div>
+                    <h3 class="plan-name">Creator Plan</h3>
+                    <div class="plan-price">$10<span> / month</span></div>
+                    <p class="plan-description">For active sellers ready to scale.</p>
+                    
+                    <div class="ideal-for">
+                        <strong>Ideal for:</strong>
+                        Serious creators building a catalog of prompts and workflows.
+                    </div>
+
+                    <ul class="plan-features">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Upload <strong>5 products per month</strong></span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>Featured placement</strong> on product pages</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>Homepage rotation</strong> for organic visibility</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Dedicated product pages with SEO</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Priority in search and discovery</span>
+                        </li>
+                    </ul>
+
+                    <a href="https://wa.me/1234567890?text=I'm%20interested%20in%20the%20Creator%20Plan%20($10/month)" class="plan-button">Choose Creator →</a>
+                    <p style="text-align: center; font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-top: 1rem;">Redirects to WhatsApp</p>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="pricing-card">
+                    <div class="plan-icon">🟣</div>
+                    <h3 class="plan-name">Pro Plan</h3>
+                    <div class="plan-price">$25<span> / month</span></div>
+                    <p class="plan-description">Maximum exposure and priority placement.</p>
+                    
+                    <div class="ideal-for">
+                        <strong>Ideal for:</strong>
+                        Power sellers and creators with a growing portfolio.
+                    </div>
+
+                    <ul class="plan-features">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Upload <strong>12 products per month</strong></span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>Top placement</strong> across the platform</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>Homepage spotlight</strong> with priority rotation</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Dedicated product pages with full SEO</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>Promotional exposure</strong> — Instagram mentions</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Early access to new platform features</span>
+                        </li>
+                    </ul>
+
+                    <a href="https://wa.me/1234567890?text=I'm%20interested%20in%20the%20Pro%20Plan%20($25/month)" class="plan-button">Choose Pro →</a>
+                    <p style="text-align: center; font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-top: 1rem;">Redirects to WhatsApp</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- How Payment Works -->
+    <section class="container">
+        <div class="payment-section">
+            <h2>How Payment Works</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 2rem;">All subscriptions are handled via <strong>Gumroad</strong>.</p>
+            
+            <ul class="payment-steps">
+                <li>Click your preferred plan</li>
+                <li>Contact us on WhatsApp to receive your payment link</li>
+                <li>Subscribe on Gumroad</li>
+                <li>Submit your product details after payment</li>
+                <li>We review and publish your products</li>
+            </ul>
+
+            <div class="payment-note">
+                <strong>No auto-renewals without notice.</strong> Cancel anytime through Gumroad.
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>Q: Do you take a commission on sales?</h3>
+            <p>No. You keep 100% of your revenue. We earn through subscription fees only.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q: Can I cancel anytime?</h3>
+            <p>Yes. Manage your subscription directly through Gumroad.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q: What happens to my products if I cancel?</h3>
+            <p>Products remain live, but you won't be able to upload new ones until you resubscribe.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q: Are sales guaranteed?</h3>
+            <p>No. MintPrompt provides visibility and exposure, not guaranteed conversions.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q: Can I upgrade or downgrade plans?</h3>
+            <p>Yes. Contact us via WhatsApp and we'll adjust your plan.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q: What if my product gets rejected?</h3>
+            <p>We'll provide feedback and allow resubmission if it's a quality issue, not spam.</p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="container">
+        <div class="cta-section">
+            <h2>Ready to Get Started?</h2>
+            <p>Pick your plan and start selling on MintPrompt.</p>
+            <a href="https://wa.me/1234567890?text=I'm%20interested%20in%20selling%20on%20MintPrompt" class="cta-button">Contact Us on WhatsApp →</a>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">(All plan signups start with a WhatsApp message to receive your personalized payment link.)</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-note">
+                <strong>Footer Note:</strong><br><br>
+                Payments are securely processed through Gumroad subscriptions.<br>
+                After payment confirmation, sellers submit product details manually via our form.<br>
+                Products are reviewed within 24-48 hours and published once approved.
+            </div>
+            <p>© 2025 MintPrompt by Sahil Khan – Auric LLC. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
