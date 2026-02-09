@@ -673,12 +673,15 @@
     "premium": false
   },
   {
-    "id": 83,
-    "title": "n8n Workflow: E-commerce Order Processing & Fulfillment",
-    "category": "automation",
-    "preview": "Automate order processing from Shopify to ShipStation with inventory updates and customer notifications.",
-    "full": "Create a comprehensive e-commerce automation workflow in n8n: 1) Shopify Webhook trigger for new orders with order details, customer info, and line items, 2) IF node to check if order is flagged for fraud review or payment pending, 3) HTTP Request to ShipStation API to create shipment with order details and shipping method, 4) Inventory update in Google Sheets or Airtable to decrement stock quantities, 5) IF node to check inventory levels and trigger reorder if below threshold, 6) Email to supplier for automatic reorder using Gmail with PO template, 7) Slack notification to warehouse team with picking list and special instructions, 8) Delay node waiting for shipment confirmation from ShipStation, 9) ShipStation Webhook for tracking number availability, 10) Shopify API call to update order with fulfillment status and tracking info, 11) SendGrid or Mailchimp email to customer with shipping confirmation and tracking link, 12) SMS notification via Twilio for high-value orders (>$500), 13) Google Analytics event tracking for conversion and revenue attribution, 14) Airtable database to log all orders with processing timestamps, 15) Daily summary report via email with orders processed, revenue, and pending issues, 16) Error handling for API failures with retry logic and admin alerts, 17) Integration with QuickBooks for automatic invoice creation and accounting sync. Setup includes webhooks for Shopify and ShipStation, API credentials for all services, email templates for customer communications, and conditional logic for order types (standard, expedited, international). Include comprehensive error handling, data validation, and rate limiting. Export as documented JSON workflow.",
-    "premium": false
+  "id": 83,
+  "title": "Advanced E-commerce Order Processing & Fulfillment Automation (n8n)",
+  "category": "premium-automation",
+  "preview": "End-to-end Shopify → ShipStation → Inventory → Notifications → Accounting automation. Import n8n workflow and run a full store hands-free.",
+  "full": "Production-ready n8n workflow that automates the complete e-commerce order lifecycle. Includes: 1) Shopify Webhook trigger capturing order, customer, and line items, 2) Fraud review & payment pending checks, 3) ShipStation API shipment creation with shipping logic (standard/expedited/international), 4) Inventory sync with Google Sheets or Airtable and auto-decrement stock, 5) Low-inventory detection with automatic supplier reorder via Gmail PO template, 6) Slack notifications to warehouse with picking list and instructions, 7) Delay + ShipStation webhook for tracking number capture, 8) Shopify fulfillment update with tracking info, 9) Customer shipping confirmation via SendGrid or Mailchimp, 10) SMS alerts via Twilio for high-value orders (>$500), 11) Google Analytics conversion & revenue tracking, 12) Airtable order logging with timestamps, 13) Daily summary report email, 14) Enterprise-grade error handling with retries, alerts, validation, and rate limiting, 15) QuickBooks integration for automatic invoice creation and accounting sync. Delivered as a fully documented n8n JSON workflow with setup guidance.",
+  "premium": true,
+  "price": "$15",
+  "productLink": "https://mineblade.gumroad.com/l/niqnomi",
+  "image": "https://images.unsplash.com/photo-1557821552-17105176677c?w=400&h=300&fit=crop"
   },
   {
     "id": 84,
