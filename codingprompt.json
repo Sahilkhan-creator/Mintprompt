@@ -11,6 +11,17 @@
     "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop"
   },
   {
+  "id": 83,
+  "title": "Advanced E-commerce Order Processing & Fulfillment Automation (n8n)",
+  "category": "automation",
+  "preview": "End-to-end Shopify → ShipStation → Inventory → Notifications → Accounting automation. Import n8n workflow and run a full store hands-free.",
+  "full": "Production-ready n8n workflow that automates the complete e-commerce order lifecycle. Includes: 1) Shopify Webhook trigger capturing order, customer, and line items, 2) Fraud review & payment pending checks, 3) ShipStation API shipment creation with shipping logic (standard/expedited/international), 4) Inventory sync with Google Sheets or Airtable and auto-decrement stock, 5) Low-inventory detection with automatic supplier reorder via Gmail PO template, 6) Slack notifications to warehouse with picking list and instructions, 7) Delay + ShipStation webhook for tracking number capture, 8) Shopify fulfillment update with tracking info, 9) Customer shipping confirmation via SendGrid or Mailchimp, 10) SMS alerts via Twilio for high-value orders (>$500), 11) Google Analytics conversion & revenue tracking, 12) Airtable order logging with timestamps, 13) Daily summary report email, 14) Enterprise-grade error handling with retries, alerts, validation, and rate limiting, 15) QuickBooks integration for automatic invoice creation and accounting sync. Delivered as a fully documented n8n JSON workflow with setup guidance.",
+  "premium": true,
+  "price": "$15",
+  "productLink": "https://mineblade.gumroad.com/l/niqnomi",
+  "image": "https://images.unsplash.com/photo-1557821552-17105176677c?w=400&h=300&fit=crop"
+  },
+  {
     "id": 2,
     "title": "Spotify Clone Pro: Production-Ready Music Streaming SaaS",
     "category": "web-development",
@@ -671,17 +682,6 @@
     "preview": "Create an n8n automation that scrapes LinkedIn, enriches contacts, and syncs to your CRM with follow-up emails.",
     "full": "Build a complete lead generation workflow in n8n with the following nodes and logic: 1) LinkedIn Sales Navigator scraper using Apify API to extract profiles matching search criteria (job titles, industries, locations), 2) HTTP Request to Clearbit Enrichment API for additional company data (revenue, employee count, tech stack), 3) Hunter.io integration to find email addresses with verification, 4) Email validation using NeverBounce API to ensure deliverability, 5) IF node to filter leads based on company size (>50 employees) and revenue (>$1M), 6) HubSpot CRM integration to create or update contact records, 7) Set custom properties in HubSpot (lead source, enrichment date, validation status), 8) Slack notification to sales team with new qualified lead details, 9) Gmail integration to send personalized outreach email using template variables, 10) Airtable database to log all enrichment attempts and success rates, 11) Schedule trigger to run workflow daily at 9 AM, 12) Error handling with retry logic and fallback to manual review queue, 13) Google Sheets integration for weekly summary report of leads generated, 14) Webhook endpoint to manually trigger workflow from external tools. Configuration: Set up credentials for LinkedIn (via Apify), Clearbit, Hunter.io, NeverBounce, HubSpot, Slack, Gmail, and Airtable. Use JavaScript code nodes for data transformation, templating for email personalization, and conditional routing based on enrichment success. Include rate limiting to respect API quotas, deduplication logic to prevent duplicate contacts, and comprehensive error logging. Export workflow as JSON with detailed node descriptions and setup instructions.",
     "premium": false
-  },
-  {
-  "id": 83,
-  "title": "Advanced E-commerce Order Processing & Fulfillment Automation (n8n)",
-  "category": "premium-automation",
-  "preview": "End-to-end Shopify → ShipStation → Inventory → Notifications → Accounting automation. Import n8n workflow and run a full store hands-free.",
-  "full": "Production-ready n8n workflow that automates the complete e-commerce order lifecycle. Includes: 1) Shopify Webhook trigger capturing order, customer, and line items, 2) Fraud review & payment pending checks, 3) ShipStation API shipment creation with shipping logic (standard/expedited/international), 4) Inventory sync with Google Sheets or Airtable and auto-decrement stock, 5) Low-inventory detection with automatic supplier reorder via Gmail PO template, 6) Slack notifications to warehouse with picking list and instructions, 7) Delay + ShipStation webhook for tracking number capture, 8) Shopify fulfillment update with tracking info, 9) Customer shipping confirmation via SendGrid or Mailchimp, 10) SMS alerts via Twilio for high-value orders (>$500), 11) Google Analytics conversion & revenue tracking, 12) Airtable order logging with timestamps, 13) Daily summary report email, 14) Enterprise-grade error handling with retries, alerts, validation, and rate limiting, 15) QuickBooks integration for automatic invoice creation and accounting sync. Delivered as a fully documented n8n JSON workflow with setup guidance.",
-  "premium": true,
-  "price": "$15",
-  "productLink": "https://mineblade.gumroad.com/l/niqnomi",
-  "image": "https://images.unsplash.com/photo-1557821552-17105176677c?w=400&h=300&fit=crop"
   },
   {
     "id": 84,
