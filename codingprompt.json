@@ -17,7 +17,7 @@
   "preview": "End-to-end Shopify → ShipStation → Inventory → Notifications → Accounting automation. Import n8n workflow and run a full store hands-free.",
   "full": "Production-ready n8n workflow that automates the complete e-commerce order lifecycle. Includes: 1) Shopify Webhook trigger capturing order, customer, and line items, 2) Fraud review & payment pending checks, 3) ShipStation API shipment creation with shipping logic (standard/expedited/international), 4) Inventory sync with Google Sheets or Airtable and auto-decrement stock, 5) Low-inventory detection with automatic supplier reorder via Gmail PO template, 6) Slack notifications to warehouse with picking list and instructions, 7) Delay + ShipStation webhook for tracking number capture, 8) Shopify fulfillment update with tracking info, 9) Customer shipping confirmation via SendGrid or Mailchimp, 10) SMS alerts via Twilio for high-value orders (>$500), 11) Google Analytics conversion & revenue tracking, 12) Airtable order logging with timestamps, 13) Daily summary report email, 14) Enterprise-grade error handling with retries, alerts, validation, and rate limiting, 15) QuickBooks integration for automatic invoice creation and accounting sync. Delivered as a fully documented n8n JSON workflow with setup guidance.",
   "premium": true,
-  "price": "$2",
+  "price": "$12",
   "productLink": "https://mineblade.gumroad.com/l/niqnomi",
   "image": "https://images.unsplash.com/photo-1557821552-17105176677c?w=400&h=300&fit=crop"
   },
