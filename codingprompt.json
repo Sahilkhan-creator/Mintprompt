@@ -1,6 +1,14 @@
 [
   {
     "id": 1,
+    "title": "Create a REST API with Express and MongoDB",
+    "category": "backend",
+    "preview": "Build a complete RESTful API with authentication, CRUD operations, and MongoDB integration.",
+    "full": "Create a production-ready Express.js REST API with the following features: 1) User authentication using JWT tokens, 2) CRUD endpoints for a 'products' resource with validation, 3) MongoDB integration using Mongoose with proper schema design, 4) Middleware for error handling and request logging, 5) Rate limiting to prevent abuse, 6) API documentation using Swagger/OpenAPI, 7) Environment-based configuration, 8) Comprehensive error responses with proper HTTP status codes. Include folder structure recommendations and security best practices.",
+    "premium": false
+  },
+  {
+    "id": 6,
     "title": "Multi-AI Code Engine - World's First 3-AI Coding System",
     "category": "premium-coding",
     "preview": "Telegram bot combines Gemini 3 + Kimi 2.5 + Claude 4.5. Import n8n workflow \u2192 Get ZIP files better than Cursor.",
@@ -9,6 +17,22 @@
     "price": "$12 (First 1000 only)",
     "productLink": "https://gumroad.com/l/multi-ai-code-engine",
     "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 8,
+    "title": "Stripe Payment Integration Guide",
+    "category": "apis",
+    "preview": "Complete implementation of Stripe payment processing with webhooks and subscription handling.",
+    "full": "Create a comprehensive Stripe integration that includes: 1) One-time payment processing with card tokenization, 2) Subscription creation and management with multiple tiers, 3) Webhook handling for payment success/failure events, 4) Customer portal integration for self-service subscription management, 5) Invoice generation and email notifications, 6) Proper error handling and refund processing, 7) Security best practices including signature verification for webhooks. Provide both frontend (React/vanilla JS) and backend (Node.js) code examples with environment configuration.",
+    "premium": false
+  },
+  {
+    "id": 9,
+    "title": "React Component Library Setup",
+    "category": "coding",
+    "preview": "Set up a reusable React component library with TypeScript, Storybook, and npm publishing.",
+    "full": "Guide me through creating a professional React component library that includes: 1) Project setup with TypeScript, Rollup, and proper package.json configuration, 2) Component development with props validation and TypeScript interfaces, 3) Storybook integration for component documentation and testing, 4) CSS-in-JS styling solution (styled-components or Emotion), 5) Unit testing with Jest and React Testing Library, 6) Automated versioning and changelog generation, 7) npm publishing workflow with GitHub Actions, 8) README with usage examples and contribution guidelines. Include folder structure and best practices for maintainability.",
+    "premium": false
   },
   {
   "id": 83,
@@ -20,6 +44,22 @@
   "price": "$2",
   "productLink": "https://mineblade.gumroad.com/l/niqnomi",
   "image": "https://images.unsplash.com/photo-1557821552-17105176677c?w=400&h=300&fit=crop"
+  },
+   {
+    "id": 11,
+    "title": "Build a Real-Time WebSocket Chat Application",
+    "category": "backend",
+    "preview": "Create a production-ready real-time chat application using Socket.io with rooms, authentication, and message persistence.",
+    "full": "Develop a complete real-time chat system with the following features: 1) WebSocket server using Socket.io with connection pooling and reconnection logic, 2) JWT-based authentication for socket connections with token refresh, 3) Private messaging and public chat rooms with join/leave events, 4) Typing indicators and user presence tracking (online/offline/away), 5) Message persistence using MongoDB with pagination and message history retrieval, 6) File sharing support for images and documents with size validation, 7) Message editing, deletion, and read receipts, 8) Rate limiting to prevent spam and abuse, 9) Admin controls for user management and moderation. Include both backend Socket.io server code and React frontend components with complete error handling and reconnection strategies.",
+    "premium": false
+  },
+  {
+    "id": 12,
+    "title": "Implement OAuth2 Social Login System",
+    "category": "authentication",
+    "preview": "Build a complete OAuth2 authentication system supporting Google, GitHub, and Facebook login with account linking.",
+    "full": "Create a comprehensive OAuth2 authentication system that includes: 1) OAuth2 flow implementation for Google, GitHub, and Facebook using Passport.js strategies, 2) Account linking for users with multiple OAuth providers, 3) JWT token generation with access and refresh token rotation, 4) Email/password fallback authentication with bcrypt password hashing, 5) Email verification workflow with secure token generation, 6) Password reset functionality with time-limited tokens, 7) User profile merging when linking accounts, 8) Session management with Redis for scalability, 9) CSRF protection and secure cookie handling, 10) Rate limiting on authentication endpoints. Include complete Express.js backend with React frontend login forms, proper error handling, and security best practices following OWASP guidelines.",
+    "premium": false
   },
   {
     "id": 2,
@@ -74,14 +114,7 @@
     "full": "Write a production-ready Node.js script that monitors a REST API endpoint every 5 minutes. The script should log response time, status codes, and failures to a local JSON file. If the API fails more than 3 times consecutively, send an email alert using Nodemailer. Use clean async/await patterns, environment variables for configuration, and include detailed comments explaining each major step. Add graceful shutdown handling and comprehensive error logging.",
     "premium": false
   },
-  {
-    "id": 6,
-    "title": "Create a REST API with Express and MongoDB",
-    "category": "backend",
-    "preview": "Build a complete RESTful API with authentication, CRUD operations, and MongoDB integration.",
-    "full": "Create a production-ready Express.js REST API with the following features: 1) User authentication using JWT tokens, 2) CRUD endpoints for a 'products' resource with validation, 3) MongoDB integration using Mongoose with proper schema design, 4) Middleware for error handling and request logging, 5) Rate limiting to prevent abuse, 6) API documentation using Swagger/OpenAPI, 7) Environment-based configuration, 8) Comprehensive error responses with proper HTTP status codes. Include folder structure recommendations and security best practices.",
-    "premium": false
-  },
+  
   {
     "id": 7,
     "title": "Python Web Scraper with Error Handling",
@@ -90,22 +123,7 @@
     "full": "Write a Python web scraper using BeautifulSoup and Requests that: 1) Scrapes product data (title, price, rating, URL) from an e-commerce site, 2) Handles pagination automatically, 3) Implements exponential backoff retry logic for failed requests, 4) Respects robots.txt and includes user-agent rotation, 5) Saves data to CSV with proper encoding, 6) Logs progress and errors to a file, 7) Uses command-line arguments for URL and output file. Include detailed comments and exception handling for network errors, missing elements, and rate limiting.",
     "premium": false
   },
-  {
-    "id": 8,
-    "title": "Stripe Payment Integration Guide",
-    "category": "apis",
-    "preview": "Complete implementation of Stripe payment processing with webhooks and subscription handling.",
-    "full": "Create a comprehensive Stripe integration that includes: 1) One-time payment processing with card tokenization, 2) Subscription creation and management with multiple tiers, 3) Webhook handling for payment success/failure events, 4) Customer portal integration for self-service subscription management, 5) Invoice generation and email notifications, 6) Proper error handling and refund processing, 7) Security best practices including signature verification for webhooks. Provide both frontend (React/vanilla JS) and backend (Node.js) code examples with environment configuration.",
-    "premium": false
-  },
-  {
-    "id": 9,
-    "title": "React Component Library Setup",
-    "category": "coding",
-    "preview": "Set up a reusable React component library with TypeScript, Storybook, and npm publishing.",
-    "full": "Guide me through creating a professional React component library that includes: 1) Project setup with TypeScript, Rollup, and proper package.json configuration, 2) Component development with props validation and TypeScript interfaces, 3) Storybook integration for component documentation and testing, 4) CSS-in-JS styling solution (styled-components or Emotion), 5) Unit testing with Jest and React Testing Library, 6) Automated versioning and changelog generation, 7) npm publishing workflow with GitHub Actions, 8) README with usage examples and contribution guidelines. Include folder structure and best practices for maintainability.",
-    "premium": false
-  },
+  
   {
     "id": 10,
     "title": "Dockerize a Full-Stack Application",
@@ -114,22 +132,7 @@
     "full": "Write a complete Docker setup for a full-stack application that includes: 1) Dockerfile for Node.js backend with multi-stage builds, 2) Dockerfile for React frontend with nginx serving, 3) docker-compose.yml orchestrating backend, frontend, PostgreSQL, and Redis, 4) Environment variable management across services, 5) Volume configuration for data persistence, 6) Health checks and restart policies, 7) Development vs production configurations, 8) .dockerignore file optimization. Include commands for building, running, and debugging the containerized application.",
     "premium": false
   },
-  {
-    "id": 11,
-    "title": "Build a Real-Time WebSocket Chat Application",
-    "category": "backend",
-    "preview": "Create a production-ready real-time chat application using Socket.io with rooms, authentication, and message persistence.",
-    "full": "Develop a complete real-time chat system with the following features: 1) WebSocket server using Socket.io with connection pooling and reconnection logic, 2) JWT-based authentication for socket connections with token refresh, 3) Private messaging and public chat rooms with join/leave events, 4) Typing indicators and user presence tracking (online/offline/away), 5) Message persistence using MongoDB with pagination and message history retrieval, 6) File sharing support for images and documents with size validation, 7) Message editing, deletion, and read receipts, 8) Rate limiting to prevent spam and abuse, 9) Admin controls for user management and moderation. Include both backend Socket.io server code and React frontend components with complete error handling and reconnection strategies.",
-    "premium": false
-  },
-  {
-    "id": 12,
-    "title": "Implement OAuth2 Social Login System",
-    "category": "authentication",
-    "preview": "Build a complete OAuth2 authentication system supporting Google, GitHub, and Facebook login with account linking.",
-    "full": "Create a comprehensive OAuth2 authentication system that includes: 1) OAuth2 flow implementation for Google, GitHub, and Facebook using Passport.js strategies, 2) Account linking for users with multiple OAuth providers, 3) JWT token generation with access and refresh token rotation, 4) Email/password fallback authentication with bcrypt password hashing, 5) Email verification workflow with secure token generation, 6) Password reset functionality with time-limited tokens, 7) User profile merging when linking accounts, 8) Session management with Redis for scalability, 9) CSRF protection and secure cookie handling, 10) Rate limiting on authentication endpoints. Include complete Express.js backend with React frontend login forms, proper error handling, and security best practices following OWASP guidelines.",
-    "premium": false
-  },
+ 
   {
     "id": 13,
     "title": "Build a GraphQL API with Subscriptions and DataLoader",
